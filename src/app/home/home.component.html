@@ -1,7 +1,26 @@
-<p>home works!</p>
+<div id="primary">
+  <div id="content" role="main">
 
-<ul>
-  <li *ngFor="let page of links$ | async">
-    <a href="{{page.route}}">{{page.title}}</a>
-  </li>
-</ul>
+
+    <app-article-preview [article]="article" *ngFor="let article of articles$|async"></app-article-preview>
+
+
+    <nav id="nav-below">
+      <h3 class="assistive-text">Post navigation</h3>
+      <div class="nav-previous"><a href="http://stepansuvorov.com/blog/page/2/"><span
+            class="meta-nav">&larr;</span> Older posts</a></div>
+      <div class="nav-next"></div>
+    </nav><!-- #nav-above -->
+
+
+  </div><!-- #content -->
+</div><!-- #primary -->
+
+<div id="secondary" class="widget-area" role="complementary">
+  <aside id="recent-posts-3" class="widget widget_recent_entries">
+    <app-recent-posts></app-recent-posts>
+  </aside>
+  <aside id="tag_cloud-3" class="widget widget_tag_cloud">
+    <app-tagcloud></app-tagcloud>
+  </aside>
+</div><!-- #secondary .widget-area -->

@@ -1,7 +1,37 @@
-<h3>ScullyIo content</h3>
-<hr>
+<div id="primary">
+  <div id="content" role="main">
+    <article id="post-3574" class="post-3574 post type-post status-publish format-standard hentry category-uncategorized">
+      <header class="entry-header">
+        <h1 class="entry-title">
+          {{article.title}}
+        </h1>
 
-<!-- This is where Scully will inject the static HTML -->
-<scully-content></scully-content>
-<hr>
-<h4>End of content</h4>
+        <div class="entry-meta">
+          <span class="sep">Posted on </span>
+          <a routerLink="{{article.route}}" rel="bookmark">
+            <time class="entry-date">{{article.date|date}}</time>
+          </a>
+        </div>
+        <!-- .entry-meta -->
+      </header>
+      <!-- .entry-header -->
+
+      <div class="entry-content">
+        <scully-content></scully-content>
+      </div>
+      <!-- .entry-content -->
+
+      <footer class="entry-meta">
+        This entry was posted in
+        <a href="http://stepansuvorov.com/blog/category/uncategorized/" rel="category tag">Uncategorized</a>
+        by <a href="http://stepansuvorov.com/blog/author/admin/">Stepan</a>.
+        Bookmark the <a routerLink="{{article.route}}" title="{{article.title}}" rel="bookmark">permalink</a>.
+      </footer>
+      <!-- .entry-meta -->
+    </article>
+    <!-- #post-3574 -->
+  </div>
+  <!-- #content -->
+</div>
+<!-- #primary -->
+

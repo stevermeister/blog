@@ -25,7 +25,7 @@
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "latest",
     "rxjs": "~6.5.4",
-    "tslib": "1.11.1",
+    "tslib": "1.13.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

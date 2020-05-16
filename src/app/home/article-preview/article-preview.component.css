@@ -1,0 +1,4 @@
+/* overwrite style.css */
+.hentry:last-child, .no-results {  
+  border-bottom: 1px solid #ddd;
+}
