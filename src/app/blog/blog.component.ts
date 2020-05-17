@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router, ROUTES} from '@angular/router';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 declare var ng: any;
 
@@ -19,7 +21,6 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('getCurrent');
     this.scully.getCurrent().subscribe(article => {
       console.log(article);
       this.article = article;
