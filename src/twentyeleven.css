@@ -469,7 +469,7 @@ input[type=number] {
 	padding: 3px;
 }
 input#s {
-	background: url(images/search.png) no-repeat 5px 6px;
+	background: url(assets/search.png) no-repeat 5px 6px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	font-size: 14px;
@@ -1050,34 +1050,6 @@ object {
 	font-size: 15px;
 	font-weight: bold;
 	margin: 5px 0 10px;
-}
-
-/* Comments link */
-.entry-header .comments-link a {
-	background: #eee url(images/comment-bubble.png) no-repeat;
-	color: #666;
-	font-size: 13px;
-	font-weight: normal;
-	line-height: 35px;
-	overflow: hidden;
-	padding: 0 0 0;
-	position: absolute;
-	top: 1.5em;
-	right: 0;
-	text-align: center;
-	text-decoration: none;
-	width: 43px;
-	height: 36px;
-}
-.entry-header .comments-link a:hover,
-.entry-header .comments-link a:focus,
-.entry-header .comments-link a:active {
-	background-color: #1982d1;
-	color: #fff;
-	color: rgba(255,255,255,0.8);
-}
-.entry-header .comments-link .leave-reply {
-	visibility: hidden;
 }
 
 /*
@@ -1964,141 +1936,6 @@ section.ephemera .entry-title a span {
 	font-weight: 100;
 	margin: 26px 0;
 	text-align: center;
-}
-.commentlist {
-	list-style: none;
-	margin: 0 auto;
-	width: 68.9%;
-}
-.content .commentlist,
-.page-template-sidebar-page-php .commentlist {
-	width: 100%; /* reset the width for the one-column and sidebar page layout */
-}
-.commentlist > li.comment {
-	background: #f6f6f6;
-	border: 1px solid #ddd;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	margin: 0 0 1.625em;
-	padding: 1.625em;
-	position: relative;
-}
-.commentlist .pingback {
-	margin: 0 0 1.625em;
-	padding: 0 1.625em;
-}
-.commentlist .children {
-	list-style: none;
-	margin: 0;
-}
-.commentlist .children li.comment {
-	background: #fff;
-	border-left: 1px solid #ddd;
-	-moz-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0;
-	margin: 1.625em 0 0;
-	padding: 1.625em;
-	position: relative;
-}
-.commentlist .children li.comment .fn {
-	display: block;
-}
-.comment-meta .fn {
-	font-style: normal;
-}
-.comment-meta {
-	color: #666;
-	font-size: 12px;
-	line-height: 2.2em;
-}
-.commentlist .children li.comment .comment-meta {
-	line-height: 1.625em;
-	margin-left: 50px;
-}
-.commentlist .children li.comment .comment-content {
-	margin: 1.625em 0 0;
-	word-wrap: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
-}
-.comment-meta a {
-	font-weight: bold;
-}
-.comment-meta a:focus,
-.comment-meta a:active,
-.comment-meta a:hover {
-}
-.commentlist .avatar {
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: 0 1px 2px #ccc;
-	-moz-box-shadow: 0 1px 2px #ccc;
-	box-shadow: 0 1px 2px #ccc;
-	left: -102px;
-	padding: 0;
-	position: absolute;
-	top: 0;
-}
-.commentlist > li:before {
-	content: url(images/comment-arrow.png);
-	left: -21px;
-	position: absolute;
-}
-.commentlist > li.pingback:before {
-	content: '';
-}
-.commentlist .children .avatar {
-	background: none;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	left: 2.2em;
-	padding: 0;
-	top: 2.2em;
-}
-a.comment-reply-link {
-	background: #eee;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	color: #666;
-	display: inline-block;
-	font-size: 12px;
-	padding: 0 8px;
-	text-decoration: none;
-}
-a.comment-reply-link:hover,
-a.comment-reply-link:focus,
-a.comment-reply-link:active {
-	background: #888;
-	color: #fff;
-}
-a.comment-reply-link > span {
-	display: inline-block;
-	position: relative;
-	top: -1px;
-}
-
-/* Post author highlighting */
-.commentlist > li.bypostauthor {
-	background: #ddd;
-	border-color: #d3d3d3;
-}
-.commentlist > li.bypostauthor .comment-meta {
-	color: #575757;
-}
-.commentlist > li.bypostauthor .comment-meta a:focus,
-.commentlist > li.bypostauthor .comment-meta a:active,
-.commentlist > li.bypostauthor .comment-meta a:hover {
-}
-.commentlist > li.bypostauthor:before {
-	content: url(images/comment-arrow-bypostauthor.png);
-}
-
-/* Post Author threaded comments */
-.commentlist .children > li.bypostauthor {
-	background: #ddd;
-	border-color: #d3d3d3;
 }
 
 /* sidebar-page.php comments */
