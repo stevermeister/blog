@@ -1,4 +1,10 @@
 <h3 class="widget-title">Tags</h3>
 <div class="tagcloud">
-  <a href="http://stepansuvorov.com/blog/tag/angular/" class="tag-cloud-link tag-link-185 tag-link-position-1" style="font-size: 14.181818181818pt;" aria-label="Angular (23 items)">Angular</a>
+  <ng-container *ngFor="let tag of tags; let i = index">
+    <a routerLink="tag/{{tag.title}}" 
+    class="tag-cloud-link tag-link-{{i}} tag-link-position-{{i}}" 
+    style="font-size:{{calculateFontSize(tag.count)}}pt;" 
+    aria-label="Angular (23 items)">{{tag.title}}</a>{{"\n"}}
+  </ng-container>
+
 </div>
