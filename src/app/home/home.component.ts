@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Observable, combineLatest } from 'rxjs';
+import { filter, map, pluck, take } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { ArticleService } from '../article.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +11,12 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  links$: Observable<any> = this.scully.available$;
   articles$: Observable<any>;
 
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(private articleService: ArticleService, private activeRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.articles$ = this.links$.pipe(map(articles => articles.filter(article => article.route !== '/')));
-    this.links$.subscribe((links) => {
-
-      console.log(links);
-    });
+    this.articles$ =
+      this.articleService.getFilteredArticles(this.activeRoute.queryParams.pipe(pluck('tag')));
   }
 }

@@ -3,6 +3,7 @@ title: 'Dutch Tax Income Calculator: Now with offline mode'
 description: blog description
 date: 2019-05-03T20:06:15+02:00
 published: true
+tags: tax, income, calculator, online
 ---
 
 # Dutch Tax Income Calculator: Now with offline mode

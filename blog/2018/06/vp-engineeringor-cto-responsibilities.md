@@ -3,6 +3,7 @@ title: VP Engineering(or CTO) responsibilities
 description: blog description
 date: 2019-05-03T20:06:15+02:00
 published: true
+tags: CTO, VP Engineering
 ---
 
 # VP Engineering(or CTO) responsibilities

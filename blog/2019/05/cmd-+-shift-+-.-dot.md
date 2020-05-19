@@ -3,6 +3,7 @@ title: Cmd + Shift + . (dot)
 description: blog description
 date: 2019-05-24T20:06:15+02:00
 published: true
+tags: mac, shortcuts
 ---
 
 # Cmd + Shift + . (dot)

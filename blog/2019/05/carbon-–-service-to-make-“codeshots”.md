@@ -3,6 +3,7 @@ title: Carbon – service to make “codeshots”
 description: blog description
 date: 2019-05-03T20:06:15+02:00
 published: true
+tags: carbon, screanshot, online
 ---
 
 # Carbon – service to make “codeshots”

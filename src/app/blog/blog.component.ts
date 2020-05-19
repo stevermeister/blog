@@ -15,15 +15,31 @@ declare var ng: any;
 
 })
 export class BlogComponent implements OnInit {
-  article
+  article;
 
   constructor(private router: Router, private route: ActivatedRoute, private scully: ScullyRoutesService) {
   }
 
   ngOnInit() {
-    this.scully.getCurrent().subscribe(article => {
-      console.log(article);
-      this.article = article;
-    });
+    this.getCurrent().subscribe(article => this.article = article);
+  }
+
+  getCurrent(): Observable<ScullyRoute> {
+    if (!location) {
+      /** probably not in a browser, no current location available */
+      return of();
+    }
+    const curLocation = decodeURI(location.pathname).trim();
+    return this.scully.available$.pipe(
+      map(list =>
+        list.find(
+          r =>
+            curLocation === r.route.trim() ||
+            (r.slugs &&
+              Array.isArray(r.slugs) &&
+              r.slugs.find(slug => curLocation.endsWith(slug.trim())))
+        )
+      )
+    );
   }
 }
