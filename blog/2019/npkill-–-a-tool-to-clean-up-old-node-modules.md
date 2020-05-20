@@ -7,7 +7,7 @@ published: true
 
 # npkill – a tool to clean up old node_modules
 
-![npkill](http://stepansuvorov.com/blog/wp-content/uploads/2019/11/68747470733a2f2f6e706b696c6c2e6a732e6f72672f696d672f6e706b696c6c2d64656d6f2d302e332e302e676966.gif)
+![npkill](/assets/blog/npkill.gif)
 
 one more tool goes to bookmarks,
 

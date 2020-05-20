@@ -29,7 +29,7 @@ published: true
 * [Tunnelblick](https://tunnelblick.net/)
 * [PingStatus](https://apps.apple.com/us/app/pingstatus/id1158928913)
 * [CopyClip](https://apps.apple.com/us/app/copyclip-clipboard-history/id595191960)
-* Spotify / [Radiant Player](http://radiant-player.github.io/radiant-player-mac/) / [SoundCleod](https://soundcleod.com/)
+* Spotify / [Radiant Player](https://radiant-player.github.io/radiant-player-mac/) / [SoundCleod](https://soundcleod.com/)
 * Dropbox
 * Slack / Telegram
 * Backup and sync from Google

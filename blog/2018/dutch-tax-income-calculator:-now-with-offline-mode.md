@@ -13,4 +13,4 @@ Finally I found some time to implement **service workers** that will allow you t
 
 Also it’s already **PWA application**, so you can make a shortcut for your mobile desktop:
 
-![thetax](http://stepansuvorov.com/blog/wp-content/uploads/2018/10/Screen-Shot-2018-10-14-at-18.46.31.png)
+![thetax](/assets/blog/thetax-mobile.png)

@@ -9,4 +9,4 @@ tags: hackmd, markdown, editor, online
 
 One more tool goes to bookmarks – [HackMD](https://hackmd.io/WdVNGpHQTOySRfKeYwT9mg?both)
 
-![HackMD](http://stepansuvorov.com/blog/wp-content/uploads/2019/05/Screenshot-2019-05-13-at-18.12.45.png)
+![HackMD](/assets/blog/hackmd.png)

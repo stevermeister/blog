@@ -10,4 +10,4 @@ tags: carbon, screanshot, online
 
 One more service to bookmarks, finally I have something simple to make code snapshots for presentation.
 
-![Carbon](http://stepansuvorov.com/blog/wp-content/uploads/2019/05/Screenshot-2019-05-03-at-10.32.48.png)
+![Carbon](/assets/blog/carbon.png)

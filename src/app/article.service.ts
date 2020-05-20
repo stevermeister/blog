@@ -27,7 +27,7 @@ export class ArticleService {
 
   getFilteredArticles(tag$, limit = 10): Observable<Article[]> {
     return combineLatest([this.getArticles(), tag$]).pipe(
-      map(([articles, tag]) => {
+      map(([articles, tag]: [Article[], string]): Article[] => {
         return articles.filter((article) => {
           if (!tag) {
             return true;
@@ -35,7 +35,7 @@ export class ArticleService {
           else if (!article.tags) {
             return false;
           }
-          return (article as Article).tags.includes(tag as string);
+          return article.tags.includes(tag);
         });
       }),
       take(limit)
