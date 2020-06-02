@@ -24,7 +24,7 @@ export class TagService {
   constructor(private articleService: ArticleService) { }
 
   getTags(): Observable<Tag[]> {
-    return this.articleService.getArticles().pipe(map(articles => {
+    return this.articleService.getAllArticles().pipe(map(articles => {
       const tags = [];
       articles.forEach(article => {
         if (!article.tags){

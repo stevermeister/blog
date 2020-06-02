@@ -12,11 +12,23 @@ import { ArticleService } from '../article.service';
 })
 export class HomeComponent implements OnInit {
   articles$: Observable<any>;
+  limit = 10;
+
 
   constructor(private articleService: ArticleService, private activeRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    this.limit = 10;
+    this.loadArticles();
+  }
+
+  loadMore() {
+    this.limit += 10;
+    this.loadArticles();
+  }
+
+  loadArticles() {
     this.articles$ =
-      this.articleService.getFilteredArticles(this.activeRoute.queryParams.pipe(pluck('tag')));
+      this.articleService.getFilteredArticles(this.activeRoute.queryParams.pipe(pluck('tag')), this.limit);
   }
 }

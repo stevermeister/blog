@@ -10,6 +10,7 @@ export interface Article {
   published: boolean;
   date: string;
   tags: string;
+  sourceFile: string;
 }
 
 
@@ -18,15 +19,30 @@ export interface Article {
 })
 export class ArticleService {
 
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(private scully: ScullyRoutesService) {
+    this.scully.available$.subscribe(data => console.log(data));
+  }
 
-  getArticles(): Observable<Article[]> {
+  getAllArticles(): Observable<Article[]> {
+    return this.getArticles(Number.MAX_SAFE_INTEGER);
+  }
+
+  getArticles(limit = 10): Observable<Article[]> {
     return this.scully.available$
-      .pipe(map((articles: Article[]) => articles.filter((article: Article) => article.route !== '/')));
+      .pipe(
+        map((articles: Article[]) => articles.filter((article: Article) =>
+          article.sourceFile?.split('.').pop() === 'md')),
+        map((articles: Article[]) => {
+          return articles.sort((articleA, articleB) => {
+            return +new Date(articleB.date) - +new Date(articleA.date);
+          });
+        }),
+        map(articles => articles.slice(0, limit))
+      );
   }
 
   getFilteredArticles(tag$, limit = 10): Observable<Article[]> {
-    return combineLatest([this.getArticles(), tag$]).pipe(
+    return combineLatest([this.getAllArticles(), tag$]).pipe(
       map(([articles, tag]: [Article[], string]): Article[] => {
         return articles.filter((article) => {
           if (!tag) {
@@ -38,7 +54,7 @@ export class ArticleService {
           return article.tags.includes(tag);
         });
       }),
-      take(limit)
+      map(articles => articles.slice(0, limit))
     );
   }
 }

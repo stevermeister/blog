@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { ArticleService } from 'src/app/article.service';
 
 @Component({
   selector: 'app-recent-posts',
@@ -9,13 +9,13 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./recent-posts.component.css']
 })
 export class RecentPostsComponent implements OnInit {
-  links$: Observable<any> = this.scully.available$;
   articles$: Observable<any>;
 
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit(): void {
-    this.articles$ = this.links$.pipe(map(articles => articles.filter(article => article.route !== '/')));
+    this.articles$ =
+      this.articleService.getArticles(20);
   }
 
 }

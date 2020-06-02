@@ -23,7 +23,9 @@
 
       <footer class="entry-meta">
         This entry was posted in
-        <a href="" rel="category tag">Uncategorized</a>
+        <ng-container *ngFor="let tag of article.tags.split(',')" >
+          <a routerLink="" [queryParams]="{tag: tag}"  rel="category tag">{{tag}}</a>,
+        </ng-container>
         by <a href="">Stepan</a>.
         Bookmark the <a routerLink="{{article.route}}" title="{{article.title}}" rel="bookmark">permalink</a>.
       </footer>

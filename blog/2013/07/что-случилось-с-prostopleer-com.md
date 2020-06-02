@@ -1,0 +1,41 @@
+---
+title: "Что случилось с prostopleer.com"
+tags: "online,question,Возможно будет интересно"
+date: "2013-07-06"
+---
+
+![](images/prostopleer-logo-300x48.gif "prostopleer-logo")
+
+5 июля 2013 года популярный сервис онлайн музыки [prostopleer.com](http://prostopleer.com/) перестал быть доступен. Мне, думаю как и всем постоянным слушателям интернет плеера, стало интересно что же произошло. Пошел копать интернеты.
+
+Информации практически нет, все поисковые результаты ссылались на какие-то прошлые проблемы DDOS-атак и временных сбоев на сервисе.
+
+Копаем дальше...
+
+Проанализируем: из 3 доменных имен (_prostopleer.com, prostopleer.ru, prostopleer.net_) на текущий момент на DNS запрос отвечает только на одно - **prostopleer.net**. Перейдя по нему внезапно получаем редирект на [pleer.com](http://pleer.com/). Где находим старый добрый сервис. Который по прежнему хостится на российских серверах:
+
+IP Address
+
+Country
+
+Region
+
+City
+
+ISP
+
+91.208.16.3
+
+Russian Federation
+
+Saint Petersburg City
+
+Saint Petersburg
+
+Llc Maersk-invest
+
+ddfd
+
+**UPD \[16.01.2014\]**: Снова упал, правда в этот раз только веб-сервер(nginx).
+
+[![](images/Screenshot-2014-01-16-10.41.30-300x114.png "Screenshot 2014-01-16 10.41.30")](http://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screenshot-2014-01-16-10.41.30.png)

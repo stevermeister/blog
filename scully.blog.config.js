@@ -1,3 +1,6 @@
+require('./src/image.scully.plugin');
+// require('./src/image-path.scully.plugin');
+
 exports.config = {
     projectRoot: "./src",
     projectName: "blog",
@@ -7,7 +10,8 @@ exports.config = {
             type: 'contentFolder',
             slug: {
                 folder: "./blog"
-            }
+            },
+//            postRenderers: ['imagePathPlugin'],
         },
     }
 };
