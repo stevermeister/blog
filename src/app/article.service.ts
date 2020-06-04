@@ -41,9 +41,9 @@ export class ArticleService {
       );
   }
 
-  getFilteredArticles(tag$, limit = 10): Observable<Article[]> {
-    return combineLatest([this.getAllArticles(), tag$]).pipe(
-      map(([articles, tag]: [Article[], string]): Article[] => {
+  getFilteredArticles(tag: string, searchTerm: string, limit: number = 10): Observable<Article[]> {
+    return this.getAllArticles().pipe(
+      map( (articles: Article[]) => {
         return articles.filter((article) => {
           if (!tag) {
             return true;
@@ -54,6 +54,13 @@ export class ArticleService {
           return article.tags.includes(tag);
         });
       }),
+      map(articles => articles.filter(article => {
+        if (!searchTerm) {
+          return true;
+        }
+
+        return article.title.includes(searchTerm) || article.tags.includes(searchTerm);
+      })),
       map(articles => articles.slice(0, limit))
     );
   }
