@@ -1,7 +1,8 @@
 ---
 title: I use
 description: blog description
-published: true
+tags: "tools"
+date: "2013-01-02"
 ---
 
 *I’m now a Mac user, before it was Ubuntu.*

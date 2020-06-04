@@ -1,9 +1,9 @@
 <div id="primary">
   <div id="content" role="main">
-    <article id="post-3574" class="post-3574 post type-post status-publish format-standard hentry category-uncategorized">
+    <article class="post type-post status-publish format-standard hentry category-uncategorized">
       <header class="entry-header">
         <h1 class="entry-title">
-          {{article.title}}
+          {{article?.title}}
         </h1>
 
         <div class="entry-meta">
@@ -23,7 +23,7 @@
 
       <footer class="entry-meta">
         This entry was posted in
-        <ng-container *ngFor="let tag of article.tags.split(',')" >
+        <ng-container *ngFor="let tag of article.tags?.split(',')" >
           <a routerLink="" [queryParams]="{tag: tag}"  rel="category tag">{{tag}}</a>,
         </ng-container>
         by <a href="">Stepan</a>.

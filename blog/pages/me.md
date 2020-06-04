@@ -1,7 +1,8 @@
 ---
 title: me
 description: blog description
-published: true
+tags: "stevermeister"
+date: "2013-01-02"
 ---
 
 # me

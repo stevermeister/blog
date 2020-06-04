@@ -1,7 +1,8 @@
 ---
 title: projects
 description: blog description
-published: true
+tags: "projects"
+date: "2013-01-02"
 ---
 
 

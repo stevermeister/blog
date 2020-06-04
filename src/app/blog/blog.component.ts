@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router, ROUTES} from '@angular/router';
+import {ActivatedRoute, Router, ROUTES, NavigationEnd} from '@angular/router';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, merge } from 'rxjs';
+import { map, filter, switchMap, tap } from 'rxjs/operators';
 
 declare var ng: any;
 
@@ -21,7 +21,10 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCurrent().subscribe(article => this.article = article);
+    // this.scully.getCurrent().subscribe(article => this.article = article);
+    const stateUpdated$ = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
+    merge(stateUpdated$, of(true)).pipe(switchMap(_ => this.getCurrent()))
+    .subscribe(article => this.article = article);
   }
 
   getCurrent(): Observable<ScullyRoute> {

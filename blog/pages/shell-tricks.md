@@ -1,7 +1,8 @@
 ---
 title: shell tricks
 description: blog description
-published: true
+tags: "shell"
+date: "2013-01-02"
 ---
 
 # shell tricks
