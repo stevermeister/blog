@@ -1,3 +1,5 @@
+import './src/image.scully.plugin';
+
 exports.config = {
   projectRoot: "./src",
   projectName: "blog",
