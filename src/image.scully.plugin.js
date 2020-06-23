@@ -1,10 +1,13 @@
 const { registerPlugin } = require("@scullyio/scully");
 const fs = require("fs");
 
+// static directory is not there yet
+!fs.existsSync("./dist/static") && fs.mkdirSync("./dist/static");
+!fs.existsSync("./dist/static/images") && fs.mkdirSync("./dist/static/images");
+
 function imageFilePlugin(raw, route) {
   return new Promise((resolve) => {
     const src = route.templateFile;
-    // const dest = "./dist/static" + route.route + '.' + route.templateFile.split(".").pop();
     const dest = "./dist/static/images/" + route.data.sourceFile;
     fs.copyFile(src, dest, (err) => {
         if (err) console.log(err);
