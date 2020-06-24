@@ -4,8 +4,8 @@ tags: "design,online,t-shirt,Рекомендую"
 date: "2015-05-09"
 ---
 
-[![teespring-logo](images/Screenshot-2015-05-09-08.59.11.png)](http://teespring.com/)
+[![teespring-logo](images/Screenshot-2015-05-09-08.59.11.png)](https://teespring.com/)
 
-I liked a simple and user-friendly service of [Teespring](http://teespring.com/). Already created a brand hoodie for my company. It's just several steps from sketch.
+I liked a simple and user-friendly service of [Teespring](https://teespring.com/). Already created a brand hoodie for my company. It's just several steps from sketch.
 
 ![t-shirt](images/Screenshot-2015-05-09-08.58.16.png)

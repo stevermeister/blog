@@ -6,11 +6,11 @@ date: "2015-02-14"
 
 ![logo](images/logo.png)
 
-I was happy to visit [NG-NL Conference in Amsterdam](http://www.ng-nl.org/ "http://www.ng-nl.org/") (the first AngularJS one in NL) and would like to share my thoughts with you.
+I was happy to visit [NG-NL Conference in Amsterdam](https://www.ng-nl.org/ "https://www.ng-nl.org/") (the first AngularJS one in NL) and would like to share my thoughts with you.
 
-As far as there were a lot of topics to discuss conference was run in 2 tracks. [Here](http://www.ng-nl.org/#schedule "http://www.ng-nl.org/#schedule") you can find the whole schedule. I followed next route:
+As far as there were a lot of topics to discuss conference was run in 2 tracks. [Here](https://www.ng-nl.org/#schedule "https://www.ng-nl.org/#schedule") you can find the whole schedule. I followed next route:
 
-[![ng-nl plan](images/nov5Gjenk9lc_1hzCzj8dBPyNi3OZq6Hl4HViGEToUE.png)](http://stepansuvorov.com/blog/wp-content/uploads/2015/02/nov5Gjenk9lc_1hzCzj8dBPyNi3OZq6Hl4HViGEToUE.png) so several words about each one.
+[![ng-nl plan](images/nov5Gjenk9lc_1hzCzj8dBPyNi3OZq6Hl4HViGEToUE.png)](https://stepansuvorov.com/blog/wp-content/uploads/2015/02/nov5Gjenk9lc_1hzCzj8dBPyNi3OZq6Hl4HViGEToUE.png) so several words about each one.
 
 ## Intro + Welcome ([slides](https://docs.google.com/presentation/d/1tE3fQUbmQUsMDmA0wc7z6dEhtyLk44GBKrVRtB58xoc/edit#slide=id.g78c807a97_329 "docs.google.com/presentation"), [video](https://www.youtube.com/watch?v=dJFV8wFU23A "youtube.com"))
 
@@ -20,13 +20,13 @@ After several days/weeks/months listeners could forget the context, but they n
 
 Very inspiring! Thank you, Aaron.
 
-## Videogular and the future of HTML5 video ([slides](http://slides.com/elecash/deck#/), [video](https://www.youtube.com/watch?v=I7ZUkd44-Co "youtube.com"))
+## Videogular and the future of HTML5 video ([slides](https://slides.com/elecash/deck#/), [video](https://www.youtube.com/watch?v=I7ZUkd44-Co "youtube.com"))
 
-It was presentation of [Videogular](http://www.videogular.com/ "http://www.videogular.com/") - HTML5 video player for AngularJS by [Raúl Jiménez](https://twitter.com/elecash). First part of the presentation for me was like "reading" documentation for component and explaining obvious things. Second part was more interesting with life coding and real example. Site [sawfish.stimme.de](http://sawfish.stimme.de/ "http://sawfish.stimme.de/") shows **Videogular** connected to google maps API that is really impressing!
+It was presentation of [Videogular](https://www.videogular.com/ "https://www.videogular.com/") - HTML5 video player for AngularJS by [Raúl Jiménez](https://twitter.com/elecash). First part of the presentation for me was like "reading" documentation for component and explaining obvious things. Second part was more interesting with life coding and real example. Site [sawfish.stimme.de](https://sawfish.stimme.de/ "https://sawfish.stimme.de/") shows **Videogular** connected to google maps API that is really impressing!
 
 **@Raul**, I will definitely have more detailed look on your project.
 
-## Lazy load anything using ocLazyLoad ([slides](http://slides.com/ocombe/ng-nl#/), [video](https://www.youtube.com/watch?v=mM45wIg_fpI "youtube.com"))
+## Lazy load anything using ocLazyLoad ([slides](https://slides.com/ocombe/ng-nl#/), [video](https://www.youtube.com/watch?v=mM45wIg_fpI "youtube.com"))
 
 A very short talk by [Olivier Combe](https://twitter.com/OCombe). He presented his extension [ocLazyLoad](https://github.com/ocombe/ocLazyLoad "https://github.com/ocombe/ocLazyLoad") that allows to do lazy loading for modules in AngularJS. Pointed out how important lazy loading is, especially for mobile limited network connection. Also it was some explanation how it could work with router (both ngRoute and ui-router). It's nice that ocLazyLoad also support dependancy injection for loaded modules.
 
@@ -40,9 +40,9 @@ There are some expectations to get similar functionality in Angular1.5, we'll se
 
 \[javascript\] vr.takeScreenshot('AngularJS-homepage'); \[/javascript\]
 
-**@Daniel**, I liked the idea. Only one question is still open for me: how could I make it work with remote browsers (for example [Browserstack](http://www.browserstack.com/ "http://www.browserstack.com/") service)?
+**@Daniel**, I liked the idea. Only one question is still open for me: how could I make it work with remote browsers (for example [Browserstack](https://www.browserstack.com/ "https://www.browserstack.com/") service)?
 
-## TDD in javascript - Not a myth ([slides](http://slides.com/ofird/tdd-in-javascript-not-a-myth--2#/))
+## TDD in javascript - Not a myth ([slides](https://slides.com/ofird/tdd-in-javascript-not-a-myth--2#/))
 
 In all the details and for the very basics - TDD in JavaScript by [Ofir Dagan](https://twitter.com/ofirdagan2). In this presentation you could find answers for all the questions: "why to do testing?", "how to do it right?", "which tools to use?", "how to analyse the coverage?" and even "how mother nature do TDD". It's really good and quick introduction for developers who want to start with testing.
 
@@ -65,7 +65,7 @@ I even could not imaging that this lecture about Directive Compiler would be so
 
 **@Gert**, if you have some code to share - please show it, I really would like to have a look.
 
-## How I made a mess of my Angular application ([slides](http://slides.com/djsmith/how-we-made-a-mess-of-our-angular-app/#/), [video](https://www.youtube.com/watch?v=n8JdXkKhDyU&feature=em-subs_digest "youtube.com"))
+## How I made a mess of my Angular application ([slides](https://slides.com/djsmith/how-we-made-a-mess-of-our-angular-app/#/), [video](https://www.youtube.com/watch?v=n8JdXkKhDyU&feature=em-subs_digest "youtube.com"))
 
 Very funny speech by [Dave Smith](https://twitter.com/djsmith42) about past Angular mistakes and ruler punishment. I just provide the list of mentioned mistakes and solution(in brackets) for them:
 

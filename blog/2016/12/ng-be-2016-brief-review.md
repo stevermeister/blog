@@ -8,7 +8,7 @@ great organisation, great speakers, great conference, unfortunately I don't hav
 
 ## Keynote or "don't worry about Angular4" by [Igor Minar](https://twitter.com/IgorMinar) ([video](https://www.youtube.com/watch?v=aJIMoLgqU_o))
 
-The main point was the Angular team goes to [semver](http://semver.org/) versioning and they are going to produce major candidate each half year, so we will see Angular3 **Angular4** already in march 2017 and so on:
+The main point was the Angular team goes to [semver](https://semver.org/) versioning and they are going to produce major candidate each half year, so we will see Angular3 **Angular4** already in march 2017 and so on:
 
 ![](images/Screen-Shot-2017-02-11-at-18.12.31.png)
 

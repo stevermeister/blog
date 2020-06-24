@@ -22,6 +22,6 @@ document.getElementById('file-field').onchange = function(){ var reader = new Fi
 
 Если мы все правильно сделали, то после выбора файла его содержимое будет загружено в textarea.
 
-Вот тут можно поиграться с кодом: http://learn.javascript.ru/play/esPXY
+Вот тут можно поиграться с кодом: https://learn.javascript.ru/play/esPXY
 
-Подробнее можно почитать в спецификации: http://www.w3.org/TR/FileAPI/
+Подробнее можно почитать в спецификации: https://www.w3.org/TR/FileAPI/

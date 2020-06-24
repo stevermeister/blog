@@ -24,4 +24,4 @@ date: "2015-02-24"
 
 Было взято с [оф доки](https://github.com/mgonto/restangular/blob/master/README.md#differences-with-resource "github.com/mgonto/restangular").
 
-Пример использования **Restangular** [тут](http://plnkr.co/edit/qDRPWa?p=preview).
+Пример использования **Restangular** [тут](https://plnkr.co/edit/qDRPWa?p=preview).

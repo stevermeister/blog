@@ -12,4 +12,4 @@ date: "2013-02-26"
 
 или такое
 
-[**\_.map()**](http://underscorejs.ru/#map)
+[**\_.map()**](https://underscorejs.ru/#map)

@@ -16,21 +16,21 @@ date: "2012-12-22"
 
 3) На планшете в настройках ставим галочку на  "Неизвестные источники" (_Unknown Sources_)
 
-[![](images/unknown_sources-300x227.jpg "unknown_sources")](http://stepansuvorov.com/blog/wp-content/uploads/2012/12/unknown_sources.jpg)
+[![](images/unknown_sources-300x227.jpg "unknown_sources")](https://stepansuvorov.com/blog/wp-content/uploads/2012/12/unknown_sources.jpg)
 
 4) В настройках включаем "USB-отладку"(USB Debugging)
 
-[![](images/usb_debug-300x205.jpg "usb_debug")](http://stepansuvorov.com/blog/wp-content/uploads/2012/12/usb_debug.jpg)
+[![](images/usb_debug-300x205.jpg "usb_debug")](https://stepansuvorov.com/blog/wp-content/uploads/2012/12/usb_debug.jpg)
 
  
 
 На этом приготовление окончено, переходим к **настройке**:
 
-1) Первым делом нам нужно разлочить асусовую прошивку. Для этого идем на [офсайт](http://support.asus.com/Download.aspx?SLanguage=en&m=ASUS+Transformer+Pad+Infinity+TF700T&p=28&s=1) и скачиваем **Unlock Device App: Unlock boot loader**. Копируем этот файл на Андройд устройство и выполняем. При этом нужно согласится со всеми лицензиями и подтвердить что всем это мы делаем на свой страх и риск. После чего планшет перезагрузится и можно двигаться дальше.
+1) Первым делом нам нужно разлочить асусовую прошивку. Для этого идем на [офсайт](https://support.asus.com/Download.aspx?SLanguage=en&m=ASUS+Transformer+Pad+Infinity+TF700T&p=28&s=1) и скачиваем **Unlock Device App: Unlock boot loader**. Копируем этот файл на Андройд устройство и выполняем. При этом нужно согласится со всеми лицензиями и подтвердить что всем это мы делаем на свой страх и риск. После чего планшет перезагрузится и можно двигаться дальше.
 
-2) Скачиваем от [сюда](http://goo.im/devs/OpenRecovery/tf700t) последнюю версию [TWRP](http://teamw.in/project/twrp2 "TWRP это загрузчик recovery mode (режима восстановления)"), а так же [необходимый софт](http://stepansuvorov.com/share/Install_Recovery.zip) для установки самого загрузчика на планшет. После чего распаковываем все в одну папку, переименовываем файл TWRP в "_recovery.blob_" и запускаем "Recovery Install Tool.bat" (Скрипт не большой, и, для любителей Linux не должно составить труда переписать его под себя).
+2) Скачиваем от [сюда](https://goo.im/devs/OpenRecovery/tf700t) последнюю версию [TWRP](https://teamw.in/project/twrp2 "TWRP это загрузчик recovery mode (режима восстановления)"), а так же [необходимый софт](https://stepansuvorov.com/share/Install_Recovery.zip) для установки самого загрузчика на планшет. После чего распаковываем все в одну папку, переименовываем файл TWRP в "_recovery.blob_" и запускаем "Recovery Install Tool.bat" (Скрипт не большой, и, для любителей Linux не должно составить труда переписать его под себя).
 
-3) Осталось только скачать [спец прошивку](http://stepansuvorov.com/share/CWM-SuperSU-v0.99.zip "прошивка SuperSU") для суперпользователя, загрузить ее в корень на планшет и установить используя TWRP.
+3) Осталось только скачать [спец прошивку](https://stepansuvorov.com/share/CWM-SuperSU-v0.99.zip "прошивка SuperSU") для суперпользователя, загрузить ее в корень на планшет и установить используя TWRP.
 
  
 

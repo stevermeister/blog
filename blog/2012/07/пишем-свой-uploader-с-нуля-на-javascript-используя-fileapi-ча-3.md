@@ -72,10 +72,10 @@ readbutton.addEventListener( "click" , doRead, false);
 
 pointer - запоминаем текущее положение указателя чтения
 
-Вот тут можно поиграться с текущим кодом: http://learn.javascript.ru/play/yn9Zgb
+Вот тут можно поиграться с текущим кодом: https://learn.javascript.ru/play/yn9Zgb
 
-И еще один вариант с выводом контента файла:  http://learn.javascript.ru/play/qi8olc
+И еще один вариант с выводом контента файла:  https://learn.javascript.ru/play/qi8olc
 
-Теперь автоматизируем процесс загрузки(не давя на кнопочку): http://learn.javascript.ru/play/K2XUsc
+Теперь автоматизируем процесс загрузки(не давя на кнопочку): https://learn.javascript.ru/play/K2XUsc
 
 Вот мы и научились загружать файлы по частям используя blob.

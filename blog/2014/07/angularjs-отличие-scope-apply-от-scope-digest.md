@@ -4,7 +4,7 @@ tags: "AngularJs,javascript,Хочу сделать мир лучше"
 date: "2014-07-06"
 ---
 
-Часто слышу этот вопрос. Вроде бы и [документация](https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$apply "docs.angularjs.org") стала лучше, и столько уже [обсуждений](http://stackoverflow.com/questions/18697745/apply-vs-digest-in-directive-testing "stackoverflow.com") по этому поводу есть. Но всеравно у многих этот вопрос остается открытым.
+Часто слышу этот вопрос. Вроде бы и [документация](https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$apply "docs.angularjs.org") стала лучше, и столько уже [обсуждений](https://stackoverflow.com/questions/18697745/apply-vs-digest-in-directive-testing "stackoverflow.com") по этому поводу есть. Но всеравно у многих этот вопрос остается открытым.
 
 Если глянуть в исходники ведь все становится ясно:
 

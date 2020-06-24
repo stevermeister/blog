@@ -4,7 +4,7 @@ tags: "javascript,redux,Хочу сделать мир лучше"
 date: "2017-05-21"
 ---
 
-Предлагаю вам перевод статьи [Learn Redux by coding a Mini-Redux](http://blog.jakoblind.no/2017/03/13/learn-redux-by-coding-a-mini-redux/).
+Предлагаю вам перевод статьи [Learn Redux by coding a Mini-Redux](https://blog.jakoblind.no/2017/03/13/learn-redux-by-coding-a-mini-redux/).
 
 Существует множество ресурсов по изучению **Redux**: официальная документация, примеры, учебники, статьи, видео уроки... Имея такое большое количество информации многие начинающие **Redux** разработчики порой просто теряются в ней.
 

@@ -4,7 +4,7 @@ tags: "Angular2,ChangeDetection,Хочу сделать мир лучше"
 date: "2016-12-06"
 ---
 
-Небольшая заметка по мотивам [ответа на stackoverflow](http://stackoverflow.com/a/34829089/274500).
+Небольшая заметка по мотивам [ответа на stackoverflow](https://stackoverflow.com/a/34829089/274500).
 
 Внедрив следующие сервисы в компонент
 

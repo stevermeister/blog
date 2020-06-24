@@ -4,7 +4,7 @@ tags: "AngularJs,DI,javascript,Хочу сделать мир лучше"
 date: "2014-03-05"
 ---
 
-**[Dependency Injection](http://en.wikipedia.org/wiki/Dependency_injection "wiki")** - одна из парадигм на которых строиться **AngularJS**.
+**[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection "wiki")** - одна из парадигм на которых строиться **AngularJS**.
 
 Давайте подумаем как вот этот синтаксис
 
@@ -206,4 +206,4 @@ function invoke(fn){
 
 Плюс в полном варианте есть поддержка модулей, переопределение провайдеров, и описание DI-сущностей: **constant**, **value**, **provider**, **factory**, **service**, **decorator**.
 
-Полный код примера на [gist](https://gist.github.com/stevermeister/9368235), [jsbin](http://jsbin.com/kiwis/1/edit?html,js,console,output).
+Полный код примера на [gist](https://gist.github.com/stevermeister/9368235), [jsbin](https://jsbin.com/kiwis/1/edit?html,js,console,output).

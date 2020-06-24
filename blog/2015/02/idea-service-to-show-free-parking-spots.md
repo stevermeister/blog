@@ -22,7 +22,7 @@ Almost all paid parking garages already have automated check and show you amount
 
 so we need only to connect their local systems to our database that they could provide us information. Our side - it's only simple API. From their side could be much more difficult, because you don't know what kind of software is installed there. But parking providing companies should be interested in such kind of connection, because it's extra promotion for them.
 
-The situation with public parkings is not that clear. It could be solved only with each municipality individually. Before discussion it's good to have concrete technical solution. I googled a bit and found that a lot of similar technical devices had already been made. For example [this](http://rosimits.en.alibaba.com/product/60051035494-219526306/ROSIM_Wireless_Geomagnetic_and_Optic_Parking_Space_Detection_Sensor_Replace_Ultrasonic_Sensor.html "alibaba.com") one:
+The situation with public parkings is not that clear. It could be solved only with each municipality individually. Before discussion it's good to have concrete technical solution. I googled a bit and found that a lot of similar technical devices had already been made. For example [this](https://rosimits.en.alibaba.com/product/60051035494-219526306/ROSIM_Wireless_Geomagnetic_and_Optic_Parking_Space_Detection_Sensor_Replace_Ultrasonic_Sensor.html "alibaba.com") one:
 
 ![parking detector](images/Screenshot-2015-02-28-13.10.43.png)
 
@@ -40,4 +40,4 @@ Of course, like with other startups the main thing is to make our service popul
 
  
 
-If you want to use this idea - please read the [welcome note](http://stepansuvorov.com/blog/2015/02/start-me-up/ "http://stepansuvorov.com/blog/2015/02/start-me-up/") :)
+If you want to use this idea - please read the [welcome note](https://stepansuvorov.com/blog/2015/02/start-me-up/ "https://stepansuvorov.com/blog/2015/02/start-me-up/") :)

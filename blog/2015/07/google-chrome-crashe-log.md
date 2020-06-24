@@ -12,4 +12,4 @@ Then you can go to
 
 chrome://crashes
 
-Taken from [stackoverflow](http://stackoverflow.com/questions/8764253/google-chrome-crashes-without-any-log), thanks Mahai.
+Taken from [stackoverflow](https://stackoverflow.com/questions/8764253/google-chrome-crashes-without-any-log), thanks Mahai.

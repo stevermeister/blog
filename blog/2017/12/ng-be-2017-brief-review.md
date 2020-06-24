@@ -6,7 +6,7 @@ date: "2017-12-09"
 
 # ![](images/2017-12-17-13.35.11.jpg)
 
-# Pascal Precht - Angular Elements  ([video](https://www.youtube.com/watch?v=Hi2lRWUDuHA), [slides](http://pascalprecht.github.io/slides/angular-elements), [code](https://stackblitz.com/edit/ng-be-2017-demo-material) )
+# Pascal Precht - Angular Elements  ([video](https://www.youtube.com/watch?v=Hi2lRWUDuHA), [slides](https://pascalprecht.github.io/slides/angular-elements), [code](https://stackblitz.com/edit/ng-be-2017-demo-material) )
 
 **Angular Elements** is very experimental from **Angular Labs**. Reference to Rob Wormald's talk "[A Glimpse at Angular Elements](https://www.youtube.com/watch?v=ljsOPm4MMEo)".
 
@@ -81,7 +81,7 @@ https://twitter.com/PascalPrecht/status/939064081121726464
 
 But after it was something really nice:
 
-We used **[Fuse-Box](http://fuse-box.org/)** instead of webpack and I was impressed by the speed of recompilation.
+We used **[Fuse-Box](https://fuse-box.org/)** instead of webpack and I was impressed by the speed of recompilation.
 
 We integrated **Angular Universal** rendering, but not for server-side prerendering, but only for first compilation to provide page immediately. So server-side rendering without a server. I like the idea, but unfortunately not very useful when your data is constantly updating and you have routes.
 
@@ -93,7 +93,7 @@ Some nice extra resources:
 
 # Juri Strumpflohner - Create and publish Angular libs like a Pro ([video](https://www.youtube.com/watch?v=K4YMmwxGKjY), [slides](https://docs.google.com/presentation/d/1KzitBVVepOxgS-gxejehKC4V27ENeFMQ6Gwwrw5O9AE/edit#slide=id.g2b6eab8706_0_12))
 
-It's great that question that I asked Igor Minar [previous ng-be](http://stepansuvorov.com/blog/2016/12/ng-be-2016-brief-review/) now was represented in such a detailed way by Juri.
+It's great that question that I asked Igor Minar [previous ng-be](https://stepansuvorov.com/blog/2016/12/ng-be-2016-brief-review/) now was represented in such a detailed way by Juri.
 
 Main parts:
 
@@ -115,7 +115,7 @@ and ready package managers to do all the work:
 
 and keep eye on Angular CLI Schematics!
 
-# Vincent Ogloblinsky‏ - Hidden gems of TS compiler ([video](https://www.youtube.com/watch?v=WkJagE7b5U0), [slides](http://slides.com/vogloblinsky/hidden-gems-of-typescript-compiler#/))
+# Vincent Ogloblinsky‏ - Hidden gems of TS compiler ([video](https://www.youtube.com/watch?v=WkJagE7b5U0), [slides](https://slides.com/vogloblinsky/hidden-gems-of-typescript-compiler#/))
 
 First Vincent explained what regular compiler does, and it:
 
@@ -179,7 +179,7 @@ The talk was divided into 3 parts:
     - localStorage - not secure enough  ✘
     - [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) ✔
 
-# Maxim Salnikov - Creating an Angular Progressive Web App ([video](https://www.youtube.com/watch?v=LufnOxBbn0M), [slides](http://slides.com/webmax/pwa-ng-be#/))
+# Maxim Salnikov - Creating an Angular Progressive Web App ([video](https://www.youtube.com/watch?v=LufnOxBbn0M), [slides](https://slides.com/webmax/pwa-ng-be#/))
 
 The whole Maxim's presentation I had a feeling that I'm watching a video on x2 speed.
 
@@ -227,7 +227,7 @@ Asim told us 3 hacker break-in stories that based on simple things.
 
 Story1: Github story
 
-git hook to localhost -> http://0:9200/\_shutdown -> http://0:email -> memcache -> deprecated python library
+git hook to localhost -> https://0:9200/\_shutdown -> https://0:email -> memcache -> deprecated python library
 
 moral: don't underestimate small things
 

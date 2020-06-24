@@ -6,7 +6,7 @@ date: "2012-10-21"
 
 ![](images/casperJS_logo.png "casperJS_logo")
 
-**CasperJS** - вспомогательный инструмент написанный на JavaScript как обертка [**PhantomJS**](http://phantomjs.org/). На официальном сайте перечислены следующие основные возможности:
+**CasperJS** - вспомогательный инструмент написанный на JavaScript как обертка [**PhantomJS**](https://phantomjs.org/). На официальном сайте перечислены следующие основные возможности:
 
 - определение и порядок итераций браузера
 - заполнение и отправка форм
@@ -20,7 +20,7 @@ date: "2012-10-21"
 
 Все это или почти все можно сделать с помощью PhantomJS, погрузимся глубже в CasperJS, чтобы понять все плюшки.
 
-Для начала немного о том, как нам установить CasperJS. Скачиваем архив с [офсайта](http://casperjs.org) либо выкачиваем файлы с [github](https://github.com/n1k0/casperjs). Создаем ссылку на исполняемый файл в /usr/local/bin:
+Для начала немного о том, как нам установить CasperJS. Скачиваем архив с [офсайта](https://casperjs.org) либо выкачиваем файлы с [github](https://github.com/n1k0/casperjs). Создаем ссылку на исполняемый файл в /usr/local/bin:
 
 $ ln -sf \`pwd\`/bin/casperjs /usr/local/bin/casperjs
 
@@ -36,7 +36,7 @@ $ casperjs
 Сделаем простенький скриптик, чтобы проверить что модуль подключается:
 
 var casper = require('casper').create();
- casper.start('http://ya.ru/', function(){ console.log("ya.ru OK!"); });
+ casper.start('https://ya.ru/', function(){ console.log("ya.ru OK!"); });
  casper.run();
 
 Если все работает, то можно переходить к плюшкам.
@@ -73,7 +73,7 @@ casper.run();
 
 var casper = require("casper").create()
 
-casper.start('http://stepansuvorov.com/blog/');
+casper.start('https://stepansuvorov.com/blog/');
 casper.thenClick('#site-title');
 casper.thenClick('.page-item-2');
 casper.then(function() {
@@ -87,8 +87,8 @@ casper.run();
 
 var casper = require("casper").create()
 
-casper.start('http://ya.ru/', function() {
-  this.fill('form\[action="http://yandex.ru/yandsearch"\]', { text: 'casperjs' }, true);
+casper.start('https://ya.ru/', function() {
+  this.fill('form\[action="https://yandex.ru/yandsearch"\]', { text: 'casperjs' }, true);
 });
 
 casper.then(function() {
@@ -110,7 +110,7 @@ casper.run();
 
 Пятая плюшка - **функциональные тесты** - как объединение имитации действий пользователя и проверки соответствий состояний страницы:
 
-var url = 'http://ya.ru/';
+var url = 'https://ya.ru/';
 var casper = require('casper').create();
 casper.start(url, function() {
   this.test.assert(this.getCurrentUrl() === url, 'url is the one expected');
@@ -121,7 +121,7 @@ casper.run();
 
 var casper = require("casper").create();
 
-casper.start('http://foo.bar/', function() {
+casper.start('https://foo.bar/', function() {
   this.waitForResource("foobar.png");
 }); 
 
@@ -137,6 +137,6 @@ casper.run();
 
 Материалы, которые помогали трудится над статьей:
 
-[API документация с офсайта](http://casperjs.org/api.html)
+[API документация с офсайта](https://casperjs.org/api.html)
 
 [CasperJS, a toolkit on top of PhantomJS](https://nicolas.perriault.net/code/2012/introducing-casperjs-toolkit-phantomjs/) - прекрасная статья от Nicolas Perriault, которая по сути послужила фундаментом для моей.

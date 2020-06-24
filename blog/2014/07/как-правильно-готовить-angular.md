@@ -4,7 +4,7 @@ tags: "AngularJs,javascript,jQuery,Хочу сделать мир лучше"
 date: "2014-07-07"
 ---
 
-Пост составлен на основе развернутого [ответа](http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background/15012542#15012542 "stackoverflow.com") [John David Miller](http://joshdavidmiller.com/ "joshdavidmiller.com") о том, как человеку, который писал сайты с **jQuery**, переключится на **AngularJS** - мышление.
+Пост составлен на основе развернутого [ответа](https://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background/15012542#15012542 "stackoverflow.com") [John David Miller](https://joshdavidmiller.com/ "joshdavidmiller.com") о том, как человеку, который писал сайты с **jQuery**, переключится на **AngularJS** - мышление.
 
 # 1\. Проектируйте страницу в момент написания HTML
 

@@ -47,6 +47,6 @@ And server side part to send OAuth token request:
 
 \[javascript\] app.get('/api/github/token/:code', function(req, res) { request.post({ uri: 'https://github.com/login/oauth/access\_token', form: { client\_id: '%YOUR\_APP\_ID%', client\_secret: '%YOUR\_APP\_SECRET%', code: req.params.code }, json: true }, function(err, httpResponse, body) { if (err) { res.send(500, { error: err }); return; } res.send(body); }); }); \[/javascript\]
 
-**app** - is an instance of [express](http://expressjs.com/ "http://expressjs.com/") framework in this case.
+**app** - is an instance of [express](https://expressjs.com/ "https://expressjs.com/") framework in this case.
 
 That's all!

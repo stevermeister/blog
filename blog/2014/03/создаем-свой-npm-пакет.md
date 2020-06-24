@@ -6,7 +6,7 @@ date: "2014-03-09"
 
 Все оказалось крайне просто. Если вы уже представляете что такое **npm**, то под кат можете не ходить.
 
-Создаем package.json по [инструкции](http://package.json.nodejitsu.com/ "nodejitsu").
+Создаем package.json по [инструкции](https://package.json.nodejitsu.com/ "nodejitsu").
 
 Авторизируемся в **npm**:
 

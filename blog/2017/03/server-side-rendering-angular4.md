@@ -54,7 +54,7 @@ ng eject
 
 npm install --save @angular/animations
 
-теперь подумаем о сервере.  В представленном решении используются [node.js](https://nodejs.org/en/) вместе с [express](http://expressjs.com/). Поэтому мы установим express c его типами вместе с **@angular/platform-server**:
+теперь подумаем о сервере.  В представленном решении используются [node.js](https://nodejs.org/en/) вместе с [express](https://expressjs.com/). Поэтому мы установим express c его типами вместе с **@angular/platform-server**:
 
 ```
 npm i @angular/platform-server@next --save

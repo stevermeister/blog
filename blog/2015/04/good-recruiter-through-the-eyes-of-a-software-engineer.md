@@ -60,7 +60,7 @@ And one more thing for this scope. If you work not like single freelancer but li
 
 If you want to understand our world you should become a part of it. Participate in the life of community, attend IT meet-ups and speak to developers, just simple conversation without trying to promote your positions or yourself.
 
-Or even better - you could lead this world by organising meet-ups, workshops, hackathons; being a sponsor for conferences or donating to some opensource projects. [thefrontendlab](http://www.thefrontendlab.com/ "http://www.thefrontendlab.com/") could be a good example of recruitment agency that organises regular meet-ups for front-end/javascript community.
+Or even better - you could lead this world by organising meet-ups, workshops, hackathons; being a sponsor for conferences or donating to some opensource projects. [thefrontendlab](https://www.thefrontendlab.com/ "https://www.thefrontendlab.com/") could be a good example of recruitment agency that organises regular meet-ups for front-end/javascript community.
 
 **not a Hint but**: I'm going to organise IT ping-pong tournament in Amsterdam, if you willing to sponsor, help with organisation or to host the event - please contact me.
 

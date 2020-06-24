@@ -26,4 +26,4 @@ function service(name, constructor) {
 
 \- тоже обертка, только для **factory**.
 
-[Вот](http://jsfiddle.net/pkozlowski_opensource/PxdSP/14/) пример кода одной задачи реализованной 3мя способами.
+[Вот](https://jsfiddle.net/pkozlowski_opensource/PxdSP/14/) пример кода одной задачи реализованной 3мя способами.

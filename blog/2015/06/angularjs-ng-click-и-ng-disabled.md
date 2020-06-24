@@ -20,4 +20,4 @@ date: "2015-06-22"
 
  
 
-**P.S.**: Большоя спасибо [Vitalii Hudyma](http://twitter.com/katmai7) за планкер с кодом.
+**P.S.**: Большоя спасибо [Vitalii Hudyma](https://twitter.com/katmai7) за планкер с кодом.

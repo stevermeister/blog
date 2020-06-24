@@ -4,17 +4,17 @@ tags: "javascript,karma,phpStorm,testacular,tests,webStorm,Хочу сделат
 date: "2013-01-09"
 ---
 
-[![karma test runer](images/banner.png)](http://karma-runner.github.io/)
+[![karma test runer](images/banner.png)](https://karma-runner.github.io/)
 
 **UPD**: статься обновлена **21.11.2015**. Старое имя утилиты - [Testacular](https://github.com/vojtajina/testacular/)
 
-[Karma](http://karma-runner.github.io/) - инструмент на **node.js**, позволяющий запускать **JavaScript** код в нескольких браузерах, нацеленная на поддержку **TDD** подхода.
+[Karma](https://karma-runner.github.io/) - инструмент на **node.js**, позволяющий запускать **JavaScript** код в нескольких браузерах, нацеленная на поддержку **TDD** подхода.
 
 **Karma** - это не фреймворк/библиотека для тестирования, поэтому совместно можно использовать:
 
-- [Mocha](http://visionmedia.github.com/mocha/)
-- [Jasmine](http://pivotal.github.com/jasmine/)
-- [QUnit](http://qunitjs.com/)
+- [Mocha](https://visionmedia.github.com/mocha/)
+- [Jasmine](https://pivotal.github.com/jasmine/)
+- [QUnit](https://qunitjs.com/)
 - либо же что-то совсем другое, но написав свой адаптер
 
 **Браузеры**, которые можно использовать:
@@ -98,7 +98,7 @@ Executed 1 of 1 SUCCESS (0.086 secs / 0.002 secs)
 
 ##  Подключение в WebStorm
 
-**UPD**: WebStrom начиная с версии 7 уже добавили поддержку Karma, поэтому не нужно уже выполнять танцы с бубном и настройкой [node debug](http://blog.jetbrains.com/webide/2011/11/webstorm-your-node-app/), который были до этого.
+**UPD**: WebStrom начиная с версии 7 уже добавили поддержку Karma, поэтому не нужно уже выполнять танцы с бубном и настройкой [node debug](https://blog.jetbrains.com/webide/2011/11/webstorm-your-node-app/), который были до этого.
 
 Заходим в настройки запуска и отладки:
 

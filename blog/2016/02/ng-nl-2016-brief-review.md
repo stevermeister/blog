@@ -6,13 +6,13 @@ date: "2016-02-19"
 
 ![ng-nl2106 label ](images/DSC_7455.jpg)
 
-This year I also visited [NG-NL Conference in Amsterdam](http://www.ng-nl.org/ "http://www.ng-nl.org/") and to [keep the tradition](http://stepansuvorov.com/blog/2015/02/ng-nl-brief-review/) will share my notes/thoughts about it.
+This year I also visited [NG-NL Conference in Amsterdam](https://www.ng-nl.org/ "https://www.ng-nl.org/") and to [keep the tradition](https://stepansuvorov.com/blog/2015/02/ng-nl-brief-review/) will share my notes/thoughts about it.
 
 Basically the conference was dedicated to looking deep in **Angular2 parts** and **reactive programming** experiments.
 
-All the topics were split into 2 tracks. You can find all the program details [here](http://ng-nl.org/#/#programme). My route was the following:
+All the topics were split into 2 tracks. You can find all the program details [here](https://ng-nl.org/#/#programme). My route was the following:
 
-[![ng-nl-schedule](images/ng-nl-table-2.png)](http://stepansuvorov.com/blog/wp-content/uploads/2016/02/ng-nl-table-2.png)
+[![ng-nl-schedule](images/ng-nl-table-2.png)](https://stepansuvorov.com/blog/wp-content/uploads/2016/02/ng-nl-table-2.png)
 
 _Because keynote talks were not separated and columns were not sync in time you could get the illusion of time jump_.
 
@@ -64,13 +64,13 @@ and the same goes for services:
 
 But when you code is not ideal (that we usually call real life) you have to solve all architectural issues first and only then do ngUpgrade manipulations.
 
-Fist step could be to remove all ng-include and ng-controller statements and replace them into components. For more detailed instructions check [this Tero's article](http://teropa.info/blog/2015/10/18/refactoring-angular-apps-to-components.html).
+Fist step could be to remove all ng-include and ng-controller statements and replace them into components. For more detailed instructions check [this Tero's article](https://teropa.info/blog/2015/10/18/refactoring-angular-apps-to-components.html).
 
 **@Tero**, the way of presenting information by commenting code videos works perfectly!
 
  
 
-## How to Write a Library for Angular 2 ([slides](http://slides.com/ocombe/ngnl2016#/), video coming soon)
+## How to Write a Library for Angular 2 ([slides](https://slides.com/ocombe/ngnl2016#/), video coming soon)
 
 [Olivier Combe](https://twitter.com/OCombe) was making fast coding talk about steps of Angular2 library creation.
 
@@ -86,11 +86,11 @@ Did not know about [.nmpignore file](https://docs.npmjs.com/misc/developers#keep
 
  
 
-## Angular 2 Change Detection Explained ([slides](http://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/), [video](https://www.youtube.com/watch?v=CUxD91DWkGM))
+## Angular 2 Change Detection Explained ([slides](https://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/), [video](https://www.youtube.com/watch?v=CUxD91DWkGM))
 
-Couldn't miss [Pascal Precht](https://twitter.com/PascalPrecht) talk and switched to track2 for it. Should also say that room was [overcrowded](http://stepansuvorov.com/blog/wp-content/uploads/2016/02/DSC_7434.jpg).
+Couldn't miss [Pascal Precht](https://twitter.com/PascalPrecht) talk and switched to track2 for it. Should also say that room was [overcrowded](https://stepansuvorov.com/blog/wp-content/uploads/2016/02/DSC_7434.jpg).
 
-The talk started with explaining the problem that we want to solve - basically it's Model - DOM synchronisation. (recommended reading "[Change And Its Detection In JavaScript Frameworks](http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html)" by Tero Parviainen) Model could be changed by:
+The talk started with explaining the problem that we want to solve - basically it's Model - DOM synchronisation. (recommended reading "[Change And Its Detection In JavaScript Frameworks](https://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html)" by Tero Parviainen) Model could be changed by:
 
 - events (click, submit)
 - ajax requests and fetching data from remote source
@@ -104,7 +104,7 @@ Some explanation about async flow magic and back to zones:
 
 and for Angular2 it's [ngZone](https://angular.io/docs/js/latest/api/core/NgZone-class.html).
 
-More details in [Understanding Zones](http://blog.thoughtram.io/angular/2016/01/22/understanding-zones.html) and [Zones in Angular 2](http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html).
+More details in [Understanding Zones](https://blog.thoughtram.io/angular/2016/01/22/understanding-zones.html) and [Zones in Angular 2](https://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html).
 
 Smart change detection with **immutable objects**: it's easy to check whether object has changed or not.
 
@@ -126,11 +126,11 @@ During lunch brake I had a chance to speak to [Igor Minar](https://twitter.com/
 
 It was life coding with [Rob Wormald](https://twitter.com/robwormald). He lifted the curtain of **reactive programming**. We made Typeahead component with **Observables**, it was really nice example to show how to put everything in one stream. Then we created chat app with firebase. And after it was Todo app with Redux. Third one was really difficult to follow.
 
-Related example from Rob suddenly found on internet - [plnk](http://plnkr.co/edit/NfRZv6aY5OpaljKuzEym?p=preview).
+Related example from Rob suddenly found on internet - [plnk](https://plnkr.co/edit/NfRZv6aY5OpaljKuzEym?p=preview).
 
  
 
-## Introduction to RxJS 5 ([slides](http://slides.com/gerardsans/ng-nl-rxjs5#/), [video](https://www.youtube.com/watch?v=loYkHSQ_4Dg))
+## Introduction to RxJS 5 ([slides](https://slides.com/gerardsans/ng-nl-rxjs5#/), [video](https://www.youtube.com/watch?v=loYkHSQ_4Dg))
 
 More reactive stuff from [Gerard Sans](https://twitter.com/gerardsans). History of streams: **pipes**(unix, 1973) - > **streams**(node.js, 2009) -> **observables** (Microsoft, 2012) ->**observables** (Angular2, 2014). Some obvious things that you can do with array in ES5 like forEach, map, filter, reduce. Examples with Observables. Subscribe. No debugger support yet.
 
@@ -141,7 +141,7 @@ RxJs could be implementation in Angular2 for:
 - forms: controls, validation
 - component events
 
-...and again Typeahead component example ([plnk](http://plnkr.co/edit/B4BxDWgegexn7gq6qql4?p=preview)), now with nicer styles.
+...and again Typeahead component example ([plnk](https://plnkr.co/edit/B4BxDWgegexn7gq6qql4?p=preview)), now with nicer styles.
 
  
 
@@ -162,13 +162,13 @@ Angular implementation
 or
 
 - [ngrx/store](https://github.com/ngrx/store)
-- [Managing state in Angular2 applications](http://victorsavkin.com/post/137821436516/managing-state-in-angular-2-applications) 
+- [Managing state in Angular2 applications](https://victorsavkin.com/post/137821436516/managing-state-in-angular-2-applications) 
 
 **@Ciro**, it looks like 3rd link under presentation is broken.
 
  
 
-## The new Component Router for Angular 2 and 1.x ([slides](http://de.slideshare.net/ManfredSteyer1/angular-2-and-15-routing), video coming soon)
+## The new Component Router for Angular 2 and 1.x ([slides](https://de.slideshare.net/ManfredSteyer1/angular-2-and-15-routing), video coming soon)
 
 [Manfred Steyer](https://twitter.com/ManfredSteyer) started with some kind of fast slides, some of them with German notation.
 
@@ -201,7 +201,7 @@ Link to router config examples: [Angular2](https://github.com/manfredsteyer/angu
 
  
 
-## Rendering in Angular 2  ([slides](http://zizzamia.github.io/rendering-in-angular-2/), [video](https://www.youtube.com/watch?v=IbLO08NMMXY))
+## Rendering in Angular 2  ([slides](https://zizzamia.github.io/rendering-in-angular-2/), [video](https://www.youtube.com/watch?v=IbLO08NMMXY))
 
 [Leonardo Zizzamia](https://twitter.com/Zizzamia) presented one more topic about trying to solve problem of synchronising Model and UI.
 

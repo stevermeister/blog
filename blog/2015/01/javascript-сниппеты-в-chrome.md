@@ -18,6 +18,6 @@ date: "2015-01-30"
 
 - позволяют использовать библиотеки подключенные к странице
 - возможность выставлять брейкпоинты как в обычном скрипте
-- прекрасная альтернатива [userscripts](http://userscripts-mirror.org/ "http://userscripts-mirror.org/") и браузерным закладкам([в которых тоже можно выполнять javascript код](http://stepansuvorov.com/blog/2012/03/debug-on/ "Debug ON. Кнопка в FireFox для разработчика."))
+- прекрасная альтернатива [userscripts](https://userscripts-mirror.org/ "https://userscripts-mirror.org/") и браузерным закладкам([в которых тоже можно выполнять javascript код](https://stepansuvorov.com/blog/2012/03/debug-on/ "Debug ON. Кнопка в FireFox для разработчика."))
 
 Глеб Бахмутов уже успел собрать [коллекцию популярных сниппетов](https://github.com/bahmutov/code-snippets "github.com/bahmutov").

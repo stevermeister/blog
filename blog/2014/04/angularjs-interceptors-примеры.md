@@ -6,7 +6,7 @@ date: "2014-04-01"
 
 Насколько вам известно:  **$http**\-сервис **AngularJs** позволяет общаться с сервером и делать **HTTP**\-запросы. В некоторых случаях необходимо перехватывать запрос и обрабатывать его до отправки на сервер, или наоборот: мы хотим перехватить ответ и модифицировать его. Также хорошим примером может послужить глобальная обработка http-ошибок. Именно для таких случаев в **AngularJS** и созданы интерсепторы(**interceptors**).
 
-Пост написан на основе переведенной/переработанной статьи Naor Yehudaey "[Interceptors in AngularJS and Useful Examples](http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/)"
+Пост написан на основе переведенной/переработанной статьи Naor Yehudaey "[Interceptors in AngularJS and Useful Examples](https://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/)"
 
 ## Что такое Интерсепторы?
 
@@ -91,7 +91,7 @@ module.config(\['$httpProvider', function($httpProvider) { $httpProvider.interce
 
 \[javascript\] $http.get('https://api.github.com/users/naorye/repos').then(function(response) { var time = response.config.responseTimestamp - response.config.requestTimestamp; console.log('The request took ' + (time / 1000) + ' seconds.'); }); \[/javascript\]
 
-Код примера можно найти [тут](https://raw.githubusercontent.com/naorye/web-dev-easy-src/86b9d00ce8fff6bb7c2b8353550c621787dcc72a/source/code/interceptors-in-angularjs-and-useful-examples/timestamp-marker.html "github"). Поиграться в песочнице [тут](http://jsbin.com/xenem/1/ "jsbin").
+Код примера можно найти [тут](https://raw.githubusercontent.com/naorye/web-dev-easy-src/86b9d00ce8fff6bb7c2b8353550c621787dcc72a/source/code/interceptors-in-angularjs-and-useful-examples/timestamp-marker.html "github"). Поиграться в песочнице [тут](https://jsbin.com/xenem/1/ "jsbin").
 
 ## Восстановление запроса (используя интерсептор ошибки запроса)
 
@@ -109,7 +109,7 @@ module.config(\['$httpProvider', function($httpProvider) { $httpProvider.interce
 
 \[javascript\] $http.get('https://api.github.com/users/naorye/repos').then(function() { console.log('success'); }, function(rejectReason) { console.log('failure'); }); \[/javascript\]
 
-[Код](https://raw.githubusercontent.com/naorye/web-dev-easy-src/86b9d00ce8fff6bb7c2b8353550c621787dcc72a/source/code/interceptors-in-angularjs-and-useful-examples/request-recover.html "github"), [песочница](http://jsbin.com/hihak/1/ "jsbin").
+[Код](https://raw.githubusercontent.com/naorye/web-dev-easy-src/86b9d00ce8fff6bb7c2b8353550c621787dcc72a/source/code/interceptors-in-angularjs-and-useful-examples/request-recover.html "github"), [песочница](https://jsbin.com/hihak/1/ "jsbin").
 
 ## Восстановление сессии (используя интерсептор ошибки ответа )
 

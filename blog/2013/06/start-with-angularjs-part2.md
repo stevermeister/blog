@@ -4,7 +4,7 @@ tags: "AngularJs,javascript,Хочу сделать мир лучше"
 date: "2013-06-24"
 ---
 
-В [первой части](http://stepansuvorov.com/blog/2012/12/%D1%81-%D1%87%D0%B5%D0%B3%D0%BE-%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%B8%D0%B7%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-angularjs/ "С чего начать изучение AngularJS") мы разобрали как развернуть проект, его структуру, MVC компоненты и как это все тестировать с помощью [testacular](http://stepansuvorov.com/blog/2013/01/testacular-%D0%B2-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/ "testacular").
+В [первой части](https://stepansuvorov.com/blog/2012/12/%D1%81-%D1%87%D0%B5%D0%B3%D0%BE-%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%B8%D0%B7%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-angularjs/ "С чего начать изучение AngularJS") мы разобрали как развернуть проект, его структуру, MVC компоненты и как это все тестировать с помощью [testacular](https://stepansuvorov.com/blog/2013/01/testacular-%D0%B2-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/ "testacular").
 
 В этой части мы уделим больше внимания шаблонам и директивам.
 
@@ -76,40 +76,40 @@ date: "2013-06-24"
 
 Определяющие назначение блока:
 
-- [ngApp](http://docs.angularjs.org/api/ng.directive:ngApp) - определяет корневой элемент для приложения(обычно это html либо body, но могут быть и другие вариаты)
-- [ngController](http://docs.angularjs.org/api/ng.directive:ngController) - задает имя контроллера(метод) для блока
-- [ngForm](http://docs.angularjs.org/api/ng.directive:ngForm) - связывает элементы формы
+- [ngApp](https://docs.angularjs.org/api/ng.directive:ngApp) - определяет корневой элемент для приложения(обычно это html либо body, но могут быть и другие вариаты)
+- [ngController](https://docs.angularjs.org/api/ng.directive:ngController) - задает имя контроллера(метод) для блока
+- [ngForm](https://docs.angularjs.org/api/ng.directive:ngForm) - связывает элементы формы
 
 Вспомогательные для отображения:
 
-- [ngClassEven](http://docs.angularjs.org/api/ng.directive:ngClassEven)/[ngClassOdd](http://docs.angularjs.org/api/ng.directive:ngClassOdd) - когда мы хотим что-то сделать для четных/нечетных элементов в списке( используется совместно с [ngRepeat](http://docs.angularjs.org/api/ng.directive:ngRepeat))
-- [ngHide](http://docs.angularjs.org/api/ng.directive:ngHide)/[ngShow](http://docs.angularjs.org/api/ng.directive:ngShow) - прячет либо показывает элемент в зависимости от значения
+- [ngClassEven](https://docs.angularjs.org/api/ng.directive:ngClassEven)/[ngClassOdd](https://docs.angularjs.org/api/ng.directive:ngClassOdd) - когда мы хотим что-то сделать для четных/нечетных элементов в списке( используется совместно с [ngRepeat](https://docs.angularjs.org/api/ng.directive:ngRepeat))
+- [ngHide](https://docs.angularjs.org/api/ng.directive:ngHide)/[ngShow](https://docs.angularjs.org/api/ng.directive:ngShow) - прячет либо показывает элемент в зависимости от значения
 
 Обертки для стандартых атрибутов:
 
-- [ngClass](http://docs.angularjs.org/api/ng.directive:ngClass)
-- [ngStyle](http://docs.angularjs.org/api/ng.directive:ngStyle)
-- [ngChecked](http://docs.angularjs.org/api/ng.directive:ngChecked)
-- [ngDisabled](http://docs.angularjs.org/api/ng.directive:ngDisabled)
-- [ngHref](http://docs.angularjs.org/api/ng.directive:ngHref)
-- [ngSrc](http://docs.angularjs.org/api/ng.directive:ngSrc)
-- [ngSelected](http://docs.angularjs.org/api/ng.directive:ngSelected)
-- [ngReadonly](http://docs.angularjs.org/api/ng.directive:ngReadonly)
+- [ngClass](https://docs.angularjs.org/api/ng.directive:ngClass)
+- [ngStyle](https://docs.angularjs.org/api/ng.directive:ngStyle)
+- [ngChecked](https://docs.angularjs.org/api/ng.directive:ngChecked)
+- [ngDisabled](https://docs.angularjs.org/api/ng.directive:ngDisabled)
+- [ngHref](https://docs.angularjs.org/api/ng.directive:ngHref)
+- [ngSrc](https://docs.angularjs.org/api/ng.directive:ngSrc)
+- [ngSelected](https://docs.angularjs.org/api/ng.directive:ngSelected)
+- [ngReadonly](https://docs.angularjs.org/api/ng.directive:ngReadonly)
 
 Встроенная логика:
 
-- [ngInclude](http://docs.angularjs.org/api/ng.directive:ngInclude) - позволяет подключать отдельные файлы
-- [ngTransclude](http://docs.angularjs.org/api/ng.directive:ngTransclude) - используется внутри кастомных директив для вывода контента заданного снаружи при объявлении директивы
-- [ngRepeat](http://docs.angularjs.org/api/ng.directive:ngRepeat) - что-то типа встроенного цикла
-- [ngModel](http://docs.angularjs.org/api/ng.directive:ngModel) - связывание состояния/значения элемента с моделью/объектом
+- [ngInclude](https://docs.angularjs.org/api/ng.directive:ngInclude) - позволяет подключать отдельные файлы
+- [ngTransclude](https://docs.angularjs.org/api/ng.directive:ngTransclude) - используется внутри кастомных директив для вывода контента заданного снаружи при объявлении директивы
+- [ngRepeat](https://docs.angularjs.org/api/ng.directive:ngRepeat) - что-то типа встроенного цикла
+- [ngModel](https://docs.angularjs.org/api/ng.directive:ngModel) - связывание состояния/значения элемента с моделью/объектом
 
 Обертки для атрибутов событий:
 
-- [ngChange](http://docs.angularjs.org/api/ng.directive:ngChange)
-- [ngClick](http://docs.angularjs.org/api/ng.directive:ngClick)
-- [ngDblclick](http://docs.angularjs.org/api/ng.directive:ngDblclick)
-- [ngMousedown](http://docs.angularjs.org/api/ng.directive:ngMousedown)/[ngMouseenter](http://docs.angularjs.org/api/ng.directive:ngMouseenter)/[ngMouseleave](http://docs.angularjs.org/api/ng.directive:ngMouseleave)/[ngMousemove](http://docs.angularjs.org/api/ng.directive:ngMousemove)/[ngMouseover](http://docs.angularjs.org/api/ng.directive:ngMouseover)/[ngMouseup](http://docs.angularjs.org/api/ng.directive:ngMouseup)
-- [ngSubmit](http://docs.angularjs.org/api/ng.directive:ngSubmit)
+- [ngChange](https://docs.angularjs.org/api/ng.directive:ngChange)
+- [ngClick](https://docs.angularjs.org/api/ng.directive:ngClick)
+- [ngDblclick](https://docs.angularjs.org/api/ng.directive:ngDblclick)
+- [ngMousedown](https://docs.angularjs.org/api/ng.directive:ngMousedown)/[ngMouseenter](https://docs.angularjs.org/api/ng.directive:ngMouseenter)/[ngMouseleave](https://docs.angularjs.org/api/ng.directive:ngMouseleave)/[ngMousemove](https://docs.angularjs.org/api/ng.directive:ngMousemove)/[ngMouseover](https://docs.angularjs.org/api/ng.directive:ngMouseover)/[ngMouseup](https://docs.angularjs.org/api/ng.directive:ngMouseup)
+- [ngSubmit](https://docs.angularjs.org/api/ng.directive:ngSubmit)
 
 Если же наши потребности не удовлетворяют встроенные директивы - тогда мы можем написать свою. Как это делается? Все директивы создаются с помощью метода модуля - **directive()**, который имеет следующий синтаксис:
 
@@ -186,7 +186,7 @@ replace
 
 transclude
 
- компилирует контект элемента и делает возможные его вставку внутрь шаблона (по средством [ngTransclude](http://docs.angularjs.org/api/ng.directive:ngTransclude) )
+ компилирует контект элемента и делает возможные его вставку внутрь шаблона (по средством [ngTransclude](https://docs.angularjs.org/api/ng.directive:ngTransclude) )
 
  false
 
@@ -248,7 +248,7 @@ link
 - \= - двустороннее связывание значения атрибута и переменной
 - & - позволяет выполнять выражения из аттрибута в рамках родительского scope
 
-В [примере с официального сайта](http://jsfiddle.net/STEVER/zKTmC/ "jsfiddle") мы видим задания scope для директивы следующим образом:
+В [примере с официального сайта](https://jsfiddle.net/STEVER/zKTmC/ "jsfiddle") мы видим задания scope для директивы следующим образом:
 
 scope: { title:'@zippyTitle' }
 
@@ -256,7 +256,7 @@ scope: { title:'@zippyTitle' }
 
 Попробуем его максимально упростить...
 
-Я надеюсь [вот этот пример](http://jsfiddle.net/STEVER/zGWN4 "jsfiddle") (оставлена только суть) позволит разобраться в вопросе связывания переменных изолированного scope с родительским.
+Я надеюсь [вот этот пример](https://jsfiddle.net/STEVER/zGWN4 "jsfiddle") (оставлена только суть) позволит разобраться в вопросе связывания переменных изолированного scope с родительским.
 
 Также прошу обратить внимание на проблему которая возникает: при попытке изменения модели дочернего scope - мы теряем связь с родительской.
 
@@ -264,6 +264,6 @@ scope: { title:'@zippyTitle' }
 
 ## все части рубрики "С чего начать изучение AngularJS":
 
-- [Часть1 - С чего начать изучение AngularJS.](http://stepansuvorov.com/blog/2012/12/%D1%81-%D1%87%D0%B5%D0%B3%D0%BE-%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%B8%D0%B7%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-angularjs/)
-- [Часть2 – Шаблоны оживают.](http://stepansuvorov.com/blog/2013/06/start-with-angularjs-part2/)
-- [Часть3 – Ох уж эти сервисы.](http://stepansuvorov.com/blog/2015/02/%D1%81-%D1%87%D0%B5%D0%B3%D0%BE-%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C-angularjs-%D1%87%D0%B0%D1%81%D1%82%D1%8C3/)
+- [Часть1 - С чего начать изучение AngularJS.](https://stepansuvorov.com/blog/2012/12/%D1%81-%D1%87%D0%B5%D0%B3%D0%BE-%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%B8%D0%B7%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-angularjs/)
+- [Часть2 – Шаблоны оживают.](https://stepansuvorov.com/blog/2013/06/start-with-angularjs-part2/)
+- [Часть3 – Ох уж эти сервисы.](https://stepansuvorov.com/blog/2015/02/%D1%81-%D1%87%D0%B5%D0%B3%D0%BE-%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C-angularjs-%D1%87%D0%B0%D1%81%D1%82%D1%8C3/)

@@ -8,8 +8,8 @@ date: "2014-06-11"
 
 ## Подготовительные действия
 
-- ставим тест-драйвер [Karma](http://karma-runner.github.io/0.12/index.html)
-- определяемся и подключаем к проекту тест-фреймворк (варианты [Mocha](http://visionmedia.github.io/mocha/), [Jasmine](http://jasmine.github.io/))
+- ставим тест-драйвер [Karma](https://karma-runner.github.io/0.12/index.html)
+- определяемся и подключаем к проекту тест-фреймворк (варианты [Mocha](https://visionmedia.github.io/mocha/), [Jasmine](https://jasmine.github.io/))
 - подключаем к проекту вспомогательную библиотеку [angular-mocks](https://github.com/angular/bower-angular-mocks)
 
 ## Написание сценария

@@ -14,7 +14,7 @@ Mongoose устанавливается как модуль к node.js:
 
 $ npm install mongoose
 
-После установки проверяем подключается ли модуль, пишем в [test.js](http://stepansuvorov.com/blog/2012/11/%D0%BF%D0%B5%D1%81%D0%BE%D1%87%D0%BD%D0%B8%D1%86%D0%B0-%D0%B4%D0%BB%D1%8F-mongodb/) файлик следующий код:
+После установки проверяем подключается ли модуль, пишем в [test.js](https://stepansuvorov.com/blog/2012/11/%D0%BF%D0%B5%D1%81%D0%BE%D1%87%D0%BD%D0%B8%D1%86%D0%B0-%D0%B4%D0%BB%D1%8F-mongodb/) файлик следующий код:
 
 var mongoose = require('mongoose');
 console.log(mongoose.version);
@@ -34,7 +34,7 @@ db.once("open", function callback () {
     console.log("Connected!")
 });
 
-В mongoose все завязано на 2х ключевых понятиях Схема([Schema](http://mongoosejs.com/docs/guide.html)) - описание сущности и Модель - сама сущность.
+В mongoose все завязано на 2х ключевых понятиях Схема([Schema](https://mongoosejs.com/docs/guide.html)) - описание сущности и Модель - сама сущность.
 
 Создадим схему для комментариев:
 
@@ -48,7 +48,7 @@ var UserSchema = new mongoose.Schema( {
 
 Каждое поле карактеризуется типом **SchemaTypes** и может иметь дополнительные характеристики: default, min и max(для Number), match и enum(для String), index и unique(для индексов).
 
-Подробнее о типах можно почитать [тут](http://mongoosejs.com/docs/schematypes.html).
+Подробнее о типах можно почитать [тут](https://mongoosejs.com/docs/schematypes.html).
 
 Теперь создадим модель по схеме:
 

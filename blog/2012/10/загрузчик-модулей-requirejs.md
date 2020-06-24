@@ -12,9 +12,9 @@ date: "2012-10-19"
 
 \- засорение глобальной области
 
-**RequireJS** использует [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD "Asynchronous Module Definition") концепцию. Создан для использования в браузере, но возможно использование и с node.js. Поддерживается всеми современными и не только веб браузерами: RequireJS works in IE 6+, Firefox 2+, Safari 3.2+, Chrome 3+, and Opera 10+. Имеет сравнительно небольшой размер(5.5k в сжатом виде). Поддерживает несколько плагинов: [text](http://requirejs.org/docs/download.html#text), [domReady](http://requirejs.org/docs/download.html#domReady), [cs (CoffeeScript)](http://requirejs.org/docs/download.html#cs), [i18n](http://requirejs.org/docs/download.html#i18n) .
+**RequireJS** использует [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD "Asynchronous Module Definition") концепцию. Создан для использования в браузере, но возможно использование и с node.js. Поддерживается всеми современными и не только веб браузерами: RequireJS works in IE 6+, Firefox 2+, Safari 3.2+, Chrome 3+, and Opera 10+. Имеет сравнительно небольшой размер(5.5k в сжатом виде). Поддерживает несколько плагинов: [text](https://requirejs.org/docs/download.html#text), [domReady](https://requirejs.org/docs/download.html#domReady), [cs (CoffeeScript)](https://requirejs.org/docs/download.html#cs), [i18n](https://requirejs.org/docs/download.html#i18n) .
 
-Разберем более подробно, как можно использовать [**RequireJS**](http://requirejs.org) для нашего проекта. Вот [тут](http://requirejs.org/docs/download.html "requireJS download") берем свеженькую версию(Для ознакомления желательно использовать несжатый вариант "_With Comments_").
+Разберем более подробно, как можно использовать [**RequireJS**](https://requirejs.org) для нашего проекта. Вот [тут](https://requirejs.org/docs/download.html "requireJS download") берем свеженькую версию(Для ознакомления желательно использовать несжатый вариант "_With Comments_").
 
 Теперь создаем заготовку HTML страницы, где будем экспериментировать с нашим загрузчиком:
 

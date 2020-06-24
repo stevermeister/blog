@@ -36,7 +36,7 @@ date: "2015-01-29"
 
 \[shell\] elementor https://angularjs.org \[/shell\]
 
-\* При этом конечно у вас уже должны быть установлены **protractor** и запущен **веб-драйвер** ( об этом можно почитать [тут](http://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor") и [тут](http://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor")).
+\* При этом конечно у вас уже должны быть установлены **protractor** и запущен **веб-драйвер** ( об этом можно почитать [тут](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor") и [тут](https://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor")).
 
  
 

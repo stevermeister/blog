@@ -16,4 +16,4 @@ date: "2014-05-27"
 - orderBy
 - uppercase
 
-[Вот](http://jsfiddle.net/STEVER/wC6up/ "jsfiddle") пример, в котором собрал все фильтры.
+[Вот](https://jsfiddle.net/STEVER/wC6up/ "jsfiddle") пример, в котором собрал все фильтры.

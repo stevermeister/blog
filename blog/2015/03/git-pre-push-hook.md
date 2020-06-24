@@ -4,7 +4,7 @@ tags: "deploy,git,git-hook,javascript,pre-push,Хочу сделать мир л
 date: "2015-03-13"
 ---
 
-Я уже писал о том [как можно использовать git хуки для запуска grunt команд](http://stepansuvorov.com/blog/2013/01/git-hook/ "git hook: Не пускаем в репозиторий ошибки") и делать предварительную проверку перед заливкой кода в главный репозиторий. В этой заметке я покажу, как можно избежать проверки не закомиченных изменений.
+Я уже писал о том [как можно использовать git хуки для запуска grunt команд](https://stepansuvorov.com/blog/2013/01/git-hook/ "git hook: Не пускаем в репозиторий ошибки") и делать предварительную проверку перед заливкой кода в главный репозиторий. В этой заметке я покажу, как можно избежать проверки не закомиченных изменений.
 
 Git pre-push hook будет выглядеть вот так:
 
@@ -30,4 +30,4 @@ if \[ $RETVAL -ne 0 \] then echo "Grunt task failed, exiting..." exit 1 fi
 
 echo "Complete." \[/shell\]
 
-Полный код [тут](https://gist.github.com/stevermeister/e530409b19daac932ee2 "gist"). Идея взята от [сюда](http://old.briangonzalez.org/posts/run-grunt-task-pre-push-to-git-repo "http://old.briangonzalez.org/posts/run-grunt-task-pre-push-to-git-repo").
+Полный код [тут](https://gist.github.com/stevermeister/e530409b19daac932ee2 "gist"). Идея взята от [сюда](https://old.briangonzalez.org/posts/run-grunt-task-pre-push-to-git-repo "https://old.briangonzalez.org/posts/run-grunt-task-pre-push-to-git-repo").

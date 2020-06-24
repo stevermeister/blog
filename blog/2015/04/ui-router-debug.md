@@ -6,7 +6,7 @@ date: "2015-04-13"
 
 found nice code snippet that could help you to debug ui-router issues by loggin router events in console:
 
-\[javascript\] // Credits: Adam\`s answer in http://stackoverflow.com/a/20786262/69362 var $rootScope = angular.element(document.querySelectorAll('\[ui-view\]')\[0\]).injector().get('$rootScope');
+\[javascript\] // Credits: Adam\`s answer in https://stackoverflow.com/a/20786262/69362 var $rootScope = angular.element(document.querySelectorAll('\[ui-view\]')\[0\]).injector().get('$rootScope');
 
 $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){ console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \\n',toState, toParams); });
 

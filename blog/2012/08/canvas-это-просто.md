@@ -34,22 +34,22 @@ ctx.fillRect (5, 5, 55, 50); // потом рисуем прямоугольни
 
 Вроде бы все просто. Все методы, понятное дело, разбирать не будем. Вот есть схемка, которая поможет:
 
-[![canvas](images/HTML5_Canvas_Cheat_Sheet-300x221.png "HTML5_Canvas_Cheat_Sheet")](http://stepansuvorov.com/blog/wp-content/uploads/2012/08/HTML5_Canvas_Cheat_Sheet.png)
+[![canvas](images/HTML5_Canvas_Cheat_Sheet-300x221.png "HTML5_Canvas_Cheat_Sheet")](https://stepansuvorov.com/blog/wp-content/uploads/2012/08/HTML5_Canvas_Cheat_Sheet.png)
 
 А в чем заключается анимация? В том что мы по времени перерисовываем картинку, или другими словами - меняем координаты/параметры движимых объектов.
 
 Как видите ничего сложного нет. Нужны только фантазия и справочник по методам.
 
-С кодом примера можно поиграться вот тут: http://learn.javascript.ru/play/lZqarb
+С кодом примера можно поиграться вот тут: https://learn.javascript.ru/play/lZqarb
 
 Добавлю еще две иллюстрации, которые я нашел в сети, о том как рисовать дуги:
 
 arc(x, y, radius, startAngle, endAngle, anticlockwise);
 
-О принципе отсчета угла: [![](images/canvas_arc-300x242.jpg "canvas_arc")](http://stepansuvorov.com/blog/wp-content/uploads/2012/08/canvas_arc.jpg)
+О принципе отсчета угла: [![](images/canvas_arc-300x242.jpg "canvas_arc")](https://stepansuvorov.com/blog/wp-content/uploads/2012/08/canvas_arc.jpg)
 
 О радианах:
 
-[![](images/canvas_arc2-300x277.jpg "canvas_arc2")](http://stepansuvorov.com/blog/wp-content/uploads/2012/08/canvas_arc2.jpg)
+[![](images/canvas_arc2-300x277.jpg "canvas_arc2")](https://stepansuvorov.com/blog/wp-content/uploads/2012/08/canvas_arc2.jpg)
 
-[Источник](http://net.tutsplus.com/tutorials/javascript-ajax/canvas-from-scratch-advanced-drawing/) этих прекрасных эскизов.
+[Источник](https://net.tutsplus.com/tutorials/javascript-ajax/canvas-from-scratch-advanced-drawing/) этих прекрасных эскизов.

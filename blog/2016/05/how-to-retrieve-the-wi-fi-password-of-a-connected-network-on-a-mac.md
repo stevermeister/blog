@@ -8,4 +8,4 @@ Just a not-to-forget note.
 
 /Applications/Utilities/Keychain Access![E4oNi](images/E4oNi.png)
 
-taken from [here](http://apple.stackexchange.com/a/56132).
+taken from [here](https://apple.stackexchange.com/a/56132).

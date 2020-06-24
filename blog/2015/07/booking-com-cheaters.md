@@ -18,7 +18,7 @@ I logged out. The prices became higher, that is correct. The question was still�
 
 I guessed that the reason could be browsing from different locations. I immediately decided to check it out and switch on the proxy.
 
-I was really impressed by results: depending on location you get different prices. Yes, for budget hotels the difference is not so high, but let me show you an example with [luxury one](http://www.booking.com/hotel/mv/anantara-kihavah-villas-maldives.html?checkin=2015-11-09&checkout=2015-11-15). Scroll down to the "_Three Bedroom Beach Pool Residence_" and depending on location you'll see these prices:
+I was really impressed by results: depending on location you get different prices. Yes, for budget hotels the difference is not so high, but let me show you an example with [luxury one](https://www.booking.com/hotel/mv/anantara-kihavah-villas-maldives.html?checkin=2015-11-09&checkout=2015-11-15). Scroll down to the "_Three Bedroom Beach Pool Residence_" and depending on location you'll see these prices:
 
 ![booking cheaters](images/Screenshot-2015-07-26-22.39.39.png)
 

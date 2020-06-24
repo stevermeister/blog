@@ -24,8 +24,8 @@ to keep it simple to cover for **unit-tests** you can also wrap it into an angul
 
 \[javascript\] factory('Promise', () => Promise); \[/javascript\]
 
-[Here](http://plnkr.co/edit/fysuo9?p=preview) you can play with the code.
+[Here](https://plnkr.co/edit/fysuo9?p=preview) you can play with the code.
 
-[Discussion on stackoverflow](http://stackoverflow.com/q/35971958/274500) about customising ES6 Promise.
+[Discussion on stackoverflow](https://stackoverflow.com/q/35971958/274500) about customising ES6 Promise.
 
 **!Attention:** This experiment was made just for learning purposes and it should not be applied for the real projects.

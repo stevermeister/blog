@@ -4,6 +4,6 @@ tags: "brain teaser,Рекомендую"
 date: "2014-03-12"
 ---
 
-[![](images/Q0Y-_Skolhp9Co1zjmQODhJEXccvuBG3stq9U8rCfoY-297x300.png "Q0Y-_Skolhp9Co1zjmQODhJEXccvuBG3stq9U8rCfoY")](http://gabrielecirulli.github.io/2048/)
+[![](images/Q0Y-_Skolhp9Co1zjmQODhJEXccvuBG3stq9U8rCfoY-297x300.png "Q0Y-_Skolhp9Co1zjmQODhJEXccvuBG3stq9U8rCfoY")](https://gabrielecirulli.github.io/2048/)
 
-[Try](http://gabrielecirulli.github.io/2048/) to get "2048" tile!
+[Try](https://gabrielecirulli.github.io/2048/) to get "2048" tile!

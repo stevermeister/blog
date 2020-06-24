@@ -6,7 +6,7 @@ date: "2012-10-30"
 
 ![](images/grunt_logo-300x300.png "grunt_logo")
 
-[Grunt](http://gruntjs.com/) - инструмент для сборки JavaScript проектов из командной строки. Молодой (зарелизился в январе 2012) и активно развивающийся(на данный момент для него написано уже 188 плагинов).
+[Grunt](https://gruntjs.com/) - инструмент для сборки JavaScript проектов из командной строки. Молодой (зарелизился в январе 2012) и активно развивающийся(на данный момент для него написано уже 188 плагинов).
 
 Благодаря тому, что **grunt** имеет готовый npm-пакет для node.js,  установка очень простая:
 
@@ -31,7 +31,7 @@ $ grunt init:jquery
 
 после чего должно выдать серию вопросов о проекте(title, description, git-url...). После успешного прохождения этого квеста в выбранной директории появятся файлы сборщика.
 
-Установим также [PhantomJs](http://stepansuvorov.com/blog/2012/09/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%B5%D0%BC-%D1%8E%D0%BD%D0%B8%D1%82-%D1%82%D0%B5%D1%81%D1%82%D1%8B-%D1%81-phantomjs/ "статья по phantomjs"), наличие которого предполагает grunt.
+Установим также [PhantomJs](https://stepansuvorov.com/blog/2012/09/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%B5%D0%BC-%D1%8E%D0%BD%D0%B8%D1%82-%D1%82%D0%B5%D1%81%D1%82%D1%8B-%D1%81-phantomjs/ "статья по phantomjs"), наличие которого предполагает grunt.
 
 После чего можем смело запускать сборщик на выполнение:
 
@@ -74,9 +74,9 @@ grunt.registerTask('test', 'lint qunit');
 
 - concat - конкатенация файлов
 - init - Generate project scaffolding from a predefined template.
-- lint - валидация файлов с помощью  [JSHint](http://www.jshint.com/).
+- lint - валидация файлов с помощью  [JSHint](https://www.jshint.com/).
 - min - сжатие файлов с [UglifyJS](https://github.com/mishoo/UglifyJS/).
-- qunit - Запуск [QUnit](http://docs.jquery.com/QUnit) юнит тестов на [PhantomJS](http://www.phantomjs.org/).
+- qunit - Запуск [QUnit](https://docs.jquery.com/QUnit) юнит тестов на [PhantomJS](https://www.phantomjs.org/).
 - server - запускает статический веб сервер.
 - test - запуск юнит тестов на [nodeunit](https://github.com/caolan/nodeunit).
 - watch - запуск заранее определенных заданий, для файлов из списка.

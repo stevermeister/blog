@@ -26,4 +26,4 @@ date: "2014-06-28"
 
 выведет не просто \[Object object\], а строку - HTML содержимое объекта.
 
-И [код](http://jsfiddle.net/STEVER/LPPzh/ "jsfiddle").
+И [код](https://jsfiddle.net/STEVER/LPPzh/ "jsfiddle").

@@ -22,4 +22,4 @@ but let's not forget about promise cancelation, in this case we need to store re
 
 [Plunker](https://plnkr.co/edit/TeqWpQmj6QD6KlajEc5Z?p=preview) to play with this code.
 
-[Stackoverflow discussion](http://stackoverflow.com/a/34255423/274500).
+[Stackoverflow discussion](https://stackoverflow.com/a/34255423/274500).

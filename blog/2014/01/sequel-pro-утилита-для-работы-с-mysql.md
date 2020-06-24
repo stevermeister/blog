@@ -6,4 +6,4 @@ date: "2014-01-16"
 
 ![sequel-pro-logo](images/sequel-pro-1.0-300x225.png "sequel-pro-1.0")
 
-Начал использовать [SequelPro](http://www.sequelpro.com/) вместо [MySQL Workbench](http://www.mysql.com/products/workbench/). Для простых модификаций и просмотра базы кажется более удобным.
+Начал использовать [SequelPro](https://www.sequelpro.com/) вместо [MySQL Workbench](https://www.mysql.com/products/workbench/). Для простых модификаций и просмотра базы кажется более удобным.

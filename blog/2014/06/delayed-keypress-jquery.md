@@ -47,4 +47,4 @@ date: "2014-06-14"
 
 \[javascript\]$("#id").delayedkeypress(someMethod);\[/javascript\]
 
-Вот [тут](http://jsfiddle.net/STEVER/y5R5V/ "jsfiddle") можно поиграть с кодом. Более подробную информацию можно найти в [исходниках](https://github.com/jquery/jquery/blob/master/src/event.js "event.js").
+Вот [тут](https://jsfiddle.net/STEVER/y5R5V/ "jsfiddle") можно поиграть с кодом. Более подробную информацию можно найти в [исходниках](https://github.com/jquery/jquery/blob/master/src/event.js "event.js").

@@ -6,11 +6,11 @@ date: "2015-05-14"
 
 ![](images/logo_og-300x300.png "react logo")
 
-Стыдно признаться, но на момент написания этого поста, я так и не разобрался с [React.js](http://facebook.github.io/react/), поэтому добро пожаловать всем начинающим реактовцам.
+Стыдно признаться, но на момент написания этого поста, я так и не разобрался с [React.js](https://facebook.github.io/react/), поэтому добро пожаловать всем начинающим реактовцам.
 
 Я просто прокомментирую свои действия, возможно они кому-то сэкономят время разбора на старте и поиска необходимых ресурсов.
 
-Ну что ж... зайдем, конечно, на официальный сайт в раздел "[Getting Started](http://facebook.github.io/react/docs/getting-started.html)". Сразу же есть примеры на фидлере - это хорошо. Посмотрим на [первый](https://jsfiddle.net/reactjs/69z2wepo/). OMG! Что это за хрень?!
+Ну что ж... зайдем, конечно, на официальный сайт в раздел "[Getting Started](https://facebook.github.io/react/docs/getting-started.html)". Сразу же есть примеры на фидлере - это хорошо. Посмотрим на [первый](https://jsfiddle.net/reactjs/69z2wepo/). OMG! Что это за хрень?!
 
 \[javascript\] return <div>Hello {this.props.name}</div>; \[/javascript\]
 
@@ -20,7 +20,7 @@ date: "2015-05-14"
 
 https://www.youtube.com/watch?v=L-3kegPlQ\_c#t=18
 
-Попробуем по шагам пройти [стартер кит](http://facebook.github.io/react/docs/getting-started.html#starter-kit).
+Попробуем по шагам пройти [стартер кит](https://facebook.github.io/react/docs/getting-started.html#starter-kit).
 
 Вроде бы основная идея понятна: для черной магии используем атрибут
 
@@ -30,7 +30,7 @@ script type="text/jsx"
 
 <script src="build/JSXTransformer.js"></script>
 
-Переходим к [туториалу](http://facebook.github.io/react/docs/tutorial.html). Вам понадобится сервер, потому хорошо бы сразу скачать себе [server.js](https://github.com/reactjs/react-tutorial/blob/master/server.js) и положить в корень, после чего выполнить команды:
+Переходим к [туториалу](https://facebook.github.io/react/docs/tutorial.html). Вам понадобится сервер, потому хорошо бы сразу скачать себе [server.js](https://github.com/reactjs/react-tutorial/blob/master/server.js) и положить в корень, после чего выполнить команды:
 
 \[shell\] $ npm install express body-parser $ node server.js \[/shell\]
 
@@ -42,7 +42,7 @@ script type="text/jsx"
 
 Я надеюсь у всех завелась эта простая формочка со списком комментариев. Если нет - пишите что не работает в комментариях - я с радостью помогу разобраться.
 
-Далее следуем к разделу "[Думаем Реакт сущностями](http://facebook.github.io/react/docs/thinking-in-react.html)" (Thinking in React).
+Далее следуем к разделу "[Думаем Реакт сущностями](https://facebook.github.io/react/docs/thinking-in-react.html)" (Thinking in React).
 
 Резюмируя: разрабатывая приложение на React.js должны действовать в следующеем направлении:
 
@@ -170,5 +170,5 @@ return ( <div className="loginForm solo-form solo-form\_\_page"> <div className=
 
 Что еще полезного почитать?
 
-- Building robust web apps with React ([part1](http://maketea.co.uk/2014/03/05/building-robust-web-apps-with-react-part-1.html), [part2](http://maketea.co.uk/2014/04/07/building-robust-web-apps-with-react-part-2.html), [part3](http://maketea.co.uk/2014/05/22/building-robust-web-apps-with-react-part-3.html), [part4](http://maketea.co.uk/2014/06/30/building-robust-web-apps-with-react-part-4.html) )
-- [React’s diff algorithm](http://calendar.perfplanet.com/2013/diff/) (и [перевод](http://habrahabr.ru/post/217295/) на хабре)
+- Building robust web apps with React ([part1](https://maketea.co.uk/2014/03/05/building-robust-web-apps-with-react-part-1.html), [part2](https://maketea.co.uk/2014/04/07/building-robust-web-apps-with-react-part-2.html), [part3](https://maketea.co.uk/2014/05/22/building-robust-web-apps-with-react-part-3.html), [part4](https://maketea.co.uk/2014/06/30/building-robust-web-apps-with-react-part-4.html) )
+- [React’s diff algorithm](https://calendar.perfplanet.com/2013/diff/) (и [перевод](https://habrahabr.ru/post/217295/) на хабре)

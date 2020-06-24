@@ -6,7 +6,7 @@ date: "2017-03-16"
 
 ![](images/DSC_8402.jpg)
 
-Already like a good tradition I visited [**ng-nl**](https://ng-nl.org/) conference ([ng-nl 2015](http://stepansuvorov.com/blog/2015/02/ng-nl-brief-review/), [ng-nl 2016](http://stepansuvorov.com/blog/2016/02/ng-nl-2016-brief-review/)).
+Already like a good tradition I visited [**ng-nl**](https://ng-nl.org/) conference ([ng-nl 2015](https://stepansuvorov.com/blog/2015/02/ng-nl-brief-review/), [ng-nl 2016](https://stepansuvorov.com/blog/2016/02/ng-nl-2016-brief-review/)).
 
 Same as previous year it was great place and awesome people around.
 
@@ -18,7 +18,7 @@ Strange that this year I did not see anybody from the core Angular team. Also no
 
 ## Angular's Reactive Forms by Todd Motto ([code](https://github.com/toddmotto/angular-pizza-creator), [video](https://www.youtube.com/watch?v=cWZDKihoMWM))
 
-It was the same talk that Todd gave on **ng-be**. (see [ng-be 2016 brief review](http://stepansuvorov.com/blog/2016/12/ng-be-2016-brief-review/)). But today he was in a hurry to present all the materials and did not really keep the focus of audience. It might be some difficulties with understanding for developers who did not try Angular Forms before.
+It was the same talk that Todd gave on **ng-be**. (see [ng-be 2016 brief review](https://stepansuvorov.com/blog/2016/12/ng-be-2016-brief-review/)). But today he was in a hurry to present all the materials and did not really keep the focus of audience. It might be some difficulties with understanding for developers who did not try Angular Forms before.
 
 Good part comparing to **ng-be** talk was general architectural overview and going deep into real code from the high level.
 
@@ -32,7 +32,7 @@ some Q&A:
 - opinion about Augury
     - did not have time for it. Working hard on the [course](https://ultimateangular.com/).
 
-## Demystifying Ahead-Of-Time compilation in Angular by [Wassim Chegham](https://twitter.com/manekinekko) ( [slides](http://slides.com/wassimchegham/demystifying-ahead-of-time-compilation-in-angular-2-aot-jit#/), [video](https://www.youtube.com/watch?v=Cne9MzWrZ5I&index=11&list=PLQi8NNYCH8TDFnOhjrIsjZGMD6Ks8SQid))
+## Demystifying Ahead-Of-Time compilation in Angular by [Wassim Chegham](https://twitter.com/manekinekko) ( [slides](https://slides.com/wassimchegham/demystifying-ahead-of-time-compilation-in-angular-2-aot-jit#/), [video](https://www.youtube.com/watch?v=Cne9MzWrZ5I&index=11&list=PLQi8NNYCH8TDFnOhjrIsjZGMD6Ks8SQid))
 
 Quick intro about JIT.
 
@@ -158,7 +158,7 @@ Why not REST:
 Key points:
 
 - it's only single request, and no useless overfetching.
-- **[Schema](http://graphql.org/learn/schema/)** to describe data/request structure.
+- **[Schema](https://graphql.org/learn/schema/)** to describe data/request structure.
 - nice tool to check our graphQL requests
 - some documentation on Angular Cookbook.
 - [Apollo Client chrome extension](https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm).
@@ -168,7 +168,7 @@ Key points:
 
 ## Improving Startup Performance with Lazy Loading in Angular by Manfred Steyer ( [code](https://github.com/manfredsteyer/lazy-loading-preloading-angular) , [video](https://www.youtube.com/watch?v=n6EMOeCDfjc&index=12&list=PLQi8NNYCH8TDFnOhjrIsjZGMD6Ks8SQid) )
 
-I've already saw this talk on [ng-be](http://stepansuvorov.com/blog/2016/12/ng-be-2016-brief-review/), so I decided to go to workshop instead.
+I've already saw this talk on [ng-be](https://stepansuvorov.com/blog/2016/12/ng-be-2016-brief-review/), so I decided to go to workshop instead.
 
 Strictly recommend you to watch part about **preloading of lazy modules**.
 

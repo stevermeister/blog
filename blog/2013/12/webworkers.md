@@ -6,7 +6,7 @@ date: "2013-12-04"
 
 ![](images/crash-of-rhino-300x114.png "crash-of-rhino")
 
-Да, в **JavaScript** тоже есть многопоточность(либо подобие) и реализована по средством инструмента **[Web Workers](http://www.w3.org/TR/workers/ "w3")**, о использовании которого и поговорим в данном посте.
+Да, в **JavaScript** тоже есть многопоточность(либо подобие) и реализована по средством инструмента **[Web Workers](https://www.w3.org/TR/workers/ "w3")**, о использовании которого и поговорим в данном посте.
 
 Идея реализации: "тяжелые" операции, которые можно выполнять асинхронно(не блокирую работу браузера), выносятся в отдельные модули-файлы; это может быть: обработка большого количества данных, кеширование, проверка правописания, фильтрация изображений на canvas. В браузере для каждого такого файла создается объект **Worker**, по средством которого и осуществляется коммуникация.
 
@@ -25,7 +25,7 @@ if (!!window.Worker)
 
 ##  Простой пример
 
-На сайте [w3](http://www.w3.org/TR/workers/) дали довольно наглядный пример, который я немного модифицировал расширив передачу данных в обе стороны. Итак, у нас есть 2 файла: основной(для простоты пишем внутри хтмл файла) **test.html** и файл воркера **worker.js**. Мы задались целью выводить на экран [простые числа](http://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B5_%D1%87%D0%B8%D1%81%D0%BB%D0%BE) в заданном диапозоне, но, так как операция по определению является ли число простым довольно ресурсоемкая, особенно для больших чисел, мы вынесем ее в отдельный фоновый поток (**worker**). Код этой функции и будет находиться в файле **worker.js**.
+На сайте [w3](https://www.w3.org/TR/workers/) дали довольно наглядный пример, который я немного модифицировал расширив передачу данных в обе стороны. Итак, у нас есть 2 файла: основной(для простоты пишем внутри хтмл файла) **test.html** и файл воркера **worker.js**. Мы задались целью выводить на экран [простые числа](https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B5_%D1%87%D0%B8%D1%81%D0%BB%D0%BE) в заданном диапозоне, но, так как операция по определению является ли число простым довольно ресурсоемкая, особенно для больших чисел, мы вынесем ее в отдельный фоновый поток (**worker**). Код этой функции и будет находиться в файле **worker.js**.
 
 Итого, **test.html**:
 
@@ -66,7 +66,7 @@ function isPrime(number){
     return true;
 }
 
-Для тех,  кто хочет поиграться с примером, - пожалуйста [сюда](http://learn.javascript.ru/play/DJ8n1b).
+Для тех,  кто хочет поиграться с примером, - пожалуйста [сюда](https://learn.javascript.ru/play/DJ8n1b).
 
 Теперь немного комментариев.
 
@@ -114,9 +114,9 @@ addEventListener('message', function(e) {
 - Объект `location` (только чтение)
 - `XMLHttpRequest`
 - `setTimeout()/clearTimeout()` и `setInterval()/clearInterval()`
-- [Кэш приложений](http://www.html5rocks.com/tutorials/appcache/beginner/)
+- [Кэш приложений](https://www.html5rocks.com/tutorials/appcache/beginner/)
 - Импорт внешних скриптов с использованием метода `importScripts()`
-- [Создание других объектов Web Worker](http://www.html5rocks.com/ru/tutorials/workers/basics/#toc-enviornment-subworkers)
+- [Создание других объектов Web Worker](https://www.html5rocks.com/ru/tutorials/workers/basics/#toc-enviornment-subworkers)
 
 У **worker**\-скрипта **нет доступа** к:
 
@@ -145,7 +145,7 @@ Maximum number of Web Worker instances(256) exceeded for this window.
 
 ## Динамическое создание worker-скриптов
 
-Иногда возникает необходимо создать **worker**\-скрипт динамически(!внимание именно **worker**\-скрипт, а не сам **worker**), в зависимости от различных условий. В таком случае создание **worker** из отдельного файла нас не устраивает и мы должны воспользоваться вторым способом - через подготовленный объект [Blob](http://dev.w3.org/2009/dap/file-system/file-writer.html#the-blobbuilder-interface), а точнее - ссылки на него.
+Иногда возникает необходимо создать **worker**\-скрипт динамически(!внимание именно **worker**\-скрипт, а не сам **worker**), в зависимости от различных условий. В таком случае создание **worker** из отдельного файла нас не устраивает и мы должны воспользоваться вторым способом - через подготовленный объект [Blob](https://dev.w3.org/2009/dap/file-system/file-writer.html#the-blobbuilder-interface), а точнее - ссылки на него.
 
 Вот так это будет выглядеть в коде
 
@@ -171,8 +171,8 @@ var script = document.querySelector('#worker1').textContent;
 ## Литература
 
 - [Using web workers](https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers "MDN")
-- [The Basics of Web Workers](http://www.html5rocks.com/en/tutorials/workers/basics/) ( и [русский перевод](http://www.html5rocks.com/ru/tutorials/workers/basics/), который, к сожалению, не обновляется)
-- [Introduction to HTML5 Web Workers: The JavaScript Multi-threading Approach](http://msdn.microsoft.com/en-us/hh549259.aspx "msdn")
-- [Web Workers](http://msdn.microsoft.com/en-us/library/ie/hh673568(v=vs.85).aspx "Internet Explorer Dev Center") 
+- [The Basics of Web Workers](https://www.html5rocks.com/en/tutorials/workers/basics/) ( и [русский перевод](https://www.html5rocks.com/ru/tutorials/workers/basics/), который, к сожалению, не обновляется)
+- [Introduction to HTML5 Web Workers: The JavaScript Multi-threading Approach](https://msdn.microsoft.com/en-us/hh549259.aspx "msdn")
+- [Web Workers](https://msdn.microsoft.com/en-us/library/ie/hh673568(v=vs.85).aspx "Internet Explorer Dev Center") 
 
 _К сожалению, примеров, которые бы показались мне интересными, не нашел. Сам сейчас работаю над более продвинутой версией получения больших простых чисел._

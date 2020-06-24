@@ -6,13 +6,13 @@ date: "2015-04-21"
 
 ![Angular concepts](images/8A1копирование.png)
 
-2 years ago you [Sergey](http://www.ilinsky.com/ "http://www.ilinsky.com/") asked me to create **AngularJs Concept Diagram**, and finally I have enough knowledge and time to do this task. Better late than never.
+2 years ago you [Sergey](https://www.ilinsky.com/ "https://www.ilinsky.com/") asked me to create **AngularJs Concept Diagram**, and finally I have enough knowledge and time to do this task. Better late than never.
 
 After many hours of going back and forth in source code of AngularJS I think I came to understanding all the concepts of framework and their interactions. So the simplified diagram is not complex at all:
 
 ![Angular concepts simplified](images/page11.png)
 
-All based on [Dependency Injection](http://en.wikipedia.org/wiki/Dependency_injection "wiki")(DI) approach and the instances of DI are AngularJS Services. The main 3 of them: **Scope**, **Directive**, **Compile**. **Compile** is a service, it's obvious. Yes, **Scope** [is also service](https://github.com/angular/angular.js/blob/master/src/ng/rootScope.js#L70 "github"). **Directive** constructor itself is just method of **Compile** service(that is linked to **yourModule.directive**), but when you create new directive instance it will be [still a service](https://github.com/angular/angular.js/blob/master/src/ng/compile.js#L829 "github"), just with specific suffix. And **controller** (which is **ngController**) is [just a directive](https://github.com/angular/angular.js/blob/master/src/ng/directive/ngController.js#L229 "github.com"), one from the set that AngularJS provided from the box.
+All based on [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection "wiki")(DI) approach and the instances of DI are AngularJS Services. The main 3 of them: **Scope**, **Directive**, **Compile**. **Compile** is a service, it's obvious. Yes, **Scope** [is also service](https://github.com/angular/angular.js/blob/master/src/ng/rootScope.js#L70 "github"). **Directive** constructor itself is just method of **Compile** service(that is linked to **yourModule.directive**), but when you create new directive instance it will be [still a service](https://github.com/angular/angular.js/blob/master/src/ng/compile.js#L829 "github"), just with specific suffix. And **controller** (which is **ngController**) is [just a directive](https://github.com/angular/angular.js/blob/master/src/ng/directive/ngController.js#L229 "github.com"), one from the set that AngularJS provided from the box.
 
 Lets have a look on concepts list from [official tutorial](https://docs.angularjs.org/guide/concepts):
 

@@ -6,7 +6,7 @@ date: "2014-03-04"
 
 ![](images/gulp.png "gulp logo")
 
-[Gulp.js](http://gulpjs.com/) это потоковый сборщик проектов на **JavaScript**, интересная альтернатива [Grunt.js](http://gruntjs.com/ "gruntjs.com").
+[Gulp.js](https://gulpjs.com/) это потоковый сборщик проектов на **JavaScript**, интересная альтернатива [Grunt.js](https://gruntjs.com/ "gruntjs.com").
 
 ## Установка
 
@@ -24,7 +24,7 @@ $ gulp --version
 \[gulp\] CLI version 3.5.2
 \[gulp\] Local version 3.5.2
 
-установка [плагинов](http://gratimax.github.io/search-gulp-plugins/):
+установка [плагинов](https://gratimax.github.io/search-gulp-plugins/):
 
 $ npm install gulp-livereload gulp-imagemin gulp-uglify gulp-concat
 
@@ -177,7 +177,7 @@ gulp.task('server', function() {
 Материалы, которые вдохновляли на пост:
 
 - [Gulp This](https://laracasts.com/lessons/gulp-this)
-- [GulpJS — фантастически быстрый сборщик проектов](http://habrahabr.ru/post/208890/)
-- [Build Wars](http://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt/)
-- [An Introduction to Gulp.js](http://www.sitepoint.com/introduction-gulp-js/)
-- [Writing Tasks](http://tooling.github.io/book-of-modern-frontend-tooling/build-systems/gulp/writing-tasks.html "http://tooling.github.io/")
+- [GulpJS — фантастически быстрый сборщик проектов](https://habrahabr.ru/post/208890/)
+- [Build Wars](https://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt/)
+- [An Introduction to Gulp.js](https://www.sitepoint.com/introduction-gulp-js/)
+- [Writing Tasks](https://tooling.github.io/book-of-modern-frontend-tooling/build-systems/gulp/writing-tasks.html "https://tooling.github.io/")

@@ -18,4 +18,4 @@ date: "2017-01-20"
 
 соотвественно выведет: 1 2 3.
 
-Подробно вопрсос освещен на [стеке](http://stackoverflow.com/questions/41273244/angular-testing-http-with-mockbackend-is-async-really-required).
+Подробно вопрсос освещен на [стеке](https://stackoverflow.com/questions/41273244/angular-testing-http-with-mockbackend-is-async-really-required).

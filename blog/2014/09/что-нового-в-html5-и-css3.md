@@ -51,7 +51,7 @@ date: "2014-09-09"
 
 ## Рисование используя элемент canvas
 
-- [<canvas> элемент](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial) , [много примеров](http://www.html5canvastutorials.com/)
+- [<canvas> элемент](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial) , [много примеров](https://www.html5canvastutorials.com/)
 
 ## Локальное хранилище
 
@@ -96,6 +96,6 @@ date: "2014-09-09"
 
 # Литература
 
-- [Differences from HTML4](http://www.w3.org/TR/html5-diff/ "w3.org")
-- [Dive Into HTML5](http://diveintohtml5.info/ "diveintohtml5.info")
-- [HTML 5 Demos and Examples](http://html5demos.com/ "html5demos.com")
+- [Differences from HTML4](https://www.w3.org/TR/html5-diff/ "w3.org")
+- [Dive Into HTML5](https://diveintohtml5.info/ "diveintohtml5.info")
+- [HTML 5 Demos and Examples](https://html5demos.com/ "html5demos.com")

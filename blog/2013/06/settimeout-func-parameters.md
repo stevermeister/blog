@@ -16,4 +16,4 @@ setTimeout(alert, 5000, "YES")
 
  
 
-_P.S.: [Сергей](http://www.ilinsky.com/), спасибо за тему._
+_P.S.: [Сергей](https://www.ilinsky.com/), спасибо за тему._

@@ -22,4 +22,4 @@ git stash apply
 
 Если сравнить с SVN, то  git stash чем-то похож на svn patch, только тут мы еще код возвращаем в исходную версию, а потом уже можно применить этот патч.
 
-Более подробно можно почитать [тут](http://git-scm.com/book/en/Git-Tools-Stashing).
+Более подробно можно почитать [тут](https://git-scm.com/book/en/Git-Tools-Stashing).

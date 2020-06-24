@@ -4,11 +4,11 @@ tags: "bower,javascript,Хочу сделать мир лучше"
 date: "2013-03-26"
 ---
 
-[![](images/bower_logo-300x136.png "bower_logo")](http://twitter.github.com/bower/)
+[![](images/bower_logo-300x136.png "bower_logo")](https://twitter.github.com/bower/)
 
 > Currently, people are managing dependencies, such as JavaScript libraries, manually. This sucks.
 
-Крупные проекты как правило используют большое количество сторонних библиотек, таких как **jQuery**, **Underscore**, различные **UI** и плагины к ним, **компонентные фреймворки** и шаблоны к ним. Так вот, хранить весь этот сторонний код вместе с проектом не очень удобно. А, если еще учесть, что каждая библиотека должна иметь хотя бы 2 файла: минифицированый и отладочный, то структура проекта превращается в свалку, в которой уже довольно трудно разобраться. Да, частично решают вопрос git-ссылки репозитрия (когда мы не копируем контент, а ставим ссылку на репозиторий библиотеки), но это все равно не очень удобно. Хотелось бы совсем избавиться от этого стороннего кода в репозитории. Вот для этого и нужен **[bower](http://twitter.github.com/bower/)**.
+Крупные проекты как правило используют большое количество сторонних библиотек, таких как **jQuery**, **Underscore**, различные **UI** и плагины к ним, **компонентные фреймворки** и шаблоны к ним. Так вот, хранить весь этот сторонний код вместе с проектом не очень удобно. А, если еще учесть, что каждая библиотека должна иметь хотя бы 2 файла: минифицированый и отладочный, то структура проекта превращается в свалку, в которой уже довольно трудно разобраться. Да, частично решают вопрос git-ссылки репозитрия (когда мы не копируем контент, а ставим ссылку на репозиторий библиотеки), но это все равно не очень удобно. Хотелось бы совсем избавиться от этого стороннего кода в репозитории. Вот для этого и нужен **[bower](https://twitter.github.com/bower/)**.
 
 По сути, вместо всех этих сторонних библиотек с помощью **bower** мы можем хранить в репозитории только инструкцию по их загрузке и потом при разворачивании проекта выполнить команду, которая подтянет все необходимые файлы к нам.
 
@@ -40,7 +40,7 @@ bower install jquery
     
 - http ссылка на файл
     
-    bower install http://foo.com/jquery.awesome-plugin.js
+    bower install https://foo.com/jquery.awesome-plugin.js
     
 - локальный путь
     
@@ -57,7 +57,7 @@ bower install components/jquery#1.8.x
 
 Кроме команды **install**, есть также команда **update**.
 
-Для поиска по готовым пакетам существуют команды **list** и **search**. Также можно воспользоваться [вот этим](http://sindresorhus.com/bower-components/) онлайн инструментом.
+Для поиска по готовым пакетам существуют команды **list** и **search**. Также можно воспользоваться [вот этим](https://sindresorhus.com/bower-components/) онлайн инструментом.
 
 Теперь перейдем к самой интересной части - составлению конфиг файла для проекта, который подтянет все зависимости одной командой
 
@@ -128,6 +128,6 @@ bower.commands
 
 Материалы, которые вдохновляли на написание данной статьи:
 
-- [Оф сайт Bower](http://twitter.github.com/bower)
-- [Meet Bower: A Package Manager For The Web](http://net.tutsplus.com/tutorials/tools-and-tips/meet-bower-a-package-manager-for-the-web/ "nice article by Andrew Burgess")
+- [Оф сайт Bower](https://twitter.github.com/bower)
+- [Meet Bower: A Package Manager For The Web](https://net.tutsplus.com/tutorials/tools-and-tips/meet-bower-a-package-manager-for-the-web/ "nice article by Andrew Burgess")
 - [Док файл, в котором идет доработка и обсуждедие спецификации Bower](https://docs.google.com/document/d/1APq7oA9tNao1UYWyOm8dKqlRP2blVkROYLZ2fLIjtWc)

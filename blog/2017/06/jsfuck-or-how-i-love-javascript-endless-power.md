@@ -14,4 +14,4 @@ and now you can take any letter :
 
 https://gist.github.com/stevermeister/3ea1b72972dfd8eb053aa0bac47f1138
 
-You can try to challenge yourself and convert any JS code into this format (that is called JSFuck) and there is even [online converter](http://www.jsfuck.com/) that will help you with this task.
+You can try to challenge yourself and convert any JS code into this format (that is called JSFuck) and there is even [online converter](https://www.jsfuck.com/) that will help you with this task.

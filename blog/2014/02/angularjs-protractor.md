@@ -62,7 +62,7 @@ exports.config = {
 
 describe('angularjs homepage', function() {
   it('should greet the named user', function() {
-    browser.get('http://www.angularjs.org');
+    browser.get('https://www.angularjs.org');
     element(by.model('yourName')).sendKeys('Julie');
     var greeting = element(by.binding('yourName'));
     expect(greeting.getText()).toEqual('Hello Julie!');
@@ -71,7 +71,7 @@ describe('angularjs homepage', function() {
 
 Из описания видно что наш тест:
 
-- зайдет на страницу http://www.angularjs.org
+- зайдет на страницу https://www.angularjs.org
 - выберет елемент связанный с моделью _yourName_ и установит значение _'Julie'_
 - выберет элемент по связке(bind) с моделью _yourName_
 - проверит что текст приветствия равен _'Hello Julie!'_
@@ -171,7 +171,7 @@ function(){}
 
 ## Написание тестов
 
-По умолчанию используется [Jasmine](http://pivotal.github.io/jasmine/) фреймворк, но при желании его можно поменять на [mocha](http://mochajs.org/)(инструкции [тут](http://angular.github.io/protractor/#/frameworks "angular.github.io/protractor") ).
+По умолчанию используется [Jasmine](https://pivotal.github.io/jasmine/) фреймворк, но при желании его можно поменять на [mocha](https://mochajs.org/)(инструкции [тут](https://angular.github.io/protractor/#/frameworks "angular.github.io/protractor") ).
 
 Глобальные переменные, которые добавляет **протрактор**:
 
@@ -203,7 +203,7 @@ function(){}
 
 Учитавая что ваше приложение скорее всего подгружает большое количество контента асинхронно, то повозится со спецификой прийдется прилично.
 
-Воздержусь от подробного разбора данного пункта, так как в зависимости от выбранной библиотеки подходы в написании тестов могут отличатся. Единственное что скажу: сразу для себя настроил **[mocha](http://mochajs.org/ "mocha test framework")**\-фреймворк, с ним намного удобнее работать с асинхронными операциями.
+Воздержусь от подробного разбора данного пункта, так как в зависимости от выбранной библиотеки подходы в написании тестов могут отличатся. Единственное что скажу: сразу для себя настроил **[mocha](https://mochajs.org/ "mocha test framework")**\-фреймворк, с ним намного удобнее работать с асинхронными операциями.
 
 ## Создание снимков экрана
 
@@ -254,7 +254,7 @@ Commands: run (r), cont (c), next (n), step (s), out (o), backtrace (bt), setBre
 watch, unwatch, watchers, repl, restart, kill, list, scripts, breakOnException, breakpoints, version
 debug>
 
-Используется [node-debugger](http://nodejs.org/api/debugger.html), только точка остановки задается методом _browser.debugger()_; вмето _debugger;_
+Используется [node-debugger](https://nodejs.org/api/debugger.html), только точка остановки задается методом _browser.debugger()_; вмето _debugger;_
 
 ## Интерактивный запуск
 
@@ -268,7 +268,7 @@ $ node ./bin/elementexplorer.js
 
 Теперь можно  выполнить что-то типа такого:
 
-\> browser.get('http://www.angularjs.org')
+\> browser.get('https://www.angularjs.org')
 
 или просто
 
@@ -278,7 +278,7 @@ $ node ./bin/elementexplorer.js
 
 Что можно еще интересного почитать в тему:
 
-- [Advanced Testing and Debugging in AngularJS](http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html)
-- [Advanced Protractor features](http://eitanp461.blogspot.nl/2014/01/advanced-protractor-features.html)
+- [Advanced Testing and Debugging in AngularJS](https://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html)
+- [Advanced Protractor features](https://eitanp461.blogspot.nl/2014/01/advanced-protractor-features.html)
 
 Приятных вам тестов с **Protractor**!

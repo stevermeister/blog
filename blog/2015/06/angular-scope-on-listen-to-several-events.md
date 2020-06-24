@@ -18,4 +18,4 @@ names.forEach(function(name) { $onOrigin.call(self, name, listener); });
 
 }; \[/javascript\]
 
-Sandbox for this code you can find [here](http://jsfiddle.net/STEVER/h6u92pe8/).
+Sandbox for this code you can find [here](https://jsfiddle.net/STEVER/h6u92pe8/).

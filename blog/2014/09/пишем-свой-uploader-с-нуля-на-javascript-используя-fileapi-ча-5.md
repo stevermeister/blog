@@ -8,10 +8,10 @@ date: "2014-09-07"
 
 Рекомендую пролистать предыдущие части перед началом разбора этой:
 
-- [Часть 1](http://stepansuvorov.com/blog/2012/04/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0/)
-- [Часть 2](http://stepansuvorov.com/blog/2012/06/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0-2/)
-- [Часть 3](http://stepansuvorov.com/blog/2012/07/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0-3/)
-- [Часть 4](http://stepansuvorov.com/blog/2012/07/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0-4/)
+- [Часть 1](https://stepansuvorov.com/blog/2012/04/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0/)
+- [Часть 2](https://stepansuvorov.com/blog/2012/06/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0-2/)
+- [Часть 3](https://stepansuvorov.com/blog/2012/07/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0-3/)
+- [Часть 4](https://stepansuvorov.com/blog/2012/07/%D0%BF%D0%B8%D1%88%D0%B5%D0%BC-%D1%81%D0%B2%D0%BE%D0%B9-uploader-%D1%81-%D0%BD%D1%83%D0%BB%D1%8F-%D0%BD%D0%B0-javascript-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-fileapi-%D1%87%D0%B0-4/)
 
 Разберем несколько ключевых поментов подключения FileApi к AngularJS:
 
@@ -51,7 +51,7 @@ ngModel.$render = angular.noop;
 
 element.bind('change', function(event) { ngModel.$setViewValue(event.target.files\[0\]); $scope.$apply(); }); } }; }); \[/javascript\]
 
-[Пример полностью](http://jsfiddle.net/STEVER/gymbzmgo/ "jsfiddle.net").
+[Пример полностью](https://jsfiddle.net/STEVER/gymbzmgo/ "jsfiddle.net").
 
 ## Сервис для FileApi
 
@@ -110,4 +110,4 @@ return { readAsDataUrl: readAsDataUrl }; } \[/javascript\]
 
 **FileReader** - раннее созданный сервис оболочка на window.FileReader с промисами **filePreview: '='** - создаем изолированный скоуп и линкуем модель **scope.$watch('filePreview'** - отслеживаем изменение модели **FileReader.readAsDataUrl(filePreview)** - считываем файл **element.attr('src', result)** - задаем картинку
 
-Поиграться с примером можно [тут](http://jsfiddle.net/STEVER/e8719c1j/ "jsfiddle.net").
+Поиграться с примером можно [тут](https://jsfiddle.net/STEVER/e8719c1j/ "jsfiddle.net").

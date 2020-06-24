@@ -44,7 +44,7 @@ excludesfile = ~/.gitexcludes
 
 $ git config --global core.editor sourcetree
 
-в моем случае это [sourcetree](http://www.sourcetreeapp.com/). Теперь все конфликты и дифы будет обрабатываться в нем.
+в моем случае это [sourcetree](https://www.sourcetreeapp.com/). Теперь все конфликты и дифы будет обрабатываться в нем.
 
 commit-сообщения по умолчанию
 
@@ -55,4 +55,4 @@ template = ~/.commit-template
 
  
 
-Если вдохновило - полный ман [тут](http://git-scm.com/book/ru/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-Git-%D0%9A%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-Git).
+Если вдохновило - полный ман [тут](https://git-scm.com/book/ru/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-Git-%D0%9A%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-Git).

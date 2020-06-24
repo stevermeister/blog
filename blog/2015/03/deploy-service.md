@@ -4,7 +4,7 @@ tags: "bitbucket,deploy,github,online,tool,Хочу сделать мир луч
 date: "2015-03-03"
 ---
 
-[![semaphore-logo](images/logo-661a8bb0455b3c85a019aa830dd1b109.png)](https://semaphoreapp.com/ "https://semaphoreapp.com/")  [![dploy-logo](images/Screenshot-2015-03-03-13.40.59.png)](http://dploy.io/ "http://dploy.io/")  [![ftploy-logo](images/Screenshot-2015-03-03-13.41.25.png)](http://ftploy.com/ "http://ftploy.com/")  [![codeship-logo](images/Screenshot-2015-03-03-13.43.17.png)](https://codeship.com/ "https://codeship.com/")
+[![semaphore-logo](images/logo-661a8bb0455b3c85a019aa830dd1b109.png)](https://semaphoreapp.com/ "https://semaphoreapp.com/")  [![dploy-logo](images/Screenshot-2015-03-03-13.40.59.png)](https://dploy.io/ "https://dploy.io/")  [![ftploy-logo](images/Screenshot-2015-03-03-13.41.25.png)](https://ftploy.com/ "https://ftploy.com/")  [![codeship-logo](images/Screenshot-2015-03-03-13.43.17.png)](https://codeship.com/ "https://codeship.com/")
 
 На данным момент мы для своего [проекта](https://www.studytube.nl/ "https://www.studytube.nl/") используем [semaphore](https://semaphoreapp.com/ "https://semaphoreapp.com/"). Этот же сервис я использую и для своих личный проектов. Задача на него ставиться простая: при каждом пуше в мастер - выливаем код в продакшен, предварительно выполнив тесты и подготовив билд.
 
@@ -12,7 +12,7 @@ date: "2015-03-03"
 
 Попробовали как альтернативу использовать [Codeship](https://codeship.com/ "https://codeship.com/") - не понравилось.
 
-Потом еще наткнулся на [dploy](http://dploy.io/ "http://dploy.io/") и [ftploy](http://ftploy.com/ "http://ftploy.com/") - не впечатлило.
+Потом еще наткнулся на [dploy](https://dploy.io/ "https://dploy.io/") и [ftploy](https://ftploy.com/ "https://ftploy.com/") - не впечатлило.
 
 Если у вас есть опыт успешного использования какого-либо подобного сервиса - поделитесь пожалуйста в комментариях.
 

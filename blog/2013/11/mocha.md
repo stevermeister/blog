@@ -6,7 +6,7 @@ date: "2013-11-29"
 
 ![](images/mocha_logo-300x116.png "mocha_logo")
 
-[Mocha](http://visionmedia.github.com/mocha/) - JavaScript тест-фреймворк, который можно запускать как на node.js, так и в браузере, удобен для асинхронного тестирования.
+[Mocha](https://visionmedia.github.com/mocha/) - JavaScript тест-фреймворк, который можно запускать как на node.js, так и в браузере, удобен для асинхронного тестирования.
 
 \* Правильное произношение слова: "_мока_".
 
@@ -51,7 +51,7 @@ Mocha позволяет использовать на выбор библиот
 
 - [should.js](https://github.com/visionmedia/should.js) BDD style
 - [expect.js](https://github.com/LearnBoost/expect.js)
-- [chai](http://chaijs.com/) expect(), assert() and should style assertions
+- [chai](https://chaijs.com/) expect(), assert() and should style assertions
 - [better-assert](https://github.com/visionmedia/better-assert)
 
  
@@ -145,4 +145,4 @@ $ mocha --reporter list
 
  
 
-В своем проекте мы использовали связку **mocha** + **chai.expect**. и запускали через **[karma](http://karma-runner.github.io/0.10/index.html)**.
+В своем проекте мы использовали связку **mocha** + **chai.expect**. и запускали через **[karma](https://karma-runner.github.io/0.10/index.html)**.

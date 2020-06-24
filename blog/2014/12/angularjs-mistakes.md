@@ -4,7 +4,7 @@ tags: "AngularJs,javascript,Хочу сделать мир лучше"
 date: "2014-12-08"
 ---
 
-Пост представляет собой микс перевода/переработки статьи [The Top 10 Mistakes AngularJS Developers Make](https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make) и личного [грабельного опыта](http://keddr.com/wp-content/uploads/2014/04/2830180.gif "хорошая иллюстрация").
+Пост представляет собой микс перевода/переработки статьи [The Top 10 Mistakes AngularJS Developers Make](https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make) и личного [грабельного опыта](https://keddr.com/wp-content/uploads/2014/04/2830180.gif "хорошая иллюстрация").
 
 ## Введение
 
@@ -20,7 +20,7 @@ AngularJS - грубо говоря MVC фреймворк: модели не т
 
 ![](images/Screenshot-2014-11-17-14.53.23.png "good modular angularjs folder strcture")
 
-Такая структура директорий делает поиск конкретного файла намного проще и соотвественно ускоряет разработку. В итоге для нашего проекта мы пришли к [вот такой](http://stepansuvorov.com/blog/2013/11/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BD%D0%B0%D1%88%D0%B5%D0%B3%D0%BE-angularjs-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/ "Структура нашего AngularJS проекта")модульной структуре.
+Такая структура директорий делает поиск конкретного файла намного проще и соотвественно ускоряет разработку. В итоге для нашего проекта мы пришли к [вот такой](https://stepansuvorov.com/blog/2013/11/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BD%D0%B0%D1%88%D0%B5%D0%B3%D0%BE-angularjs-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/ "Структура нашего AngularJS проекта")модульной структуре.
 
 ## 2\. Модули (а точнее - их нехватка)
 
@@ -72,7 +72,7 @@ Dependency injection - один из лучших паттернов AngularJs. 
 
 Часто при разработке на **AngularJS** возникает необходимость использования сторонних библиотек, которые в большей части представляют из себя глобальные объекты/функции (то есть доступны в любом месте кода). То, что мы можем их везде использовать не задумываясь о подключении, - это хорошо, но ломает паттерн ангуляра и ведет к ряду неприятных последствий при тестировании(и не только). AngularJS позволяет легко завернуть эти глобальные переменные в модули/сервисы и потом их подключать.
 
-Например библиотека [Underscore.js](http://underscorejs.org/), которая существенно упрощает JavaScript код, может быть обернута в модуль/сервис следующим образом:
+Например библиотека [Underscore.js](https://underscorejs.org/), которая существенно упрощает JavaScript код, может быть обернута в модуль/сервис следующим образом:
 
 \[javascript\] var underscore = angular.module('underscore', \[\]); underscore.factory('\_', function($window) { return $window.\_; }); var app = angular.module('app', \['underscore'\]); app.controller('MainCtrl', \['$scope', '\_', function($scope, \_) { init = function() { \_.keys($scope); } init(); }\]); \[/javascript\]
 
@@ -88,7 +88,7 @@ Dependency injection - один из лучших паттернов AngularJs. 
 
 ## 5\. service или factory
 
-Наличие в фреймворке одновременно **service** и **factory** может сбить с толку начинающих разработчиков. Но все должно стать на свои места, когда вы поймете, что это всего лишь [синтаксический сахар для провайдеров](http://stepansuvorov.com/blog/2013/03/angularjs-%D1%87%D0%B5%D0%BC-%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%B0%D0%B5%D1%82%D1%81%D1%8F-provider-factory-%D0%B8-service/ "чем отличается provider, factory и service").
+Наличие в фреймворке одновременно **service** и **factory** может сбить с толку начинающих разработчиков. Но все должно стать на свои места, когда вы поймете, что это всего лишь [синтаксический сахар для провайдеров](https://stepansuvorov.com/blog/2013/03/angularjs-%D1%87%D0%B5%D0%BC-%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%B0%D0%B5%D1%82%D1%81%D1%8F-provider-factory-%D0%B8-service/ "чем отличается provider, factory и service").
 
 Так чем же все таки они отличаются? Суть скрывается в методе **$injector.instantiate**, благодаря которому инжектор создает новую сущность сервиса используя его функцию-конструктор.
 
@@ -122,7 +122,7 @@ return { hello: function(name){ return "Hello " + privateFunc(name); } }; }); \[
 
 ## 6\. Игнорирование инструментов Batarang и ng-inspector
 
-**[Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en "chrome.google.com/webstore")** - расширение для Chrome браузера. Более подробно в [этом](http://stepansuvorov.com/blog/2013/07/angularjs-batarang/ "AngularJs Batarang") посте.
+**[Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en "chrome.google.com/webstore")** - расширение для Chrome браузера. Более подробно в [этом](https://stepansuvorov.com/blog/2013/07/angularjs-batarang/ "AngularJs Batarang") посте.
 
 ![](images/angular-batarang-300x186.png "angular-batarang")
 
@@ -132,13 +132,13 @@ return { hello: function(name){ return "Hello " + privateFunc(name); } }; }); \[
 - граф зависимостей (например: для выявления перегруженных сущностей)
 - аналитика производительности (для определения наиболее ресурсоемких операций)
 
-**[ng-inspector](http://ng-inspector.org/)** - еще одно полезное расширение для Chrome (так же существует для Safari). Предоставляет удобный обзор структуры scope (что в Batarang сделано не самым лучшим образом).
+**[ng-inspector](https://ng-inspector.org/)** - еще одно полезное расширение для Chrome (так же существует для Safari). Предоставляет удобный обзор структуры scope (что в Batarang сделано не самым лучшим образом).
 
 ![](images/ng-inspector-300x180.png "ng-inspector")
 
 ## 7\. Слишком много вотчеров
 
-Как было отмечено в предыдущем пункте: AngularJS довольно производительный уже "из коробки". Но когда число вотчеров превысит 2000, это может стать реальной проблемой. (Это собираются пофиксить в AngularJS 1.3, более подробно можно почитать [тут](http://www.aaron-gray.com/delaying-the-digest-cycle-in-angularjs/ "Delaying the $digest() cycle in Angularjs"))
+Как было отмечено в предыдущем пункте: AngularJS довольно производительный уже "из коробки". Но когда число вотчеров превысит 2000, это может стать реальной проблемой. (Это собираются пофиксить в AngularJS 1.3, более подробно можно почитать [тут](https://www.aaron-gray.com/delaying-the-digest-cycle-in-angularjs/ "Delaying the $digest() cycle in Angularjs"))
 
 Вот этот код покажет количество вотчеров на странице(можно быстро проверить в консоли):
 
@@ -162,13 +162,13 @@ f(root); console.log(watchers.length);
 
 !Внимание вопрос: какие поля шаблона обновятся (когда юзер вводит текст)?
 
-Если вы сразу же ответили "_только loginCtrl_", вероятно вы уже понимаете логику наследования. Поиграться с примером можно [тут](http://jsfiddle.net/STEVER/nu11ejnw "jsfiddle").
+Если вы сразу же ответили "_только loginCtrl_", вероятно вы уже понимаете логику наследования. Поиграться с примером можно [тут](https://jsfiddle.net/STEVER/nu11ejnw "jsfiddle").
 
 Суть в том, что примитивы передаются как значение, а объекты по ссылке. Поэтому, если мы хотим, чтобы обновилось также значение в котроллере navCtrl, то мы должны оперировать не значениями, а свойствами объектов, то есть вместо **user** мы запишем **user.name**:
 
 \[html\] <div ng-controller="navCtrl"> <span>{{user.name}}</span> <div ng-controller="loginCtrl"> <span>{{user.name}}</span> <input ng-model="user.name"/> </div> </div> \[/html\]
 
-Пример [тут](http://jsfiddle.net/STEVER/6kf3ch6d/ "jsfiddle.net").
+Пример [тут](https://jsfiddle.net/STEVER/6kf3ch6d/ "jsfiddle.net").
 
 Может показаться, что пример надуман. Но это не так: даже, когда мы работаем с родными ангуляровами директивами, которые имеет свой скоуп, мы можем столкнуться с проблемой такого рода.
 
@@ -176,13 +176,13 @@ f(root); console.log(watchers.length);
 
 Начинающие разработчики недооценивают силу **TDD** и проверяют весь проект при изменении в какой-то части (ну или не проверяют, тут уже от ответственности зависит). То же самое касается приложений на основе **AngularJS**. А если еще учесть тот факт, что AngularJS изначально разрабатывался как "хорошо тестируемый", а для тестирования в нашем распоряжения есть множество удобных инструментов.
 
-2 самых полулярных тест-ранера это [**Karma**](http://karma-runner.github.io/0.12/index.html "karma-runner.github.io") и [**Protractor**](http://angular.github.io/protractor/#/ "angular.github.io/protractor"). **Karma** используется для юнит тестов, а **Protractor** - для функциональных/интеграционных с подключением Selenium и имитацией "реальных" действий пользователя в браузере.
+2 самых полулярных тест-ранера это [**Karma**](https://karma-runner.github.io/0.12/index.html "karma-runner.github.io") и [**Protractor**](https://angular.github.io/protractor/#/ "angular.github.io/protractor"). **Karma** используется для юнит тестов, а **Protractor** - для функциональных/интеграционных с подключением Selenium и имитацией "реальных" действий пользователя в браузере.
 
 Полезные посты по теме:
 
-- [Karma(Testacular) в помощь тестированию](http://stepansuvorov.com/blog/2013/01/testacular-%D0%B2-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/ "Testacular в помощь тестированию")
-- [Тестируем AngularJS используя Protractor](http://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor")
-- [Автоматизируем тестирование AngularJS с Protractor](http://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor")
+- [Karma(Testacular) в помощь тестированию](https://stepansuvorov.com/blog/2013/01/testacular-%D0%B2-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/ "Testacular в помощь тестированию")
+- [Тестируем AngularJS используя Protractor](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor")
+- [Автоматизируем тестирование AngularJS с Protractor](https://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor")
 
  
 
@@ -190,7 +190,7 @@ f(root); console.log(watchers.length);
 
 Просто прекратите использовать jQuery. Серьезно! Только так вы сможете отвыкнуть от микро-проектирования "плагинчиками" и перейти к более маштабному модульному подходу.
 
-Тема подробно раскрыта в посте "[Как правильно готовить Angular](http://stepansuvorov.com/blog/2014/07/%D0%BA%D0%B0%D0%BA-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE-%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-angular/ "Как правильно готовить Angular")".
+Тема подробно раскрыта в посте "[Как правильно готовить Angular](https://stepansuvorov.com/blog/2014/07/%D0%BA%D0%B0%D0%BA-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE-%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-angular/ "Как правильно готовить Angular")".
 
 ## Выводы
 

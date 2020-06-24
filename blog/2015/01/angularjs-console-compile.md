@@ -4,7 +4,7 @@ tags: "$compile,AngularJs,console,javascript,Хочу сделать мир лу
 date: "2015-01-24"
 ---
 
-В дополнение к [этой заметке](http://stepansuvorov.com/blog/2013/03/angularjs-%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D0%B5%D0%BC-scopeinjectorcontroller-%D0%B8%D0%B7-dom/ "AngularJS: получаем scope/injector/controller из DOM") еще одна о том, как можно проверить работу шаблона/директивы/фильтра в консоли.
+В дополнение к [этой заметке](https://stepansuvorov.com/blog/2013/03/angularjs-%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D0%B5%D0%BC-scopeinjectorcontroller-%D0%B8%D0%B7-dom/ "AngularJS: получаем scope/injector/controller из DOM") еще одна о том, как можно проверить работу шаблона/директивы/фильтра в консоли.
 
 Для того, чтобы скомпилировать шаблон нам необходим **$compile** сервис, который можно получить с помощью инжектора:
 
@@ -32,4 +32,4 @@ date: "2015-01-24"
 
  
 
-Ну и при желании можно даже [кнопочку для браузера](http://jsbin.com/kepeji/1/watch?html,output "jsbin.com") сделать (просто перетащите кнопку в панель закладок и можете пользоваться везде).
+Ну и при желании можно даже [кнопочку для браузера](https://jsbin.com/kepeji/1/watch?html,output "jsbin.com") сделать (просто перетащите кнопку в панель закладок и можете пользоваться везде).

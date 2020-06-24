@@ -35,7 +35,7 @@ API для проверки данных:
 - **validationMessage** - содержит сообщение ошибки
 - **setCustomValidity(message)** - позволяет задать сообщение ошибки
 
-Поиграться с атрибутами проверки и API можно [тут](http://jsfiddle.net/STEVER/o6q4tp53/).
+Поиграться с атрибутами проверки и API можно [тут](https://jsfiddle.net/STEVER/o6q4tp53/).
 
 ## AngularJS расширения для валидации
 
@@ -67,14 +67,14 @@ API для проверки данных:
 
 Вот тут можно посмотреть как изменяются свойства в зависимости от изменения значений полей:
 
-<iframe style="width: 100%;" src="//codepen.io/sevilayha/embed/xFcdI/?height=332&amp;theme-id=0&amp;default-tab=result" width="300" height="332" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen">See the Pen <a href="http://codepen.io/sevilayha/pen/xFcdI/">AngularJS Form Validation</a> by Chris Sevilleja (<a href="http://codepen.io/sevilayha">@sevilayha</a>) on <a href="http://codepen.io">CodePen</a>. </iframe>
+<iframe style="width: 100%;" src="//codepen.io/sevilayha/embed/xFcdI/?height=332&amp;theme-id=0&amp;default-tab=result" width="300" height="332" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen">See the Pen <a href="https://codepen.io/sevilayha/pen/xFcdI/">AngularJS Form Validation</a> by Chris Sevilleja (<a href="https://codepen.io/sevilayha">@sevilayha</a>) on <a href="https://codepen.io">CodePen</a>. </iframe>
 
 Ангуляр полностью дублирует атрибуты валидации HTML5, причем в некоторых случаях оставляя их без изменения (как required), а в некоторых изменяет названия атрибута (ng-maxlength); плюс использует свои дополнительные:
 
 - **required** - просто парсит HTML5 атрибут
 - **ng-minlength**/**ng-maxlength** - ограничения по количеству символово (как и maxlength)
 - **type** - использует атрибут HTML5
-- **ng-pattern** - отличие в том что мы можем подставлять паттерн динамически и ошибка по умолчанию не тригерится наверх ([сравнить](http://plnkr.co/edit/O3RDTSi06iVNEj9jfLx4?p=preview))
+- **ng-pattern** - отличие в том что мы можем подставлять паттерн динамически и ошибка по умолчанию не тригерится наверх ([сравнить](https://plnkr.co/edit/O3RDTSi06iVNEj9jfLx4?p=preview))
 
 **!Внимание**:
 
@@ -87,7 +87,7 @@ API для проверки данных:
 
 C директивой все понятно. Но вот то, как мы вернем потом значение, не так однозначно, особенно в случае асинхронных операций.
 
-Вот пример проверки уникальности записи от [ng-newsletter](http://www.ng-newsletter.com/posts/validations.html), атрибут-директива для элемента формы, которая следит за изменением значения:
+Вот пример проверки уникальности записи от [ng-newsletter](https://www.ng-newsletter.com/posts/validations.html), атрибут-директива для элемента формы, которая следит за изменением значения:
 
 \[javascript\] app.directive('ensureUnique', \['$http', function($http) { return { require: 'ngModel', link: function(scope, ele, attrs, c) { scope.$watch(attrs.ngModel, function() { $http({ method: 'POST', url: '/api/check/' + attrs.ensureUnique, data: {'field': attrs.ensureUnique} }).success(function(data, status, headers, cfg) { c.$setValidity('unique', data.isUnique); }).error(function(data, status, headers, cfg) { c.$setValidity('unique', false); }); }); } } }\]); \[/javascript\]
 
@@ -99,7 +99,7 @@ return { require: 'ngModel', restrict: '', link: function(scope, elm, attrs, ctr
 
 ctrl.$validators.email = function(modelValue) { return ctrl.$isEmpty(modelValue) || EMAIL\_REGEXP.test(modelValue); }; } } }; }); \[/javascript\]
 
-И есть еще один интересный [пример](http://habrahabr.ru/post/167793/) с хабра и использованием свойств котроллера модели $parsers и $formatters:
+И есть еще один интересный [пример](https://habrahabr.ru/post/167793/) с хабра и использованием свойств котроллера модели $parsers и $formatters:
 
 \[javascript\] mod.directive('strongPassRequired', function () { var isValid = function(s) { return s && s.length > 5 && /\\D/.test(s) && /\\d/.test(s); };
 
@@ -119,7 +119,7 @@ ngModelCtrl.$formatters.unshift(function (modelValue) { ngModelCtrl.$setValidity
 
 \[html\] <form name="demoForm"> <input name="amount" type="number" ng-model="amount" max="100"> <div ng-messages="demoForm.amount.$error"> <div ng-message="number">Should be a number</div> <div ng-message="max">The number is too large.</div> </div> </form> \[/html\]
 
-Поиграться с кодом можно [тут](http://jsfiddle.net/STEVER/n7uzrets/).
+Поиграться с кодом можно [тут](https://jsfiddle.net/STEVER/n7uzrets/).
 
 !Внимание: при этом не забудьте подключить в зависимости ваш модуль:
 

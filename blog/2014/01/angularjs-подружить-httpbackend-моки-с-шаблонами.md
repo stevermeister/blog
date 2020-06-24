@@ -23,4 +23,4 @@ app.run(function ($httpBackend) {
 
  
 
-[Полезная статья](http://endlessindirection.wordpress.com/2013/05/18/angularjs-delay-response-from-httpbackend/) в тему и [пример](http://plnkr.co/edit/pbjcDl?p=preview "plunker"), также обсуждение на [SO](http://stackoverflow.com/questions/14761045/jasmine-tests-angularjs-directives-with-templateurl "StackOverflow").
+[Полезная статья](https://endlessindirection.wordpress.com/2013/05/18/angularjs-delay-response-from-httpbackend/) в тему и [пример](https://plnkr.co/edit/pbjcDl?p=preview "plunker"), также обсуждение на [SO](https://stackoverflow.com/questions/14761045/jasmine-tests-angularjs-directives-with-templateurl "StackOverflow").

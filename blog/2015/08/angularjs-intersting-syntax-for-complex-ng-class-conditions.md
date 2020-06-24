@@ -4,7 +4,7 @@ tags: "AngularJs,ng-class,Хочу сделать мир лучше"
 date: "2015-08-26"
 ---
 
-Just now I got known quite interesting condition syntax for [ng-class](https://docs.angularjs.org/api/ng/directive/ngClass) (from [stackoverflow answer](http://stackoverflow.com/a/8309832/274500)):
+Just now I got known quite interesting condition syntax for [ng-class](https://docs.angularjs.org/api/ng/directive/ngClass) (from [stackoverflow answer](https://stackoverflow.com/a/8309832/274500)):
 
 \[javascript gutter="0"\] ng-class="{admin:'enabled', moderator:'disabled', '':'hidden'}\[user.role\]" \[/javascript\]
 

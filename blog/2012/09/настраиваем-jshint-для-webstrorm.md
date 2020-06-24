@@ -6,7 +6,7 @@ date: "2012-09-19"
 
 ![](images/jshint_logo.png "jshint_logo")
 
-[JSHint](http://www.jshint.com/) - бесплатный инструмент для проверки JavaScript кода на соответствие стандартам оформления кода и внутри командным соглашениям. Возник как ответвление от [JSLint](http://www.jslint.com/), который разработал автор JSON формата Дуглас Крокфорд. Инструмент не имеет фиксированных правил и легко конфигурируется под конкретные требования к коду.
+[JSHint](https://www.jshint.com/) - бесплатный инструмент для проверки JavaScript кода на соответствие стандартам оформления кода и внутри командным соглашениям. Возник как ответвление от [JSLint](https://www.jslint.com/), который разработал автор JSON формата Дуглас Крокфорд. Инструмент не имеет фиксированных правил и легко конфигурируется под конкретные требования к коду.
 
 Как пишет создатель **JSHint**: "_It is quickly transforming from a tool that helps developers to prevent bugs to a tool that makes sure you write your code like Douglas Crockford._"
 
@@ -20,7 +20,7 @@ date: "2012-09-19"
 
 ![](images/jshint_error.png "jshint_error")
 
-На официальном сайте есть довольно подробная [документация](http://www.jshint.com/docs/).
+На официальном сайте есть довольно подробная [документация](https://www.jshint.com/docs/).
 
 Сам WebStrorm хранит настройки в файле .idea/jsLinters/jshint.xml, соследующей структурой:
 

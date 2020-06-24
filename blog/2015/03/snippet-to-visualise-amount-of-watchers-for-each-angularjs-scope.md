@@ -8,7 +8,7 @@ date: "2015-03-14"
 
 I've created snippet to analyse how many watchers you have in your web app and on which elements they are placed.
 
-Actually I just extended this [piece of code](http://ng.malsup.com/#!/counting-watchers "http://ng.malsup.com/#!/counting-watchers") and add overlay element visualisation, so now we have ([gist](https://gist.github.com/stevermeister/b161d31b0a41da78eafa "https://gist.github.com/stevermeister/b161d31b0a41da78eafa")):
+Actually I just extended this [piece of code](https://ng.malsup.com/#!/counting-watchers "https://ng.malsup.com/#!/counting-watchers") and add overlay element visualisation, so now we have ([gist](https://gist.github.com/stevermeister/b161d31b0a41da78eafa "https://gist.github.com/stevermeister/b161d31b0a41da78eafa")):
 
 \[javascript\] (function visualizeAngularWatchers() { var i, data, scope, count = 0, all = document.all, len = all.length, test = {}, overlayMain = angular.element('<div/>'); overlayMain.css({'z-index': 9999}); angular.element(document.body).append(overlayMain);
 

@@ -4,7 +4,7 @@ tags: "AngularJs,evalAsync,javascript,Хочу сделать мир лучше"
 date: "2015-05-09"
 ---
 
-Пост подготовлен на основе статьи "[Scope.$applyAsync() vs. Scope.$evalAsync() in AngularJS 1.3](http://www.bennadel.com/blog/2751-scope-applyasync-vs-scope-evalasync-in-angularjs-1-3.htm)" от [Ben Nadel](https://plus.google.com/108976367067760160494?rel=author "Author: Ben Nadel on Google+").
+Пост подготовлен на основе статьи "[Scope.$applyAsync() vs. Scope.$evalAsync() in AngularJS 1.3](https://www.bennadel.com/blog/2751-scope-applyasync-vs-scope-evalasync-in-angularjs-1-3.htm)" от [Ben Nadel](https://plus.google.com/108976367067760160494?rel=author "Author: Ben Nadel on Google+").
 
 Из **Angular1.2** мы все знаем метод скоупа `$evalAsync`, который позволяет вызывать код асинхронно (относительно цикла дайджеста) не прибегая к использованию сервиса $timeout.
 

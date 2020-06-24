@@ -16,7 +16,7 @@ date: "2014-04-03"
 
 чтобы еще ускорить процесс можно взять сразу все с CDN, даже не скачивая:
 
-\[html\] <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script> <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.js"></script> <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.js"></script> \[/html\]
+\[html\] <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script> <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.js"></script> <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.js"></script> \[/html\]
 
 ## Шаг2 - Добавляем шаблоны
 
@@ -60,8 +60,8 @@ App.ListRoute = Ember.Route.extend({ setupController: function(controller) { con
 
 <script type="text/x-handlebars" data-template-name="index"> <h3 class="demo-panel-title">Шаблон главной страницы</h3> <p>{{message}}</p> </script> \[/javascript\]
 
-Это все! Более подробно на [оф сайте](http://emberjs.com/guides/ "emberjs.com guies").
+Это все! Более подробно на [оф сайте](https://emberjs.com/guides/ "emberjs.com guies").
 
-Полный код приложения в [песочнице](http://jsbin.com/vatup/1/).
+Полный код приложения в [песочнице](https://jsbin.com/vatup/1/).
 
-Отдельная благодарность **Mike Grassotti** и его [развернутый ответ](http://stackoverflow.com/questions/14204674/how-to-architect-an-ember-js-application/14205734#14205734 "stackoverflow") на stackoverflow.
+Отдельная благодарность **Mike Grassotti** и его [развернутый ответ](https://stackoverflow.com/questions/14204674/how-to-architect-an-ember-js-application/14205734#14205734 "stackoverflow") на stackoverflow.

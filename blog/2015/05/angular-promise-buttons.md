@@ -8,4 +8,4 @@ date: "2015-05-07"
 
 [**angular-promise-buttons**](https://github.com/johannesjo/angular-promise-buttons) is a nice module for AngularJS that saves you from toggling the loading indicator each time on button click.
 
-[Here](http://plnkr.co/edit/yKrlohXVL15fRjTjZHBJ?p=preview) I created a sandbox to play with the code.
+[Here](https://plnkr.co/edit/yKrlohXVL15fRjTjZHBJ?p=preview) I created a sandbox to play with the code.

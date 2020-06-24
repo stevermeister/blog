@@ -137,7 +137,7 @@ myapp.directive('foo', function() {
 
 ## Забудьте о сервисах и провайдерах
 
-Нет никакого смысла использовать сервисы, фабрики, провайдеры, константы, потому что [они делают одно и тоже](http://stepansuvorov.com/blog/2013/03/angularjs-%D1%87%D0%B5%D0%BC-%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%B0%D0%B5%D1%82%D1%81%D1%8F-provider-factory-%D0%B8-service/).
+Нет никакого смысла использовать сервисы, фабрики, провайдеры, константы, потому что [они делают одно и тоже](https://stepansuvorov.com/blog/2013/03/angularjs-%D1%87%D0%B5%D0%BC-%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%B0%D0%B5%D1%82%D1%81%D1%8F-provider-factory-%D0%B8-service/).
 
 Просто используйте фабрики(factories) для всего:
 

@@ -26,7 +26,7 @@ date: "2014-09-06"
 
 \[html\] <div ng-controller="userController as user"> <h1>Hi, {{user.name}}</h1> </div> \[/html\]
 
-Код примера [тут](http://jsfiddle.net/STEVER/8p31cgge/ "jsfiddle.net").
+Код примера [тут](https://jsfiddle.net/STEVER/8p31cgge/ "jsfiddle.net").
 
 ## Из представления в контроллер
 
@@ -36,7 +36,7 @@ date: "2014-09-06"
 
 теперь при изменении значения поля ввода будет изменяться **name.first** значение в контроллере.
 
-Пример [тут](http://jsfiddle.net/STEVER/q0vfaph5/ "jsfiddle.net").
+Пример [тут](https://jsfiddle.net/STEVER/q0vfaph5/ "jsfiddle.net").
 
 ## Из представления в представление
 
@@ -44,7 +44,7 @@ date: "2014-09-06"
 
 \[html\] <div ng-controller="userController">; <input ng-model"name.first">; <textarea ng-model="name.first">; </div> \[/html\]
 
-Пример [тут](http://jsfiddle.net/STEVER/eyxj1nhf/ "jsfiddle.net").
+Пример [тут](https://jsfiddle.net/STEVER/eyxj1nhf/ "jsfiddle.net").
 
 ## Из контроллера в сервис
 
@@ -52,7 +52,7 @@ date: "2014-09-06"
 
 \[javascript\] app.controller('userController', function (nameStorage) { nameStorage.setName('Alice'); alert(nameStorage.getName()); }) .service('nameStorage', function () { var \_name = 'Bob'; return { setName: function (name) { \_name = name; }, getName: function () { return \_name; } } }); \[/javascript\]
 
-Пример [тут](http://jsfiddle.net/STEVER/fcLgt7co/ "jsfiddle.net").
+Пример [тут](https://jsfiddle.net/STEVER/fcLgt7co/ "jsfiddle.net").
 
 ## Из сервиса в контроллер
 
@@ -62,7 +62,7 @@ date: "2014-09-06"
 
 //just to inimitate sevice change var self = this; setTimeout(function () { self.name.first = 'Bob'; }); }); \[/javascript\]
 
-из-за того, что нужно было имитировать изменения сервиса, пример получился не самый простой. Вот [полный код](http://jsfiddle.net/STEVER/cL00127n/ "jsfiddle.net") примера, надеюсь с ним будет проще.
+из-за того, что нужно было имитировать изменения сервиса, пример получился не самый простой. Вот [полный код](https://jsfiddle.net/STEVER/cL00127n/ "jsfiddle.net") примера, надеюсь с ним будет проще.
 
 ## Из сервиса в представление
 
@@ -76,13 +76,13 @@ date: "2014-09-06"
 
 \[html\] <div ng-controller="userController"> <h1>{{name.first + ' ' + name.last}}</h1> </div> \[/html\]
 
-Полный пример [тут](http://jsfiddle.net/STEVER/wmhg5qp2/ "jsfiddle.net").
+Полный пример [тут](https://jsfiddle.net/STEVER/wmhg5qp2/ "jsfiddle.net").
 
 ## Из представления в сервис
 
 Аналогично предыдущему: представление - контроллер - сервис.
 
-[Пример](http://jsfiddle.net/STEVER/egs9c9kc/ "jsfiddle.net").
+[Пример](https://jsfiddle.net/STEVER/egs9c9kc/ "jsfiddle.net").
 
 ## Из сервиса в сервис
 
@@ -92,7 +92,7 @@ date: "2014-09-06"
 
 }) .service('nameStorage', function () { this.name = { first: 'Alice', last: 'Green' }; }) .service('userStorage', function (nameStorage) { nameStorage.name = { first: 'Bob', last: 'Brown' }; }); \[/javascript\]
 
-[Пример](http://jsfiddle.net/STEVER/x0Lwgxs2/ "jsfiddle.net").
+[Пример](https://jsfiddle.net/STEVER/x0Lwgxs2/ "jsfiddle.net").
 
 ## Из контроллера в контроллер
 
@@ -119,7 +119,7 @@ date: "2014-09-06"
 
 \[javascript\] app .controller('userController', function ($scope) { $scope.name = 'Bob'; setTimeout(function(){ $scope.name = 'Alice'; }); }) .controller('nameController', function ($scope) { alert($scope.name); setTimeout(function(){ alert($scope.name); }); }); \[/javascript\]
 
-[Пример](http://jsfiddle.net/STEVER/spskhL7o/ "jsfiddle.net").
+[Пример](https://jsfiddle.net/STEVER/spskhL7o/ "jsfiddle.net").
 
 С случае с изолированным scope(который мы можем получить при создании директивы) нам необходимо "залинковать" необходимые свойства родительского в дочерний. Представление будет выглядеть следующим образом:
 
@@ -137,7 +137,7 @@ app .controller('userController', function ($scope) { $scope.name = 'Bob'; setTi
 
 \- это означает, что _name_ будет взято из атрибута директивы.
 
-[Полный код](http://jsfiddle.net/STEVER/321x8w2L/ "jsfiddle.net").
+[Полный код](https://jsfiddle.net/STEVER/321x8w2L/ "jsfiddle.net").
 
 ## Из дочернего контроллера в родительский
 
@@ -145,8 +145,8 @@ app .controller('userController', function ($scope) { $scope.name = 'Bob'; setTi
 
 Возможны 2 решения:
 
-- изменяя не само свойство, а свойство свойства (знаю, сильно запутано, но [на примере](http://jsfiddle.net/STEVER/xteh8gs9/ "jsfiddle.net") не должно быть сложно) То есть, вместо _$scope.name_, используем _$scope.name.first_.
-- через специально созданный сеттер-метод в родительском котроллере. [Пример](http://jsfiddle.net/STEVER/7q7guwo6/ "jsfiddle.net"). :
+- изменяя не само свойство, а свойство свойства (знаю, сильно запутано, но [на примере](https://jsfiddle.net/STEVER/xteh8gs9/ "jsfiddle.net") не должно быть сложно) То есть, вместо _$scope.name_, используем _$scope.name.first_.
+- через специально созданный сеттер-метод в родительском котроллере. [Пример](https://jsfiddle.net/STEVER/7q7guwo6/ "jsfiddle.net"). :
 
 \[javascript\] app.controller('userController', function ($scope) { $scope.name = 'Bob' ; alert($scope.name); setTimeout(function(){ alert($scope.name); }, 500);
 
@@ -162,13 +162,13 @@ $scope.setName = function(name){ $scope.name = name; };
 
 \[javascript\] scope: { name: '=' }, \[/javascript\]
 
-[Полный пример](http://jsfiddle.net/STEVER/L02te727/ "jsfiddle.net").
+[Полный пример](https://jsfiddle.net/STEVER/L02te727/ "jsfiddle.net").
 
 ## Передача данных между контроллерами находящимися на разных ветках
 
 т.е., грубо говоря, когда мы не можем применить к ним характеристику родитель-ребенок. Решение будет заключаться в нахождении общего родительского контроллера( вплоть до **$rootScope** ), посредством которого и будет осуществлена передача: контроллер А - общий родительский контроллер - контроллер Б.
 
-Передача данных дочернего и родительского контроллера уже рассмотрена выше, поэтому даю просто общий [пример](http://jsfiddle.net/STEVER/k22ku4kx/ "jsfiddle.net")  связки (контроллерА - родительский контроллер - контроллерБ)
+Передача данных дочернего и родительского контроллера уже рассмотрена выше, поэтому даю просто общий [пример](https://jsfiddle.net/STEVER/k22ku4kx/ "jsfiddle.net")  связки (контроллерА - родительский контроллер - контроллерБ)
 
 Также передача данных между несвязанными напрямую контроллерами может происходить с помощью событий.
 
@@ -188,10 +188,10 @@ $scope.broadcastEvent = function() { var data = { y: 10 }; $scope.$broadcast('my
 
 \[javascript\] $scope.$on('myevent', function(data){ //... }); \[/javascript\]
 
-[Полный пример](http://jsfiddle.net/STEVER/hhfwco97/ "jsfiddle.net") работы с событиями.
+[Полный пример](https://jsfiddle.net/STEVER/hhfwco97/ "jsfiddle.net") работы с событиями.
 
 ## Общение контроллеров с помощью специального сервиса
 
-Существует еще один способ общения между сервисами, который напомнил [Владимир Гомонов](https://www.facebook.com/vladimir.gomonov) ( благодарю за дополнение! ), - это использование специального сервиса, который будет инжектиться в оба контроллера и в итоге получим связку: контроллер А - сервис - контроллер Б. Взаимодействие контроллер - сервис и сервис - контроллер уже рассмотрено выше, поэтому только выложу общий [пример](http://jsfiddle.net/STEVER/9a2sLdy6/).
+Существует еще один способ общения между сервисами, который напомнил [Владимир Гомонов](https://www.facebook.com/vladimir.gomonov) ( благодарю за дополнение! ), - это использование специального сервиса, который будет инжектиться в оба контроллера и в итоге получим связку: контроллер А - сервис - контроллер Б. Взаимодействие контроллер - сервис и сервис - контроллер уже рассмотрено выше, поэтому только выложу общий [пример](https://jsfiddle.net/STEVER/9a2sLdy6/).
 
 Вроде бы все возможные варианты передачи данных в рамках **AngularJS** перечислил, если что-то забыл - пишите - добавим.

@@ -12,7 +12,7 @@ date: "2014-01-10"
 
 ## Установка Ruby
 
-Для невиндовых операционных систем я предлагаю установку через [RVM](http://rvm.io/ "rvm"):
+Для невиндовых операционных систем я предлагаю установку через [RVM](https://rvm.io/ "rvm"):
 
 $ \\curl -sSL https://get.rvm.io | bash -s stable
 
@@ -24,7 +24,7 @@ $ rvm install ruby
 
 $ rvm install ruby-1.9.3-p484
 
-Для пользователей Windows остается довольствоваться [RubyInstaller](http://rubyinstaller.org/ "Ruby Installer").
+Для пользователей Windows остается довольствоваться [RubyInstaller](https://rubyinstaller.org/ "Ruby Installer").
 
 Проверим установился ли руби:
 
@@ -34,7 +34,7 @@ $ ruby --version
 
 ## Пробуем Ruby
 
-Чтобы поиграться с руби можно запустить [irb](http://ru.wikipedia.org/wiki/Interactive_Ruby_Shell "ruby shell") - командную оболочку, для выполнения кода из консоли
+Чтобы поиграться с руби можно запустить [irb](https://ru.wikipedia.org/wiki/Interactive_Ruby_Shell "ruby shell") - командную оболочку, для выполнения кода из консоли
 
 $ irb
 
@@ -42,7 +42,7 @@ $ irb
 
 \> "somestring".reverse
 
-Если о самом **Ruby** представления нет, то желательно пройти какой-то крайткий курс по синтаксису, например [TryRuby](http://tryruby.org/ "try ruby").
+Если о самом **Ruby** представления нет, то желательно пройти какой-то крайткий курс по синтаксису, например [TryRuby](https://tryruby.org/ "try ruby").
 
 ## Установка Rails
 
@@ -56,14 +56,14 @@ $ rails -v
 
 полноценные среды разработки:
 
-- [Aptana RadRails](http://www.aptana.com/products/radrails "radrails")
-- [RubyMine](http://www.jetbrains.com/ruby/ "rubyMine") (платный)
+- [Aptana RadRails](https://www.aptana.com/products/radrails "radrails")
+- [RubyMine](https://www.jetbrains.com/ruby/ "rubyMine") (платный)
 - [Netbeans](https://netbeans.org/ "netbeans")
 
 текстовые редакторы с подсветкой кода:
 
-- [TextMate](http://macromates.com/)
-- [SublimeText](http://www.sublimetext.com/ "SublimeText")
+- [TextMate](https://macromates.com/)
+- [SublimeText](https://www.sublimetext.com/ "SublimeText")
 - Vim (с плагинами и оболочками)
 
 ## Создание структуры проекта на Rails
@@ -182,7 +182,7 @@ app/views/welcome/index.html.erb
 
 <h1>Hello, Rails!</h1>
 
-Теперь, если мы перейдем по адресу [http://127.0.0.1:3000/welcome/index](http://127.0.0.1:3000/welcome/index), мы увидим нашу страничку.
+Теперь, если мы перейдем по адресу [https://127.0.0.1:3000/welcome/index](https://127.0.0.1:3000/welcome/index), мы увидим нашу страничку.
 
 ## Вносим изменения в route конфигурацию
 
@@ -198,7 +198,7 @@ app/views/welcome/index.html.erb
 
 $ rm public/index.html
 
-и теперь зайдем на  [http://127.0.0.1:3000](http://127.0.0.1:3000/welcome/index) (сервер перегружать при этом не нужно) и должны увидеть нашу страничку.
+и теперь зайдем на  [https://127.0.0.1:3000](https://127.0.0.1:3000/welcome/index) (сервер перегружать при этом не нужно) и должны увидеть нашу страничку.
 
 ![](images/Screenshot-2014-01-08-17.28.08.png "Screenshot 2014-01-08 17.28.08")
 
@@ -261,7 +261,7 @@ end
 
 Перейдем еще раз на [http://localhost:3000/posts/new](http://localhost:3000/posts/new) и увидим уже наш контент:
 
-[![](images/Screenshot-2014-01-09-16.29.00.png "Screenshot 2014-01-09 16.29.00")](http://stepansuvorov.com/blog/wp-content/uploads/2014/01/Screenshot-2014-01-09-16.29.00.png)
+[![](images/Screenshot-2014-01-09-16.29.00.png "Screenshot 2014-01-09 16.29.00")](https://stepansuvorov.com/blog/wp-content/uploads/2014/01/Screenshot-2014-01-09-16.29.00.png)
 
 ## Работа с представлением(view)
 
@@ -287,7 +287,7 @@ end
 
 ![](images/Screenshot-2014-01-09-16.39.42-231x300.png "Screenshot 2014-01-09 16.39.42")
 
-Вот [тут](http://rusrails.ru/rails-form-helpers)можно почитать о форм-хелперах более подробно. Единственно что хочу разъяснить "posts\_path" - это ссылка на путь /posts. Rails отправляет данные формы POST запросом, поэтому мы попадем на posts#create в роутерах:
+Вот [тут](https://rusrails.ru/rails-form-helpers)можно почитать о форм-хелперах более подробно. Единственно что хочу разъяснить "posts\_path" - это ссылка на путь /posts. Rails отправляет данные формы POST запросом, поэтому мы попадем на posts#create в роутерах:
 
 ![](images/Screenshot-2014-01-09-17.21.24-300x39.png "Screenshot 2014-01-09 17.21.24")
 
@@ -404,7 +404,7 @@ $ rake db:migrate
 
 <%= link\_to 'Back', posts\_path %>
 
-Как вы уже могли обратить внимание мы использовали **link\_to** вью-хелпер. Более подробно о нем [RTFM](http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html "Rails Api").
+Как вы уже могли обратить внимание мы использовали **link\_to** вью-хелпер. Более подробно о нем [RTFM](https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html "Rails Api").
 
 ## Обновление данных
 
@@ -529,4 +529,4 @@ def destroy
 
 Валидация, добавление комментариев к постам и авторизация во второй части.
 
-Пост является переосмыслением и компиляцией статьи [Getting Started with Rails](http://guides.rubyonrails.org/getting_started.html) и ее [русского перевода](http://rusrails.ru/getting-started-with-rails).
+Пост является переосмыслением и компиляцией статьи [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html) и ее [русского перевода](https://rusrails.ru/getting-started-with-rails).

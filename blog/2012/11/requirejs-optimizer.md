@@ -4,7 +4,7 @@ tags: "javascript,RequireJS,Хочу сделать мир лучше"
 date: "2012-11-02"
 ---
 
-На блоге уже был обзор [RequireJs](http://stepansuvorov.com/blog/2012/10/%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B5%D0%B9-requirejs/), как загрузчика модулей, теперь разберем еще одну его возможность - компоновку/сборку проекта - **RequireJS Optimizer**.
+На блоге уже был обзор [RequireJs](https://stepansuvorov.com/blog/2012/10/%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B5%D0%B9-requirejs/), как загрузчика модулей, теперь разберем еще одну его возможность - компоновку/сборку проекта - **RequireJS Optimizer**.
 
 Что умеет делать делать **RequireJS Optimizer**?
 
@@ -35,9 +35,9 @@ r.js: 2.1.1, RequireJS: 2.1.1
         - one.js
         - two.js
         - three.js
-- [r.js](http://requirejs.org/docs/download.html#rjs)
+- [r.js](https://requirejs.org/docs/download.html#rjs)
 
-Для тех, кому лень создавать эти все файлы, [вот](http://learn.javascript.ru/files/play/50/92/50923fcb2eb34.gz) готовая структура.
+Для тех, кому лень создавать эти все файлы, [вот](https://learn.javascript.ru/files/play/50/92/50923fcb2eb34.gz) готовая структура.
 
 Переходим в директорию _appdirectory/scripts_ и выполняем команду:
 
@@ -69,7 +69,7 @@ $ r.js -o name=main excludeShallow=two out=main-built.js baseUrl=.
 
 $ r.js -o name=main optimize=none  out=main-built.js baseUrl=.
 
-Для скриптов, которые хотим грузить используя [CDN](http://ru.wikipedia.org/wiki/Content_Delivery_Network) либо с других сторонних доменов, необходимо задать в _path_ ключевое слово "_empty:_"(чтобы r.js не пытался их подгрузить):
+Для скриптов, которые хотим грузить используя [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network) либо с других сторонних доменов, необходимо задать в _path_ ключевое слово "_empty:_"(чтобы r.js не пытался их подгрузить):
 
 ```
 $ r.js -o name=main out=main-built.js baseUrl=. paths.jquery=empty:

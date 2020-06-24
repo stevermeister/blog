@@ -6,7 +6,7 @@ date: "2015-05-05"
 
 I found it was not very obvious how to have **external link** that coincides with you application base.
 
-For example you have application on `http://somedomain.com` and on `http://somedomain.com/admin` you have another application. And even with `href` (not `ng-href`) and the absolute path your second application will be not accessible by link from first one. The router will keep you inside application.
+For example you have application on `https://somedomain.com` and on `https://somedomain.com/admin` you have another application. And even with `href` (not `ng-href`) and the absolute path your second application will be not accessible by link from first one. The router will keep you inside application.
 
 The only way to solve it is to use `href` together with `target="_self"` attribute:
 

@@ -118,7 +118,7 @@ The most part of the talk by [Daniel Rosenwasser](https://twitter.com/drosenwass
 and for **TS2.1**:
 
 - async/await
-- [Object Rest & Spread](http://www.typescriptlang.org/play/#src=let%20someArray%20%3D%20%5B1%2C%202%2C%203%2C%204%2C%205%5D%3B%0D%0Alet%20someObject%20%3D%20%7B%20a%3A%201%2C%20b%3A%202%2C%20c%3A%203%2C%20d%3A%204%2C%20e%3A%205%7D%3B%0D%0A%0D%0Alet%20copyOfSomeArray%20%3D%20%5B%20...someArray%20%5D%3B%0D%0Alet%20copyOfSomeObject%20%3D%20%7B%20...someObject%20%7D%3B%0D%0A%0D%0Alet%20concatOfArrays%20%3D%20%5B...someArray%2C%20...someArray%5D%3B%0D%0Alet%20mergeOfObjects%20%3D%20%7B...someObject%2C%20...someObject%20%7D%3B%0D%0A%0D%0Alet%20%5Ba1%2C%20b1%2C%20c1%2C%20...rest1%5D%20%3D%20someArray%3B%0D%0Alet%20%7Ba2%2C%20b2%2C%20c2%2C%20...rest2%7D%20%3D%20someObject%3B):
+- [Object Rest & Spread](https://www.typescriptlang.org/play/#src=let%20someArray%20%3D%20%5B1%2C%202%2C%203%2C%204%2C%205%5D%3B%0D%0Alet%20someObject%20%3D%20%7B%20a%3A%201%2C%20b%3A%202%2C%20c%3A%203%2C%20d%3A%204%2C%20e%3A%205%7D%3B%0D%0A%0D%0Alet%20copyOfSomeArray%20%3D%20%5B%20...someArray%20%5D%3B%0D%0Alet%20copyOfSomeObject%20%3D%20%7B%20...someObject%20%7D%3B%0D%0A%0D%0Alet%20concatOfArrays%20%3D%20%5B...someArray%2C%20...someArray%5D%3B%0D%0Alet%20mergeOfObjects%20%3D%20%7B...someObject%2C%20...someObject%20%7D%3B%0D%0A%0D%0Alet%20%5Ba1%2C%20b1%2C%20c1%2C%20...rest1%5D%20%3D%20someArray%3B%0D%0Alet%20%7Ba2%2C%20b2%2C%20c2%2C%20...rest2%7D%20%3D%20someObject%3B):
     - copy
     - merge/concat
     - destructure
@@ -239,7 +239,7 @@ He took patters from [Terry Riley "In C"](https://www.youtube.com/watch?v=yNi0bu
 
 ![](images/Screen-Shot-2017-01-08-at-18.27.00.png)
 
-[Demo](http://teropa.info/in-c/) and [code](https://github.com/teropa/in-c).
+[Demo](https://teropa.info/in-c/) and [code](https://github.com/teropa/in-c).
 
 ## ngAnimate2 = Layouts + Animation ([video](https://www.youtube.com/watch?v=NGNE7LMd9VY))
 

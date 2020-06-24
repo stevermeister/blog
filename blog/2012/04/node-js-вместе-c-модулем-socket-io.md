@@ -10,7 +10,7 @@ npm install socket.io
 
 Скачаем саму библиотеку в рабочую директорию с github, [отсюда](https://github.com/LearnBoost/socket.io/tree/master/lib "github socket.io lib path"). Поместим ее в каталог socket.io.
 
-На [оф сайте](http://socket.io/#how-to-use "socket.io examples") есть примеры использования, один из них и разберем:
+На [оф сайте](https://socket.io/#how-to-use "socket.io examples") есть примеры использования, один из них и разберем:
 
 var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)

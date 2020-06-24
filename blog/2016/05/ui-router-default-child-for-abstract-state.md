@@ -20,4 +20,4 @@ and an example for an abstract state with child that is defined by function:
 
 \[javascript\] .state({ name: 'abstract3', url: '/abstract3', abstract: function() { return 'abstract3.foo' }, // Function redirect template: 'abstract3' }) \[/javascript\]
 
-All code for experiments is available on [plunker](http://plnkr.co/edit/vOJlRv9V7fX9G8TNqfKf?p=preview).
+All code for experiments is available on [plunker](https://plnkr.co/edit/vOJlRv9V7fX9G8TNqfKf?p=preview).

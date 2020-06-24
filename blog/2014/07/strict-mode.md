@@ -10,7 +10,7 @@ date: "2014-07-08"
 - одинарные или двойные обрамляющие кавычки - не важно
 - кидает ошибку(ReferenceError) при создании **глобальной переменной** 
 - предотвращает попытку присвоения **NaN**, **undefined** значения(TypeError)
-- предотвращает попытку **переопределения свойства объекта**, [закрытого для переопределения](http://jsfiddle.net/STEVER/2Lyh2/ "jsfiddle.net") (TypeError)
+- предотвращает попытку **переопределения свойства объекта**, [закрытого для переопределения](https://jsfiddle.net/STEVER/2Lyh2/ "jsfiddle.net") (TypeError)
 - вернет ошибку(TypeError) при попытке **удалить [неудаляемое свойство](# "например Object.prototype;")**
 - останавливает интерпретацию кода (SyntaxError) при объявлении в объекте **2 одинаковых ключей** (без strict - просто переопределяет значение вторым)
 - предотвращает **дупликацию имен параметров** при объявлении **метода**
@@ -25,4 +25,4 @@ date: "2014-07-08"
 ## Полезная литература
 
 - [Strict mode (MDN)](https://developer.mozilla.org/ru/docs/JavaScript/Reference/Functions_and_function_scope/Strict_mode "developer.mozilla.org")
-- [What does “use strict” do in JavaScript](http://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it "stackoverflow.com")
+- [What does “use strict” do in JavaScript](https://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it "stackoverflow.com")

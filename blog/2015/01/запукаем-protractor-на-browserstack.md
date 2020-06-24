@@ -6,7 +6,7 @@ date: "2015-01-19"
 
 Небольшая заметка о том, как запустить **protractor** тесты на разных браузерах используя сервис **Browserstack**.
 
-Подробно о **protractor** можно почитать [тут](http://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor") и [тут](http://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor").
+Подробно о **protractor** можно почитать [тут](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor") и [тут](https://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor").
 
 ## Настройка конфига
 
@@ -18,9 +18,9 @@ date: "2015-01-19"
 
 'browser' : 'Chrome', 'browser\_version' : '36.0', 'os' : 'OS X', 'os\_version' : 'Mavericks', 'resolution' : '1024x768' },
 
-seleniumAddress: 'http://hub.browserstack.com/wd/hub' \[/javascript\]
+seleniumAddress: 'https://hub.browserstack.com/wd/hub' \[/javascript\]
 
-Более подробно о возможных параметрах [тут](http://www.browserstack.com/automate/capabilities "browserstack.com").
+Более подробно о возможных параметрах [тут](https://www.browserstack.com/automate/capabilities "browserstack.com").
 
 Подробный лог (например: для отладки) можно включить следующей опцией:
 
@@ -28,7 +28,7 @@ seleniumAddress: 'http://hub.browserstack.com/wd/hub' \[/javascript\]
 
 ## Настройка Browserstack для локального запуска
 
-Достаточно скачать([тут](http://www.browserstack.com/automate/node#setting-local-tunnel "browserstack.com")) и запустить файл:
+Достаточно скачать([тут](https://www.browserstack.com/automate/node#setting-local-tunnel "browserstack.com")) и запустить файл:
 
 \[bash\] ./BrowserStackLocal my\_secret\_key localhost,3000,0 \[/bash\]
 

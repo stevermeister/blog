@@ -12,4 +12,4 @@ and example (loading jQuery):
 
 \[javascript\] loadAndExecute("//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", function() { $("#answer-6825715").css("border", ".5em solid black"); }); \[/javascript\]
 
-taken from [stackoverflow](http://stackoverflow.com/a/6825715/274500).
+taken from [stackoverflow](https://stackoverflow.com/a/6825715/274500).

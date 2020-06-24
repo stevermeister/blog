@@ -23,8 +23,8 @@ date: "2013-06-24"
 
 Литература:
 
-- [Learning JavaScript Design Patterns (by Addy Osmani)](http://addyosmani.com/resources/essentialjsdesignpatterns/book/)
-- [JavaScript Patterns Collection](http://shichuan.github.io/javascript-patterns/)
-- [Understanding Design Patterns in JavaScript](http://net.tutsplus.com/tutorials/javascript-ajax/digging-into-design-patterns-in-javascript/)
+- [Learning JavaScript Design Patterns (by Addy Osmani)](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+- [JavaScript Patterns Collection](https://shichuan.github.io/javascript-patterns/)
+- [Understanding Design Patterns in JavaScript](https://net.tutsplus.com/tutorials/javascript-ajax/digging-into-design-patterns-in-javascript/)
 
 Если какие-то важные шаблоны забыл, либо есть чего добавить по литературе - пишите - дополним.

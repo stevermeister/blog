@@ -45,4 +45,4 @@ Level 2 “I've made a page and this is the script”
 - Every now and then, you invent some new technique that no one else has thought of.
 - You can write complex algorithms such as parsers/lexers, artificial intelligence, game theory, statistics, and algebra.
 
-//_copy-pasted from_ [thefrontendlab.com](http://thefrontendlab.com)
+//_copy-pasted from_ [thefrontendlab.com](https://thefrontendlab.com)

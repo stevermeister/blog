@@ -14,10 +14,10 @@ Basic options:
 - **time** and **timeEnd** methods (if they are not exist)
 - **log** alias for **console.log**
 
-[Download/install console++](http://userscripts-mirror.org/scripts/show/181073 "userscripts.org").
+[Download/install console++](https://userscripts-mirror.org/scripts/show/181073 "userscripts.org").
 
 sources of inspiration:
 
 - https://github.com/theshock/console-cap
-- [Log() - a Lightweight Wrapper for console.log](http://www.paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/ "paulirish")
-- http://habrahabr.ru/post/116852/
+- [Log() - a Lightweight Wrapper for console.log](https://www.paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/ "paulirish")
+- https://habrahabr.ru/post/116852/

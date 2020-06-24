@@ -16,7 +16,7 @@ RightFusion(Mediatek)
 
 Веб-сайт:
 
-[rightfusion.com](http://www.rightfusion.com/)
+[rightfusion.com](https://www.rightfusion.com/)
 
 Адрес:
 

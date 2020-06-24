@@ -6,7 +6,7 @@ date: "2015-03-01"
 
 ![картинка взята с ng-book](images/digest.png)
 
-Я уже создавал [упрощенную модель внедрения зависимостей AngularJS](http://stepansuvorov.com/blog/2014/03/%D0%B2%D1%8B%D0%B4%D0%B8%D1%80%D0%B0%D0%B5%D0%BC-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D1%83-di-%D0%B8%D0%B7-angularjs/), теперь решил тоже проделать с циклом дайджета.
+Я уже создавал [упрощенную модель внедрения зависимостей AngularJS](https://stepansuvorov.com/blog/2014/03/%D0%B2%D1%8B%D0%B4%D0%B8%D1%80%D0%B0%D0%B5%D0%BC-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D1%83-di-%D0%B8%D0%B7-angularjs/), теперь решил тоже проделать с циклом дайджета.
 
 Именно всемогущий дайджет и решает работу всех вотчеров, а так как двойное связывание строится на вотчерах, то он вообще все решает.
 
@@ -62,7 +62,7 @@ C методом `watch` разобрались, теперь перейдем �
 
 function digestOnce(scope) { var dirty = false; scope.watchers.forEach(function (watcher) { if (watcher.lastValue !== scope\[watcher.watchExp\]) { watcher.listener.call(scope, scope\[watcher.watchExp\], watcher.lastValue); watcher.lastValue = scope\[watcher.watchExp\]; dirty = true; } }); return dirty; } } \[/javascript\]
 
-Ну вот и все: упрощенная модель дайджеста готова. С кодом можно поиграться [тут](http://jsfiddle.net/STEVER/y1hgjjt4/ "jsfiddle").
+Ну вот и все: упрощенная модель дайджеста готова. С кодом можно поиграться [тут](https://jsfiddle.net/STEVER/y1hgjjt4/ "jsfiddle").
 
 ## Бонус
 
@@ -74,7 +74,7 @@ function digestOnce(scope) { var dirty = false; scope.watchers.forEach(function 
 
 \[javascript\] watch: function (watchExp, listener) { var watcher = { watchExp: watchExp, listener: listener, lastValue: this\[watchExp\], }, scope = this; this.watchers.push(watcher); return function unwatch(){ scope.watchers.splice(scope.watchers.indexOf(watcher), 1); }; } \[/javascript\]
 
-Ну и еще раз [весь код](http://jsfiddle.net/STEVER/xub4ge4z/ "jsfiddle.net").
+Ну и еще раз [весь код](https://jsfiddle.net/STEVER/xub4ge4z/ "jsfiddle.net").
 
 ## P.S.
 

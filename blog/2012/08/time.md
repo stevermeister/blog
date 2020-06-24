@@ -6,7 +6,7 @@ date: "2012-08-07"
 
 Решил написать **таймер** на javascript, который **не сбрасывается** при перезагрузке страницы, и даже при выключении браузера.
 
-[![](images/timer-300x120.png "timer")](http://stepansuvorov.com/useIt/timer/ "online timer")
+[![](images/timer-300x120.png "timer")](https://stepansuvorov.com/useIt/timer/ "online timer")
 
 Можно использовать как инструмент, который будет всегда под рукой. Особенно актуально для тех, кто работает по часам.
 

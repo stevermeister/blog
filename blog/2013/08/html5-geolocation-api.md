@@ -30,18 +30,18 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
 });
 
-Пример на [jsfiddle](http://jsfiddle.net/STEVER/372Rc/).
+Пример на [jsfiddle](https://jsfiddle.net/STEVER/372Rc/).
 
 Также объект **geolocation** содержит метод **watchPosition()**, который устанавливает хэндлер на событие изменения локации. Принимает параметры аналогичные параметрам метода **getCurrentPosition()**.
 
-[Еще один](http://jsfiddle.net/STEVER/372Rc/1/ "jsfiddle") пример с использованием google maps.
+[Еще один](https://jsfiddle.net/STEVER/372Rc/1/ "jsfiddle") пример с использованием google maps.
 
  
 
 Полезные ссылки:
 
-[HTML5 Geolocation API(Presentation from HTML5 Camp)](http://www.slideshare.net/dpeua/html5-geolocation-api)
+[HTML5 Geolocation API(Presentation from HTML5 Camp)](https://www.slideshare.net/dpeua/html5-geolocation-api)
 
 [Using geolocation](https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation "developer.mozilla.org")
 
-[The Geolocation API](http://diveintohtml5.info/geolocation.html "diveintohtml5.info")
+[The Geolocation API](https://diveintohtml5.info/geolocation.html "diveintohtml5.info")

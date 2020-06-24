@@ -12,9 +12,9 @@ date: "2015-05-04"
 
 нам вернуться все элементы попадающие под этот селектор. Но вот, что происходит внутри и как jQuery обрабатывает эти селекторы и выдает результаты, знает не каждый.
 
-Поисковый движок получил имя **Sizzle** и в последствии был выделен в [отдельную библиотеку](http://sizzlejs.com/ "http://sizzlejs.com/"), которую [включает в себя](https://github.com/jquery/jquery/blob/master/src/selector-sizzle.js#L6 "github.com") **jQuery**.
+Поисковый движок получил имя **Sizzle** и в последствии был выделен в [отдельную библиотеку](https://sizzlejs.com/ "https://sizzlejs.com/"), которую [включает в себя](https://github.com/jquery/jquery/blob/master/src/selector-sizzle.js#L6 "github.com") **jQuery**.
 
-С появлением в браузерах методов для поиска элементов по селекторам - [querySelector](https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector "developer.mozilla.org"), [querySelectorAll](https://developer.mozilla.org/ru/docs/Web/API/Document/querySelectorAll "developer.mozilla.org") острая необходимость в Sizzle пропадает. Мы его можем использовать только для старых браузеров и использовании [расширенных поисковых фильтров](http://api.jquery.com/category/selectors/ "api.jquery.com").
+С появлением в браузерах методов для поиска элементов по селекторам - [querySelector](https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector "developer.mozilla.org"), [querySelectorAll](https://developer.mozilla.org/ru/docs/Web/API/Document/querySelectorAll "developer.mozilla.org") острая необходимость в Sizzle пропадает. Мы его можем использовать только для старых браузеров и использовании [расширенных поисковых фильтров](https://api.jquery.com/category/selectors/ "api.jquery.com").
 
 Итого как себя ведет jQuery получив строку-селектор параметром:
 

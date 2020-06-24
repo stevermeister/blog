@@ -30,7 +30,7 @@ date: "2013-07-17"
 
 При наличии нескольких атрибутов **ng-app** можно выбрать какое дерево отображать.
 
-[![](images/Screen-Shot-2013-07-12-at-8.21.55-PM.png "Screen Shot 2013-07-12 at 8.21.55 PM")](http://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-8.21.55-PM.png)
+[![](images/Screen-Shot-2013-07-12-at-8.21.55-PM.png "Screen Shot 2013-07-12 at 8.21.55 PM")](https://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-8.21.55-PM.png)
 
 В одной из последний версий расширения добавилась кнопка \[**Enable Inspector**\]. Назначение ее мне пока еще не совсем понятно.
 
@@ -52,7 +52,7 @@ date: "2013-07-17"
 
 Исходя из того, много ли в вашем приложении сервисов и зависимостей между ними, схема может быть как простая, так и довольно сложная:
 
-[![](images/Screen-Shot-2013-07-12-at-7.30.01-PM-261x300.png "Screen Shot 2013-07-12 at 7.30.01 PM")](http://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-7.30.01-PM.png)[![](images/Screen-Shot-2013-07-12-at-7.31.13-PM-294x300.png "Screen Shot 2013-07-12 at 7.31.13 PM")](http://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-7.31.13-PM.png)
+[![](images/Screen-Shot-2013-07-12-at-7.30.01-PM-261x300.png "Screen Shot 2013-07-12 at 7.30.01 PM")](https://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-7.30.01-PM.png)[![](images/Screen-Shot-2013-07-12-at-7.31.13-PM-294x300.png "Screen Shot 2013-07-12 at 7.31.13 PM")](https://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-7.31.13-PM.png)
 
  
 
@@ -74,7 +74,7 @@ date: "2013-07-17"
 
 ![](images/Screen-Shot-2013-07-12-at-7.55.22-PM-300x98.png "angular batarang elements")
 
-[![](images/Screen-Shot-2013-07-12-at-7.59.22-PM-300x252.png "angular batarang anular element options")](http://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-7.59.22-PM.png)
+[![](images/Screen-Shot-2013-07-12-at-7.59.22-PM-300x252.png "angular batarang anular element options")](https://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screen-Shot-2013-07-12-at-7.59.22-PM.png)
 
  
 

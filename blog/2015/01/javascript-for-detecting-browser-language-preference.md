@@ -10,4 +10,4 @@ Just not to forget:
 
 and more crazy(but more trustful) way:
 
-\[javascript\] $.ajax({ url: "http://ajaxhttpheaders.appspot.com", dataType: 'jsonp', success: function(headers) { var language = headers\['Accept-Language'\]; } }); \[/javascript\]
+\[javascript\] $.ajax({ url: "https://ajaxhttpheaders.appspot.com", dataType: 'jsonp', success: function(headers) { var language = headers\['Accept-Language'\]; } }); \[/javascript\]

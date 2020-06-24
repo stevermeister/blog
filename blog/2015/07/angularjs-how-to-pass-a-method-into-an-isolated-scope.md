@@ -34,6 +34,6 @@ and for method call use specific format:
 
 \[javascript\] scope.say({name: 'Alice'}) \[/javascript\]
 
-Code is [here](http://jsfiddle.net/STEVER/j6eL82kk/).
+Code is [here](https://jsfiddle.net/STEVER/j6eL82kk/).
 
 Also highly recommend to watch episode from Egghead - [Isolate Scope "&"](https://egghead.io/lessons/angularjs-isolate-scope-expression-binding) .

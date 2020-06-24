@@ -6,35 +6,35 @@ date: "2014-07-13"
 
 Краткое описание лицензий **Open Source**, которые предлагает **git** при создании нового репозитория:
 
-[Apache v2 License](http://www.apache.org/licenses/LICENSE-2.0.html)
+[Apache v2 License](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 Условия: по сравнению с GPL доставточно указывать ссылку на лицензию, а не размещать полный текст лицензии.
 
-[GPL v2](http://www.gnu.org/licenses/gpl-2.0.html)
+[GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
 одна из наиболее распространенных open source-лицензий. Основное условие GPL: продукт, использующий код, защищенный этой лицензией, должен распространяться также под GPL и его исходный код должен быть доступен получателю такого продукта, который может делать с этим кодом все что угодно в рамках GPL. Под этой лицензией распространяются ядро Linux, MySQL, Asterisk и многие другие. Большинство CMS систем, таких как MovableType, MODx, WordPress, Joomla, Drupal, osCommerce и множество других выпускаются под GPL. По разным данным, в мире до 70% open source-ПО выпускается под GPL.
 
-[MIT License](http://opensource.org/licenses/MIT)
+[MIT License](https://opensource.org/licenses/MIT)
 
 Условия: полностью дублирует BSD, за исключением что имена продукта и разработчиков оригинального продукта можно использовать в рекламных целях.  Window System (X11), Ruby on Rails — наиболее известные проекты, распространяемые под MIT.
 
-[Affero GPL](http://www.gnu.org/licenses/agpl-3.0.html)
+[Affero GPL](https://www.gnu.org/licenses/agpl-3.0.html)
 
 свободная лицензия, созданная специально для таких программ, как веб‐приложения, так что пользователи, использующие изменённую программу через сеть, могут получить её исходный код. Разработана Фондом свободного программного обеспечения (Free Software Foundation) на основе GNU General Public License
 
-[Artistic License 2.0](http://opensource.org/licenses/Artistic-2.0)
+[Artistic License 2.0](https://opensource.org/licenses/Artistic-2.0)
 
 используется для конкретных бесплатных и опен-сорс программных пакетов, это в первую очередь - стандартная реализация языка Perl. Подвергнута критике Free Software Foundation.
 
-[BSD (3-Clause) License](http://opensource.org/licenses/BSD-3-Clause)
+[BSD (3-Clause) License](https://opensource.org/licenses/BSD-3-Clause)
 
 В отличии от второй версии появился 3тий пункт, который запрещает использование автора оригинального продукта с целью рекламы.
 
-[BSD 2-Clause license](http://opensource.org/licenses/BSD-2-Clause)
+[BSD 2-Clause license](https://opensource.org/licenses/BSD-2-Clause)
 
 Условия: возможно использование продукта в других продуктах при сохранении в документации продукта ссылки на оригинальных разработчиков. Самой известной компанией, использующей преимущества лицензии BSD является компания Apple.
 
-[CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/legalcode)
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
 
 Лицензия от Creative Commons.
 
@@ -42,7 +42,7 @@ date: "2014-07-13"
 
 используется Eclipse Foundation для своих продуктов. Она базируется на Common Public License, однако удаляет некоторые понятия, относящиеся к спорам относительно патентов. Лицензия EPL более дружественна к бизнес-ориентированному свободному ПО и предоставляет более гибкие правила отказа на авторские права.
 
-[GPL v3](http://www.gnu.org/copyleft/gpl.html)
+[GPL v3](https://www.gnu.org/copyleft/gpl.html)
 
 в отличие от v2 включает большую поддержку сторонних лицензий. [Картинка](https://www.gnu.org/licenses/quick-guide-gplv3-compatibility.png) хорошо иллюстрирует отличие.
 
@@ -58,6 +58,6 @@ date: "2014-07-13"
 
 небольшие дополнения к версии 2. В основном по поддержке сторонних лицензий под общей LGPL.
 
-[Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/2.0/)
+[Mozilla Public License Version 2.0](https://www.mozilla.org/MPL/2.0/)
 
 Представляет из себя гибрид лицензий BSD и GNU. Во второй версии расширили совместимостью с другими лицензиями.

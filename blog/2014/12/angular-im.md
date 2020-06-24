@@ -6,4 +6,4 @@ date: "2014-12-05"
 
 ![Screenshot 2014-12-05 16.25.55](images/Screenshot-2014-12-05-16.25.55.png)
 
-**AngularJS UA** группа переехала из **skype** в **[gitter](https://gitter.im "gitter.im")**, и теперь может быть найдена по следующему адресу - [angular.im](http://angular.im "angular.im").
+**AngularJS UA** группа переехала из **skype** в **[gitter](https://gitter.im "gitter.im")**, и теперь может быть найдена по следующему адресу - [angular.im](https://angular.im "angular.im").

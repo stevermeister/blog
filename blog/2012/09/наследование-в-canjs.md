@@ -6,7 +6,7 @@ date: "2012-09-15"
 
 ![](images/canjs_logo.png "canjs_logo")
 
-Для начала скажу что [CanJs](http://canjs.us/), это форк от [JavaScriptMVC](http://javascriptmvc.com/), который был разобрал вот [тут](http://stepansuvorov.com/blog/2012/09/%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80-javascriptmvc/).
+Для начала скажу что [CanJs](https://canjs.us/), это форк от [JavaScriptMVC](https://javascriptmvc.com/), который был разобрал вот [тут](https://stepansuvorov.com/blog/2012/09/%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80-javascriptmvc/).
 
 Так вот, разбирая наследование контроллеров во фреймворке, не сразу поняли как оно работает. Пример в официальной документации был не очевиден, а гугление не дало быстрого ответа.
 
@@ -60,4 +60,4 @@ var parent = new Parent('#parent');
 var child = new Child('#child');
 var subchild = new SubChild('#subchild');
 
-Поиграться с ним можно вот [тут](http://jsfiddle.net/zXeyJ/10/).
+Поиграться с ним можно вот [тут](https://jsfiddle.net/zXeyJ/10/).

@@ -42,7 +42,7 @@ Basic
 
 Show Intention Actions
 
- зависит от контекста выполнения, крайне удобно для редактирования встроенного HTML кода, более детально уже писал [тут](http://stepansuvorov.com/blog/2014/02/webstorm-editing-html-inside-of-js-literals/)
+ зависит от контекста выполнения, крайне удобно для редактирования встроенного HTML кода, более детально уже писал [тут](https://stepansuvorov.com/blog/2014/02/webstorm-editing-html-inside-of-js-literals/)
 
 **\[CTRL\]**+**\[SHIFT\]**+**\[V\]**
 
@@ -72,4 +72,4 @@ Refactor This
 
 \* для MacOS - вместо **\[CTRL\]** жмем **\[CMD\]**.
 
-Подробное описание со скринами можно найти [тут](http://www.sitepoint.com/phpstorm-top-productivity-hacks-shortcuts/ "phpstorm-top-productivity-hacks-shortcuts").
+Подробное описание со скринами можно найти [тут](https://www.sitepoint.com/phpstorm-top-productivity-hacks-shortcuts/ "phpstorm-top-productivity-hacks-shortcuts").

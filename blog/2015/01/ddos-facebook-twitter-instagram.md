@@ -8,4 +8,4 @@ date: "2015-01-27"
 
 ![facebook-ddos](images/Screenshot-2015-01-27-09.44.25.png)
 
-**UPD:** [digitalattackmap.com](http://www.digitalattackmap.com/%20 "http://www.digitalattackmap.com/ ") - очень красивая визуализации логов **DDos** атак.
+**UPD:** [digitalattackmap.com](https://www.digitalattackmap.com/%20 "https://www.digitalattackmap.com/ ") - очень красивая визуализации логов **DDos** атак.

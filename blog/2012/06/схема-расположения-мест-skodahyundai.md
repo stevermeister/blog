@@ -12,7 +12,7 @@ date: "2012-06-02"
 
 **1 этаж - 2 класс** (места с 24 по 42 по схеме 2+2) места 24, 25, 26, 27 в 1 вагоне – для проводников места 43, 44, 45, 46 в 1 и 6 вагонах - для инвалидов-колясочников
 
-**6 [вагон](http://scbist.com/wiki/7710-vagon.html) – штабной.** ![](images/161_9538.jpg)
+**6 [вагон](https://scbist.com/wiki/7710-vagon.html) – штабной.** ![](images/161_9538.jpg)
 
 **Вагоны 2, 3, 4:**
 
@@ -50,7 +50,7 @@ date: "2012-06-02"
 
 ![](images/shema_vagona_hyundai_2.png "shema_vagona_hyundai_2")
 
-Взято от [сюда](http://scbist.com/vysokoskorostnoe-dvizhenie/16540-shema-numeracii-vagonov-poezdov-shkoda.html#post98962 "схема поездов") . Спасибо Игорю.
+Взято от [сюда](https://scbist.com/vysokoskorostnoe-dvizhenie/16540-shema-numeracii-vagonov-poezdov-shkoda.html#post98962 "схема поездов") . Спасибо Игорю.
 
 **UPD**: Самая важная информация:
 

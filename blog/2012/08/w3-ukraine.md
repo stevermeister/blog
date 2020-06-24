@@ -16,7 +16,7 @@ W3 Ukraine
 
 Веб-сайт:
 
-[w3.ua](http://w3.ua/)
+[w3.ua](https://w3.ua/)
 
 Адрес:
 

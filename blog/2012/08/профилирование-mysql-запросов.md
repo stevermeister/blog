@@ -12,9 +12,9 @@ date: "2012-08-21"
 
 В MySQL есть 2 **sql**\-**команды** для работы с **профайлером**:
 
-#### [`SHOW PROFILE`](http://dev.mysql.com/doc/refman/5.0/en/show-profile.html)
+#### [`SHOW PROFILE`](https://dev.mysql.com/doc/refman/5.0/en/show-profile.html)
 
-#### [`SHOW PROFILES`](http://dev.mysql.com/doc/refman/5.0/en/show-profiles.html)
+#### [`SHOW PROFILES`](https://dev.mysql.com/doc/refman/5.0/en/show-profiles.html)
 
 Они показывают профили запросов сделанных за время текущей сессии.
 
@@ -54,7 +54,7 @@ mysql> show profile for query 5; // 5 - номер в списке
 | cleaning up                    | 0.000003 |
 +--------------------------------+----------+
 
-Duration - это длительность выполнения операции(как подсказывает кэп), а Status - сама операция. Полный список возможных операций можно посмотреть [тут](http://dev.mysql.com/doc/refman/5.0/en/general-thread-states.html).
+Duration - это длительность выполнения операции(как подсказывает кэп), а Status - сама операция. Полный список возможных операций можно посмотреть [тут](https://dev.mysql.com/doc/refman/5.0/en/general-thread-states.html).
 
 Информацию из профайлера можно получить не только командами SHOW PROFILE, но и обычным SELECT запросом к таблице PROFILING из INFORMATION\_SCHEMA, т.е.:
 

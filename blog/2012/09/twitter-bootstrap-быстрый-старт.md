@@ -8,7 +8,7 @@ date: "2012-09-13"
 
 Перед нами стала задача определить библиотеку для создания UI на проекте. Кроме JQueryUI и Dojo появился вариант Twitter Bootstrap, который мы решили рассмотреть более подробно.
 
-Для начала выкачаем последнюю версию с [главной страницы](http://twitter.github.com/bootstrap/index.html "твитер бутстрап").
+Для начала выкачаем последнюю версию с [главной страницы](https://twitter.github.com/bootstrap/index.html "твитер бутстрап").
 
 Файловая структура довольно простая:
 
@@ -25,7 +25,7 @@ date: "2012-09-13"
 </head>
 <body>
 <h1>Hello, world!</h1>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
@@ -212,4 +212,4 @@ $('#typeahead').typeahead({source: alCities, items:5});
 
  
 
-Все(или большая часть) примеры взяты с [офсайта](http://twitter.github.com/bootstrap/), дополнены или переделаны для более быстрого осмысления. Успешных испытаний.
+Все(или большая часть) примеры взяты с [офсайта](https://twitter.github.com/bootstrap/), дополнены или переделаны для более быстрого осмысления. Успешных испытаний.

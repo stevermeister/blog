@@ -6,7 +6,7 @@ date: "2014-11-18"
 
 ![](images/falgg2jybmhgk16y62lr-300x300.png "grunt+angular+protractor")
 
-О том как установить и запустить **[Protractor](http://angular.github.io/protractor/#/ "angular.github.io/protractor")** уже было в этом посте - [Тестируем AngularJS используя Protractor](http://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "angularjs-protractor"). А сейчас мы сделаем фокус  на том, как мы можем интегрировать **Protractor** в нашу систему и подкючить к **[Grunt](http://gruntjs.com/ "gruntjs")**.
+О том как установить и запустить **[Protractor](https://angular.github.io/protractor/#/ "angular.github.io/protractor")** уже было в этом посте - [Тестируем AngularJS используя Protractor](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "angularjs-protractor"). А сейчас мы сделаем фокус  на том, как мы можем интегрировать **Protractor** в нашу систему и подкючить к **[Grunt](https://gruntjs.com/ "gruntjs")**.
 
 ## Подключаем Protractor к Grunt
 
@@ -18,7 +18,7 @@ $ npm install grunt-protractor-runner
 
 \[javascript\] protractor: { options: { configFile: "protractor.conf.js" }, all: {} } \[/javascript\]
 
-**protractor.conf.js** - конфигурационный файл, который уже у нас есть (создание подробно описано в [предыдущем посте](http://stepansuvorov.com/blog/2014/02/angularjs-protractor/))
+**protractor.conf.js** - конфигурационный файл, который уже у нас есть (создание подробно описано в [предыдущем посте](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/))
 
 **all: {}** - grunt требует как минимум один "target", поэтому, если все параметры уже указаны в конфиге протрактора, то можем просто добавить пустую сецию.
 
@@ -28,7 +28,7 @@ $ npm install grunt-protractor-runner
 
 ## PhantomJS и Protractor
 
-В случае, когда мы хотим запускать наши тесты не только локально, но и на сервере, где нет возможности использовать браузер на помощь спешит [PhantomJS](http://phantomjs.org/ "phantomjs.org"). Ознакомиться с **PhantomJS** вы можете в посте - [Создаем юнит-тесты с phantomjs](http://stepansuvorov.com/blog/2012/09/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%B5%D0%BC-%D1%8E%D0%BD%D0%B8%D1%82-%D1%82%D0%B5%D1%81%D1%82%D1%8B-%D1%81-phantomjs/), а сейчас мы поговорим о том как его встроить в Protractor.
+В случае, когда мы хотим запускать наши тесты не только локально, но и на сервере, где нет возможности использовать браузер на помощь спешит [PhantomJS](https://phantomjs.org/ "phantomjs.org"). Ознакомиться с **PhantomJS** вы можете в посте - [Создаем юнит-тесты с phantomjs](https://stepansuvorov.com/blog/2012/09/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%B5%D0%BC-%D1%8E%D0%BD%D0%B8%D1%82-%D1%82%D0%B5%D1%81%D1%82%D1%8B-%D1%81-phantomjs/), а сейчас мы поговорим о том как его встроить в Protractor.
 
 Теперь вместо вебдрайвера мы должны запустить фантом-сервер:
 
@@ -66,13 +66,13 @@ $ phantomjs --webdriver=4444
 
 Сохраняем. Готово:
 
-[![](images/Screenshot-2014-10-20-18.11.27.png "webstorm protractor debug")](http://stepansuvorov.com/blog/wp-content/uploads/2014/10/Screenshot-2014-10-20-18.11.27.png)
+[![](images/Screenshot-2014-10-20-18.11.27.png "webstorm protractor debug")](https://stepansuvorov.com/blog/wp-content/uploads/2014/10/Screenshot-2014-10-20-18.11.27.png)
 
 Теперь можно проставлять бреймпоинты и дебажить.
 
 ## Подключение вспомогательных файлов
 
-Иногда возникает необходимость подключить файлы, которые не являются тест сценариями, но, в которых содержится вспомогательный функционал(например логин). Для этого необходимо подключаем файл сделать формата модуля **node.js** ([module.exports](http://openmymind.net/2012/2/3/Node-Require-and-Exports/ "Node-Require-and-Exports")), то есть(helpers.js):
+Иногда возникает необходимость подключить файлы, которые не являются тест сценариями, но, в которых содержится вспомогательный функционал(например логин). Для этого необходимо подключаем файл сделать формата модуля **node.js** ([module.exports](https://openmymind.net/2012/2/3/Node-Require-and-Exports/ "Node-Require-and-Exports")), то есть(helpers.js):
 
 \[javascript\] function login(){ //... } function logout(){ //... } var Helper = {}; Helper.login = login; Helper.logout = logout; \[/javascript\]
 
@@ -135,4 +135,4 @@ element.all(by.repeater('item in items')).then(function(rows) { var itemTitleEle
 ## Дополнительно
 
 - [Protractor Interactive (видео от Egghead)](https://egghead.io/lessons/angularjs-protractor-interactive "egghead.io")
-- [Развернутый ответ на стеке по поводу возможных ошибок](http://stackoverflow.com/a/25008031/274500 "stackoverflow.com")
+- [Развернутый ответ на стеке по поводу возможных ошибок](https://stackoverflow.com/a/25008031/274500 "stackoverflow.com")

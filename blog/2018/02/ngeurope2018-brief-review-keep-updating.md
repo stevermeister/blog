@@ -6,7 +6,7 @@ date: "2018-02-04"
 
 ![](images/2018-02-04-15.49.03.jpg)
 
-Just to have less confusion I would like to say that there were no **ngEurope2017**, it was [**ngEurope2016**](http://stepansuvorov.com/blog/2016/10/ngeurope-2016-brief-review/) in October and next one was ngEurope2018 in February.
+Just to have less confusion I would like to say that there were no **ngEurope2017**, it was [**ngEurope2016**](https://stepansuvorov.com/blog/2016/10/ngeurope-2016-brief-review/) in October and next one was ngEurope2018 in February.
 
 ## [Manfred Steyer](https://twitter.com/ManfredSteyer) - High-Performance Applications with Angular ([video](https://www.youtube.com/watch?v=oOnKcPpqOxs))
 
@@ -50,7 +50,7 @@ Demo session to show how DI works for different devices based on env.
 - theming
 - CDK (was not covered)
 
-## [Antal Andrei](https://twitter.com/andrei_antal) - A look into the future: Angular Elements ([video](https://www.youtube.com/watch?v=-pS8M_RBf84), [slides](http://slides.com/andreiantal/ng-europe_angular-elements), [code](https://github.com/andrei-antal/AngularElementsDemo))
+## [Antal Andrei](https://twitter.com/andrei_antal) - A look into the future: Angular Elements ([video](https://www.youtube.com/watch?v=-pS8M_RBf84), [slides](https://slides.com/andreiantal/ng-europe_angular-elements), [code](https://github.com/andrei-antal/AngularElementsDemo))
 
 - need to have angular components **outside angular**
 - introduction of **web components**
@@ -67,7 +67,7 @@ Asim told us 3 hacker break-in stories that based on simple things.
 
 Story1: Github story
 
-git hook to localhost -> http://0:9200/\_shutdown -> http://0:email -> memcache -> deprecated python library
+git hook to localhost -> https://0:9200/\_shutdown -> https://0:email -> memcache -> deprecated python library
 
 moral: **don't underestimate small things**
 

@@ -28,4 +28,4 @@ date: "2015-05-06"
 
 ![chrome PrettyPrint](images/7.PrettyPrint.gif)
 
-Пост был составлен на основе вот [этой статьи](http://tutorialzine.com/2015/03/15-must-know-chrome-devtools-tips-tricks/), от туда же взяты и иллюстрации.
+Пост был составлен на основе вот [этой статьи](https://tutorialzine.com/2015/03/15-must-know-chrome-devtools-tips-tricks/), от туда же взяты и иллюстрации.

@@ -32,7 +32,7 @@ date: "2014-02-26"
 
 - **области видимости $scope** не совсем прозрачны, отсутствие строгого контроля со стороны фремворка позволяет не опытному разработчику заложить много "мин замедленного действия"
 - строго **html-ориентированный**
-- **система маршрутизации** (**[$routeProvider](http://docs.angularjs.org/api/ngRoute.$routeProvider)**) требует серьезных доработок
+- **система маршрутизации** (**[$routeProvider](https://docs.angularjs.org/api/ngRoute.$routeProvider)**) требует серьезных доработок
 - отсутствует возможность отложенной загрузки модулей (**lazy-loading**)
 - отчеты об ошибках
 - монолитность, невозможность использовать компоненты отдельно
@@ -40,7 +40,7 @@ date: "2014-02-26"
 ## Недостатки Ember
 
 - структура перегружена
-- [высокий](http://discuss.emberjs.com/t/getting-started-with-ember-js-is-easy-no-it-isnt/559) порог входа
+- [высокий](https://discuss.emberjs.com/t/getting-started-with-ember-js-is-easy-no-it-isnt/559) порог входа
 - app-oriented
 - tests
 - зависимость от **шаблонизатора**
