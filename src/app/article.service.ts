@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable, combineLatest } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
 
 export interface Article {
   route: string;
@@ -30,6 +30,7 @@ export class ArticleService {
   getArticles(limit = 10): Observable<Article[]> {
     return this.scully.available$
       .pipe(
+        tap(articles => console.log(articles)),
         map((articles: Article[]) => articles.filter((article: Article) =>
           article.sourceFile?.split('.').pop() === 'md')),
         map((articles: Article[]) => {
