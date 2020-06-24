@@ -21,7 +21,6 @@
 <!-- and it's easy to individually load additional languages -->
 <script charset="UTF-8"
  src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/typescript.min.js"></script>
- <script>hljs.initHighlightingOnLoad();</script>
     <style>
       body,
       input,
@@ -39,5 +38,13 @@
 
   <body class="home blog single-author two-column right-sidebar">
     <app-root></app-root>
+
+    <script>
+      // for some reason neither initHighlightingOnLoad nor initHighlighting work
+      // hljs.initHighlightingOnLoad();
+      setTimeOut(_ => {
+        [...document.querySelectorAll('pre code')].forEach(el => hljs.highlightBlock(el));
+      }, 2000);
+     </script>
   </body>
 </html>
