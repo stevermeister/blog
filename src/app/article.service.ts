@@ -30,7 +30,6 @@ export class ArticleService {
   getArticles(limit = 10): Observable<Article[]> {
     return this.scully.available$
       .pipe(
-        tap(articles => console.log(articles)),
         map((articles: Article[]) => articles.filter((article: Article) =>
           article.sourceFile?.split('.').pop() === 'md')),
         map((articles: Article[]) => {

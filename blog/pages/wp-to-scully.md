@@ -104,7 +104,7 @@ and now we need to include this plugin to Scully config (scully.blog.config.ts):
 ```typescript
 import './src/image.scully.plugin';
 
-exports.config = {
+export const config = {
   ...
 
 ```
@@ -244,6 +244,10 @@ getFilteredArticles(tag: string, searchTerm: string, limit: number = 10): Observ
 ```
 
 Isn't it cool to have everything on frontend with search that executes for less than a second? 
+
+
+## Code Highlight
+
 
 
 You can find all the code [here](https://github.com/stevermeister/blog).

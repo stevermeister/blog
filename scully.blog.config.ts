@@ -1,7 +1,6 @@
 import './src/image.scully.plugin';
-// import './src/md.scully.plugin';
 
-exports.config = {
+export const config = {
   projectRoot: './src',
   projectName: 'blog',
   outDir: './dist/static',
