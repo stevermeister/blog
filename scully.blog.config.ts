@@ -1,6 +1,9 @@
+import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import './src/image.scully.plugin';
 
-export const config = {
+setPluginConfig('md', { enableSyntaxHighlighting: true });
+
+export const config: ScullyConfig = {
   projectRoot: './src',
   projectName: 'blog',
   outDir: './dist/static',

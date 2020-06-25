@@ -248,7 +248,19 @@ Isn't it cool to have everything on frontend with search that executes for less 
 
 ## Code Highlight
 
+Btw, if you don't know you can also highlight your code blocks (i.e. <pre><code class="language-typescript"></code></pre>).
+For this you only need to add one line in your scully config (scully.blog.config.ts):
+
+```typescript
+setPluginConfig('md', { enableSyntaxHighlighting: true });
+```
+
+because by default it's switched off. 
 
 
-You can find all the code [here](https://github.com/stevermeister/blog).
-And the site is life so you can play around - [https://blog.stepansuvorov.com/](https://blog.stepansuvorov.com/)
+## All the helpful resources
+
+- You can find all the code [here](https://github.com/stevermeister/blog).
+- And the site is life so you can play around - [https://blog.stepansuvorov.com/](https://blog.stepansuvorov.com/)
+- [Scully Docs](https://scully.io/docs/features/)
+- "[Custom plugins for Scully](https://samvloeberghs.be/posts/custom-plugins-for-scully-angular-static-site-generator)" by Sam Vloeberghs
