@@ -257,8 +257,35 @@ setPluginConfig('md', { enableSyntaxHighlighting: true });
 
 because by default it's switched off. 
 
+# Deployment to Netlify
 
-## All the helpful resources
+You can deploy to any static hosting. It could be GitHub Page, FireBase. My personal preference is Netlify. We just need to add a deployment command: deploy
+
+```shell
+ng build --prod && npm run scully
+```
+
+## Partial compilation
+
+If you blog has more than 100 posts you probably don't want to recompile all of them each time when you updated one. For this you can use an option `routeFilter` and filter by only one section (usually in WordPress it's a year or a month):
+
+```shell
+ng build --prod && npm run scully -- --routeFilter "*2020/*"
+```
+
+with such flag Scully will regenerate only md files from 2020 directory.
+
+You can go even further and use git to identify which files were changed:
+
+
+```shell
+git show --name-only --oneline HEAD | tail -n +2 | grep 'blog/'
+```
+
+
+
+
+# All the helpful resources
 
 - You can find all the code [here](https://github.com/stevermeister/blog).
 - And the site is life so you can play around - [https://blog.stepansuvorov.com/](https://blog.stepansuvorov.com/)
