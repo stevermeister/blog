@@ -7,6 +7,7 @@ date: "2013-01-02"
 
 *I’m now a Mac user, before it was Ubuntu.*
 
+
 * [Homebrew](https://brew.sh/)
 * [iTerm2](https://www.iterm2.com/) + [ohmyzsh](https://ohmyz.sh/) + [direnv](https://direnv.net/)
 * [VSCode Insiders](https://code.visualstudio.com/insiders/) ([settigns](https://gist.github.com/stevermeister/1d78211325ad36d44c88a15dd6a70769))
