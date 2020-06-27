@@ -119,6 +119,11 @@ Ideally to have tags from your posts as well. By defalt [wordpress-export-to-mar
 It looks like there is an issue with WordPress XML Export, if you have many non-latin symbols, for example, you are writing your posts in other language it will be encoded 2 times, so when I did export (with [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)), I changed [this line](https://github.com/lonekorean/wordpress-export-to-markdown/pull/41/files#diff-6947033678b93d106e25614dd972e66fR45).
 
 
+## No tables
+
+Unfortunatelly [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not recognize old good html tables, so if you had them in WP Posts be prepared to do it manually again in md.
+
+
 # Angular Services: articles, tags, search
 
 When you have all your information in place (in .md files) you could think about such a nice and obvious functionality for WordPress (as well as any blog) like **tags** or **search**, and now you can do it all on client side!

@@ -37,13 +37,13 @@ http://www.studytube.nl/
 - Operations and security 
 
 
-Tags:  JavaScript, Ruby, Angular, Terraform, Ansible, nodejs, AWS, git
+Tags:
 [JavaScript](/?tag=javascript), 
 [Ruby](/?tag=ruby), 
 [Angular](/?tag=angular), 
 [Terraform](/?tag=terraform), 
 [Ansible](/?tag=ansible), 
-[nodejs](/?tag=nodejs), 
+[node.js](/?tag=node.js), 
 [AWS](/?tag=aws),
 [git](/?tag=git)
 
@@ -65,13 +65,13 @@ Tags:
 [JavaScript](/?tag=javascript), 
 [jQuery](/?tag=jQuery), 
 [Canjs](/?tag=canjs), 
-[RequireJs](/?tag=lodash), 
+[RequireJs](/?tag=RequireJS), 
 [MongoDb](/?tag=angularjs), 
 [Karma](/?tag=karma),
 [phantomJS](/?tag=phantomjs),
 [Grunt](/?tag=grunt),
-[linux](/?tag=linux),
-[nodejs](/?tag=nodejs),
+[linux](/?tag=unix),
+[node.js](/?tag=node.js),
 [git](/?tag=git),
 [Jira](/?tag=jira)
 
@@ -97,16 +97,14 @@ Key Contributions:
 
 Tags:
 [JavaScript](/?tag=javascript), 
-[jQuery](/?tag=jQuery), 
-[Lodash](/?tag=lodash), 
+[jQuery](/?tag=jQuery),  
 [AngularJs](/?tag=angularjs), 
-[AngularUI](/?tag=angularui), 
 [Karma](/?tag=karma),
 [phantomJS](/?tag=phantomjs),
 [Grunt](/?tag=grunt),
 [Red5](/?tag=red5),
 [RabbitMQ](/?tag=rabbitmq),
-[nodejs](/?tag=nodejs),
+[node.js](/?tag=node.js),
 [git](/?tag=git),
 [Apache](/?tag=apache)
 
@@ -133,13 +131,12 @@ Tags:
 [SQL](/?tag=sql), 
 [MySQL](/?tag=mysql),
 [Jira](/?tag=jira),
-[Linux](/?tag=linux),
+[Linux](/?tag=unix),
 [Red5](/?tag=red5),
 [RabbitMQ](/?tag=rabbitmq),
 [Nginx](/?tag=nginx),
-[Tornado](/?tag=tornado),
-[svn](/?tag=svn),
-[Apache](/?tag=apache)
+[Apache](/?tag=apache),
+[svn](/?tag=svn)
 
 
 
@@ -183,8 +180,8 @@ Tags:
 [PHP](/?tag=php), 
 [SQL](/?tag=sql), 
 [MySQL](/?tag=mysql),
-[svn](/?tag=svn),
-[Apache](/?tag=apache)
+[Apache](/?tag=apache),
+[svn](/?tag=svn)
 
 
 ### Freelance (2005 – 2008)
