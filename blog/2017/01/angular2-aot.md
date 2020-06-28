@@ -1,6 +1,6 @@
 ---
-title: "Angular2: Что такое AoT?"
-tags: "Angular2,aot,Хочу сделать мир лучше"
+title: "Angular: Что такое AoT?"
+tags: "Angular,aot"
 date: "2017-01-18"
 ---
 

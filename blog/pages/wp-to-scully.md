@@ -123,7 +123,8 @@ It looks like there is an issue with WordPress XML Export, if you have many non-
 
 Unfortunatelly [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not recognize old good html tables, so if you had them in WP Posts be prepared to do it manually again in md.
 
-Also if you used brackets like '[' and ']' be prepared that they gonna be ecranized to '[' and ']' but this one is easy to fix with autoreplace. 
+Also if you used brackets like '[' and ']' be prepared that they gonna be ecranized to '\[' and '\]' but this one is easy to fix with autoreplace. 
+And symbol '\`' is gonna be '\\\`' 
 
 
 # Angular Services: articles, tags, search
