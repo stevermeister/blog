@@ -119,9 +119,11 @@ Ideally to have tags from your posts as well. By defalt [wordpress-export-to-mar
 It looks like there is an issue with WordPress XML Export, if you have many non-latin symbols, for example, you are writing your posts in other language it will be encoded 2 times, so when I did export (with [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)), I changed [this line](https://github.com/lonekorean/wordpress-export-to-markdown/pull/41/files#diff-6947033678b93d106e25614dd972e66fR45).
 
 
-## No tables
+## No tables and brackets
 
 Unfortunatelly [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not recognize old good html tables, so if you had them in WP Posts be prepared to do it manually again in md.
+
+Also if you used brackets like '[' and ']' be prepared that they gonna be ecranized to '[' and ']' but this one is easy to fix with autoreplace. 
 
 
 # Angular Services: articles, tags, search

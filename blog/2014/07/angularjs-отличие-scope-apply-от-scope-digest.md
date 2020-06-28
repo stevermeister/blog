@@ -8,7 +8,7 @@ date: "2014-07-06"
 
 Если глянуть в исходники ведь все становится ясно:
 
-\[javascript\] $apply: function(expr) { try { beginPhase('$apply'); return this.$eval(expr); } catch (e) { $exceptionHandler(e); } finally { clearPhase(); try { $rootScope.$digest(); } catch (e) { $exceptionHandler(e); throw e; } } }, \[/javascript\]
+[javascript] $apply: function(expr) { try { beginPhase('$apply'); return this.$eval(expr); } catch (e) { $exceptionHandler(e); } finally { clearPhase(); try { $rootScope.$digest(); } catch (e) { $exceptionHandler(e); throw e; } } }, [/javascript]
 
 **scope.$apply()** просто оболочка на **$rootScope.$digest()** плюс отлов исключений и выполнение **expr** параметра.
 

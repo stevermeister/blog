@@ -55,15 +55,15 @@ $ karma init
 
 //в скобках указано значение по умолчанию
 basePath('') -
-files(\[\]) - список файлов/шаблонов для загрузки
-exclude(\[\]) - список исключений для предыдущего пункта
-reporters(\['progress'\]) - вариант вывода прогресса
+files([]) - список файлов/шаблонов для загрузки
+exclude([]) - список исключений для предыдущего пункта
+reporters(['progress']) - вариант вывода прогресса
 port(8080) - порт веб-сервера(testacular)
 runnerPort(9100) - порт клиента
 colors(true) - включение/выключение цветов при выводе
 logLevel(LOG\_INFO) - LOG\_DISABLE|LOG\_ERROR|LOG\_WARN|LOG\_INFO|LOG\_DEBUG
 autoWatch(false) - выполнение тестов при изменении файлов
-browsers(\[\]) - Chrome, ChromeCanary, Firefox, Opera, Safari, PhantomJS
+browsers([]) - Chrome, ChromeCanary, Firefox, Opera, Safari, PhantomJS
 captureTimeout(5000) - задание таймаута в миллисекундах
 singleRun(false) - для одноразового запуска
 preprocessors({}) - список обработчиков, которые будут применены к файлам, до загрузки в браузер, например - CoffeeScript
@@ -86,9 +86,9 @@ describe("A suite", function() {
 
 сохраним его в файл **test.js** и подключим этот файл в конфиг:
 
-files: \[
+files: [
   'test.js'
-\],
+],
 
 после чего снова запустим karma и посмотрим в консоль:
 

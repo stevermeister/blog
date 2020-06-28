@@ -14,7 +14,7 @@ Just a checklist to prevent issues with application migration.
 
 ## toBoolean
 
-fixed strange behaviour (from 1.3): before _'f'_, _'0'_, _'false'_, _'no'_, _'n'_, _'\[\]' _ have been converted to **false**. Check you **ng-if** statements.
+fixed strange behaviour (from 1.3): before _'f'_, _'0'_, _'false'_, _'no'_, _'n'_, _'[]' _ have been converted to **false**. Check you **ng-if** statements.
 
 ## helpers
 

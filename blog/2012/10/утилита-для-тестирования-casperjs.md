@@ -88,7 +88,7 @@ casper.run();
 var casper = require("casper").create()
 
 casper.start('https://ya.ru/', function() {
-  this.fill('form\[action="https://yandex.ru/yandsearch"\]', { text: 'casperjs' }, true);
+  this.fill('form[action="https://yandex.ru/yandsearch"]', { text: 'casperjs' }, true);
 });
 
 casper.then(function() {

@@ -18,7 +18,7 @@ date: "2016-12-07"
 
 Во-первых, убедимся что у нас не включен продакшен мод, в котором посмотреть ничего не получится. В коде не должен вызываться метод **enableProdMode**:
 
-\[javascript\] import { enableProdMode } from '@angular/core'; enableProdMode(); \[/javascript\]
+[javascript] import { enableProdMode } from '@angular/core'; enableProdMode(); [/javascript]
 
 Теперь можем проинспектировать элемент и набрать в консоли: `> ng.probe($0)`
 

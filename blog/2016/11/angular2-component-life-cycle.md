@@ -23,7 +23,7 @@ date: "2016-11-21"
 
 Например для реализации **ngOnInit** мы реализуем интерейс OnInit:
 
-\[javascript\] import { Component, OnInit, OnDestroy } from '@angular/core'; @Component({ selector: 'my', template: 'My Component!' }) export class MyComponent implements OnInit { ngOnInit() { console.log('onInit'); } } \[/javascript\]
+[javascript] import { Component, OnInit, OnDestroy } from '@angular/core'; @Component({ selector: 'my', template: 'My Component!' }) export class MyComponent implements OnInit { ngOnInit() { console.log('onInit'); } } [/javascript]
 
 Используется **ngOnInit** обычно в 2х случаях:
 
@@ -50,11 +50,11 @@ date: "2016-11-21"
 
 Для понимания отличия давайте сначала разберемся - что такое **View**, а что такое **Content**. View - это представление компонента включающее в себя представления всех дочерних компонентов. А Content - внутреннее содержимое тега компонента, то есть если у вас есть компонент 'my', и он представлен на странице как:
 
-\[html\] <my> <div>hello world</div> </my> \[/html\]
+[html] <my> <div>hello world</div> </my> [/html]
 
 так вот
 
-\[html\] <div>hello world</div> \[/html\]
+[html] <div>hello world</div> [/html]
 
 тут и будет **Content**.
 

@@ -49,7 +49,7 @@ exports.config = {
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
-  specs: \['example\_spec.js'\],
+  specs: ['example\_spec.js'],
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
@@ -58,7 +58,7 @@ exports.config = {
   }
 };
 
-Единственно что вам нужно изменить это опцию _specs_(по умолчанию \['example\_spec.js'\]). В ней мы укажем путь к файлу(либо группе файлов) тест-сценария. Давайте создадим его также по [примеру](https://github.com/angular/protractor/blob/master/example/example_spec.js):
+Единственно что вам нужно изменить это опцию _specs_(по умолчанию ['example\_spec.js']). В ней мы укажем путь к файлу(либо группе файлов) тест-сценария. Давайте создадим его также по [примеру](https://github.com/angular/protractor/blob/master/example/example_spec.js):
 
 describe('angularjs homepage', function() {
   it('should greet the named user', function() {
@@ -113,13 +113,13 @@ specs
 
 пути к файлам сценариев тестов (относительно конфига)
 
-\['spec/\*\_spec.js'\]
+['spec/\*\_spec.js']
 
 exclude
 
 исключения для предыдущего пункта
 
-\[\]
+[]
 
 capabilities
 
@@ -131,7 +131,7 @@ multiCapabilities
 
 предыдущая опция для запуска тестов в нескольких браузерах
 
-\[\]
+[]
 
 baseUrl
 

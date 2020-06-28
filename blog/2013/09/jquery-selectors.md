@@ -54,39 +54,39 @@ prev ~ siblings
 
 [Attribute Contains Prefix Selector](https://api.jquery.com/attribute-contains-prefix-selector/)
 
-\[name|=value\]
+[name|=value]
 
 [Attribute Contains Selector](https://api.jquery.com/attribute-contains-word-selector/)
 
-\[name\*=value\]
+[name\*=value]
 
 [Attribute Contains Word Selector](https://api.jquery.com/attribute-contains-word-selector/)
 
-\[name~=value\]
+[name~=value]
 
 [Attribute Ends With Selector](https://api.jquery.com/attribute-ends-with-selector/)
 
-\[name$=value\]
+[name$=value]
 
 [Attribute Equals Selector](https://api.jquery.com/attribute-equals-selector/)
 
-\[name=value\]
+[name=value]
 
 [Attribute Not Equal Selector](https://api.jquery.com/attribute-not-equal-selector/)(_non-standard_)
 
-\[name!=value\]
+[name!=value]
 
 [Attribute Starts With Selector](https://api.jquery.com/attribute-starts-with-selector/)
 
-\[name^=value\]
+[name^=value]
 
 [Has Attribute Selector](https://api.jquery.com/has-attribute-selector/)
 
-\[name\]
+[name]
 
 [Multiple Attribute Selector](https://api.jquery.com/multiple-attribute-selector/)
 
-\[name=value\]\[name2=value2\]
+[name=value][name2=value2]
 
 **Basic Filter(**_non-standard_**)**
 

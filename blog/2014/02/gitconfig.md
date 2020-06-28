@@ -10,32 +10,32 @@ date: "2014-02-25"
 
 Если вы еще этого не сделали, то крайне рекомендую - серьезно повышает читабельность логов:
 
-\[user\]
+[user]
 name = Ivanov Ivan
 email = ivan.ivanov@gmail.com
 
 ## Алиасы команд
 
-\[alias\]
+[alias]
 co = checkout
 ci = commit
 br = branch
 st = status --short
 clean = branch -D
-hist = log --pretty=format:\\"%h %ad | %s%d \[%an\]\\" --graph --date=short
+hist = log --pretty=format:\\"%h %ad | %s%d [%an]\\" --graph --date=short
 
 подбирается индивидуально по предпочтениям и частоте использования полных команд
 
 ## Добавляем цветов
 
-\[color\]
+[color]
 ui = true
 
 ## Прописываем gitignore глобально
 
 Вместо того, чтобы каждый раз прописывать какие-то файлы настроек, которые создает IDE(например _.idea_ для продуктов JetBrains), в **.gitignore**, можно вынести их один раз в глобальные настройки.
 
-\[core\]
+[core]
 excludesfile = ~/.gitexcludes
 
 ## Задаем редактор
@@ -50,7 +50,7 @@ commit-сообщения по умолчанию
 
 тоже вероятно упростит жизнь для мелких коммитов и коммитов, которые должны следовать определенному шаблону
 
-\[commit\]
+[commit]
 template = ~/.commit-template
 
  

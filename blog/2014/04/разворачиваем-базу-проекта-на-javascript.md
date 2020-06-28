@@ -21,11 +21,11 @@ $ npm install grunt-db-migrate
 
 В **grunt** файле добавляем блок:
 
-\[javascript\]migrate:{ options:{ env: { DATABASE\_URL: databaseUrl } } }\[/javascript\]
+[javascript]migrate:{ options:{ env: { DATABASE\_URL: databaseUrl } } }[/javascript]
 
 databaseUrl - строка подключения к базе, например:
 
-\[javascript\] databaseUrl = 'mysql://root:@localhost/mypetdb'; \[/javascript\]
+[javascript] databaseUrl = 'mysql://root:@localhost/mypetdb'; [/javascript]
 
 ## Создаем файл миграции
 
@@ -35,7 +35,7 @@ $ grunt migrate:create:migrate\_name
 
 После чего у нас в проекте появится директория "migrations", и файл в ней с таким содержимым:
 
-\[javascript\]var dbm = require('db-migrate'); var type = dbm.dataType;
+[javascript]var dbm = require('db-migrate'); var type = dbm.dataType;
 
 exports.up = function(db, callback) {
 
@@ -43,15 +43,15 @@ exports.up = function(db, callback) {
 
 exports.down = function(db, callback) {
 
-};\[/javascript\]
+};[/javascript]
 
 **exports.up** - инструкции для наката изменений, **export.down** - соответственно для отката сделанных изменений.
 
 Разберем пример предложенный на офсайте:
 
-\[javascript\] exports.up = function (db, callback) { db.createTable('pets', { id: { type: 'int', primaryKey: true }, name: 'string' }, callback); };
+[javascript] exports.up = function (db, callback) { db.createTable('pets', { id: { type: 'int', primaryKey: true }, name: 'string' }, callback); };
 
-exports.down = function (db, callback) { db.dropTable('pets', callback); }; \[/javascript\]
+exports.down = function (db, callback) { db.dropTable('pets', callback); }; [/javascript]
 
 Вроде бы все просто: **db.createTable()** - добавляем таблицу, **db.dropTable()** - удаляем.
 
@@ -59,26 +59,26 @@ exports.down = function (db, callback) { db.dropTable('pets', callback); }; \[/j
 
 - type - тип данный, полный список поддерживаемых типов [тут](https://github.com/kunklejr/node-db-migrate/blob/master/lib/data_type.js "lib/data_type.js")
 - length - размерность (там где поддерживается)
-- primaryKey \[true/false\]
-- autoIncrement \[true/false\]
-- notNull \[true/false\]
-- unique \[true/false\]
+- primaryKey [true/false]
+- autoIncrement [true/false]
+- notNull [true/false]
+- unique [true/false]
 - defaultValue
 
 Список поддерживаемых методов:
 
 - createTable(tableName, columnSpec, callback)
-- dropTable(tableName, \[options,\] callback)
+- dropTable(tableName, [options,] callback)
 - renameTable(tableName, newTableName, callback)
 - addColumn(tableName, columnName, columnSpec, callback)
 - removeColumn(tableName, columnName, callback)
 - renameColumn(tableName, oldColumnName, newColumnName, callback)
 - changeColumn(tableName, columnName, columnSpec, callback)
-- addIndex(tableName, indexName, columns, \[unique\], callback)
+- addIndex(tableName, indexName, columns, [unique], callback)
 - insert(tableName, columnNameArray, valueArray, callback)
-- removeIndex(\[tableName\], indexName, callback)
-- runSql(sql, \[params,\] callback)
-- all(sql, \[params,\] callback)
+- removeIndex([tableName], indexName, callback)
+- runSql(sql, [params,] callback)
+- all(sql, [params,] callback)
 
 ## Запуск
 
@@ -98,9 +98,9 @@ $ grunt migrate:create:migration\_name
 
 Когда нам нужно создать несколько таблиц, удобно использовать модуль **async**:
 
-\[javascript\] var async = require('async');
+[javascript] var async = require('async');
 
-exports.up = function (db, callback) { async.series(\[ db.createTable.bind(db, 'pets', { id: { type: 'int', primaryKey: true }, name: 'string' }), db.createTable.bind(db, 'owners', { id: { type: 'int', primaryKey: true }, name: 'string' }); \], callback); }; \[/javascript\]
+exports.up = function (db, callback) { async.series([ db.createTable.bind(db, 'pets', { id: { type: 'int', primaryKey: true }, name: 'string' }), db.createTable.bind(db, 'owners', { id: { type: 'int', primaryKey: true }, name: 'string' }); ], callback); }; [/javascript]
 
 метод **async.series** позволит избежать вложенности
 
@@ -108,11 +108,11 @@ exports.up = function (db, callback) { async.series(\[ db.createTable.bind(db, '
 
 Вот файл миграции, который я создал для своего пет-проектика:
 
-\[javascript\] var dbm = require('db-migrate'); var async = require('async');
+[javascript] var dbm = require('db-migrate'); var async = require('async');
 
-exports.up = function (db, callback) { async.series(\[ db.createTable.bind(db, 'marks', { user\_id: { type: 'int', notNull: true }, release\_id: { type: 'int', notNull: true }, feed: { type:'string', notNull: true } }) \], function(){ db.addIndex('marks', 'usermark', \['user\_id', 'release\_id'\], true); callback(); }); };
+exports.up = function (db, callback) { async.series([ db.createTable.bind(db, 'marks', { user\_id: { type: 'int', notNull: true }, release\_id: { type: 'int', notNull: true }, feed: { type:'string', notNull: true } }) ], function(){ db.addIndex('marks', 'usermark', ['user\_id', 'release\_id'], true); callback(); }); };
 
-exports.down = function (db, callback) { async.series(\[ db.dropTable.bind(db, 'marks', { ifExists: true }), db.removeIndex('marks', 'usermark'), \], callback); }; \[/javascript\]
+exports.down = function (db, callback) { async.series([ db.dropTable.bind(db, 'marks', { ifExists: true }), db.removeIndex('marks', 'usermark'), ], callback); }; [/javascript]
 
 Проект портировался с локальной **mysql** базы на **postgress**, которая стояла на сервере. Особых косяков модуля db-migrate замечено не было. Можно отметить только мелкие неудобства, которых характерны для любых универсальных (кросс-субд) систем миграции - отсутствие реализации специфических типов: у меня изначально был тип **ENUM**, который пришлось перевести в **STRING**. Для личного проекта это нормальная замена, но для продакшена пришлось бы писать отдельный дополнительный конвертер.
 

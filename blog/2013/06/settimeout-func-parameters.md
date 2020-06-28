@@ -6,7 +6,7 @@ date: "2013-06-26"
 
 Никогда не задумывался на тем, что есть альтернативный синтаксис использования метода **setTimeout**:
 
-var timeoutID = window.setTimeout(func, delay, \[param1, param2, ...\]);
+var timeoutID = window.setTimeout(func, delay, [param1, param2, ...]);
 
 _param1, param2_ - параметры, которые передадутся в функцию _func,_ пример_:_
 

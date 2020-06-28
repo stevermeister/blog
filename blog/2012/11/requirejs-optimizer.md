@@ -111,11 +111,11 @@ $ r.js -o build.js
     appDir: "appdirectory/",
     baseUrl: "scripts",
     dir: "./build",
-    modules: \[
+    modules: [
         {
             name: "main"
         }
-    \]
+    ]
 })
 
 В итоге мы получим структуру аналогичную нашему проекту, только с оптимизированными файлами. Тут также нужно не забыть создать отдельную директорию (в нашем случае это _./build_ ), чтобы не перетереть текущий проект. (Так что по запросу "А-а-а! RequireJs стер мой проект!" сюда)
@@ -134,11 +134,11 @@ var config = {
     appDir: "appdirectory/",
     baseUrl: "scripts",
     dir: "./build",
-    modules: \[
+    modules: [
         {
             name: "main"
         }
-    \]
+    ]
 };
 requirejs.optimize( config, function(results) {
     console.log(results);

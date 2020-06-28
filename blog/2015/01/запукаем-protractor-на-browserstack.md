@@ -12,25 +12,25 @@ date: "2015-01-19"
 
 Ключевые опции это **capabilities** и **seleniumAddress**:
 
-\[javascript\] capabilities: { //эти параметры можно получить на странице - https://www.browserstack.com/automate 'browserstack.user' : 'my\_user\_name', 'browserstack.key' : 'my\_secret\_key',
+[javascript] capabilities: { //эти параметры можно получить на странице - https://www.browserstack.com/automate 'browserstack.user' : 'my\_user\_name', 'browserstack.key' : 'my\_secret\_key',
 
 'browserstack.local' : 'true',
 
 'browser' : 'Chrome', 'browser\_version' : '36.0', 'os' : 'OS X', 'os\_version' : 'Mavericks', 'resolution' : '1024x768' },
 
-seleniumAddress: 'https://hub.browserstack.com/wd/hub' \[/javascript\]
+seleniumAddress: 'https://hub.browserstack.com/wd/hub' [/javascript]
 
 Более подробно о возможных параметрах [тут](https://www.browserstack.com/automate/capabilities "browserstack.com").
 
 Подробный лог (например: для отладки) можно включить следующей опцией:
 
-\[javascript\] capabilities: { //... 'browserstack.debug' : 'true', //... }, \[/javascript\]
+[javascript] capabilities: { //... 'browserstack.debug' : 'true', //... }, [/javascript]
 
 ## Настройка Browserstack для локального запуска
 
 Достаточно скачать([тут](https://www.browserstack.com/automate/node#setting-local-tunnel "browserstack.com")) и запустить файл:
 
-\[bash\] ./BrowserStackLocal my\_secret\_key localhost,3000,0 \[/bash\]
+[bash] ./BrowserStackLocal my\_secret\_key localhost,3000,0 [/bash]
 
 3000 - номер порта, на котором локально проект (только для случая локального тестирования)
 
@@ -38,7 +38,7 @@ seleniumAddress: 'https://hub.browserstack.com/wd/hub' \[/javascript\]
 
 Тут ничего нового, так же команда с указанием конфиг-файла:
 
-\[bash\] protractor protractor-browserstack.config.js \[/bash\]
+[bash] protractor protractor-browserstack.config.js [/bash]
 
  
 

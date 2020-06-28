@@ -114,6 +114,6 @@ and for **SVG animations**:
 
 and the thing about **canvas animations**, that you need to take **requestAnimationFrame()** out of Angular Zone:
 
-\[javascript\] this.ngZone.runOutsideAngular(() =&gt; this.paint(true)); \[/javascript\]
+[javascript] this.ngZone.runOutsideAngular(() =&gt; this.paint(true)); [/javascript]
 
 [Source code](https://github.com/teropa/ng-gfx-demos) for all the demos.

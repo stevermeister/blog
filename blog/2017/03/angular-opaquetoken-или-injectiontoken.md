@@ -14,18 +14,18 @@ date: "2017-03-19"
 
 Давайте разберем пример с конфигурацией приложения, которая задается через инжектируемую сущность как значение. Для начала определим интерфейс для этого типа:
 
-\[javascript\] interface Config { production: boolean; base: string; } \[/javascript\]
+[javascript] interface Config { production: boolean; base: string; } [/javascript]
 
 Теперь можем создать для нашей инжектируемой сущности InjectionToken и по нему задать провайдер:
 
-\[javascript\] const APP\_CONFIG = new InjectionToken<Config>('APP\_CONFIG'); providers: \[ { provide: APP\_CONFIG, useValue: { production: true, base: '' } } \] \[/javascript\]
+[javascript] const APP\_CONFIG = new InjectionToken<Config>('APP\_CONFIG'); providers: [ { provide: APP\_CONFIG, useValue: { production: true, base: '' } } ] [/javascript]
 
 При инжектировании нашей сущности с помощью инжектора:
 
-\[javascript\] constructor(injector: Injector) { const config = injector.get(APP\_CONFIG); } \[/javascript\]
+[javascript] constructor(injector: Injector) { const config = injector.get(APP\_CONFIG); } [/javascript]
 
 компилятор уже знает какого типа будет config, поэтому если мы попробуем написать что-то типа:
 
-\[javascript\] this.base = config.bese; //просто опечатались \[/javascript\]
+[javascript] this.base = config.bese; //просто опечатались [/javascript]
 
 компилятор сразу выдаест ошибку: _Property 'bese' does not exist on type 'Config'_ А в случае использования OpaqueToken ошибка не будет выявлена на этапе компиляции. Довольно удобно, правда?

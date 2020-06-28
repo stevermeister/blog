@@ -13,9 +13,9 @@ date: "2015-11-04"
 
 Сразу же пример кода:
 
-\[javascript\] //model -> view ngModel.$formatters.push(function(modelValue) { return modelValue.toUpperCase(); });
+[javascript] //model -> view ngModel.$formatters.push(function(modelValue) { return modelValue.toUpperCase(); });
 
-//view -> model ngModel.$parsers.push(function(viewValue) { return viewValue.toLowerCase(); }); \[/javascript\]
+//view -> model ngModel.$parsers.push(function(viewValue) { return viewValue.toLowerCase(); }); [/javascript]
 
 Полный пример кода [тут](https://plnkr.co/edit/ZmlGQtag494IYuorGsgS?p=preview).
 
@@ -23,7 +23,7 @@ date: "2015-11-04"
 
 Кроме форматирования ввода/вывода мы можем использовать парсер-форматеры также для проверки данных:
 
-\[javascript\] ngModel.$parsers.unshift(function checkForEven(viewValue){ if (parseInt(viewValue)%2 === 0) { ngModel.$setValidity('evenNumber',true); } else{ ngModel.$setValidity('evenNumber', false); } return viewValue; }); \[/javascript\]
+[javascript] ngModel.$parsers.unshift(function checkForEven(viewValue){ if (parseInt(viewValue)%2 === 0) { ngModel.$setValidity('evenNumber',true); } else{ ngModel.$setValidity('evenNumber', false); } return viewValue; }); [/javascript]
 
 в данном случае мы разрешаем использовать только четные числа.
 

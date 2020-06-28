@@ -39,7 +39,7 @@ GRUNT\_CMD=grunt
 cd $GRUNTJS\_DIR
 $GRUNT\_CMD pre-commit-test
 EXIT\_CODE=$?
-\[ $EXIT\_CODE -gt 0 \] && echo && echo validation fail! && echo
+[ $EXIT\_CODE -gt 0 ] && echo && echo validation fail! && echo
 exit $EXIT\_CODE
 
 Немного комментариев:
@@ -48,6 +48,6 @@ GRUNT\_CMD=grunt
 
 пусть к команде grunt(в случае, если она не глобальная)
 
-\[ $EXIT\_CODE -gt 0 \]
+[ $EXIT\_CODE -gt 0 ]
 
 проверяем выдал ли что-то валидатор и в случае чего - прерываем выполнение.

@@ -18,4 +18,4 @@ date: "2016-12-06"
 
 Ну и так, бонусом: отсоединение и присоединение обратно детектора изменений конкретного компонента:
 
-\[javascript\] constructor(private cd: ChangeDetectorRef) { this.cd.detach(); setInterval(() => { this.cd.detectChanges(); }, 5000); } \[/javascript\]
+[javascript] constructor(private cd: ChangeDetectorRef) { this.cd.detach(); setInterval(() => { this.cd.detectChanges(); }, 5000); } [/javascript]

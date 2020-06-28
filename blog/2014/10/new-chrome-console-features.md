@@ -16,6 +16,6 @@ after such operation you will have document.body element converted into string i
 
 Some inspiration for start playing:
 
-\[javascript\] inspect(document.body.firstChild) inspect(document.querySelector('div')) inspect(document.querySelector('.ng-scope')) inspect($1)
+[javascript] inspect(document.body.firstChild) inspect(document.querySelector('div')) inspect(document.querySelector('.ng-scope')) inspect($1)
 
-copy($0) copy(document.querySelectorAll('div')\[0\]) copy(document.cookie) \[/javascript\]
+copy($0) copy(document.querySelectorAll('div')[0]) copy(document.cookie) [/javascript]

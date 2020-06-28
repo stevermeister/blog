@@ -16,7 +16,7 @@ $ npm install grunt-protractor-runner
 
 После чего можем дополнить наш конфигурационный файл секцией для него:
 
-\[javascript\] protractor: { options: { configFile: "protractor.conf.js" }, all: {} } \[/javascript\]
+[javascript] protractor: { options: { configFile: "protractor.conf.js" }, all: {} } [/javascript]
 
 **protractor.conf.js** - конфигурационный файл, который уже у нас есть (создание подробно описано в [предыдущем посте](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/))
 
@@ -24,7 +24,7 @@ $ npm install grunt-protractor-runner
 
 Проверим что мы все правильно настроили и команда выполняется без ошибок:
 
-\[bash\] $ grunt protractor:all \[/bash\]
+[bash] $ grunt protractor:all [/bash]
 
 ## PhantomJS и Protractor
 
@@ -36,11 +36,11 @@ $ phantomjs --webdriver=4444
 
 а наша секция grunt конфига преобразиться следующим образом:
 
-\[javascript\] protractor: { options: { configFile: "protractor.conf.js" }, all: { options: { args:{ seleniumAddress: 'http://localhost:4444', capabilities: { browserName: 'phantomjs' } } } } } \[/javascript\]
+[javascript] protractor: { options: { configFile: "protractor.conf.js" }, all: { options: { args:{ seleniumAddress: 'http://localhost:4444', capabilities: { browserName: 'phantomjs' } } } } } [/javascript]
 
 иногда бывает необходимо специфицировать конкретную версию/путь к phantomjs, тогда добавляем еще одну опцию - **phantomjs.binary.path**, а аргументы к фантому можем передавать через опцию **phantomjs.cli.args**; итого получим:
 
-\[javascript\] protractor: { options: { configFile: "protractor.conf.js" }, all: { options: { args:{ seleniumAddress: 'http://localhost:4444', capabilities: { browserName: 'phantomjs', 'phantomjs.binary.path':'./node\_modules/.bin/phantomjs', 'phantomjs.cli.args': \['--ignore-ssl-errors=true', '--web-security=false'\] } } } } } \[/javascript\]
+[javascript] protractor: { options: { configFile: "protractor.conf.js" }, all: { options: { args:{ seleniumAddress: 'http://localhost:4444', capabilities: { browserName: 'phantomjs', 'phantomjs.binary.path':'./node\_modules/.bin/phantomjs', 'phantomjs.cli.args': ['--ignore-ssl-errors=true', '--web-security=false'] } } } } } [/javascript]
 
 Если мы хотим, чтобы вебдрайвер запустил фантом за нас, то просто не указываем параметр **seleniumAddress**.
 
@@ -74,11 +74,11 @@ $ phantomjs --webdriver=4444
 
 Иногда возникает необходимость подключить файлы, которые не являются тест сценариями, но, в которых содержится вспомогательный функционал(например логин). Для этого необходимо подключаем файл сделать формата модуля **node.js** ([module.exports](https://openmymind.net/2012/2/3/Node-Require-and-Exports/ "Node-Require-and-Exports")), то есть(helpers.js):
 
-\[javascript\] function login(){ //... } function logout(){ //... } var Helper = {}; Helper.login = login; Helper.logout = logout; \[/javascript\]
+[javascript] function login(){ //... } function logout(){ //... } var Helper = {}; Helper.login = login; Helper.logout = logout; [/javascript]
 
 и потом подключить в файле сценария:
 
-\[javascript\] var helpers = require('./helpers'); helpers.login(); \[/javascript\]
+[javascript] var helpers = require('./helpers'); helpers.login(); [/javascript]
 
 Для тех, кто ранее не работал с таким синтаксисом, подчеркну: расширение "_.js_" в данном случае не пишется.
 
@@ -86,21 +86,21 @@ $ phantomjs --webdriver=4444
 
 ## Авторизация пользователя в приложении:
 
-\[javascript\] describe('Auth Module', function() { var ptor = protractor.getInstance();
+[javascript] describe('Auth Module', function() { var ptor = protractor.getInstance();
 
 it('should login user', function() { browser.get('/login'); browser.waitForAngular();
 
 element(by.model('username')).sendKeys(browser.params.login.user); element(by.model('password')).sendKeys(browser.params.login.password); element.all(by.css('.button--primary')).first().click();
 
-element(by.binding('user.name')).getText().then(function(username) { expect(username).equal(browser.params.login.username); }); ptor.getCurrentUrl().then(function(url) { expect(url.slice(-10)).equal('/dashboard'); }); }); }); \[/javascript\]
+element(by.binding('user.name')).getText().then(function(username) { expect(username).equal(browser.params.login.username); }); ptor.getCurrentUrl().then(function(url) { expect(url.slice(-10)).equal('/dashboard'); }); }); }); [/javascript]
 
 Параметры типа пароля в тестах, понятное дело лучше не держать. Здесь они вынесены в отдельную секцию конфига протрактора (да, согласен, тоже не комильфо, но всеравно лучше, чем прям в тестах):
 
-\[javascript\] params: { login: { user: 'stepan@mail.com', password: 'XXXXXXXXX', username: 'Stepan Suvorov' } } \[/javascript\]
+[javascript] params: { login: { user: 'stepan@mail.com', password: 'XXXXXXXXX', username: 'Stepan Suvorov' } } [/javascript]
 
 ## Покупка продукта
 
-\[javascript\] describe('Purchase item', function() { var ptor = protractor.getInstance();
+[javascript] describe('Purchase item', function() { var ptor = protractor.getInstance();
 
 beforeEach(function() { helpers.logout(); helpers.login(); browser.sleep(3000); });
 
@@ -110,25 +110,25 @@ browser.get('/items/552/buy'); browser.sleep(3000); element(by.css('.modal-windo
 
 ptor.ignoreSynchronization = true;
 
-element(by.css('#mainSubmit')).click(); element(by.css('input\[type="submit"\]')).click();
+element(by.css('#mainSubmit')).click(); element(by.css('input[type="submit"]')).click();
 
-ptor.ignoreSynchronization = false; }); }); \[/javascript\]
+ptor.ignoreSynchronization = false; }); }); [/javascript]
 
 хотел бы отметить очень важный момент в этом куске кода:
 
-\[javascript\] ptor.ignoreSynchronization = true; \[/javascript\]
+[javascript] ptor.ignoreSynchronization = true; [/javascript]
 
 этим мы говорим протрактору, что мы покидаем приложение и переходим на страницу без AngularJS.
 
 ## Поиск по каталогу
 
-\[javascript\] describe('Search', function() { it('should do search', function() {
+[javascript] describe('Search', function() { it('should do search', function() {
 
 browser.get('/items'); element(by.model('itemsSearch.query')).sendKeys('iBrick', protractor.Key.ENTER);
 
-element.all(by.repeater('item in items')).then(function(rows) { var itemTitleElement = rows\[0\].element(by.className('item-tile\_\_name')); itemTitleElement.getText().then(function(itemTitle) { expect(itemTitle).equal('iBrick Plus'); })
+element.all(by.repeater('item in items')).then(function(rows) { var itemTitleElement = rows[0].element(by.className('item-tile\_\_name')); itemTitleElement.getText().then(function(itemTitle) { expect(itemTitle).equal('iBrick Plus'); })
 
-}); }); }); \[/javascript\]
+}); }); }); [/javascript]
 
  
 

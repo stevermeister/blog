@@ -14,11 +14,11 @@ Before it was possible to switch off this new "feature" in [chrome://flags](chro
 
 But it's still possible to run browser with this flag (_thx for [@zerkms](https://github.com/zerkms) for the hint_):
 
-\[shell\] --disable-new-avatar-menu \[/shell\]
+[shell] --disable-new-avatar-menu [/shell]
 
 So I've created **AppleScript** with shell command to to run chrome with that flag:
 
-\[shell\] do shell script "/Applications/Google\\\\ Chrome.app/Contents/MacOS/Google\\\\ Chrome --disable-new-avatar-menu & killall ChromeScript.app" \[/shell\]
+[shell] do shell script "/Applications/Google\\\\ Chrome.app/Contents/MacOS/Google\\\\ Chrome --disable-new-avatar-menu & killall ChromeScript.app" [/shell]
 
 saved it as an application and added to startup apps list. And now I'm happy again :)
 

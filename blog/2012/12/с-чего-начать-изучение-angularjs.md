@@ -60,23 +60,23 @@ date: "2012-12-31"
 
 Выкачиваем себе тренинг проект:
 
-\[shell gutter="false"\] $ git clone --depth=14 https://github.com/angular/angular-phonecat.git \[/shell\]
+[shell gutter="false"] $ git clone --depth=14 https://github.com/angular/angular-phonecat.git [/shell]
 
 Мы используем специальный флаг **\--depth==14**, чтобы получить только последние 14 коммитов.
 
 Перейдем в директорию проекта:
 
-\[shell gutter="false"\] $ cd angular-phonecat \[/shell\]
+[shell gutter="false"] $ cd angular-phonecat [/shell]
 
 ## Самонастройка(Bootstrapping)
 
 В начале каждого пункта будет дана команда, используя которую можно откатиться до состояния кода конкретного пункта.
 
-\[shell gutter="false"\] $ git checkout -f step-0 \[/shell\]
+[shell gutter="false"] $ git checkout -f step-0 [/shell]
 
 Запустим наш web-сервер:
 
-\[shell gutter="false"\] $ npm start \[/shell\]
+[shell gutter="false"] $ npm start [/shell]
 
 Если все отработало без ошибок - можем переходить на  [http://localhost:8000/app/index.html](http://localhost:8000/app/index.html)
 
@@ -120,7 +120,7 @@ Nothing here {{'yet' + '!'}}\`
 
 ## MVC
 
-\[shell gutter="false"\] $ git checkout -f step-2 \[/shell\]
+[shell gutter="false"] $ git checkout -f step-2 [/shell]
 
 **Представление (View)**
 
@@ -151,7 +151,7 @@ phones - переменная(массив объектов), которую м�
 
 <table>
 <tr><th>row number</th></tr>
-<tr ng-repeat="i in \[0, 1, 2, 3, 4, 5, 6, 7\]"><td>{{i+1}}</td></tr>
+<tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
 </table>
 
 **Контроллер (Controller)**
@@ -164,7 +164,7 @@ phones - переменная(массив объектов), которую м�
 
 PhoneListCtrl  - это имя метода, который мы можем найти тут app/js/controllers.js:
 
-\[javascript\] function PhoneListCtrl($scope) { $scope.phones = \[ {"name": "Nexus S", "snippet": "Fast just got faster with Nexus S."}, {"name": "Motorola XOOM™ with Wi-Fi", "snippet": "The Next, Next Generation tablet."}, {"name": "MOTOROLA XOOM™", "snippet": "The Next, Next Generation tablet."} \]; } \[/javascript\]
+[javascript] function PhoneListCtrl($scope) { $scope.phones = [ {"name": "Nexus S", "snippet": "Fast just got faster with Nexus S."}, {"name": "Motorola XOOM™ with Wi-Fi", "snippet": "The Next, Next Generation tablet."}, {"name": "MOTOROLA XOOM™", "snippet": "The Next, Next Generation tablet."} ]; } [/javascript]
 
 В нашем случае мы просто заносим в [$scope](https://docs.angularjs.org/api/ng.$rootScope.Scope) коллекцию объектов, чтобы потом ее отобразить во вью.
 
@@ -185,13 +185,13 @@ function PhoneListCtrl($scope, $rootScope)
 
 Посмотрим пример теста в test/unit/controllersSpec.js:
 
-\[javascript\] describe('PhoneCat controllers', function() {
+[javascript] describe('PhoneCat controllers', function() {
 
 describe('PhoneListCtrl', function(){
 
 it('should create "phones" model with 3 phones', function() { var scope = {}, ctrl = new PhoneListCtrl(scope);
 
-expect(scope.phones.length).toBe(3); }); }); }); \[/javascript\]
+expect(scope.phones.length).toBe(3); }); }); }); [/javascript]
 
 Кто разбирался с [Jasmine](https://stepansuvorov.com/blog/2012/10/jasmine-%D0%B8-%D1%8E%D0%BD%D0%B8%D1%82-%D1%82%D0%B5%D1%81%D1%82%D1%8B/), нет ничего особо сложного: в данном тесте мы проверяем контроллер и хотим убедиться что он занес в коллекцию 3 записи.
 

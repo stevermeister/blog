@@ -10,7 +10,7 @@ date: "2014-08-28"
 
 **fixHooks** - это объект хуков к событиям, где ключом является имя события, например:
 
-\[javascript\] jQuery.event.fixHooks.click = { //... }; \[/javascript\]
+[javascript] jQuery.event.fixHooks.click = { //... }; [/javascript]
 
 Фактически интерфейс **fixHooks** предоставляет возможность расширить или нормализовать объект **event** (который jQuery создает в процессе обработки родного браузерного объекта события) для каждого события отдельно.
 
@@ -21,7 +21,7 @@ date: "2014-08-28"
 
 Пример (добавление и фикс свойства _orientation_):
 
-\[javascript\] jQuery.event.fixHooks.orientationchange = jQuery.event.fixHooks.resize = { props: \["orientation"\], filter: function normalizeOrientation(event, original) { if (event.orientation) { if (\[0, "0", 180, "180", "portrait"\].indexOf(event.orientation)) { event.orientation = "portrait"; } else { event.orientation = "landscape"; } } else { var win = jQuery(window); event.orientation = win.width() &gt; win.height() ? "landscape" : "portrait"; } return event; } } \[/javascript\]
+[javascript] jQuery.event.fixHooks.orientationchange = jQuery.event.fixHooks.resize = { props: ["orientation"], filter: function normalizeOrientation(event, original) { if (event.orientation) { if ([0, "0", 180, "180", "portrait"].indexOf(event.orientation)) { event.orientation = "portrait"; } else { event.orientation = "landscape"; } } else { var win = jQuery(window); event.orientation = win.width() &gt; win.height() ? "landscape" : "portrait"; } return event; } } [/javascript]
 
 Живой пример [тут](https://jsfiddle.net/STEVER/tx9dppqq/ "jsfiddle").
 

@@ -16,11 +16,11 @@ It was an event that was thrown [when somebody called "event.preventDefault()"](
 
 old code
 
-\[javascript\] $rootScope.$on('$stateChangeError', function(event, toState) { //some code to handle the error }) \[/javascript\]
+[javascript] $rootScope.$on('$stateChangeError', function(event, toState) { //some code to handle the error }) [/javascript]
 
 new code
 
-\[javascript\] $transitions.onError({ to: 'stateName' }, function($error$) { console.log($error$); } \[/javascript\]
+[javascript] $transitions.onError({ to: 'stateName' }, function($error$) { console.log($error$); } [/javascript]
 
 in progress
 
@@ -28,31 +28,31 @@ in progress
 
 old code
 
-\[javascript\] $rootScope.$on('$stateChangeStart', function(event, toState) { event.preventDefault(); }) \[/javascript\]
+[javascript] $rootScope.$on('$stateChangeStart', function(event, toState) { event.preventDefault(); }) [/javascript]
 
 new code
 
-\[javascript\] $transitions.onEnter({ to: 'stateName' }, function($state$, $transition$) { return $q.reject() } \[/javascript\]
+[javascript] $transitions.onEnter({ to: 'stateName' }, function($state$, $transition$) { return $q.reject() } [/javascript]
 
 ## $stateChangeSuccess
 
 old code
 
-\[javascript\] $rootScope.$on('$stateChangeSuccess', function(event) {}) \[/javascript\]
+[javascript] $rootScope.$on('$stateChangeSuccess', function(event) {}) [/javascript]
 
 new code
 
-\[javascript\] $transitions.onSuccess({}, () => {}); \[/javascript\]
+[javascript] $transitions.onSuccess({}, () => {}); [/javascript]
 
 ## $stateNotFound
 
 old code
 
-\[javascript\] $rootScope.$on('$stateNotFound', function(event) {}) \[/javascript\]
+[javascript] $rootScope.$on('$stateNotFound', function(event) {}) [/javascript]
 
 new code
 
-\[javascript\] $stateProvider.onInvalid(($to$, $from$) => {}) \[/javascript\]
+[javascript] $stateProvider.onInvalid(($to$, $from$) => {}) [/javascript]
 
  
 

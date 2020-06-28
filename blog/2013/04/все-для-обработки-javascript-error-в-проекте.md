@@ -50,7 +50,7 @@ if (!window.console)
         "timeEnd": function() { },
         "trace": function() { },
         "warn": function() { },
-        "userObjects": \[\],
+        "userObjects": [],
         "element": {},
         "firebug": "foo"
     };

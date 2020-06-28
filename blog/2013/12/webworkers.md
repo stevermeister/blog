@@ -150,7 +150,7 @@ Maximum number of Web Worker instances(256) exceeded for this window.
 Вот так это будет выглядеть в коде
 
 var script = "onmessage = function(e) { postMessage('msg from worker'); }";
-var blob = new Blob(\[script\]);
+var blob = new Blob([script]);
 var blobURL = window.URL.createObjectURL(blob);
 var worker = new Worker(blobURL);
 

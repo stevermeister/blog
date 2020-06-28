@@ -12,19 +12,19 @@ date: "2017-01-21"
 
 На помощь нам спешит **opaque токен**, который выглядит немного как костыль архитектуры. Чтобы избежать коллизии, мы заворачиваем имя нашего сервиса в объект с помощью класса **OpaqueToken**:
 
-\[javascript\] const MY\_HTTP\_TOKEN: OpaqueToken = new OpaqueToken('Http'); \[/javascript\]
+[javascript] const MY\_HTTP\_TOKEN: OpaqueToken = new OpaqueToken('Http'); [/javascript]
 
 Если мы посмотрим на исходный код этого класса, то увидим [всего одну строчку реализации](https://github.com/angular/angular/blob/d169c2434e3b5cd5991e38ffd8904e0919f11788/modules/%40angular/core/src/di/injection_token.ts#L35):
 
-\[javascript\] export class OpaqueToken { constructor(protected \_desc: string) {}
+[javascript] export class OpaqueToken { constructor(protected \_desc: string) {}
 
-toString(): string { return \`Token ${this.\_desc}\`; } } \[/javascript\]
+toString(): string { return \`Token ${this.\_desc}\`; } } [/javascript]
 
 То есть мы просто  заворачиваем наше название в объект, который в случае чего его вернет.
 
 Что это дает? Какое бы мы дурацкое уникальное имя не придумали для своего провайдера, все равно есть вероятность, что кто-то придумает что-то подобное. А вот при создании нового объекта мы всегда гарантируем что он будет уникальный. И теперь коллизии нам не страшны - можем спокойно внедрять нашу сущность:
 
-\[javascript\] constructor(@Inject(MY\_HTTP\_TOKEN) private myHttp){ \[/javascript\]
+[javascript] constructor(@Inject(MY\_HTTP\_TOKEN) private myHttp){ [/javascript]
 
  
 
@@ -32,16 +32,16 @@ toString(): string { return \`Token ${this.\_desc}\`; } } \[/javascript\]
 
 Но представим другую ситуацию: вам внезапно захотелось запихнуть в провайдер несколько классов. Зачем? Ну вот захотелось. И чтобы для каждого класса отрабатывал механизм внедрения зависимости и получал сущность. И, да, разработчики предусмотрели и такой случай. Для этого вам нужно использовать мультипровайдеры, а именно специальное свойство **multi** при определении провайдера:
 
-\[javascript\] providers: \[ { provide: 'SuperProvider', useClass: class A {}, multi: true }, { provide: 'SuperProvider', useClass: class B {}, multi: true}\] \[/javascript\]
+[javascript] providers: [ { provide: 'SuperProvider', useClass: class A {}, multi: true }, { provide: 'SuperProvider', useClass: class B {}, multi: true}] [/javascript]
 
 И теперь можем инжектить два-в-одном:
 
-\[javascript\] constructor(@Inject('SuperProvider') private testInjection) { \[/javascript\]
+[javascript] constructor(@Inject('SuperProvider') private testInjection) { [/javascript]
 
 и получить в testInjection массив из 2х сущностей: экземпляров класса A и B.
 
 Так, еще раз - зачем это нужно? Если вы пишете библиотеку/плагин и хотите сделать его расширяемым для разработчиков, которые будут подключать ваше решение в свои приложения, думаю это именно то, что вам нужно. Именно так реализованы 2 сервиса хранящие валидаторы в ангуляре, а именно **NG\_VALIDATORS** и **NG\_ASYNC\_VALIDATORS**, что позволяет вам добавить свои валидаторы в стандартную коллекцию:
 
-\[javascript\] { provide: NG\_VALIDATORS, useValue: (formControl) => {}, multi: true } \[/javascript\]
+[javascript] { provide: NG\_VALIDATORS, useValue: (formControl) => {}, multi: true } [/javascript]
 
 По прежнему остается вопрос: зачем использовать задание провайдеров через строки, если это может привести к коллизии? Оставим его на совести разработчиков Angular 2.

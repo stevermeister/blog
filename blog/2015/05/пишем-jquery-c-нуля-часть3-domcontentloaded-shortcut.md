@@ -10,29 +10,29 @@ date: "2015-05-11"
 
 Должно быт как-то так:
 
-\[javascript\] var callbacks = \[\]; djQuery.ready = function(callback) { callbacks.push(callback); } \[/javascript\]
+[javascript] var callbacks = []; djQuery.ready = function(callback) { callbacks.push(callback); } [/javascript]
 
 Теперь сделаем, чтобы колбэки выполнились по событию загрузки DOM:
 
-\[javascript\] document.addEventListener( "DOMContentLoaded", function() { callbacks.forEach(function(callback) { callback.apply(); }); }); \[/javascript\]
+[javascript] document.addEventListener( "DOMContentLoaded", function() { callbacks.forEach(function(callback) { callback.apply(); }); }); [/javascript]
 
 Вынесем функцию отдельно(как это сделано в jQuery) и назовем ее `completed`:
 
-\[javascript\] function completed() { callbacks.forEach(function(callback) { callback.apply(); }); } document.addEventListener( "DOMContentLoaded", completed ); \[/javascript\]
+[javascript] function completed() { callbacks.forEach(function(callback) { callback.apply(); }); } document.addEventListener( "DOMContentLoaded", completed ); [/javascript]
 
 И еще хорошо бы отписаться от события, когда мы его получим:
 
-\[javascript\] function completed() { document.removeEventListener( "DOMContentLoaded", completed); callbacks.forEach(function(callback) { callback.apply(); }); } document.addEventListener( "DOMContentLoaded", completed ); \[/javascript\]
+[javascript] function completed() { document.removeEventListener( "DOMContentLoaded", completed); callbacks.forEach(function(callback) { callback.apply(); }); } document.addEventListener( "DOMContentLoaded", completed ); [/javascript]
 
 Для старых браузеров jQuery проделывает еще 2 вещи:
 
 Ставит 3тий параметр false (useCapture - опция, которая и так выключена для новых версий браузеров):
 
-\[javascript\] document.addEventListener( "DOMContentLoaded", completed, true); \[/javascript\]
+[javascript] document.addEventListener( "DOMContentLoaded", completed, true); [/javascript]
 
 и дополнительно слушает еще одно событие:
 
-\[javascript\] window.addEventListener( "load", completed, false ); \[/javascript\]
+[javascript] window.addEventListener( "load", completed, false ); [/javascript]
 
 Мы этого всего для нашего djQuery делать не будем, так как
 
@@ -40,18 +40,18 @@ date: "2015-05-11"
 
 Плюс нам еще осталось добавить короткую форму записи для `$.ready(callback)`, которая представляет из себя:
 
-\[javascript\] $(callback); \[/javascript\]
+[javascript] $(callback); [/javascript]
 
 То есть, если мы передадим в jQuery функции как параметр, она будет записана в  `$.ready` колбэки и выполнится по событию загрузки DOM:
 
-\[javascript\] if(typeof selector === 'function'){ djQuery.ready(selector); return this; } \[/javascript\]
+[javascript] if(typeof selector === 'function'){ djQuery.ready(selector); return this; } [/javascript]
 
 Теперь для проверки отдельно от нашей библиотеки пишем:
 
-\[javascript\] djQuery(function(){ console.log('DOMContentLoaded'); }); \[/javascript\]
+[javascript] djQuery(function(){ console.log('DOMContentLoaded'); }); [/javascript]
 
 или просто:
 
-\[javascript\] $(function(){ console.log('DOMContentLoaded'); }); \[/javascript\]
+[javascript] $(function(){ console.log('DOMContentLoaded'); }); [/javascript]
 
 Код можно взять в теге [step-3](https://github.com/stevermeister/djQuery/tree/step-3).

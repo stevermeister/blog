@@ -16,7 +16,7 @@ date: "2017-01-22"
 
 То, что мы все ждем еще с первой версии Ангуляра, наконец-то пришло, и нам не нужно придумывать своих велосипедов:
 
-\[javascript\] @Component({ selector: 'person', template: \` <h4>Person: {{name}}</h4>
+[javascript] @Component({ selector: 'person', template: \` <h4>Person: {{name}}</h4>
 
 \` }) export class Person { @Input() name: string; }
 
@@ -26,7 +26,7 @@ date: "2017-01-22"
 
 <div> <person name="John"></person> <employee name="Tom" id="45231"></employee> </div>
 
-\[/javascript\]
+[/javascript]
 
 То есть мы удобно можем расширить существующий компонент, при этом переопределив селектор и шаблон.
 
@@ -46,7 +46,7 @@ date: "2017-01-22"
 
 Версию Ангуляра мы можем получить как импортировав специальную константу **VERSION**:
 
-\[javascript\] import {VERSION} from '@angular/core'; console.log(VERSION); \[/javascript\]
+[javascript] import {VERSION} from '@angular/core'; console.log(VERSION); [/javascript]
 
 так и из атрибута корневого элемента:
 

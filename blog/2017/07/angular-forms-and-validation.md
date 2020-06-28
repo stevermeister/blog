@@ -17,15 +17,29 @@ Angular предлагает 2 подхода работы с формами:
 
 Для начала работы с формами необходимо подключить модуль форм(**FormsModule**):
 
+```typescript
 import { FormsModule } from '@angular/forms';
+```
 
 если мы хотим работать в реактивном подходе, то подключаем модуль **ReactiveFormsModule**:
 
+```typescript
 import { ReactiveFormsModule } from '@angular/forms';
+```
 
 И конечно импортируем их в наш основной модуль:
 
-https://gist.github.com/stevermeister/2949d235a73f5c6c56cd45bad416b199
+```typescript
+@NgModule({
+  //...
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  //...
+})
+```
 
 ## Шаблоно-ориентированный подход (template-driven)
 
@@ -35,7 +49,9 @@ https://gist.github.com/stevermeister/2949d235a73f5c6c56cd45bad416b199
 
 Чтобы привязать данные к элементу формы мы можем поставить директиву **ngModel**:
 
-<input type="text" \[ngModel\]="name">
+```html
+<input type="text" [ngModel]="name">
+```
 
 Есть 3 способа как получить введенные данные:
 
@@ -47,7 +63,9 @@ https://gist.github.com/stevermeister/2949d235a73f5c6c56cd45bad416b199
 
 Способ, который пришел из **AngularJs** и в **Angular** практически не используется, но тем не менее, его хорошо знать:
 
-<input type="text" \[(ngModel)\]="name">
+```html
+<input type="text" [(ngModel)]="name">
+```
 
 то есть вы используете специальный синтаксис двойных скобок: сначала прямоугольные, затем круглые ( чтобы было проще запомнить последовательность используется подсказка "_коробка с бананами_" )
 
@@ -57,33 +75,52 @@ https://gist.github.com/stevermeister/2949d235a73f5c6c56cd45bad416b199
 
 Вы можете использовать как родное событие поля ввода, например: для _type text_ это будет **input**:
 
-<input type="checkbox" \[ngModel\]="name" (input)="name = $event.target.value">
+```html
+<input type="checkbox" [ngModel]="name" (input)="name = $event.target.value">
+```
 
 так и использовать специальное событие **ngModelChange**:
 
-<input type="text" \[ngModel\]="name" (ngModelChange)="name = $event">
+```html
+<input type="text" [ngModel]="name" (ngModelChange)="name = $event">
+```
 
 ## ngModel и обращение по ссылке
 
 Чтобы поставить ссылку на **ngModel**, мы делаем следующее:
 
-<input type="text" \[ngModel\]="name" #name>
+```html
+<input type="text" [ngModel]="name" #name>
+```
 
 теперь мы можем обратиться в шаблоне к значению свойства элемента:
 
+```
 {{name.value}}
+```
 
 либо в контроллере компонента через специальный декоратор **ViewChild**:
 
-https://gist.github.com/stevermeister/076ddd493b8f87f39a851ffa9c8ce817
+```typescript
+@ViewChild('name') nameInput: ElementRef;
+
+
+ngAfterViewInit() {
+  console.log(this.nameInput.value)
+}
+```
 
 Также мы можем сделать ссылку не только на элемент, но и на сам контроллер ngModel:
 
-<input type="text" \[ngModel\]="name" #nameModel="ngModel">
+```html
+<input type="text" [ngModel]="name" #nameModel="ngModel">
+```
 
 Теперь в **nameModel** нам доступно не только значение модели, но и все дополнительные свойства и методы контроллера модели:
 
+```
 nameModel.valid
+```
 
 ## Валидация данных в шаблонном подходе
 
@@ -91,27 +128,56 @@ nameModel.valid
 
 ## Свои валидаторы в шаблонном подходе
 
-Не самый очевидный способ предлагают нам разработчики ангуляра для того, чтобы расширить валидаторы в шаблонном подходе. Мы должны создать директиву, в которой переопределить набор стантартных валидаторов **NG\_VALIDATORS**, точнее дополнить своим(своими) с помощью флага [multi](https://stepansuvorov.com/blog/2017/01/angular2-opaque-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D1%8B-%D0%B8-%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%BF%D1%80%D0%BE%D0%B2%D0%B0%D0%B9%D0%B4%D0%B5%D1%80%D1%8B/):
+Не самый очевидный способ предлагают нам разработчики ангуляра для того, чтобы расширить валидаторы в шаблонном подходе. Мы должны создать директиву, в которой переопределить набор стантартных валидаторов **NG_VALIDATORS**, точнее дополнить своим(своими) с помощью флага [multi](https://stepansuvorov.com/blog/2017/01/angular2-opaque-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D1%8B-%D0%B8-%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%BF%D1%80%D0%BE%D0%B2%D0%B0%D0%B9%D0%B4%D0%B5%D1%80%D1%8B/):
 
-https://gist.github.com/stevermeister/0eb1129e32beda5405f73f4f87d2db49
+```typescript
+@Directive({
+  selector: '[vali][ngModel]',
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: ValiDirective,
+      multi: true
+    }
+  ]
+
+})
+export class ValiDirective implements Validator {
+
+  validate(formControl: AbstractControl): ValidationErrors {
+    if(formControl.value === '3'){
+        return {vali: { error: 'vali'}}
+    }
+    return null;
+  };
+}
+```
 
 таким образом мы создали свой валидатор, который проверит не является ли значение равным '3'. Плюс попрошу обратить ваше внимание на селектор для директивы мы указали не только сам атрибут имени директивы, но также что на элементе будет присутствовать **ngModel**.
 
 ## Свои асинхронные валидаторы в шаблонном подходе
 
-Полностью идентичны синхронным, отличие только в том что ваш метод валидации возвращает Promise либо Observable, а прописывается не в NG\_VALIDATORS, в а **NG\_ASYNC\_VALIDATORS**:
+Полностью идентичны синхронным, отличие только в том что ваш метод валидации возвращает Promise либо Observable, а прописывается не в NG_VALIDATORS, в а **NG_ASYNC_VALIDATORS**:
 
-https://gist.github.com/stevermeister/871c190a3554b24cdbdf5fa7dc07205e
+```typescript
+    {
+      provide: NG_ASYNC_VALIDATORS,
+      useExisting: ValiDirective,
+      multi: true
+    }
+```
 
 ## Вывод ошибок
 
 Чтобы вывести ошибки также можем обратиться к контроллеру **ngModel** по ссылке и получить его свойство **errors**:
 
+```
 {{nameModel.errors | json}}
+```
 
 .
 
-_...и теперь..._
+...и теперь...
 
 .
 
@@ -125,24 +191,34 @@ _...и теперь..._
 
 Чтобы создать **FormControl** мы определяем свойство в контроллере компонента:
 
+```typescript
 name: FormControl = new FormControl('Alice');
+```
 
 и привязываем его к конкретному элементу в шаблоне:
 
-<input type="text" \[formControl\]="name">
+```html
+<input type="text" [formControl]="name">
+```
 
 После чего в контроллере мы можем подписаться на изменения:
 
+```typescript
 this.name.valueChanges.subscribe(console.log)
+```
 
 Либо на изменения статуса(валидности):
 
+```typescript
 this.name.statusChanges.subscribe(console.log)
+```
 
 Также можно получать статические значения (не подписываясь):
 
+```typescript
 this.name.value
 this.name.valid
+```
 
  Полный список свойств можно посмотреть в описании [**AbstractControl**](https://angular.io/api/forms/AbstractControl#abstractcontrol) (от которого наследуется **FromControl**)
 
@@ -150,33 +226,73 @@ this.name.valid
 
 **FormGroup** помогает удобно группировать контролы. Например: если мы хотим задавать не просто имя, а полное имя, содержащее само имя и фамилию:
 
-https://gist.github.com/stevermeister/11e44590851ee2e364b8dc66ac3fdc8a
+```typescript
+name: FormGroup = new FormGroup({
+
+  first:new FormControl('Alice'),
+  last:new FormControl('Brown'),
+});
+```
 
 и подключаем в шаблоне:
 
-https://gist.github.com/stevermeister/a81b6ad729e5852c1d31d599a301c49b
+```html
+<fieldset [formGroup]="name">
+	<input type="text" formControlName="first">
+	<input type="text" formControlName="last">
+</fieldset>
+```
 
-Обратите внимание, что для контролов обернутых в **formGroup** мы уже ставим **formControlName** свойство (а не \[formControl\]), которое будет указывать на то, где брать контрол в группе.
+Обратите внимание, что для контролов обернутых в **formGroup** мы уже ставим **formControlName** свойство (а не [formControl]), которое будет указывать на то, где брать контрол в группе.
 
 ## FormArray
 
 **FormArray** прекрасно подойдет тогда, когда в форме у вас используется список, в который вы можете добавлять элементы. Давайте сделаем форму "учасников", которая содержит список участников:
 
-https://gist.github.com/stevermeister/81467104fd1e620ec74b2e6187288e0e
+```typescript
+participantsForm: FormGroup = new FormGroup({
+    users: new FormArray([ new FormControl() ])
+  });
+```  
 
 и в шаблоне это будет выглядеть так:
 
-https://gist.github.com/stevermeister/15dac6ddd7d924d0f525fa78792901fb
+```html
+<form [formGroup]="participantsForm">
+  <ul formArrayName="users">
+    <li *ngFor="let item of participantsForm.controls.users.controls; let i = index">
+      <input type="text" formControlName="{{i}}">
+    </li>
+  </ul>
+</form>
+```
 
 как видите мы выводим список контролов используя итератор(**index**) как имя контрола(**formControlName**) в списке.
 
 Давайте добавим возможность добавления участников:
 
-https://gist.github.com/stevermeister/34cbf2a857699fc044344d4f226358a9
+```html
+<form [formGroup]="participantsForm">
+  <ul formArrayName="users">
+    <li *ngFor="let item of participantsForm.controls.users.controls; let i = index">
+      <input type="text" formControlName="{{i}}"> <button (click)="removeUser(i)">Remove</button>
+    </li>
+  </ul>
+</form>
+<button (click)="addUser()">Add user</button>
+```
 
 и для этого в контроллере компонента определим 2 дополнительных метода **removeUser** и **addUser**:
 
-https://gist.github.com/stevermeister/5d87582ba4029fca95d711de0eab7efe
+```typescript
+removeUser(index) {
+  (this.participantsForm.controls['users'] as FormArray).removeAt(index)
+}
+
+addUser() {
+  (this.participantsForm.controls['users'] as FormArray).push( new FormControl() );
+}
+```
 
 В итоге получим:
 
@@ -186,23 +302,34 @@ https://gist.github.com/stevermeister/5d87582ba4029fca95d711de0eab7efe
 
 Упростить процесс создания новых форм нам помогает сервис **FormBuilder**. Который мы можем инжектировать в контроллер:
 
-https://gist.github.com/stevermeister/3401d4f27ac0197a56eed5e8390f53f4
+```typescript
+constructor(private _fb: FormBuilder) {
+//...
+}
+```
 
 После чего создать туже форму ("учасники"), только теперь с помощью сервиса:
 
-https://gist.github.com/stevermeister/a536a894e6554efc59859e35346a1d6f
-
+```typescript
+this.participantsForm = this._fb.group({
+  users: this._fb.array([this._fb.control('')])
+});
+```
 вы можете сказать, что кода не стало меньше. Да, это так. **FormBuilder** имеет смысл использовать только для сложных форм с большим динамическим количеством контролов.
 
 ## Валидация данных в реактивном подходе
 
 Чтобы добавить валидатор на контрол мы всего лишь добавляем второй параметр, который может быть как одним валидатором, так и массивом(применяем разные проверки):
 
-name: FormControl = new FormControl('Alice', \[Validators.required\]);
+```typescript
+name: FormControl = new FormControl('Alice', [Validators.required]);
+```
 
 предварительно импортировав коллекцию валидаторов:
 
+```typescript
 import { Validators } from "@angular/forms";
+```
 
 Мы можем задавать один и больше валидатор. На данный момент в [коллекции](https://github.com/angular/angular/blob/master/packages/forms/src/validators.ts) есть следующие валидаторы:
 
@@ -219,11 +346,21 @@ import { Validators } from "@angular/forms";
 
 Валидатор представляет из себя простую функцию, которая возвращает либо объект ошибки либо null:
 
-https://gist.github.com/stevermeister/85c3c4bcbb08ffa832ae5f419a9b00bd
+```typescript
+const myNameValidator = (control: FormControl) => {
+  const condition = !!control.value;
+  if (!condition) {
+    return {myNameValidator: 'does not match the condition'}
+  }
+  return null;
+}
+```
 
 добавляется вторым параметром в контрол( вместе со стандартными валидаторами):
 
-name: FormControl = new FormControl('Alice', \[Validators.required, myNameValidator\]);
+```typescript
+name: FormControl = new FormControl('Alice', [Validators.required, myNameValidator]);
+```
 
 В реальных проектах валидаторы собирают в группы заворачивают в классы и делают статическими методами классов.
 
@@ -231,32 +368,61 @@ name: FormControl = new FormControl('Alice', \[Validators.required, myNameValida
 
 Для создания валидаторов с параметрамми нам всего лишь необходимо завернуть нашу функцию валидатор в еще одну функцию, которая создаст замыкание для хранения параметров:
 
-https://gist.github.com/stevermeister/4015dce6441d413b9d781dfd67c499a5
+```typescript
+const myNameValidator = (maxLength: number) => (control: FormControl) => {
+  const condition = !!control.value && control.value.length > maxLength;
+  if (!condition) {
+    return {myNameValidator: 'does not match the condition'}
+  }
+  return null;
+}
+```
 
 Асинхронные валидаторы
 
 Асинхронные валидаторы отличаются от синхронных только тем, что возвращают не статические данные, а **Observable** либо **Promise**:
 
-https://gist.github.com/stevermeister/d1d7b8d95267ba0fe504a50d8ce93369
+```typescript
+const myAsyncNameValidator = (control: FormControl) => {
+  const condition = !!control.value;
+  if (!condition) {
+    return Observable.of({myNameValidator: 'does not match the condition'});
+  }
+  return Observable.of(null);
+}
+```
 
 и также определяются 3-м параметром в конструкторе контрола:
 
-name: FormControl = new FormControl('Alice', \[myNameValidator\], \[myAsyncNameValidator\]);
+```typescript
+name: FormControl = new FormControl('Alice', [myNameValidator], [myAsyncNameValidator]);
+```
 
 ## Вывод ошибок
 
 Ошибки контрола хранятся в свойстве **errors**:
 
+```typescript
 this.name.errors
+```
 
 Чтобы сделать какие-то действия в случае появления ошибок, можем написать так: добавив фильтры на изменение состояния и собственно валидность данных:
 
-https://gist.github.com/stevermeister/9eb766ea93950ae844155e85adf2b62a
+```typescript
+this.name.statusChanges
+  .distinctUntilChanged()
+  .filter(status => status === 'INVALID')
+  .subscribe(() => {
+    console.log(this.name.errors);
+  });
+```      
 
 Свойство есть не только у обычного контрола, но так же и у FormGroup, поэтому вы можете получить объект со всеми ошибками формы:
 
+```typescript
 this.participantsForm.errors
+```
 
 ## Создание кастомных контроллов
 
-Решил вынести эту главу в отдельный пост.
+Записал [скринкаст](http://learn.javascript.ru/screencast/angular#forms-custom-form-control) на эту тему.

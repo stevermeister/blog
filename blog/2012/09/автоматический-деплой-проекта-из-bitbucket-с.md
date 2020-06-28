@@ -134,8 +134,8 @@ function Deploy( directory, options )
 {
     this.directory = directory;
     this.git\_options = {};
-    this.git\_options.branch = options.commits\[0\].branch;
-    this.git\_options.message = options.commits\[0\].message;
+    this.git\_options.branch = options.commits[0].branch;
+    this.git\_options.message = options.commits[0].message;
 }
 
 Deploy.prototype.execute = function(){

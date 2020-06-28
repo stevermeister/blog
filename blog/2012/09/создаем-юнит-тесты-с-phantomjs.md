@@ -48,7 +48,7 @@ if (phantom.args.length === 0) {
 }
 
 t = Date.now();
-address = phantom.args\[0\];
+address = phantom.args[0];
 page.open(address, function (status) {
     if (status !== 'success') {
         console.log('FAIL to load the address');
@@ -64,7 +64,7 @@ page.open(address, function (status) {
 По умолчанию JavaScript код страницы, которую мы загружаем не выполняется, но мы это можем сделать в режиме песочницы через метод evaluate:
 
 var page = require('webpage').create();
-url = phantom.args\[0\];
+url = phantom.args[0];
 
 page.onConsoleMessage = function (msg) {
     console.log(msg);
@@ -95,25 +95,25 @@ Request и responce - json объекты, в которые хранятся д
 Логика на стороне phantomjs выглядит следующим образом:
 
 //массив тестов
-var tests = \[ "test1", "test2", "test3", "test4", "test5"\];
-var pages = \[\];
+var tests = [ "test1", "test2", "test3", "test4", "test5"];
+var pages = [];
 // в цикле по ним проходим
 for(var i in tests ){
     // получаем ссылку на тест
-    var url = host + '#!runtest/' + tests\[i\];
+    var url = host + '#!runtest/' + tests[i];
     page = require('webpage').create()
     pages.push(page);
     // открываем-выполняем страницу теста
-    pages\[i\].open(url,
+    pages[i].open(url,
         (function(testName, page){
             return function(){
                 setTimeout(function(){
                      // по таймауту ренедерим страницу в png-base64
                      // и сравниваем с эталонным значением
-                     equal(page\[i\].renderBase64('PNG'), expected\[testName\], testName + " - OK");
+                     equal(page[i].renderBase64('PNG'), expected[testName], testName + " - OK");
                 }, 2000);
             };
-        })(tests\[i\], pages\[i\])
+        })(tests[i], pages[i])
      );
 }
 

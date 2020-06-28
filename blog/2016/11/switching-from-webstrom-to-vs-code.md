@@ -19,7 +19,7 @@ So what should you do not to lose all the features in **Visual Studio Code** tha
 - **path autocomplete** ([plugin](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense))
 - **live templates** (they are [called **snippets**](https://code.visualstudio.com/Docs/customization/userdefinedsnippets))(also [ng2 snippets](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2))
 - **local history** (unfortunately looks like [plugin](https://marketplace.visualstudio.com/items?itemName=xyz.local-history) is too green for now)
-- limit line - to keep line less than X symbols (settings -> "editor.rulers": \[120\])
+- limit line - to keep line less than X symbols (settings -> "editor.rulers": [120])
 
 Did I miss something?
 

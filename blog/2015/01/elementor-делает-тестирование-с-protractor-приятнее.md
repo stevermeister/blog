@@ -30,11 +30,11 @@ date: "2015-01-29"
 
 Так как это npm модуль, то для установки достаточно выполнить команду:
 
-\[shell\] npm install elementor -g \[/shell\]
+[shell] npm install elementor -g [/shell]
 
 А потом чтобы запустить:
 
-\[shell\] elementor https://angularjs.org \[/shell\]
+[shell] elementor https://angularjs.org [/shell]
 
 \* При этом конечно у вас уже должны быть установлены **protractor** и запущен **веб-драйвер** ( об этом можно почитать [тут](https://stepansuvorov.com/blog/2014/02/angularjs-protractor/ "Тестируем AngularJS используя Protractor") и [тут](https://stepansuvorov.com/blog/2014/11/protractor/ "Автоматизируем тестирование AngularJS с Protractor")).
 
@@ -42,4 +42,4 @@ date: "2015-01-29"
 
 **UPD**: с новым релизом появилась возможность тестировать сайты без AngularJS, для этого запускаем командой:
 
-\[shell\]elementor https://google.com --nonAngular\[/shell\]
+[shell]elementor https://google.com --nonAngular[/shell]

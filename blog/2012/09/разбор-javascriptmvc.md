@@ -34,7 +34,7 @@ steal('jquery/class', function(){ $.Class })
 
 Идем дальше. Все классы в системе создаются вызовом метода
 
-$.Class(\[name,\] \[classProps,\] \[prototypeProps\])
+$.Class([name,] [classProps,] [prototypeProps])
 
 Чтобы создать класс модели используется метод
 
@@ -96,27 +96,27 @@ $.fixture(url, fixture(original, settings, headers) )
 
 возвратить функция **fixture**(не путать callback функцию и метод **fixture**) должна следующую структуру:
 
-return \[ status, statusText, responses, responseHeaders \];
+return [ status, statusText, responses, responseHeaders ];
 
 например:
 
-return \[ 200, "success", {json: \[\]}, {} \];
+return [ 200, "success", {json: []}, {} ];
 
 Добавим в наш код(это который в **todos.js**) эти заглушки для каждого запроса:
 
 // массив данных
-var TODOS = \[
+var TODOS = [
 {id: 1, name: "wake up"},
 {id: 2, name: "take out trash"},
 {id: 3, name: "do dishes"}
-\];
+];
 
 $.fixture("GET /todos", function(){
-return \[TODOS\]
+return [TODOS]
 });
 
 $.fixture("GET /todos/{id}", function(orig){
-return TODOS\[(+orig.data.id)-1\];
+return TODOS[(+orig.data.id)-1];
 })
 
 var id= 4;
@@ -168,7 +168,7 @@ $.View( idOrUrl, data )
 где **id0rUrl** - ID элемента(либо имя файла), который содержит шаблон, а **data** - данные передаваемые в этот шаблон. Вот пример шаблона:
 
 <% for(var i = 0; i < this.length; i++ ) { %> 
-    <li><%= this\[i\].name %></li>  
+    <li><%= this[i].name %></li>  
 <% } %>
 
 который мы сохранили в файл todos.ejs. Возвращает этот метод обработанный шаблон:
@@ -224,7 +224,7 @@ $.Controller("Todos",
 
 как видно из примера мы имеем следующий синтаксис для навешивания обработчиков:
 
-"\[selector\] \[event\]"
+"[selector] [event]"
 
 Т.е. селектор, причем может быть составной селектор и событие. К сожалению, данный синтаксис не поддерживает множественные события(ну или я не разобрался полностью). Но зато поддерживает динамические шаблоны для подстановки события, выглядит это следующим образом:
 

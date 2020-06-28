@@ -18,4 +18,4 @@ date: "2015-05-09"
 
 На всякий случай, список команд сохраню тут:
 
-\[shell\] brew install dnsmasq cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist echo "\\naddress=/dev/127.0.0.1" >> /usr/local/etc/dnsmasq.conf sudo launchctl stop homebrew.mxcl.dnsmasq sudo launchctl start homebrew.mxcl.dnsmasq sudo mkdir -p /etc/resolver sudo tee /etc/resolver/dev >/dev/null <<EOF nameserver 127.0.0.1 EOF ping xxx.dev \[/shell\]
+[shell] brew install dnsmasq cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist echo "\\naddress=/dev/127.0.0.1" >> /usr/local/etc/dnsmasq.conf sudo launchctl stop homebrew.mxcl.dnsmasq sudo launchctl start homebrew.mxcl.dnsmasq sudo mkdir -p /etc/resolver sudo tee /etc/resolver/dev >/dev/null <<EOF nameserver 127.0.0.1 EOF ping xxx.dev [/shell]

@@ -6,15 +6,15 @@ date: "2017-01-20"
 
 Решил сделать заметку по не очевидному моменту юнит-тестирования **Angular2**, а именно: когда вы мокаете **Http** сервис, заменяя **XHRBackend** на **MockBackend**:
 
-\[javascript\] TestBed.configureTestingModule({ imports: \[HttpModule\], providers: \[{provide: XHRBackend, useClass: MockBackend}\] }); \[/javascript\]
+[javascript] TestBed.configureTestingModule({ imports: [HttpModule], providers: [{provide: XHRBackend, useClass: MockBackend}] }); [/javascript]
 
 а потом с помощью **mockBackend** подменяете ответ от сервера:
 
-\[javascript\] mockBackend.connections.subscribe((connection: MockConnection) => { connection.mockRespond(new Response(new ResponseOptions({body: JSON.stringify(mockUser)}))); }) \[/javascript\]
+[javascript] mockBackend.connections.subscribe((connection: MockConnection) => { connection.mockRespond(new Response(new ResponseOptions({body: JSON.stringify(mockUser)}))); }) [/javascript]
 
 **subscribe** на http Observable становится внезапно **синхронным**:
 
-\[javascript\] console.log(1); this.\_http.get('/').subscribe((data) => { console.log(2); }); console.log(3); \[/javascript\]
+[javascript] console.log(1); this.\_http.get('/').subscribe((data) => { console.log(2); }); console.log(3); [/javascript]
 
 соотвественно выведет: 1 2 3.
 

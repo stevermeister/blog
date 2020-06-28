@@ -76,6 +76,6 @@ db.open(function(err, db) {
 
 Чтобы добавить несколько записей можно сделать так:
 
-collection.insert(\[{hello:'world'}, {hello:'world2'}, {hello:'world3'}\]);
+collection.insert([{hello:'world'}, {hello:'world2'}, {hello:'world3'}]);
 
 Думаю будет еще один пост непосредственно о использовании MongoDB, а в этом пока все.

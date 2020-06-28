@@ -10,7 +10,7 @@ date: "2017-01-15"
 
 Есть костыль, который можно использовать на переходное время:
 
-\[javascript\] .config(function($compileProvider) { $compileProvider.preAssignBindingsEnabled(true); }); \[/javascript\]
+[javascript] .config(function($compileProvider) { $compileProvider.preAssignBindingsEnabled(true); }); [/javascript]
 
 ## Наследование ngModelOptions
 

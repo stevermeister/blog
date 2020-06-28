@@ -24,9 +24,9 @@ date: "2015-05-09"
 
 Основываясь на исходном коде и выкинув все проверки я сделал что-то типа прототипа для обоих методов:
 
-\[javascript\] function $evalAsync(expr, locals) { $browser.defer($rootScope.$digest); asyncQueue.push({scope: this, expression: expr, locals: locals}); }
+[javascript] function $evalAsync(expr, locals) { $browser.defer($rootScope.$digest); asyncQueue.push({scope: this, expression: expr, locals: locals}); }
 
-function $applyAsync(expr) { var scope = this; applyAsyncQueue.push(function(){ scope.$eval(expr); }); $browser.defer(function() { while (applyAsyncQueue.length) { applyAsyncQueue.shift()(); } applyAsyncId = null; }); $browser.defer($rootScope.$digest); } \[/javascript\]
+function $applyAsync(expr) { var scope = this; applyAsyncQueue.push(function(){ scope.$eval(expr); }); $browser.defer(function() { while (applyAsyncQueue.length) { applyAsyncQueue.shift()(); } applyAsyncId = null; }); $browser.defer($rootScope.$digest); } [/javascript]
 
 Откуда видно, что `$applyAsync` сам контроллирует свою очередь, а вот очередью `$evalAsync` занимается дайджест.
 

@@ -16,11 +16,11 @@ date: "2012-11-16"
 
 var  data = {
         "header": "Colors",
-        "items": \[
+        "items": [
             {"name": "red", "first": true, "url": "#Red"},
             {"name": "green", "link": true, "url": "#Green"},
             {"name": "blue", "link": true, "url": "#Blue"}
-        \],
+        ],
         "empty": false
     };
 

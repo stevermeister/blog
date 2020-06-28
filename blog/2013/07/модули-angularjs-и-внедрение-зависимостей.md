@@ -14,33 +14,33 @@ function simpleService(){
    this.name = "simpleService";
 }
 
-angular.module('foo', \[\])
+angular.module('foo', [])
    .service('simpleService', simpleService);
 
 Теперь представим, что мы хотим вручную получить экземпляр этого сервиса (что в практике скорее всего делать не прийдется) и использовать. Чтобы сделать это, мы создадим новый **injector** и поручим ему магию создания сервиса для нас:
 
-var myInjector = angular.injector(\['foo'\]);
+var myInjector = angular.injector(['foo']);
 var service = myInjector.get('simpleService');
  console.log(service.name); // 'simpleService'
 
 Итак, это именно оно... самый простой случай. Но что если у нас 2 модуля с сервисами, которые имеют одинаковые имена? Что тогда? Тут уже становится интересно, давайте рассмотрим еще пример:
 
-angular.module('foo', \[\])
+angular.module('foo', [])
    .service('simpleService', function(){ this.name = "foo"; });
 
-angular.module('bar', \[\])
+angular.module('bar', [])
    .service('simpleService', function(){ this.name = "bar"; });
 
-var fooSvc = angular.injector(\['foo'\]).get('simpleService');
-var barSvc = angular.injector(\['bar'\]).get('simpleService');
+var fooSvc = angular.injector(['foo']).get('simpleService');
+var barSvc = angular.injector(['bar']).get('simpleService');
 
 console.log(fooSvc.name); // 'foo'
 console.log(barSvc.name); // 'bar'
 
 Это похоже на то, что мы ожидали увидеть: каждый инжектор относится только к одному модулю и поэтому сервисы изолированы. Но ведь мы можем создать инжектор, который будет относиться более чем одному модулю. Что будет тогда?
 
-var fooSvc = angular.injector(\['foo','bar'\]).get('simpleService');
-var barSvc = angular.injector(\['bar','foo'\]).get('simpleService');
+var fooSvc = angular.injector(['foo','bar']).get('simpleService');
+var barSvc = angular.injector(['bar','foo']).get('simpleService');
 
 console.log(fooSvc.name); // 'bar'
 console.log(barSvc.name); // 'foo'
@@ -49,14 +49,14 @@ console.log(barSvc.name); // 'foo'
 
 Но что если модули имеют зависимости? Что это меняет?
 
-angular.module('foo', \[\])
+angular.module('foo', [])
    .service('simpleService', function(){ this.name = "foo"; });
 
-angular.module('bar', \['foo'\])
+angular.module('bar', ['foo'])
    .service('simpleService', function(){ this.name = "bar"; });
 
-var fooSvc = angular.injector(\['foo','bar'\]).get('simpleService');
-var barSvc = angular.injector(\['bar','foo'\]).get('simpleService');
+var fooSvc = angular.injector(['foo','bar']).get('simpleService');
+var barSvc = angular.injector(['bar','foo']).get('simpleService');
 
 console.log(fooSvc.name); // 'bar'
 console.log(barSvc.name); // 'bar'
@@ -67,10 +67,10 @@ console.log(barSvc.name); // 'bar'
 
 Замена сервиса - это хорошо, но что особенно здорово в Ангулар - возможность получить сервис сразу после его создания. Это может быть достигнуто путем использования декоратора (**decorator**):
 
-angular.module('foo', \[\])
+angular.module('foo', [])
    .service('simpleService', function(){ this.name = "foo"; });
 
-angular.module('bar', \['foo'\])
+angular.module('bar', ['foo'])
    .config(function($provide){
 
       //$provide was injected for me automatically by Angular
@@ -84,8 +84,8 @@ angular.module('bar', \['foo'\])
       });
    });
 
-var fooSvc = angular.injector(\['foo'\]).get('simpleService');
-var barSvc = angular.injector(\['bar'\]).get('simpleService');
+var fooSvc = angular.injector(['foo']).get('simpleService');
+var barSvc = angular.injector(['bar']).get('simpleService');
 
 console.log(fooSvc.name); // 'foo'
 console.log(barSvc.name); // 'foo|bar'

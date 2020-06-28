@@ -36,6 +36,6 @@ Llc Maersk-invest
 
 ddfd
 
-**UPD \[16.01.2014\]**: Снова упал, правда в этот раз только веб-сервер(nginx).
+**UPD [16.01.2014]**: Снова упал, правда в этот раз только веб-сервер(nginx).
 
 [![](images/Screenshot-2014-01-16-10.41.30-300x114.png "Screenshot 2014-01-16 10.41.30")](https://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screenshot-2014-01-16-10.41.30.png)

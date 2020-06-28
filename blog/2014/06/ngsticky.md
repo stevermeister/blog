@@ -6,7 +6,7 @@ date: "2014-06-14"
 
 Вдохновленный [angular-sticky](https://github.com/mattosborn/angular-sticky) написал свой  [ngSticky](https://gist.github.com/stevermeister/ec4c7da12deaf8e86469 "gist") вариант:
 
-\[javascript\] angular.module('ui') .directive('ngSticky', function($window) { return function($scope, element) { var start, $win = element($window);
+[javascript] angular.module('ui') .directive('ngSticky', function($window) { return function($scope, element) { var start, $win = element($window);
 
 $win.on('scroll', function() {
 
@@ -18,8 +18,8 @@ if (scroll > start) { element.addClass('stuck'); } else { element.removeClass('s
 
 $win.on('resize', function recheckPositions() { element.width( element.parent().width() ); });
 
-}; }); \[/javascript\]
+}; }); [/javascript]
 
 CSS:
 
-\[css\] .stuck { position: fixed; top: 0; } \[/css\]
+[css] .stuck { position: fixed; top: 0; } [/css]

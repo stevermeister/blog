@@ -21,7 +21,7 @@ function fixSlice(file, startingByte, endindByte){
 А вот так будет выглядеть код для чтения блоба(мы прочитаем с 0 по 15 байт файла):
 
 document.getElementById('file-field').onchange = function(){
-    var file = this.files\[0\];
+    var file = this.files[0];
     var start = 0;
     var stop = 15;
     var reader = new FileReader;
@@ -45,7 +45,7 @@ var blob\_size = 16;
 var reader;
 
 document.getElementById('file-field').onchange = function(){
-  file = this.files\[0\];
+  file = this.files[0];
   reader = new FileReader;
   reader.onloadend = function(e){
     if (e.target.readyState == FileReader.DONE) {

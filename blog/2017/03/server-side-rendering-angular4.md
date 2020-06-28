@@ -30,21 +30,21 @@ ng eject
 
 Вариант конфигурации(**webpack.config.js**) предложенный CLI не включает **Uglify** плагина, а **AOT** компиляция отключена, давайте включим обе опции:
 
-\[javascript\]
-\[...\]
-"plugins": \[
-	\[...\],
+[javascript]
+[...]
+"plugins": [
+	[...],
 	new AotPlugin({
-          \[...\]
+          [...]
 	  // влючаем AOT
 	  "skipCodeGeneration": false
 	}),
 
 	// добавляем UglifyJsPlugin
 	new webpack.optimize.UglifyJsPlugin()
-\]
-\[...\]
-\[/javascript\]
+]
+[...]
+[/javascript]
 
 В то время как **AOT** совсем не обязательно для серверного рендеринга, комбинируя эти опции мы можем добиться прекрасного результата в плане скорости загрузки.
 
@@ -65,7 +65,7 @@ npm i express @types/express --save
 
 Для использования серверного рендеринга нам нужен корневой модуль, который включает ServerModule. Согласно [примеру от Rob Wormald](https://github.com/robwormald/ng-universal-demo/), мы также включаем корневой модуль нашего основного приложения (тот что отрисовывается в браузере):
 
-\[javascript\]
+[javascript]
 // app.server.module.ts
 
 import { NgModule } from '@angular/core';
@@ -74,34 +74,34 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  imports: \[
+  imports: [
 	  ServerModule,
 	  AppModule
-  \],
-  bootstrap: \[
+  ],
+  bootstrap: [
 	  AppComponent
-  \],
-  providers: \[ \]
+  ],
+  providers: [ ]
 })
 export class AppServerModule {}
-\[/javascript\]
+[/javascript]
 
 Далее мы должны расширить **BrowserModule** основного приложения указав идентификатор приложения (просто строка):
 
-\[javascript\]// app.module.ts
+[javascript]// app.module.ts
 
 @NgModule({
-    imports: \[
+    imports: [
         BrowserModule.withServerTransition({
             appId: 'demo-app'
         }),
         HttpModule,
         FormsModule,
-	    \[...\]
-    \],
-    \[...\]
+	    [...]
+    ],
+    [...]
 })
-export class AppModule {}\[/javascript\]
+export class AppModule {}[/javascript]
 
 ## AOT для сервера
 
@@ -145,7 +145,7 @@ npm run ngc:server
 
 Теперь можем создать главный файл для сервера - **main.server.ts**, в котором используем сгенерированный **AppServerModuleNgFactory**:
 
-\[javascript\]
+[javascript]
 //main.server.ts
 import 'zone.js/dist/zone-node';
 import { renderModuleFactory } from '@angular/platform-server';
@@ -184,17 +184,17 @@ app.get('/page2\*', (req, res) =&amp;gt; {
 app.use(express.static('.'));
 
 app.listen(8000, () =&amp;gt; console.log('listening...'));
-\[/javascript\]
+[/javascript]
 
 Убедимся что в роутере основного модуля также есть данные стейты:
 
-\[javascript\]
+[javascript]
 //app.module.ts
-    RouterModule.forRoot(\[
+    RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'page2', component: Page2Component }
-    \])
-\[/javascript\]
+    ])
+[/javascript]
 
 ## Webpack для серверного рендеринга
 
@@ -264,13 +264,13 @@ node main.server.bundle.js
 
 Чтобы не перегружать файловую систему, мы можем кешировать результат чтения файла:
 
-\[javascript\]
+[javascript]
 let templateCache = {};
 function ngExpressEngine() {
   return function (filePath, options, callback) {
-    if (!templateCache\[filePath\]) {
+    if (!templateCache[filePath]) {
       let file = fs.readFileSync(filePath);
-      templateCache\[filePath\] = file.toString();
+      templateCache[filePath] = file.toString();
     }
     renderModuleFactory(AppServerModuleNgFactory, {
       document: fs.readFileSync(filePath).toString(),
@@ -280,7 +280,7 @@ function ngExpressEngine() {
     });
   };
 }
-\[/javascript\]
+[/javascript]
 
 ## **UPD2: Удобные команды для запуска**
 
@@ -301,7 +301,7 @@ function ngExpressEngine() {
 
 Для серверного модуля(app.server.module) необходимо указать **APP\_BASE\_HREF**:
 
-providers: \[{provide: APP\_BASE\_HREF, useValue : '/' }\]
+providers: [{provide: APP\_BASE\_HREF, useValue : '/' }]
 
 иначе будет следующая ошибка:
 

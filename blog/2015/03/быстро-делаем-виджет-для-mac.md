@@ -16,13 +16,13 @@ date: "2015-03-28"
 - внимательно просмотрите [описание полей](https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Dashboard_ProgTopics/Articles/WidgetBasics.html#//apple_ref/doc/uid/TP40008117-SW15 "developer.apple.com") и возможных значений для info.plist
 - если вы хотите работать с сетью, обязательно должен стоять специальный ключ разрешающий работу с сетью:
     
-    \[xml\] <key>AllowNetworkAccess</key> <true/> \[/xml\]
+    [xml] <key>AllowNetworkAccess</key> <true/> [/xml]
     
 - очень часто возникают странные проблемы с кешированием: и даже установив новую версию виджета вы видите, что ничего не обновилось. Я решал это путем переименования файлов/названия самого виджета/версии виджета
 - иконку для виджета можно задать поместив в папку файл icon.png
 - с дебагом все совсем печально: никакой консоли нет. в сети советуют тупо создать текстовое поле в виджете и туда логировать в случае необходимости информацию, типа:
     
-    \[javascript\] document.getElementById('debug').textContent = 'something that you want to log'; \[/javascript\]
+    [javascript] document.getElementById('debug').textContent = 'something that you want to log'; [/javascript]
     
 
 ## Пример

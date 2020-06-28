@@ -21,11 +21,11 @@ date: "2015-02-23"
 
 Приведу простейший пример: допустим нам нужно сделать приложение-калькулятор. Для этого в сервис поместим все операции по вычислению:
 
-\[javascript\] app.service('Calculator', function(){ this.add = function(a, b){ return a + b; }; this.subtract = function(a, b){ return a - b; }; this.multiply = function(a, b){ return a \* b; }; this.divide = function(a, b){ return a / b; }; }); \[/javascript\]
+[javascript] app.service('Calculator', function(){ this.add = function(a, b){ return a + b; }; this.subtract = function(a, b){ return a - b; }; this.multiply = function(a, b){ return a \* b; }; this.divide = function(a, b){ return a / b; }; }); [/javascript]
 
 теперь мы можем подключить нашу зависимость - сервис Calculator - в контроллер компонента и использовать его методы:
 
-\[javascript\] controller: function(Calculator) { this.result = Calculator.add(this.a, this.b); }); \[/javascript\]
+[javascript] controller: function(Calculator) { this.result = Calculator.add(this.a, this.b); }); [/javascript]
 
 Полный пример можно посмотреть [тут](https://plnkr.co/edit/JgKOiBGaJkdvxujHoklG?p=preview "jsfiddle").
 
@@ -37,17 +37,17 @@ date: "2015-02-23"
 
 Уровень данных( или наши модели данных), который включает ajax-запросы к серверу. Давайте напишем простую модельку User с двумя методами:
 
-\[javascript\] app.service('User', function(){ var endpoint = 'https://jsonplaceholder.typicode.com/users';
+[javascript] app.service('User', function(){ var endpoint = 'https://jsonplaceholder.typicode.com/users';
 
 this.get = function(id){ return $.get(endpoint + '/' + id); }
 
-this.getAll = function(){ return $.get(endpoint); } }); \[/javascript\]
+this.getAll = function(){ return $.get(endpoint); } }); [/javascript]
 
 теперь мы можем получить пользователей сервера и передать их в контроллер компонента по средством нашего сервиса:
 
-\[javascript\] controller: function ($scope, User) { User.get(9).then(user => { this.title = { selectedUser : user } $scope.$apply(); });
+[javascript] controller: function ($scope, User) { User.get(9).then(user => { this.title = { selectedUser : user } $scope.$apply(); });
 
-User.getAll().then(users => { this.users = users; $scope.$apply(); }); }); \[/javascript\]
+User.getAll().then(users => { this.users = users; $scope.$apply(); }); }); [/javascript]
 
 С полным примером можно поиграться [тут](https://plnkr.co/edit/6o9inqc2X5WsWrnwwmxP?p=preview "jsfiddle.net").
 
@@ -59,7 +59,7 @@ User.getAll().then(users => { this.users = users; $scope.$apply(); }); }); \[/ja
 
 Простейший пример этому будет сервис авторизации и хранение значение авторизирован ли пользователь или нет:
 
-\[javascript\] app.service('Auth', function(){ this.isAuthorized = false; this.login = function(){ this.isAuthorized = true; } this.logout = function(){ this.isAuthorized = false; } }); \[/javascript\]
+[javascript] app.service('Auth', function(){ this.isAuthorized = false; this.login = function(){ this.isAuthorized = true; } this.logout = function(){ this.isAuthorized = false; } }); [/javascript]
 
 Полный пример [тут](https://plnkr.co/edit/ZBL9dEHVvxdCudrQG4wC?p=preview "jsfiddle.net").
 

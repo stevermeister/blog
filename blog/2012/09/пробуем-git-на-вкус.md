@@ -51,12 +51,12 @@ git log
 
 Рассмотрим полезную фишку, такую как алиасы. Наверняка вы уже работали с алиасами команд в SVN: commit - co, update - up. Чтобы git у нас заработал также необходимо внести изменения в его конфиг (~/.gitconfig) - добавить следующие строчки:
 
-\[alias\]
+[alias]
   co = checkout
   ci = commit
   st = status
   br = branch
-  hist = log --pretty=format:\\"%h %ad | %s%d \[%an\]\\" --graph --date=short
+  hist = log --pretty=format:\\"%h %ad | %s%d [%an]\\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
 

@@ -31,7 +31,7 @@ date: "2012-10-19"
 
 Создаем _main.js_ со следующим содержанием:
 
-require(\["util"\], function(util) {
+require(["util"], function(util) {
   alert("это выполнится только тогда, когда файл util.js будет загружен");
 });
 
@@ -47,7 +47,7 @@ require(\["util"\], function(util) {
 
 Метод **define** служит для описания модулей и имеет следующий синтаксис:
 
-define( \[moduleName,\] dependencies, callback)
+define( [moduleName,] dependencies, callback)
 moduleName - имя модуля (необязательный параметр)
 dependencies - массив зависимостей(с другими модулями)
 callback - тело модуля, в которое передаются dependencies
@@ -55,7 +55,7 @@ callback - тело модуля, в которое передаются depende
 Для нашего случая будет выглядеть так(модуль содержит только одну зависимость):
 
 define( "unit",
-        \['jQuery'\],
+        ['jQuery'],
         function( jQuery ){
           return { foo : "bar" };
         }
@@ -63,7 +63,7 @@ define( "unit",
 
 Но если бы модуль содержал больше зависимостей, мы бы могли добавить их:
 
-\['jQuery', 'jQueryUI', 'AnotherModule'\]
+['jQuery', 'jQueryUI', 'AnotherModule']
 
 и соответственно в функцию бы добавилось больше параметров:
 
@@ -75,7 +75,7 @@ require( requiredModules, callback)
 
 Мы уже поместили вызов метода в main.js:
 
-require(\["util"\], function(util) {
+require(["util"], function(util) {
   //важно то, что util будет доступно только тут
   //и его не будет в глобальной области видимости
 });
@@ -120,7 +120,7 @@ requirejs.config({
     }
 });
 
-require(\["util", "jquery"\], function(util, $) {
+require(["util", "jquery"], function(util, $) {
     console.log($(document));
 })
 

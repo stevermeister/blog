@@ -301,11 +301,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    render text: params\[:post\].inspect
+    render text: params[:post].inspect
   end
 end
 
-с 3мя методами. Экшн _create_ содержит в себе метод _render_, который принимает параметр с ключем '_text_' и значением '_params\[:post\].inspect_'.
+с 3мя методами. Экшн _create_ содержит в себе метод _render_, который принимает параметр с ключем '_text_' и значением '_params[:post].inspect_'.
 
 Теперь, если отправить форму, мы увидим значение заполненных полей.
 
@@ -332,7 +332,7 @@ $ rake db:migrate
 Теперь перепишем на метод create так, чтобы он сохранял данные в базу:
 
   def create
-    @post = Post.new(params\[:post\])  #создаем модель и наполняем данными формы
+    @post = Post.new(params[:post])  #создаем модель и наполняем данными формы
 
     @post.save    # сохраняем модель
     redirect\_to @post    #переадресовываем на страницу отображения поста
@@ -347,7 +347,7 @@ $ rake db:migrate
 Создадим в нашем контроллере данный метод:
 
   def show
-    @post = Post.find(params\[:id\])
+    @post = Post.find(params[:id])
   end
 
 который получит данные по :id. Не забудем так же создать вьюху (_app/views/posts/show.html.erb_):
@@ -413,7 +413,7 @@ $ rake db:migrate
 Добавляем edit экшен в наш контроллер:
 
   def edit
-    @post = Post.find(params\[:id\])
+    @post = Post.find(params[:id])
   end
 
 в котором будет только получение информации, и шаблон для него (app/views/posts/edit.html.erb):
@@ -452,9 +452,9 @@ $ rake db:migrate
 Теперь для сохранения информации добавим update экшн:
 
   def update
-    @post = Post.find(params\[:id\])
+    @post = Post.find(params[:id])
 
-    if @post.update(params\[:post\])
+    if @post.update(params[:post])
       redirect\_to @post
     else
       render 'edit'
@@ -471,7 +471,7 @@ $ rake db:migrate
 Добавим экшн-метод удаления поста:
 
 def destroy
-    @post = Post.find(params\[:id\])
+    @post = Post.find(params[:id])
     @post.destroy
 
     redirect\_to posts\_path

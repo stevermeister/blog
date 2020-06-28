@@ -166,8 +166,8 @@ expect(foo.setBar).toHaveBeenCalled();
 expect(foo.setBar.calls.length).toEqual(2);
 expect(foo.setBar).toHaveBeenCalledWith(123);
 expect(foo.setBar).toHaveBeenCalledWith(456, 'another param');
-expect(foo.setBar.mostRecentCall.args\[0\]).toEqual(456);
-expect(foo.setBar.calls\[0\].args\[0\]).toEqual(123);
+expect(foo.setBar.mostRecentCall.args[0]).toEqual(456);
+expect(foo.setBar.calls[0].args[0]).toEqual(123);
 
 Для метода **spyOn** существует ряд надстроек:
 
@@ -178,7 +178,7 @@ spyOn(foo, 'getBar').andCallFake(function() {return 1001;}); // подменяе
 и более сложные:
 
 setBar = jasmine.createSpy('setBar');
-foo = jasmine.createSpyObj('foo', \['setBar'\]);
+foo = jasmine.createSpyObj('foo', ['setBar']);
 
 По сути тоже самое что и spyOn(foo, 'setBar'), только тут мы можем создавать наблюдатель на функцию(как в первом случае), а не на метод объекта и делать это динамически(формируя название функции).
 

@@ -41,7 +41,7 @@ db.once("open", function callback () {
 var UserSchema = new mongoose.Schema( {
     name: { type: String, default: "hahaha" },
     age: { type: Number, min: 18, index: true },
-    bio: { type: String, match: /\[a-z\]/ },
+    bio: { type: String, match: /[a-z]/ },
     date: { type: Date },
     buff: Buffer
 } );
