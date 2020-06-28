@@ -18,7 +18,7 @@ date: "2017-01-21"
 
 [javascript] export class OpaqueToken { constructor(protected \_desc: string) {}
 
-toString(): string { return \`Token ${this.\_desc}\`; } } [/javascript]
+toString(): string { return `Token ${this.\_desc}`; } } [/javascript]
 
 То есть мы просто  заворачиваем наше название в объект, который в случае чего его вернет.
 

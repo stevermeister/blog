@@ -22,7 +22,7 @@ date: "2012-10-21"
 
 Для начала немного о том, как нам установить CasperJS. Скачиваем архив с [офсайта](https://casperjs.org) либо выкачиваем файлы с [github](https://github.com/n1k0/casperjs). Создаем ссылку на исполняемый файл в /usr/local/bin:
 
-$ ln -sf \`pwd\`/bin/casperjs /usr/local/bin/casperjs
+$ ln -sf `pwd`/bin/casperjs /usr/local/bin/casperjs
 
 После чего можно проверить работоспособность фантома(который как бы уже должен быть установлен) и каспера:
 

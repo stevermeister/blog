@@ -16,13 +16,13 @@ date: "2017-01-22"
 
 То, что мы все ждем еще с первой версии Ангуляра, наконец-то пришло, и нам не нужно придумывать своих велосипедов:
 
-[javascript] @Component({ selector: 'person', template: \` <h4>Person: {{name}}</h4>
+[javascript] @Component({ selector: 'person', template: ` <h4>Person: {{name}}</h4>
 
-\` }) export class Person { @Input() name: string; }
+` }) export class Person { @Input() name: string; }
 
-@Component({ selector: 'employee', template: \` <h4>Employee: {{name}}, id: {{id}}</h4>
+@Component({ selector: 'employee', template: ` <h4>Employee: {{name}}, id: {{id}}</h4>
 
-\` }) export class Employee extends Person { @Input() id: string; }
+` }) export class Employee extends Person { @Input() id: string; }
 
 <div> <person name="John"></person> <employee name="Tom" id="45231"></employee> </div>
 

@@ -93,7 +93,7 @@ C директивой все понятно. Но вот то, как мы ве
 
 А вот так (взято из [оф доки](https://docs.angularjs.org/guide/forms)) мы можем переопределить стандартную проверку:
 
-[javascript] app.directive('overwriteEmail', function() { var EMAIL\_REGEXP = /^[a-z0-9!#$%&'\*+/=?^\_\`{|}~.-]+@example\\.com$/i;
+[javascript] app.directive('overwriteEmail', function() { var EMAIL\_REGEXP = /^[a-z0-9!#$%&'\*+/=?^\_`{|}~.-]+@example\\.com$/i;
 
 return { require: 'ngModel', restrict: '', link: function(scope, elm, attrs, ctrl) { if (ctrl && ctrl.$validators.email) {
 

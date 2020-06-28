@@ -251,7 +251,7 @@ He took patters from [Terry Riley "In C"](https://www.youtube.com/watch?v=yNi0bu
 
 Example:
 
-[javascript] @Component({ animations: [ trigger('myAnimation'), [ transition('\* =&amp;amp;amp;gt; \*', [ style({opacity:0}), animate(1000, { opacity: 1 }) ]) ]], template: \`<div [@myAnimation]="state">...</div>\` }) class Cmp {} [/javascript]
+[javascript] @Component({ animations: [ trigger('myAnimation'), [ transition('\* =&amp;amp;amp;gt; \*', [ style({opacity:0}), animate(1000, { opacity: 1 }) ]) ]], template: `<div [@myAnimation]="state">...</div>` }) class Cmp {} [/javascript]
 
 Animations have callbacks:
 
@@ -288,11 +288,11 @@ so inside this method we could have:
 
 [javascript] function giveMeData(ob){ ob.next('data'); ob.complete(); }; [/javascript]
 
-and now let's assume that we have object \`observable\` and \`giveMeData\` is property of this object:
+and now let's assume that we have object `observable` and `giveMeData` is property of this object:
 
 [javascript] const observable = { giveMeData: (ob) => {} }; [/javascript]
 
-And now we can rename \`giveMeData\` to \`subscribe\`. So on and so forth with map and filter methods... Nice to have more deep understanding of reactive programming pattens.
+And now we can rename `giveMeData` to `subscribe`. So on and so forth with map and filter methods... Nice to have more deep understanding of reactive programming pattens.
 
 ## Minifying Angular2 Applications ( [slides](https://docs.google.com/presentation/d/1SaHtM1_mpBZuN74wxAJSPQRB0sPbWRSJPQZsxx4_BpE/preview?slide=id.p), [video](https://www.youtube.com/watch?v=Ml7qHlk80kc))
 
