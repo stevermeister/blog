@@ -24,13 +24,13 @@ PRIMARY KEY ( `a` )
 Добавим одну запись в таблицу:
 
 ```sql
- ``` ``INSERT INTO `test` (`` ````a` ,`b` ,`c``` `) VALUES (` ``1, 1, 1`);`
+INSERT INTO `test` (`a` ,`b` ,`c`) VALUES (1, 1, 1);
 ```
 
 Попробуем добавить еще одну запись в таблицу с дублированием ключа:
 
 ```sql
- ``` ``INSERT INTO `test` (`` ````a` ,`b` ,`c``` `) VALUES (` ``1, 2, 3`);`
+INSERT INTO `test` (`a` ,`b` ,`c`) VALUES (1, 2, 3);
 ```
 
 Получим ошибку:
@@ -44,7 +44,7 @@ PRIMARY KEY ( `a` )
 А теперь мы хотим построить такой запрос, который при совпадении индекса обновит информацию в старой записи:
 
 ```sql
-INSERT INTO test (a,b,c) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
+INSERT INTO `test` (`a`,`b`,`c`) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
 ```
 
 В итоге получим таблицу:
@@ -57,6 +57,5 @@ INSERT INTO test (a,b,c) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
 Что для нас может быть интересно? что во второй части, а именно в **UPDATE** мы можем прописать не обязательно инкремент значения поля, а любые действия, которые захотим - как одно, так и несколько (через запятую).
 
 ```sql
-INSERT INTO test (a,b,c) VALUES (1,2,3)
-ON DUPLICATE KEY UPDATE a=300, b=300, c = a+b;
+INSERT INTO `test` (`a`,`b`,`c`) VALUES (1,2,3) ON DUPLICATE KEY UPDATE a=300, b=300, c=a+b;
 ```

@@ -6,28 +6,25 @@ date: "2012-01-02"
 
 # Stepan Suvrov - I'm your CTO
 
-*Currently I’m CTO at Studytube and we provide an online education platform to the business. Doing programming for many years. Only focused on Javascript for 11 years, and with Angular from 2012. I write a blog and lead online Angular courses for the RU community, enjoy teaching and making other developers better.*
+*I enjoy teaching and making other people better.*
 
 
-## Summary
+### Summary
 
-- Solid academic background
-- 15+ years in Web Development 
-- Agile Methodology Coach
-- Information Security Expert (Master Degree)
-- MongoDB certified specialist
-- Firm grasp of object-oriented approach
-- Comfortable with using  *nix based command line
-- Never out of touch with the details of the business or the technology
-- Good understanding of software design principles and ability to guide others
-- Experience managing projects across cross functional teams, building sustainable processes and coordinating release schedules
-- Innate ability to inspire passion in others
+- Solid **academic background**
+- 10+ years in **software engineering**, 5+ years of **people management** experience, SaaS B2B/B2C2B companies preferred.
+- Strong **prioritisation** and **project management** skills, understanding of **business impact** for various solutions.
+- Result focused, **data-driven** engineering strategy development skills.
+- Understanding engineering **architecture** and trade-offs.
+- Proven experience building a platform for cloud products.
+- Good understanding of **software design principles** and ability to guide others
+- Experience managing **remote teams**, building sustainable processes
+- Innate ability to **inspire** passion in others
 
 
-## Experience
+### Experience
 
-### StudyTube (2014 – still here) - Online Learning Management Platform
-http://www.studytube.nl/
+### [StudyTube](https://www.studytube.nl/) (2014 – still here) - Online Learning Management Platform
 
 - Managing tech and product
 - Technical strategy and architecture
@@ -35,7 +32,6 @@ http://www.studytube.nl/
 - Product planning
 - Development practices
 - Operations and security 
-
 
 Tags:
 [JavaScript](/?tag=javascript), 

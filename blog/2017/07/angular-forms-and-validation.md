@@ -181,7 +181,7 @@ export class ValiDirective implements Validator {
 
 .
 
-Реактивный (reactive) подход
+## Реактивный (reactive) подход
 
 Реактивном подходе мы настраиваем элементы формы не в шаблоне, а в контроллере, оперируя при этом следующими понятиями: [**FormControl**](https://angular.io/api/forms/FormControl), [**FormGroup**](https://angular.io/api/forms/FormGroup), [**FormArray**](https://angular.io/api/forms/FormArray), [**FormBuilder**](https://angular.io/api/forms/FormBuilder).
 

@@ -130,9 +130,29 @@ and '_' is '\_'
 and '$' is '\\$'
 
 
-# Angular Services: articles, tags, search
+# Angular Services: title, articles, tags, search
 
-When you have all your information in place (in .md files) you could think about such a nice and obvious functionality for WordPress (as well as any blog) like **tags** or **search**, and now you can do it all on client side!
+When you have all your information in place (in .md files) you could think about such a nice and obvious functionality for WordPress (as well as any blog) like dynamic title, **tags** or **search**, and now you can do it all on client side!
+
+## TitleService
+
+Angular already has a title serive. I wrote about it [here](/blog/2017/03/angular-set-title/).
+Now you only need to inject this service
+
+```typescript
+  constructor(
+    ...
+    private titleService: Title) {
+```
+
+ and set title based on your article: 
+
+```typescript
+this.scully.getCurrent().subscribe(article => {
+  this.titleService.setTitle(article.title);
+  this.article = article;
+});
+```
 
 
 ## Article Service

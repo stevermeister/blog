@@ -25,7 +25,10 @@ date: "2016-11-21"
 
 ```javascript
 import { Component, OnInit, OnDestroy } from "@angular/core";
-@Component({ selector: "my", template: "My Component!" })
+@Component({ 
+  selector: "my", 
+  template: "My Component!" 
+})
 export class MyComponent implements OnInit {
   ngOnInit() {
     console.log("onInit");
@@ -70,8 +73,8 @@ export class MyComponent implements OnInit {
 
 тут и будет **Content**.
 
-Теперь должно стать более понятно что такое  **ngAfterContentInit** и **ngAfterViewInit**. Так же нужно обязательно понимать, что Content инициализируется до View, а View ребенка инициализируется до View родителя. Например у вас есть 2 компонента (один вложенный в другой): сначала отработает метод ngAfterContentInit на родителе, потом ngAfterContentInit на ребенке, потом сработает ngAfterViewInit ребенка и только потом ngAfterViewInit родителя. Подробно проиллюстрированно в консоле на [планкере](https://plnkr.co/edit/UkQ9FVkCPBZCQ22uEzSa?p=preview).
+Теперь должно стать более понятно что такое  **ngAfterContentInit** и **ngAfterViewInit**. Так же нужно обязательно понимать, что Content инициализируется до View, а View ребенка инициализируется до View родителя. Например у вас есть 2 компонента (один вложенный в другой): сначала отработает метод ngAfterContentInit на родителе, потом ngAfterContentInit на ребенке, потом сработает ngAfterViewInit ребенка и только потом ngAfterViewInit родителя.
 
 **ngAfterContentChecked** и **ngAfterViewChecked** выполняются при любых изменениях входящих параметров.
 
-Реализацию всех хуков можно посмотреть на вот [этом примере](https://plnkr.co/edit/gx4JMNaolU1jqoDgS5lT?p=preview).
+Реализацию всех хуков можно посмотреть на вот [этом примере](https://stackblitz.com/edit/ng-livecycle-hooks).

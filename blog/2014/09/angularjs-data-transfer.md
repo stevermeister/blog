@@ -31,7 +31,9 @@ this.name = "Bob";
 для нового синтаксиса:
 
 ```html
-<div ng-controller="userController as user"><h1>Hi, {{user.name}}</h1></div>
+<div ng-controller="userController as user">
+  <h1>Hi, {{user.name}}</h1>
+</div>
 ```
 
 Код примера [тут](https://jsfiddle.net/STEVER/8p31cgge/ "jsfiddle.net").
@@ -53,7 +55,10 @@ this.name = "Bob";
 Фактически осуществляется посредством контроллера (рассмотрено выше), но переменную-свойство в контроллере можем не создавать: она будет создана автоматически. Итого имеем связь представление - контроллер - представление. Важно, чтобы 2 элемента представления, которые собираемся синхронизировать, находились в рамках одного контроллера.
 
 ```html
-<div ng-controller="userController">; <input ng-model"name.first">; <textarea ng-model="name.first">; </div>
+<div ng-controller="userController">
+  <input ng-model="name.first">
+  <textarea ng-model="name.first">
+</div>
 ```
 
 Пример [тут](https://jsfiddle.net/STEVER/eyxj1nhf/ "jsfiddle.net").

@@ -72,7 +72,7 @@ function isPrime(number){
 }
 ```
 
-Для тех,  кто хочет поиграться с примером, - пожалуйста [сюда](https://learn.javascript.ru/play/DJ8n1b).
+Для тех,  кто хочет поиграться с примером, - пожалуйста [сюда](https://plnkr.co/edit/Mlq0qgHWJZZdEd3u).
 
 Теперь немного комментариев.
 
