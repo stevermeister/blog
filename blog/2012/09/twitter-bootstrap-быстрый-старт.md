@@ -1,6 +1,6 @@
 ---
 title: "Twitter Bootstrap быстрый старт"
-tags: "bootstrap,javascript,twitter,Хочу сделать мир лучше"
+tags: "bootstrap,javascript,twitter"
 date: "2012-09-13"
 ---
 

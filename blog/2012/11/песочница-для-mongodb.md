@@ -1,6 +1,6 @@
 ---
 title: "Песочница для mongodb"
-tags: "javascript,MongoDB,node.js,webStorm,Хочу сделать мир лучше"
+tags: "javascript,MongoDB,node.js,webStorm"
 date: "2012-11-10"
 ---
 
@@ -18,7 +18,7 @@ date: "2012-11-10"
 
 var mongo = require('mongodb');
 var host = 'localhost';
-var port = mongo.Connection.DEFAULT\_PORT;
+var port = mongo.Connection.DEFAULT_PORT;
 
 var db = new mongo.Db('test', new mongo.Server(host, port, {}), {safe:false});
 db.open(function(err, db) {

@@ -1,6 +1,6 @@
 ---
 title: "Создаем юнит-тесты с phantomjs"
-tags: "javas,phantomjs,Хочу сделать мир лучше"
+tags: "javas,phantomjs"
 date: "2012-09-29"
 ---
 
@@ -72,7 +72,7 @@ page.onConsoleMessage = function (msg) {
 page.open(url, function (status) {
     var title = page.evaluate(function () {
         //return document.title;
-        console.log(some\_variable);
+        console.log(some_variable);
     });
     phantom.exit();
 });

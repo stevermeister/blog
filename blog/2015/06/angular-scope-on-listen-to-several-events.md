@@ -1,12 +1,14 @@
 ---
 title: "Angular: $scope.$on() - listen to several events"
-tags: "$scope.$on,AngularJs,javascript,Хочу сделать мир лучше"
+tags: "$scope.$on,AngularJs,javascript"
 date: "2015-06-07"
 ---
 
 I found it quite strange that AngularJS does not have possibility to watch several Angular-events, i.e.:
 
-[javascript] $scope.$on(['user.login', 'user.logout'], callback); [/javascript]
+```javascript 
+  $scope.$on(['user.login', 'user.logout'], callback);  
+ ```
 
 and I decided to extend $on method, to make it handle such case:
 

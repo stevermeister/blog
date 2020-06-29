@@ -1,6 +1,6 @@
 ---
 title: "Шорткаты адресной строки браузера"
-tags: "browser,chrome,search,Хочу сделать мир лучше"
+tags: "browser,chrome,search"
 date: "2014-06-29"
 ---
 

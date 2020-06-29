@@ -1,6 +1,6 @@
 ---
 title: "Story about AngularJS, IE9 and CORS"
-tags: "AngularJs,CORS,ie,ie9,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,CORS,ie,ie9,javascript"
 date: "2014-09-15"
 ---
 

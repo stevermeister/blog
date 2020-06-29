@@ -1,6 +1,6 @@
 ---
 title: "WebStorm: Editing HTML Inside of JS Literals"
-tags: "editor,html,webStorm,Хочу сделать мир лучше"
+tags: "editor,html,webStorm"
 date: "2014-02-16"
 ---
 

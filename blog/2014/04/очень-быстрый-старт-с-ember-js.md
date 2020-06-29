@@ -1,6 +1,6 @@
 ---
 title: "Очень быстрый старт с Ember.js"
-tags: "ember,javascript,Хочу сделать мир лучше"
+tags: "ember,javascript"
 date: "2014-04-03"
 ---
 
@@ -12,11 +12,15 @@ date: "2014-04-03"
 
 Кроме самого фреймворка Ember.js нам необходимо также подключить его зависимости - Handlabrs и jQuery, поэтому добавляем в файл:
 
-[html] <script type='text/javascript' src='jquery.js'></script> <script type='text/javascript' src="handlebars.js"></script> <script type='text/javascript' src="ember.js"></script> [/html]
+```html 
+  <script type='text/javascript' src='jquery.js'></script> <script type='text/javascript' src="handlebars.js"></script> <script type='text/javascript' src="ember.js"></script>  
+ ```
 
 чтобы еще ускорить процесс можно взять сразу все с CDN, даже не скачивая:
 
-[html] <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script> <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.js"></script> <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.js"></script> [/html]
+```html 
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script> <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.js"></script> <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.js"></script>  
+ ```
 
 ## Шаг2 - Добавляем шаблоны
 
@@ -24,13 +28,17 @@ date: "2014-04-03"
 
 Давайте добавим шаблон _application_ в наш _index.html_ файл:
 
-[html] <script type="text/x-handlebars" data-template-name="application"> <div class="container"> <h1>Ember.js быстрое погружение без подготовки</h1> <p>{{message}}</p> </div> </script> [/html]
+```html 
+  <script type="text/x-handlebars" data-template-name="application"> <div class="container"> <h1>Ember.js быстрое погружение без подготовки</h1> <p>{{message}}</p> </div> </script>  
+ ```
 
 ## Шаг3 - Инициализируем приложение
 
 Просто добавим еще один script-тег с содержимым:
 
-[html] <script type='text/javascript'> App = Ember.Application.create({}); </script> [/html]
+```html 
+  <script type='text/javascript'> App = Ember.Application.create({}); </script>  
+ ```
 
 Приложение создано,  оно уже выводит наш шаблон.
 
@@ -38,7 +46,9 @@ date: "2014-04-03"
 
 Ember инициализирует какждый шаблон в контекте конкретного контроллера. Для шаблона _application_ это будет _ApplicationController_, который Ember создаст сам автоматически, если вы не определили его изначально. Но давайте попробуем создать свой и добавить значение для переменной шаблона _message_:
 
-[javascript] App.ApplicationController = Ember.Controller.extend({ message: 'А эту строку выведет в шаблон' }); [/javascript]
+```javascript 
+  App.ApplicationController = Ember.Controller.extend({ message: 'А эту строку выведет в шаблон' });  
+ ```
 
 Хочу обратить ваше внимание: в Ember все сущности создается как наследники-расширения(типа **extend**) с подобным синтаксисом.
 

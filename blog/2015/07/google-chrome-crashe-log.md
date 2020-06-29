@@ -1,6 +1,6 @@
 ---
 title: "Google Chrome crashe log"
-tags: "chrome,crashe,log,Хочу сделать мир лучше"
+tags: "chrome,crashe,log"
 date: "2015-07-10"
 ---
 

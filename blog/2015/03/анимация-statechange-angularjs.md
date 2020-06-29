@@ -1,6 +1,6 @@
 ---
 title: "Анимация stateChange AngularJS"
-tags: "AngularJs,animation,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,animation,javascript"
 date: "2015-03-14"
 ---
 

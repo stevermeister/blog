@@ -1,6 +1,6 @@
 ---
 title: "Используем Mocha для unit-тестов"
-tags: "javascript,Mocha,tests,Хочу сделать мир лучше"
+tags: "javascript,Mocha,tests"
 date: "2013-11-29"
 ---
 

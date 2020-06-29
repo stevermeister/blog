@@ -201,11 +201,15 @@ How to sync the state between first page rendered on server and real spa? It's m
 
 To start:
 
-[javascript] import { UniversalModule } from 'angular2-universal/browser' [/javascript]
+```javascript 
+  import { UniversalModule } from 'angular2-universal/browser'  
+ ```
 
 and for server side:
 
-[javascript] import { UniversalModule } from 'angular2-universal/node' [/javascript]
+```javascript 
+  import { UniversalModule } from 'angular2-universal/node'  
+ ```
 
 There are a lot of renders for different node frameworks, for example **express**.
 
@@ -251,7 +255,9 @@ He took patters from [Terry Riley "In C"](https://www.youtube.com/watch?v=yNi0bu
 
 Example:
 
-[javascript] @Component({ animations: [ trigger('myAnimation'), [ transition('\* =&amp;amp;amp;gt; \*', [ style({opacity:0}), animate(1000, { opacity: 1 }) ]) ]], template: `<div [@myAnimation]="state">...</div>` }) class Cmp {} [/javascript]
+```javascript 
+  @Component({ animations: [ trigger('myAnimation'), [ transition('\* =&amp;amp;amp;gt; \*', [ style({opacity:0}), animate(1000, { opacity: 1 }) ]) ]], template: `<div [@myAnimation]="state">...</div>` }) class Cmp {}  
+ ```
 
 Animations have callbacks:
 
@@ -278,19 +284,27 @@ I found presentation [Adam Bradley](https://twitter.com/@adamdbradley) not inte
 
 A lot of live coding from [**André Staltz**](https://twitter.com/@andrestaltz) to build own **RxJs** library. All types of callbacks we could group in 3: **next**, **error**, **complete**, if we combine all 3 into one object and call it observer:
 
-[javascript] const observer = { next: () => {}, error: () => {}, complete: () => {} } [/javascript]
+```javascript 
+  const observer = { next: () => {}, error: () => {}, complete: () => {} }  
+ ```
 
 and can pass this object to special method giveMeData:
 
-[javascript] giveMeData(observer); [/javascript]
+```javascript 
+  giveMeData(observer);  
+ ```
 
 so inside this method we could have:
 
-[javascript] function giveMeData(ob){ ob.next('data'); ob.complete(); }; [/javascript]
+```javascript 
+  function giveMeData(ob){ ob.next('data'); ob.complete(); };  
+ ```
 
 and now let's assume that we have object `observable` and `giveMeData` is property of this object:
 
-[javascript] const observable = { giveMeData: (ob) => {} }; [/javascript]
+```javascript 
+  const observable = { giveMeData: (ob) => {} };  
+ ```
 
 And now we can rename `giveMeData` to `subscribe`. So on and so forth with map and filter methods... Nice to have more deep understanding of reactive programming pattens.
 

@@ -1,6 +1,6 @@
 ---
 title: "Автоматическая авторизация OpenVPN(не нужно вводить каждый раз пароль)"
-tags: "auth,OpenVPN,ubuntu,Хочу сделать мир лучше"
+tags: "auth,OpenVPN,ubuntu"
 date: "2013-01-14"
 ---
 

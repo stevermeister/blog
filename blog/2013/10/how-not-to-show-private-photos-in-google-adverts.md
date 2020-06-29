@@ -1,6 +1,6 @@
 ---
 title: "How not to show private photos in google adverts"
-tags: "advert,google,Хочу сделать мир лучше"
+tags: "advert,google"
 date: "2013-10-14"
 ---
 

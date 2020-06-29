@@ -1,6 +1,6 @@
 ---
 title: "Самые распространенные ошибки AngularJS разработчиков"
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2014-12-08"
 ---
 
@@ -52,19 +52,27 @@ var app = angular.module('app', ['sharedServices', 'login']); [/javascript]
 
 Dependency injection - один из лучших паттернов AngularJs. Он делает тестирование намного проще, на ряду с тем, что все зависимости становятся более понятно описаны. AngularJS очень гибок в плане того, как могут быть внедрены зависимоcти. Самый легкий способ: просто передать имя зависимости в функцию как параметр:
 
-[javascript] app.controller('MainCtrl', function($scope, $timeout){ $timeout(function(){ console.log($scope); }, 1000); }); [/javascript]
+```javascript 
+  app.controller('MainCtrl', function($scope, $timeout){ $timeout(function(){ console.log($scope); }, 1000); });  
+ ```
 
-\- вполне понятно, что **MainCtrl** зависит от **$scope** и **$timeout**. Это прекрасно работает до момента, когда вы захотите минифицировать код. Он может превратиться в что-то такое:
+_ вполне понятно, что **MainCtrl** зависит от **$scope** и **$timeout**. Это прекрасно работает до момента, когда вы захотите минифицировать код. Он может превратиться в что-то такое:
 
-[javascript] var app=angular.module("app",[]);app.controller("MainCtrl",function(e,t){t(function(){console.log(e)},1e3)}) [/javascript]
+```javascript 
+  var app=angular.module("app",[]);app.controller("MainCtrl",function(e,t){t(function(){console.log(e)},1e3)})  
+ ```
 
 После такой компиляции AngularJS уже не знает какие там были зависимости у **MainCtrl**. AngularJS предлагает довольно простое решение для данной проблемы: передавать зависимости как массив строк, а последним элементом в этом массиве будет функция принимающая эти параметры:
 
-[javascript] app.controller('MainCtrl', ['$scope', '$timeout', function($scope, $timeout){ $timeout(function(){ console.log($scope); }, 1000); }]);<br />[/javascript]
+```javascript 
+  app.controller('MainCtrl', ['$scope', '$timeout', function($scope, $timeout){ $timeout(function(){ console.log($scope); }, 1000); }]);<br /> 
+ ```
 
 в данном случае после компиляции получим:
 
-[javascript] app.controller("MainCtrl",["$scope","$timeout",function(e,t){t(function(){console.log(e)},1e3)}]) [/javascript]
+```javascript 
+  app.controller("MainCtrl",["$scope","$timeout",function(e,t){t(function(){console.log(e)},1e3)}])  
+ ```
 
 Так же эту проблему можно решить с помощью [ngAnnotate](https://github.com/olov/ng-annotate "github.com") модуля, который сам переведет ваш код в полную форму записи перед минификацией.
 
@@ -74,7 +82,9 @@ Dependency injection - один из лучших паттернов AngularJs. 
 
 Например библиотека [Underscore.js](https://underscorejs.org/), которая существенно упрощает JavaScript код, может быть обернута в модуль/сервис следующим образом:
 
-[javascript] var underscore = angular.module('underscore', []); underscore.factory('\_', function($window) { return $window.\_; }); var app = angular.module('app', ['underscore']); app.controller('MainCtrl', ['$scope', '\_', function($scope, \_) { init = function() { \_.keys($scope); } init(); }]); [/javascript]
+```javascript 
+  var underscore = angular.module('underscore', []); underscore.factory('_', function($window) { return $window._; }); var app = angular.module('app', ['underscore']); app.controller('MainCtrl', ['$scope', '_', function($scope, _) { init = function() { _.keys($scope); } init(); }]);  
+ ```
 
 Это позволит сохранить структуру зависимостей AngularJS, и в дальнейшем мы сможем выгрузить(либо перегрузить) Underscore.js для тестов.
 
@@ -102,7 +112,9 @@ app.factory('helloWorldFactory', function(){ return { hello: function() { return
 
 Так зачем нужны 2 способа? factory предполагает более гибкую настройку, чем service, потому что она может вернуть функцию-конструктор, которая будет использована для создания объекта (из [этого паттерна](https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0%D1%8F_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_%28%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%29 "Абстрактная фабрика") вероятно и происходит название сущности).
 
-[javascript] app.factory('helloFactory', function() { return function(name) { this.name = name; this.hello = function() { return "Hello " + this.name; }; }; }); [/javascript]
+```javascript 
+  app.factory('helloFactory', function() { return function(name) { this.name = name; this.hello = function() { return "Hello " + this.name; }; }; });  
+ ```
 
 Вот пример использования такой фабрики в контроллере:
 
@@ -158,7 +170,9 @@ f(root); console.log(watchers.length);
 
 Благодаря прототипному наследованию передача данных из родительского скоупа в дочерний довольно проста, но тут есть далеко не очевидный момент. Допустим у нас есть _username_ отображаемый в панели навигации и он так же вводиться в форму логина, вот как это может быть реализовано:
 
-[html] <div ng-controller="navCtrl"> <span>{{user}}</span> <div ng-controller="loginCtrl"> <span>{{user}}</span> <input ng-model="user"/> </div> </div> [/html]
+```html 
+  <div ng-controller="navCtrl"> <span>{{user}}</span> <div ng-controller="loginCtrl"> <span>{{user}}</span> <input ng-model="user"/> </div> </div>  
+ ```
 
 !Внимание вопрос: какие поля шаблона обновятся (когда юзер вводит текст)?
 
@@ -166,7 +180,9 @@ f(root); console.log(watchers.length);
 
 Суть в том, что примитивы передаются как значение, а объекты по ссылке. Поэтому, если мы хотим, чтобы обновилось также значение в котроллере navCtrl, то мы должны оперировать не значениями, а свойствами объектов, то есть вместо **user** мы запишем **user.name**:
 
-[html] <div ng-controller="navCtrl"> <span>{{user.name}}</span> <div ng-controller="loginCtrl"> <span>{{user.name}}</span> <input ng-model="user.name"/> </div> </div> [/html]
+```html 
+  <div ng-controller="navCtrl"> <span>{{user.name}}</span> <div ng-controller="loginCtrl"> <span>{{user.name}}</span> <input ng-model="user.name"/> </div> </div>  
+ ```
 
 Пример [тут](https://jsfiddle.net/STEVER/6kf3ch6d/ "jsfiddle.net").
 

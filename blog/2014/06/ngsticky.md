@@ -1,6 +1,6 @@
 ---
 title: "ngSticky - атрибут директива для позиционирования панелей управления"
-tags: "AngularJs,javascript,ngSticky,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,ngSticky"
 date: "2014-06-14"
 ---
 

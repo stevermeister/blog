@@ -1,6 +1,6 @@
 ---
 title: "Delayed Keypress или создаем свои хуки событий на jQuery"
-tags: "javascript,jQuery,jQuery.event,keypress,Хочу сделать мир лучше"
+tags: "javascript,jQuery,jQuery.event,keypress"
 date: "2014-06-14"
 ---
 
@@ -8,13 +8,17 @@ date: "2014-06-14"
 
 Если не создавать своего события, а просто обработать **keypress**, то получим где-то такой код:
 
-[javascript] $(function() { var timer; $("#id").keypress(function() { timer && clearTimeout(timer); timer = setTimeout(someMethod, 500); }); }); [/javascript]
+```javascript 
+  $(function() { var timer; $("#id").keypress(function() { timer && clearTimeout(timer); timer = setTimeout(someMethod, 500); }); });  
+ ```
 
 Теперь попробуем создать свое событие **delayedkeypress**, обработчик которого можно будет повесить на любой элемент DOM.
 
 **jQuery** имеет следующий синтаксис для определения своих событий:
 
-[javascript] jQuery.event.special.myevent = { delegateType: 'eventType', bindType: 'eventType', setup: function( data, namespaces, eventHandle ) { // code }, teardown: function( namespaces ) { // code }, add: function( handleObj ) { // code }, remove: function( handleObj ) { // code }, \_default: function( event ) { // code }, trigger: function( event: jQuery.Event, data: Object ) { // code }, handle: function( event: jQuery.Event, data: Object ){ // code } }; [/javascript]
+```javascript 
+  jQuery.event.special.myevent = { delegateType: 'eventType', bindType: 'eventType', setup: function( data, namespaces, eventHandle ) { // code }, teardown: function( namespaces ) { // code }, add: function( handleObj ) { // code }, remove: function( handleObj ) { // code }, _default: function( event ) { // code }, trigger: function( event: jQuery.Event, data: Object ) { // code }, handle: function( event: jQuery.Event, data: Object ){ // code } };  
+ ```
 
 Немного пояснений по свойствам и колбэкам:
 
@@ -24,27 +28,37 @@ date: "2014-06-14"
 - **teardown** - когда все обработчики сняты
 - **add**/**remove** - при каждом добавлении/удалении нового обработчика
 - **trigger** - вызовется при использовании методов **.trigger()** и **.triggerHandler()**
-- **\_default** - определяет нужно ли запускать стандартный обработчик браузера
+- **_default** - определяет нужно ли запускать стандартный обработчик браузера
 - **handle** - основной метод, который будет вызван при обнаружении события определенного в **bindType** опции
 
 Если мы хотим просто прокинуть стандартный **keypress** через свой обработчик, получим:
 
-[javascript]jQuery.event.special.delayedkeypress = { delegateType: "keypress", bindType: "keypress", handle: function (event) { return event.handleObj.handler.apply(this, arguments); } };[/javascript]
+```javascript 
+ jQuery.event.special.delayedkeypress = { delegateType: "keypress", bindType: "keypress", handle: function (event) { return event.handleObj.handler.apply(this, arguments); } }; 
+ ```
 
 а теперь добавим нашу обработку c таймером:
 
-[javascript] jQuery.event.special.delayedkeypress = { delegateType: "keypress", bindType: "keypress", handle: function (event) { var self = this; this.timer && clearTimeout(this.timer); this.timer = setTimeout(function(){ event.handleObj.handler.apply(self, arguments); }, 500); } }; [/javascript]
+```javascript 
+  jQuery.event.special.delayedkeypress = { delegateType: "keypress", bindType: "keypress", handle: function (event) { var self = this; this.timer && clearTimeout(this.timer); this.timer = setTimeout(function(){ event.handleObj.handler.apply(self, arguments); }, 500); } };  
+ ```
 
 это позволит нам превратить первоначальный код в простой отлов события:
 
-[javascript]$("#id").on("delayedkeypress", someMethod);[/javascript]
+```javascript 
+ $("#id").on("delayedkeypress", someMethod); 
+ ```
 
 ну и для полной jquery-ности добавим алиас-метод **delayedkeypress** для быстрой работы с событием(аналогично _click()_, _focus()_, _scroll()_):
 
-[javascript] jQuery.fn[ "delayedkeypress" ] = function( data, fn ) { return arguments.length > 0 ? this.on( "delayedkeypress", null, data, fn ) : this.trigger( "delayedkeypress" ); };[/javascript]
+```javascript 
+  jQuery.fn[ "delayedkeypress" ] = function( data, fn ) { return arguments.length > 0 ? this.on( "delayedkeypress", null, data, fn ) : this.trigger( "delayedkeypress" ); }; 
+ ```
 
 получим:
 
-[javascript]$("#id").delayedkeypress(someMethod);[/javascript]
+```javascript 
+ $("#id").delayedkeypress(someMethod); 
+ ```
 
 Вот [тут](https://jsfiddle.net/STEVER/y5R5V/ "jsfiddle") можно поиграть с кодом. Более подробную информацию можно найти в [исходниках](https://github.com/jquery/jquery/blob/master/src/event.js "event.js").

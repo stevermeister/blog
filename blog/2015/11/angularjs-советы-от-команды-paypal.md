@@ -1,6 +1,6 @@
 ---
 title: "AngularJS советы от команды PayPal"
-tags: "AngularJs,paypal,Хочу сделать мир лучше"
+tags: "AngularJs,paypal"
 date: "2015-11-08"
 ---
 

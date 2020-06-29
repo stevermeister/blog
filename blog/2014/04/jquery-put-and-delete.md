@@ -1,6 +1,6 @@
 ---
 title: "jQuery: $.put and $.delete"
-tags: "ajax,javascript,jQuery,Хочу сделать мир лучше"
+tags: "ajax,javascript,jQuery"
 date: "2014-04-01"
 ---
 

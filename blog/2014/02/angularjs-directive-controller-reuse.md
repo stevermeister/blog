@@ -1,6 +1,6 @@
 ---
 title: "AngularJS: Использование контроллера директивы в другой директиве"
-tags: "AngularJs,controller,directive,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,controller,directive,javascript"
 date: "2014-02-14"
 ---
 

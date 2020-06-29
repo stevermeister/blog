@@ -1,6 +1,6 @@
 ---
 title: "ng-be 2016. brief review"
-tags: "Angular,ng-be,Хочу сделать мир лучше"
+tags: "Angular,ng-be"
 date: "2016-12-11"
 ---
 
@@ -114,6 +114,8 @@ and for **SVG animations**:
 
 and the thing about **canvas animations**, that you need to take **requestAnimationFrame()** out of Angular Zone:
 
-[javascript] this.ngZone.runOutsideAngular(() =&gt; this.paint(true)); [/javascript]
+```javascript 
+  this.ngZone.runOutsideAngular(() =&gt; this.paint(true));  
+ ```
 
 [Source code](https://github.com/teropa/ng-gfx-demos) for all the demos.

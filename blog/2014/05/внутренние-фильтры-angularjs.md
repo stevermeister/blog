@@ -1,6 +1,6 @@
 ---
 title: "Внутренние фильтры AngularJS"
-tags: "AngularJs,filters,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,filters,javascript"
 date: "2014-05-27"
 ---
 

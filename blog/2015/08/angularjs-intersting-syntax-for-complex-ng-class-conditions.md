@@ -1,6 +1,6 @@
 ---
 title: "AngularJs: intersting syntax for complex ng-class conditions"
-tags: "AngularJs,ng-class,Хочу сделать мир лучше"
+tags: "AngularJs,ng-class"
 date: "2015-08-26"
 ---
 

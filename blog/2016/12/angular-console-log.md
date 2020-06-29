@@ -1,6 +1,6 @@
 ---
 title: "Что можно достать из Angular через console.log"
-tags: "Angular,console,Хочу сделать мир лучше"
+tags: "Angular,console"
 date: "2016-12-07"
 ---
 
@@ -18,7 +18,9 @@ date: "2016-12-07"
 
 Во-первых, убедимся что у нас не включен продакшен мод, в котором посмотреть ничего не получится. В коде не должен вызываться метод **enableProdMode**:
 
-[javascript] import { enableProdMode } from '@angular/core'; enableProdMode(); [/javascript]
+```javascript 
+  import { enableProdMode } from '@angular/core'; enableProdMode();  
+ ```
 
 Теперь можем проинспектировать элемент и набрать в консоли: `> ng.probe($0)`
 
@@ -26,6 +28,6 @@ date: "2016-12-07"
 
 соотвественно, если мы захотим изменить какое-то свойство: `> ng.probe($0).componentInstance.user.name = "Bob"`
 
-Теперь чтобы изменения были применены к UI нам нужно запустить **ChangeDetection** (то что вы первом Ангуляре вы делали через **$scope.$apply()**). Самый простой способ запустить механизм обнаружения изменений - обратиться к сервису **changeDetectorRef** через специальное отладочное свойство **\_debugInfo**: `> ng.probe($0)._debugInfo._view.changeDetectorRef.detectChanges()`
+Теперь чтобы изменения были применены к UI нам нужно запустить **ChangeDetection** (то что вы первом Ангуляре вы делали через **$scope.$apply()**). Самый простой способ запустить механизм обнаружения изменений - обратиться к сервису **changeDetectorRef** через специальное отладочное свойство **_debugInfo**: `> ng.probe($0)._debugInfo._view.changeDetectorRef.detectChanges()`
 
 Но учтите, в данном случае вы запускаете **ChangeDetection** только для текущего выбранного компонента и всех его детей. При этом если вы хотите применить изменения ко всему приложению - необходимо проделать тоже самое только с корневым элементом.

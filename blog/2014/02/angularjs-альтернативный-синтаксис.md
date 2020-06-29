@@ -1,6 +1,6 @@
 ---
 title: "AngularJs: альтернативный синтаксис регистрации директив"
-tags: "AngularJs,controller,directive,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,controller,directive,javascript"
 date: "2014-02-16"
 ---
 

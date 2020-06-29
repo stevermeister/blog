@@ -56,11 +56,15 @@ adapter.bootstrap(document.body, ['myApp']); [/javascript]
 
 and to have new components in old project you should you such hack:
 
-[javascript] app.directive('productDetail', adapter.downgradeNg2Component(ProductDetail)); [/javascript]
+```javascript 
+  app.directive('productDetail', adapter.downgradeNg2Component(ProductDetail));  
+ ```
 
 and the same goes for services:
 
-[javascript] adapter.addProvider(ProductService); [/javascript]
+```javascript 
+  adapter.addProvider(ProductService);  
+ ```
 
 But when you code is not ideal (that we usually call real life) you have to solve all architectural issues first and only then do ngUpgrade manipulations.
 
@@ -100,7 +104,9 @@ and how Angular gets known about it? -  ZONES!
 
 Some explanation about async flow magic and back to zones:
 
-[javascript] zone.run(() => { foo(); setTimeout(doSth, 0); bar(); }); [/javascript]
+```javascript 
+  zone.run(() => { foo(); setTimeout(doSth, 0); bar(); });  
+ ```
 
 and for Angular2 it's [ngZone](https://angular.io/docs/js/latest/api/core/NgZone-class.html).
 
@@ -157,7 +163,9 @@ pure function - returns new object.
 
 Angular implementation
 
-[javascript] const appStore = createStore(rootReducer); bootstrap(App, [ provide('AppStore', {userValue: appStore}), Actions ]); [/javascript]
+```javascript 
+  const appStore = createStore(rootReducer); bootstrap(App, [ provide('AppStore', {userValue: appStore}), Actions ]);  
+ ```
 
 or
 
@@ -191,7 +199,9 @@ Router part inside each component:
 
 Access control could be done via @canActivate:
 
-[javascript] app.component('passengerEdit', { controller: PassengerEditController, template: passengerEditTemplate, $canActivate: () => { console.debug("$canActivate"); return true; } }); [/javascript]
+```javascript 
+  app.component('passengerEdit', { controller: PassengerEditController, template: passengerEditTemplate, $canActivate: () => { console.debug("$canActivate"); return true; } });  
+ ```
 
 Can be installed in Angular1 via ng-controller, unfortunately did not find this place in your code.
 

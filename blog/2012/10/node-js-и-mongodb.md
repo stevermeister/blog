@@ -1,6 +1,6 @@
 ---
 title: "Node.js и MongoDB"
-tags: "MongoDB,node.js,Хочу сделать мир лучше"
+tags: "MongoDB,node.js"
 date: "2012-10-16"
 ---
 
@@ -27,7 +27,7 @@ connecting to: test
 
 $ npm install mongodb
 
-если мы будем использовать во всех проектах монго, то имеет смысл поставить флажок _\-g_ "для всех":
+если мы будем использовать во всех проектах монго, то имеет смысл поставить флажок __g_ "для всех":
 
 $ npm install mongodb -g
 
@@ -47,7 +47,7 @@ $ node test.js
 
 var mongo = require('mongodb');
 var host = 'localhost';
-var port = mongo.Connection.DEFAULT\_PORT;
+var port = mongo.Connection.DEFAULT_PORT;
 
 var db = new mongo.Db('test', new mongo.Server(host, port, {}), {safe:false});
 db.open(function(err, db) {
@@ -55,7 +55,7 @@ db.open(function(err, db) {
     db.close();
 });
 
-\- создали объект базы, подключились к базе, закрыли соединение.
+_ создали объект базы, подключились к базе, закрыли соединение.
 
 Немного расширим наш скрипт, добавим запись и чтение информации из базы:
 
@@ -64,7 +64,7 @@ var db = new mongo.Db('test', new mongo.Server(host, port,{}), {safe:false});
 db.open(function(err, db) {
     console.log("Connected!");
 
-    var collection = db.collection("simple\_collection");
+    var collection = db.collection("simple_collection");
     collection.insert({hello:'world'});
 
     collection.findOne({hello:'world'}, function(err, item) {

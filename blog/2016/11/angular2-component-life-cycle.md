@@ -1,6 +1,6 @@
 ---
 title: "Жизненный цикл Angular2 компонента"
-tags: "Angular2,angular2-component,Хочу сделать мир лучше"
+tags: "Angular2,angular2-component"
 date: "2016-11-21"
 ---
 
@@ -23,7 +23,15 @@ date: "2016-11-21"
 
 Например для реализации **ngOnInit** мы реализуем интерейс OnInit:
 
-[javascript] import { Component, OnInit, OnDestroy } from '@angular/core'; @Component({ selector: 'my', template: 'My Component!' }) export class MyComponent implements OnInit { ngOnInit() { console.log('onInit'); } } [/javascript]
+```javascript
+import { Component, OnInit, OnDestroy } from "@angular/core";
+@Component({ selector: "my", template: "My Component!" })
+export class MyComponent implements OnInit {
+  ngOnInit() {
+    console.log("onInit");
+  }
+}
+```
 
 Используется **ngOnInit** обычно в 2х случаях:
 
@@ -42,7 +50,7 @@ date: "2016-11-21"
 
 ## ngDoCheck
 
-Мне очень нравится сравнение этого метода **ngDoCheck** с **$watch** в **Angular1**. Другими словами: он будет запускаться всегда, когда выполняется механизм обнаружения изменений (change detection). 
+Мне очень нравится сравнение этого метода **ngDoCheck** с **$watch** в **Angular1**. Другими словами: он будет запускаться всегда, когда выполняется механизм обнаружения изменений (change detection).
 
 ## ngAfterContent && ngAfterView
 
@@ -50,11 +58,15 @@ date: "2016-11-21"
 
 Для понимания отличия давайте сначала разберемся - что такое **View**, а что такое **Content**. View - это представление компонента включающее в себя представления всех дочерних компонентов. А Content - внутреннее содержимое тега компонента, то есть если у вас есть компонент 'my', и он представлен на странице как:
 
-[html] <my> <div>hello world</div> </my> [/html]
+```html
+<my> <div>hello world</div> </my>
+```
 
 так вот
 
-[html] <div>hello world</div> [/html]
+```html
+<div>hello world</div>
+```
 
 тут и будет **Content**.
 

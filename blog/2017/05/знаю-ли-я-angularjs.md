@@ -1,6 +1,6 @@
 ---
 title: "Знаю ли я AngularJS?"
-tags: "AngularJs,Хочу сделать мир лучше"
+tags: "AngularJs"
 date: "2017-05-21"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Наследование в CanJS"
-tags: "canjs,javascript,Хочу сделать мир лучше"
+tags: "canjs,javascript"
 date: "2012-09-15"
 ---
 

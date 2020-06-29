@@ -1,6 +1,6 @@
 ---
 title: "Array.prototype.map()"
-tags: "javascript,Хочу сделать мир лучше"
+tags: "javascript"
 date: "2013-02-26"
 ---
 
@@ -12,4 +12,4 @@ date: "2013-02-26"
 
 или такое
 
-[**\_.map()**](https://underscorejs.ru/#map)
+[**_.map()**](https://underscorejs.ru/#map)

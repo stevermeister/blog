@@ -1,6 +1,6 @@
 ---
 title: "Избавляемся от Facebook рекламы c Greasemonkey"
-tags: "facebook,Greasemonkey,javascript,Хочу сделать мир лучше"
+tags: "facebook,Greasemonkey,javascript"
 date: "2012-08-11"
 ---
 
@@ -24,10 +24,10 @@ date: "2012-08-11"
 
 Пишем следующий код(закомментированные строчки инструкции не трогаем):
 
-var element = document.getElementById('pagelet\_side\_ads');
+var element = document.getElementById('pagelet_side_ads');
 if(element)element.parentNode.removeChild(element);
 
-var element = document.getElementById('pagelet\_ego\_pane\_w');
+var element = document.getElementById('pagelet_ego_pane_w');
 if(element)element.parentNode.removeChild(element);
 
 Этими 4мя строчками мы удаляем 2 блока рекламы. Сохраняем текст. Перегружаем страничку - должно работать, если нет - пишем комментарий.

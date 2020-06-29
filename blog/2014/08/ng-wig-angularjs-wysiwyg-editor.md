@@ -1,6 +1,6 @@
 ---
 title: "ng-wig - simple AngularJs WYSIWYG editor"
-tags: "AngularJs,javascript,ng-wig,wysiwyg,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,ng-wig,wysiwyg"
 date: "2014-08-27"
 ---
 

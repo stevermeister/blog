@@ -1,6 +1,6 @@
 ---
 title: "Формы и валидация данных в Angular"
-tags: "Angular,angular-formControl,angular-forms,angular-reactive-forms,Хочу сделать мир лучше"
+tags: "Angular,angular-formControl,angular-forms,angular-reactive-forms"
 date: "2017-07-01"
 ---
 

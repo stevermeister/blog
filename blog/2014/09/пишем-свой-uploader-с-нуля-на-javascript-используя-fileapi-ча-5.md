@@ -1,6 +1,6 @@
 ---
 title: "Пишем свой Uploader с нуля на javascript используя FileApi. Часть5. +AngularJS"
-tags: "AngularJs,fileApi,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,fileApi,javascript"
 date: "2014-09-07"
 ---
 
@@ -55,7 +55,7 @@ element.bind('change', function(event) { ngModel.$setViewValue(event.target.file
 
 ## Сервис для FileApi
 
-Так как работаем с **AngularJS**, то использовать **FileReader** напрямую не комильфо: необходимо создать **AngularJS**\-сервис, который будет оберткой над **window.FileReader**:
+Так как работаем с **AngularJS**, то использовать **FileReader** напрямую не комильфо: необходимо создать **AngularJS**_сервис, который будет оберткой над **window.FileReader**:
 
 [javascript] factory('FileReader', function($window) {
 
@@ -99,14 +99,18 @@ return { readAsDataUrl: readAsDataUrl }; } [/javascript]
 
 Ну и в заключение для того, чтобы использовать только что написаный сервис **FileReader** сделаем директиву, которая будет отображать превью загруженной картинки. HTML-представление будет выглядеть где-то так:
 
-[javascript] <input type="file" ng-model="newImage" file-changed /> <img file-preview="newImage" /> [/javascript]
+```javascript 
+  <input type="file" ng-model="newImage" file-changed /> <img file-preview="newImage" />  
+ ```
 
 - **file-changed** - ранее описанная директива-фикс **ng-model**
 - **file-preview** - наша новая директива, которая будет отвечать за отобразжение превью при выборе файла через модель **newImage**
 
 а код директивы:
 
-[javascript] directive('filePreview', function (FileReader) { return { restrict: 'A', scope: { filePreview: '=' }, link: function (scope, element, attrs) { scope.$watch('filePreview', function (filePreview) { if (filePreview && Object.keys(filePreview).length !== 0) { FileReader.readAsDataUrl(filePreview).then(function (result) { element.attr('src', result); }); } }); } }; }); [/javascript]
+```javascript 
+  directive('filePreview', function (FileReader) { return { restrict: 'A', scope: { filePreview: '=' }, link: function (scope, element, attrs) { scope.$watch('filePreview', function (filePreview) { if (filePreview && Object.keys(filePreview).length !== 0) { FileReader.readAsDataUrl(filePreview).then(function (result) { element.attr('src', result); }); } }); } }; });  
+ ```
 
 **FileReader** - раннее созданный сервис оболочка на window.FileReader с промисами **filePreview: '='** - создаем изолированный скоуп и линкуем модель **scope.$watch('filePreview'** - отслеживаем изменение модели **FileReader.readAsDataUrl(filePreview)** - считываем файл **element.attr('src', result)** - задаем картинку
 

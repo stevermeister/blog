@@ -1,6 +1,6 @@
 ---
 title: "Изучаем Redux и пишем свой Mini-Redux"
-tags: "javascript,redux,Хочу сделать мир лучше"
+tags: "javascript,redux"
 date: "2017-05-21"
 ---
 
@@ -34,7 +34,12 @@ date: "2017-05-21"
 
 Так же мы должны определить начальные значения для **Store** и **Reducer**, давайте с этого начнем:
 
-https://gist.github.com/stevermeister/f081b321b521e2bce69733da42aa6190
+```javascript
+function createStore(reducer, initialState) {
+    var currentReducer = reducer;
+    var currentState = initialState;
+}
+```
 
  
 
@@ -42,13 +47,39 @@ https://gist.github.com/stevermeister/f081b321b521e2bce69733da42aa6190
 
 Мы создали функцию, которая просто сохраняет начальное состояние и редьюсер локально. Теперь давайте реализуем возможность получения этого состояния с помощью специального метода :
 
-https://gist.github.com/stevermeister/8501a3223d5d6bd70bb42ce2a088a3b4
+```javascript
+function createStore(reducer, initialState) {
+    var currentReducer = reducer;
+    var currentState = initialState;
+ 
+    return {
+        getState() {
+            return currentState;
+        }
+    };
+}
+```
 
 ## 2\. Отправка события (dispatch an action)
 
 Следующий шаг - отправка события:
 
-https://gist.github.com/stevermeister/264750ace5e45bd4ee041d9656b49ab8
+```javascript
+function createStore(reducer, initialState) {
+    var currentReducer = reducer;
+    var currentState = initialState;
+ 
+    return {
+        getState() {
+            return currentState;
+        },
+        dispatch(action) {
+            currentState = currentReducer(currentState, action);
+            return action;
+        }
+    };
+}
+```
 
 Функция **dispatch** используя текущее состояние отправляет событие на редьюсер, который мы определили при инициализации. А он в свою очередь перезаписывает объект currentState новым значением.
 
@@ -56,7 +87,27 @@ https://gist.github.com/stevermeister/264750ace5e45bd4ee041d9656b49ab8
 
 Теперь мы можем получать и обновлять состояние! Оставшийся шаг - сделать возможность подписаться на изменения:
 
-https://gist.github.com/stevermeister/b9315d65a8cfdee8589f0a9da17ba61a
+```javascript
+function createStore(reducer, initialState) {
+    var currentReducer = reducer;
+    var currentState = initialState;
+    var listener = () => {};
+ 
+    return {
+        getState() {
+            return currentState;
+        },
+        dispatch(action) {
+            currentState = currentReducer(currentState, action);
+            listener(); // Note that we added this line!
+            return action;
+        },
+        subscribe(newListener) {
+            listener = newListener;
+        }
+    };
+}
+```
 
 Теперь мы можем вызывать **subscribe** с коллбэк-параметром, который будет вызван в случае получения события на изменнеие состояния.
 
@@ -66,7 +117,28 @@ https://gist.github.com/stevermeister/b9315d65a8cfdee8589f0a9da17ba61a
 
 На официальной [github странице](https://github.com/reactjs/redux) есть пример как использовать **Redux**. Мы можем скопировать пример, чтобы протестировать нашу собственную реализацию **Redux**:
 
-https://gist.github.com/stevermeister/4b515d5246ca90b66f0c701560a3c80a
+```javascript
+function counter(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1
+  case 'DECREMENT':
+    return state - 1
+  default:
+    return state
+  }
+}
+ 
+let store = createStore(counter)
+ 
+store.subscribe(() =>
+  console.log(store.getState())
+)
+ 
+store.dispatch({ type: 'INCREMENT' })
+store.dispatch({ type: 'INCREMENT' })
+store.dispatch({ type: 'DECREMENT' })
+```
 
 Поиграться с кодом можно [тут](https://plnkr.co/edit/OX7hNMlFXtEA2d7aSU1Y?p=preview).
 

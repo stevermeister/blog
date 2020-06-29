@@ -1,6 +1,6 @@
 ---
 title: "Отличие $applyAsync от $evalAsync в Angular 1.3"
-tags: "AngularJs,evalAsync,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,evalAsync,javascript"
 date: "2015-05-09"
 ---
 
@@ -24,9 +24,11 @@ date: "2015-05-09"
 
 Основываясь на исходном коде и выкинув все проверки я сделал что-то типа прототипа для обоих методов:
 
-[javascript] function $evalAsync(expr, locals) { $browser.defer($rootScope.$digest); asyncQueue.push({scope: this, expression: expr, locals: locals}); }
+```javascript 
+function $evalAsync(expr, locals) { $browser.defer($rootScope.$digest); asyncQueue.push({scope: this, expression: expr, locals: locals}); }
 
-function $applyAsync(expr) { var scope = this; applyAsyncQueue.push(function(){ scope.$eval(expr); }); $browser.defer(function() { while (applyAsyncQueue.length) { applyAsyncQueue.shift()(); } applyAsyncId = null; }); $browser.defer($rootScope.$digest); } [/javascript]
+function $applyAsync(expr) { var scope = this; applyAsyncQueue.push(function(){ scope.$eval(expr); }); $browser.defer(function() { while (applyAsyncQueue.length) { applyAsyncQueue.shift()(); } applyAsyncId = null; }); $browser.defer($rootScope.$digest); }
+```
 
 Откуда видно, что `$applyAsync` сам контроллирует свою очередь, а вот очередью `$evalAsync` занимается дайджест.
 

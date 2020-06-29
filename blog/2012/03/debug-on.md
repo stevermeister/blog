@@ -1,6 +1,6 @@
 ---
 title: "Debug ON. Кнопка в FireFox для разработчика."
-tags: "debug,Firefox,javascript,Хочу сделать мир лучше"
+tags: "debug,Firefox,javascript"
 date: "2012-03-20"
 ---
 

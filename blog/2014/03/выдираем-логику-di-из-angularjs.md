@@ -1,6 +1,6 @@
 ---
 title: "Выдираем логику DI из AngularJS"
-tags: "AngularJs,DI,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,DI,javascript"
 date: "2014-03-05"
 ---
 

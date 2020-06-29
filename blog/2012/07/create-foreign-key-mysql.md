@@ -1,6 +1,6 @@
 ---
 title: "Что нужно для создания внешнего ключа(FOREIGN KEY) в MySQL"
-tags: "foreing key,mysql,phpmyadmin,sql,Хочу сделать мир лучше"
+tags: "foreing key,mysql,phpmyadmin,sql"
 date: "2012-07-15"
 ---
 

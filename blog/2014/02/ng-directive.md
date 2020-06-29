@@ -1,6 +1,6 @@
 ---
 title: "ngDirective - директива для загрузки директив"
-tags: "AngularJs,directive,javascript,ng,Хочу сделать мир лучше"
+tags: "AngularJs,directive,javascript,ng"
 date: "2014-02-10"
 ---
 

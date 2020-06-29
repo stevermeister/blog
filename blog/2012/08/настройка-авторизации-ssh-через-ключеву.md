@@ -1,6 +1,6 @@
 ---
 title: "Настройка авторизации SSH через ключевую пару."
-tags: "auth,ssh,ubuntu,Хочу сделать мир лучше"
+tags: "auth,ssh,ubuntu"
 date: "2012-08-04"
 ---
 
@@ -10,7 +10,7 @@ date: "2012-08-04"
 
 $: ssh-keygen
 
-причем в разных источниках предлагается использовать разные параметры для этой команды. Чаще всего предлагают использовать опцию type( флажок **\-t** ) и туда записывать: rsa, dsa...; плюс есть вариант изменить размерность ключа с помощью флага **\-b** и еще много других вариантов. На сколько я понял: можно использовать команду по умолчанию и не париться.
+причем в разных источниках предлагается использовать разные параметры для этой команды. Чаще всего предлагают использовать опцию type( флажок **_t** ) и туда записывать: rsa, dsa...; плюс есть вариант изменить размерность ключа с помощью флага **_b** и еще много других вариантов. На сколько я понял: можно использовать команду по умолчанию и не париться.
 
 Мастер генерации ключевой пары еще задаст несколько вопросов, таких как: куда сгенерировать, нужен ли пароль на файл ключей. Тут тоже можно оставлять все по умолчанию.
 
@@ -22,7 +22,7 @@ $: ssh-copy-id serveruser@serverhost
 
 Now try logging into the machine, with "ssh 'serveruser@serverhost'", and check in:
 
-  .ssh/authorized\_keys
+  .ssh/authorized_keys
 
 to make sure we haven't added extra keys that you weren't expecting.
 
@@ -35,7 +35,7 @@ to make sure we haven't added extra keys that you weren't expecting.
 P.S.: бывают случаи когда нет встроенной команды **ssh-copy-id**, тогда немного по другому:
 
 \# через scp копируем с клиента
-$: scp ~/.ssh/id\_rsa.pub serveruser@serverhost:/home/serveruse
+$: scp ~/.ssh/id_rsa.pub serveruser@serverhost:/home/serveruse
 
 \# на сервере добавляем в список
-$: cat ~/id\_rsa.pub >> ~/.ssh/authorized\_keys
+$: cat ~/id_rsa.pub >> ~/.ssh/authorized_keys

@@ -1,6 +1,6 @@
 ---
 title: "Что нового в HTML5 и CSS3"
-tags: "css3,html5,Хочу сделать мир лучше"
+tags: "css3,html5"
 date: "2014-09-09"
 ---
 
@@ -12,10 +12,10 @@ date: "2014-09-09"
 
 ## Обновление тегов (сокращенная форма)
 
-- <!DOCTYPE html>
-- <meta charset="UTF-8">
-- <script src="script.js"></script>
-- <link rel="stylesheet" href="styles.css">
+- `<!DOCTYPE html>`
+- `<meta charset="UTF-8">`
+- `<script src="script.js"></script>`
+- `<link rel="stylesheet" href="styles.css">`
 
 ## Новые семантические элементы
 

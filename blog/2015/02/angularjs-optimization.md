@@ -1,6 +1,6 @@
 ---
 title: "Оптимизируем AngularJS. Подробный разбор."
-tags: "AngularJs,chrome,javascript,performance,snippet,оптимизация,Хочу сделать мир лучше"
+tags: "AngularJs,chrome,javascript,performance,snippet,оптимизация"
 date: "2015-02-10"
 ---
 
@@ -55,7 +55,9 @@ date: "2015-02-10"
 
 Откроем `index.html`. Страница выглядит очень просто: пользователь вводит желаемое число простых чисел и нажимает "Find". После чего числа вычисляются и выводятся в таблицу:
 
-[html] <div ng-controller="primesController" ng-cloak> <button id="find" ng-click="find()">Find</button> <input ng-model="n" /> primes. <table> <tr ng-repeat="prime in primes | orderBy:$index "> <td>{{ "index" | lowercase }}</td> <td>{{ $index + 1 | number:0 | uppercase }}</td> <td>{{ "prime number" | lowercase }}</td> <td>{{ prime | number:0 | uppercase }}</td> <td>is prime? {{ prime | isPrime }}</td> </tr> </table> </div> [/html]
+```html 
+  <div ng-controller="primesController" ng-cloak> <button id="find" ng-click="find()">Find</button> <input ng-model="n" /> primes. <table> <tr ng-repeat="prime in primes | orderBy:$index "> <td>{{ "index" | lowercase }}</td> <td>{{ $index + 1 | number:0 | uppercase }}</td> <td>{{ "prime number" | lowercase }}</td> <td>{{ prime | number:0 | uppercase }}</td> <td>is prime? {{ prime | isPrime }}</td> </tr> </table> </div>  
+ ```
 
 Таблица содержит фильтры и порядок, чтобы показывать проблемы производительности с ними связанные.
 
@@ -75,11 +77,15 @@ date: "2015-02-10"
 
 метод `$scope.find` выполняется очень долго для большого значения `$scope.n`. Обычно мы начинаем профилирование JavaScript вот так:
 
-[javascript] $scope.find = function () { console.log('computing first', $scope.n, 'primes'); var started = new Date(); // computation var finished = new Date(); console.log('find took', finished - started, 'ms'); }; [/javascript]
+```javascript 
+  $scope.find = function () { console.log('computing first', $scope.n, 'primes'); var started = new Date(); // computation var finished = new Date(); console.log('find took', finished - started, 'ms'); };  
+ ```
 
 Я предпочитаю [console.time](https://developer.chrome.com/devtools/docs/console-api#consoletimelabel "https://developer.chrome.com/devtools/docs/console-api#consoletimelabel") - что позволяет использовать меньше дополнительных переменных.
 
-[javascript] $scope.find = function () { console.log('computing first', $scope.n, 'primes'); console.time('computing primes'); // computation console.timeEnd('computing primes'); }; [/javascript]
+```javascript 
+  $scope.find = function () { console.log('computing first', $scope.n, 'primes'); console.time('computing primes'); // computation console.timeEnd('computing primes'); };  
+ ```
 
 для 1000 у меня выдало
 
@@ -107,7 +113,9 @@ computing primes: 13084.714ms
 
 В нашем случае `isPrime` не требует `try-catch` блока совсем:
 
-[javascript] function isPrime(n) { try { var k; for (k = 2; k < n; k += 1) { if (n % k === 0) { return false; } } } catch (err) { console.error(err); } return true; } [/javascript]
+```javascript 
+  function isPrime(n) { try { var k; for (k = 2; k < n; k += 1) { if (n % k === 0) { return false; } } } catch (err) { console.error(err); } return true; }  
+ ```
 
 Уберем его и запустим профайлер еще раз:
 
@@ -117,11 +125,15 @@ computing primes: 13084.714ms
 
 Итак, `findPrime` - наша новая цель для оптимизации. Давайте посмотрим на исходник:
 
-[javascript] function findPrime(n) { var k = 1; var foundPrimes = []; while (foundPrimes.length < n) { if (isPrime(k)) { foundPrimes.push(k); } k += 1; }; return foundPrimes[foundPrimes.length - 1]; } [/javascript]
+```javascript 
+  function findPrime(n) { var k = 1; var foundPrimes = []; while (foundPrimes.length < n) { if (isPrime(k)) { foundPrimes.push(k); } k += 1; }; return foundPrimes[foundPrimes.length - 1]; }  
+ ```
 
 Функция ищет N-ое простое число по средством вычисления всех предшествующих и возвращает последнее. Но при этом для нахождения следующего (N + 1) числа она проделает все сначала. Давайте попробуем использовать ранее найденые простые числа вынеся массив `foundPrimes` за пределы функции:
 
-[javascript] var foundPrimes = []; function findPrime(n) { var k; if (foundPrimes.length) { k = foundPrimes[foundPrimes.length - 1] + 1; } else { k = 1; } while (foundPrimes.length < n) { if (isPrime(k)) { foundPrimes.push(k); } k += 1; }; return foundPrimes[n - 1]; } [/javascript]
+```javascript 
+  var foundPrimes = []; function findPrime(n) { var k; if (foundPrimes.length) { k = foundPrimes[foundPrimes.length - 1] + 1; } else { k = 1; } while (foundPrimes.length < n) { if (isPrime(k)) { foundPrimes.push(k); } k += 1; }; return foundPrimes[n - 1]; }  
+ ```
 
 Изменения (тег [step-2](https://github.com/bahmutov/primes/releases/tag/step-2)) приводят к серьезному скачку производительности:
 
@@ -131,7 +143,9 @@ computing primes: 13084.714ms
 
 Мы можем сделать еще одну простое изменение с целью оптимизации функции `isPrime`: тут больше вопрос математики - проверяя N на простоту, нам не нужно проверять остаток от деления на все простые числа идущие до него - достаточно дойти до корня из N:
 
-[javascript] function isPrime(n) { var k; var limit = Math.sqrt(n); for (k = 2; k <= limit; k += 1) { if (n % k === 0) { return false; } } return true; } [/javascript]
+```javascript 
+  function isPrime(n) { var k; var limit = Math.sqrt(n); for (k = 2; k <= limit; k += 1) { if (n % k === 0) { return false; } } return true; }  
+ ```
 
 Обновить код можно перейдя к тегу [step-3](https://github.com/bahmutov/primes/releases/tag/step-3). Профайлер `$scope.find` показывает что мы избавились от всех явных тормозов:
 
@@ -141,7 +155,9 @@ computing primes: 13084.714ms
 
 Теперь можем переходить к профилирования метода объекта `scope`. Чтобы точно выявить слабые места, сделаем оценку на более серьезном объеме входных данных. Но сначала я добавлю небольшую деталь: вывод количества простых чисел (изменение в теге [step-4](https://github.com/bahmutov/primes/releases/tag/step-4)):
 
-[html] <button id="find" ng-click="find()">Find</button> <input ng-model="n" /> primes. <p>AngularJs application that finds first {{ n }} prime numbers</p> [/html]
+```html 
+  <button id="find" ng-click="find()">Find</button> <input ng-model="n" /> primes. <p>AngularJs application that finds first {{ n }} prime numbers</p>  
+ ```
 
 Давайте попробуем сгенерировать 100 000 простых чисел. Это займет несколько секунд ( обновления DOM). Как только 100 000 простых чисел будут выведены на экран, попробуйте поменять количество (например: удалить один ноль). Обратите внимание на существенную задержку после нажатия на кнопку и обновления данных. Мы не модифицируем данные модели, только одно число. Таблица не должна обновляться, откуда задержка?
 
@@ -159,11 +175,15 @@ computing primes: 13084.714ms
 
 Используем сниппет - [ng-count-watchers](https://github.com/bahmutov/code-snippets/blob/master/ng-count-watchers.js), чтобы посчитать общее количество вотчеров. Можете убедиться, что для случая с 100 000 простыми числами в приложении появляется аж 500 003 вотчеров! Из них 3 - обслуживают ng-repeat, вводимое значение и число в шаблоне. Остальные ( 500 000) занимаются наблюдением в ячейках таблицы:
 
-[html] <tr ng-repeat="prime in primes | orderBy:$index "> <td>{{ "index" | lowercase }}</td> <td>{{ $index + 1 | number:0 | uppercase }}</td> <td>{{ "prime number" | lowercase }}</td> <td>{{ prime | number:0 | uppercase }}</td> <td>is prime? {{ prime | isPrime }}</td> </tr> [/html]
+```html 
+  <tr ng-repeat="prime in primes | orderBy:$index "> <td>{{ "index" | lowercase }}</td> <td>{{ $index + 1 | number:0 | uppercase }}</td> <td>{{ "prime number" | lowercase }}</td> <td>{{ prime | number:0 | uppercase }}</td> <td>is prime? {{ prime | isPrime }}</td> </tr>  
+ ```
 
 Обратим внимание, что для каждой строчки используются избыточные фильтры. Например:`{{ "index" | lowercase }}` - это статический текст, который никогда не меняется, но Ангуляр вычисляет его снова и снова, а результаты всегда одни и те же, даже когда количество строк меняется. Давайте удалим фильтры `lowercase`, `uppercase`, `isPrime` , которые по сути ничего не делают(можно обновиться до тега [step-5](https://github.com/bahmutov/primes/releases/tag/step-5)):
 
-[html] <tr ng-repeat="prime in primes | orderBy:$index "> <td>index</td> <td>{{ $index + 1 | number:0 }}</td> <td>prime number</td> <td>{{ prime | number:0 }}</td> <td>is prime? true</td> </tr> [/html]
+```html 
+  <tr ng-repeat="prime in primes | orderBy:$index "> <td>index</td> <td>{{ $index + 1 | number:0 }}</td> <td>prime number</td> <td>{{ prime | number:0 }}</td> <td>is prime? true</td> </tr>  
+ ```
 
 Обновленное приложение содержит уже только 200 003 вотчеров, и соотвественно цикл дайджеста проходит в 2 раза быстрее.
 
@@ -171,7 +191,9 @@ computing primes: 13084.714ms
 
 Производительность уже серьезно была улучшена удалением ненужных фильтров, но мы можем ускорить еще. Отметим то, что в то время, как таблица не меняется, мы продолжаем вычислять 2 вотчера на каждую строчку, каждый раз, когда мы меняем значение поля ввода( что запускает цикл дайджеста). Данные не изменяются, поэтому мы не должны вычислять выражение еще раз. Angular1.3 [представляет](https://docs.angularjs.org/guide/expression#one-time-binding) "одноразовое связывание" следующим синтаксисом `{{ ::prime}}`. Но AngularJS 1.2 "из коробки" такого увы не предоставляет. Как вариант можно использовать модуль [bindonce](https://github.com/Pasvaz/bindonce): изменения незначительны; фильтры также поддерживаются:
 
-[html] <tr ng-repeat="prime in primes | orderBy:$index " bindonce> <td>index</td> <td bo-text="$index + 1 | number:0" /> <td>prime number</td> <td bo-text="prime | number:0" /> <td>is prime? true</td> </tr> [/html]
+```html 
+  <tr ng-repeat="prime in primes | orderBy:$index " bindonce> <td>index</td> <td bo-text="$index + 1 | number:0" /> <td>prime number</td> <td bo-text="prime | number:0" /> <td>is prime? true</td> </tr>  
+ ```
 
 Обновленное приложение имеет только 3 вотчера (после отображения 100 000 простых чисел), и цикл дайджеста занимает в этом случае только 5мс. Ну что ж это уже похоже на отзывчивый интерфейс.
 
@@ -189,7 +211,9 @@ computing primes: 13084.714ms
 
 Чтобы как-то улучшить эту часть, я написал свою функцию генерирования HTML и вывод его просто через `innerHTML`. То есть выкидываем `ng-repeat` вместе с содержимым (тег [step-7](https://github.com/bahmutov/primes/releases/tag/step-7)):
 
-[javascript] // use AngularJs built-in filter var number = $filter('number'); function generateTableRows() { var k; var str = ''; for(k = 0; k < $scope.n; k += 1) { str += '<tr><td>index</td>'; str += '<td>' + number(k + 1, 0) + '</td>'; str += '<td>prime number</td>'; str += '<td>' + number($scope.primes[k], 0) + '</td>'; str += '<td>is prime? true</td></tr>'; } document.getElementsByTagName('table')[0].innerHTML = str; } $scope.find = function () { // generate primes list as before generateTableRows(); } [/javascript]
+```javascript 
+  // use AngularJs built-in filter var number = $filter('number'); function generateTableRows() { var k; var str = ''; for(k = 0; k < $scope.n; k += 1) { str += '<tr><td>index</td>'; str += '<td>' + number(k + 1, 0) + '</td>'; str += '<td>prime number</td>'; str += '<td>' + number($scope.primes[k], 0) + '</td>'; str += '<td>is prime? true</td></tr>'; } document.getElementsByTagName('table')[0].innerHTML = str; } $scope.find = function () { // generate primes list as before generateTableRows(); }  
+ ```
 
 Такое изменение дало увеличение производительности в 10 раз:
 
@@ -203,7 +227,9 @@ computing primes: 13084.714ms
 
 Давайте подойдем к проблеме с другой стороны: если процесс вычисления всех результатов занимает много времени, то мы можем показать только первоначальные результаты, и сделать это довольно быстро. То есть пользователь увидит какие-то результаты, в то время как остальные все еще будут рассчитываться. Мы можем вычислить и вывести первые 100 чисел очень быстро ( < 30 мс). Я разбил логику на 2 шага и использовал $timeout сервис, чтобы выполнить второй шаг после того, как обновиться DOM и браузер отобразит эти первые 100 строк:
 
-[javascript] $scope.find = function () { // code as before var firstBatchN = 100; var k; for (k = 0; k < firstBatchN; k += 1) { var prime = findPrime(k + 2); $scope.primes.push(prime); } generateTableRows(0, firstBatchN); // start second batch via event loop to let browser repaint // return promise to allow timing this action return $timeout(function computeSecondBatch() { for (k = firstBatchN; k < $scope.n; k += 1) { var prime = findPrime(k + 2); $scope.primes.push(prime); } generateTableRows(firstBatchN, $scope.n); }, 0); }; [/javascript]
+```javascript 
+  $scope.find = function () { // code as before var firstBatchN = 100; var k; for (k = 0; k < firstBatchN; k += 1) { var prime = findPrime(k + 2); $scope.primes.push(prime); } generateTableRows(0, firstBatchN); // start second batch via event loop to let browser repaint // return promise to allow timing this action return $timeout(function computeSecondBatch() { for (k = firstBatchN; k < $scope.n; k += 1) { var prime = findPrime(k + 2); $scope.primes.push(prime); } generateTableRows(firstBatchN, $scope.n); }, 0); };  
+ ```
 
 Код доступен по тегу [step-8](https://github.com/bahmutov/primes/releases/tag/step-8).
 
@@ -230,11 +256,15 @@ computing primes: 13084.714ms
 
 Чтобы запланировать выполнение кода после того как браузер отрисует предыдущую часть мы используем `$timeout` сервис:
 
-[javascript] function computePrimes(first, last) { var k; for (k = first; k < last; k += 1) { var prime = findPrime(k + 2); $scope.primes.push(prime); } } function generateTableRows(first, last) { // ... тут мы генерируем HTML и сохраняем в str document.getElementsByTagName('tbody')[0].innerHTML += str; console.timeStamp('updated tbody ' + first + ' to ' + last); } function computeAndRenderBatch(first, last) { computePrimes(first, last); generateTableRows(first, last); // возвращает промис, который разрешиться после отрисовки DOM return $timeout(angular.noop, 0); } [/javascript]
+```javascript 
+  function computePrimes(first, last) { var k; for (k = first; k < last; k += 1) { var prime = findPrime(k + 2); $scope.primes.push(prime); } } function generateTableRows(first, last) { // ... тут мы генерируем HTML и сохраняем в str document.getElementsByTagName('tbody')[0].innerHTML += str; console.timeStamp('updated tbody ' + first + ' to ' + last); } function computeAndRenderBatch(first, last) { computePrimes(first, last); generateTableRows(first, last); // возвращает промис, который разрешиться после отрисовки DOM return $timeout(angular.noop, 0); }  
+ ```
 
 Главный вычислительный метод `$scope.find` теперь создает большую цепочку промисов, которые будут выполнятся один за одним. И на каждом шаге будет вычислено 50 простых чисел,  сгенерирован HTML и добавлен в DOM:
 
-[javascript] $scope.find = function () { var batchSize = 50; var k; // начинаем с "нулевого" промиса (который сразу отрезолвится) var computeAndLetUiRender = $q.when(); var computeNextBatch; for (k = 0; k < $scope.n; k += batchSize) { computeNextBatch = angular.bind(null, computeAndRenderBatch, k, Math.min(k + batchSize, $scope.n)); computeAndLetUiRender = computeAndLetUiRender.then(computeNextBatch); } // return promise to let timing code snippet know when we are done return computeAndLetUiRender; }; [/javascript]
+```javascript 
+  $scope.find = function () { var batchSize = 50; var k; // начинаем с "нулевого" промиса (который сразу отрезолвится) var computeAndLetUiRender = $q.when(); var computeNextBatch; for (k = 0; k < $scope.n; k += batchSize) { computeNextBatch = angular.bind(null, computeAndRenderBatch, k, Math.min(k + batchSize, $scope.n)); computeAndLetUiRender = computeAndLetUiRender.then(computeNextBatch); } // return promise to let timing code snippet know when we are done return computeAndLetUiRender; };  
+ ```
 
 Изменения кода доступны в теге [step-9](https://github.com/bahmutov/primes/releases/tag/step-9).
 
@@ -252,11 +282,15 @@ computing primes: 13084.714ms
 
 Проблема в способе добавления новых строк в таблицу: каждый раз при добавлении браузеру приходиться перерисовывать всю таблицу!
 
-[javascript] function generateTableRows(first, last) { // generate new rows HTML markup into variable str document.getElementsByTagName('tbody')[0].innerHTML += str; } [/javascript]
+```javascript 
+  function generateTableRows(first, last) { // generate new rows HTML markup into variable str document.getElementsByTagName('tbody')[0].innerHTML += str; }  
+ ```
 
 Вместо замены всего содержимого таблицы мы можем создавать новую таблицу и просто добавлять ее в структуру документа ( _Мы так же можем добавлять другой элемент tbody в ту же самую таблицу. Но этот вариант не оценивался_ )
 
-[javascript] function generateTableRows(first, last) { var k, txt = angular.bind(document, document.createTextNode); var table = document.createElement('table'); for(k = first; k < last; k += 1) { var row = table.insertRow(); row.insertCell().appendChild(txt('index')); row.insertCell().appendChild(txt(k + 1)); row.insertCell().appendChild(txt('prime number')); row.insertCell().appendChild(txt($scope.primes[k])); row.insertCell().appendChild(txt('is prime? true')); } // schedule DOM update by attaching new table element to the body document.body.appendChild(table); } [/javascript]
+```javascript 
+  function generateTableRows(first, last) { var k, txt = angular.bind(document, document.createTextNode); var table = document.createElement('table'); for(k = first; k < last; k += 1) { var row = table.insertRow(); row.insertCell().appendChild(txt('index')); row.insertCell().appendChild(txt(k + 1)); row.insertCell().appendChild(txt('prime number')); row.insertCell().appendChild(txt($scope.primes[k])); row.insertCell().appendChild(txt('is prime? true')); } // schedule DOM update by attaching new table element to the body document.body.appendChild(table); }  
+ ```
 
 Обновленния берем в теге [step-10](https://github.com/bahmutov/primes/releases/tag/step-10).
 
@@ -270,15 +304,21 @@ computing primes: 13084.714ms
 
 В итоге, я решил вынести вычисление простых чисел в поток вебворкеров, чтобы выполнять параллельно с основным кодом.  Перемещаем `isPrime` и `findPrime` методы в файл `primes.js`. Они будут общаться с основным кодом по средством сообщений:
 
-[javascript] // primes.js onmessage = function (e) { var first = e.data.first; var last = e.data.last; var k, primes = []; for (k = first; k < last; k += 1) { var prime = findPrime(k + 2); primes.push(prime); } // посылаем результаты обратно postMessage(primes); }; [/javascript]
+```javascript 
+  // primes.js onmessage = function (e) { var first = e.data.first; var last = e.data.last; var k, primes = []; for (k = first; k < last; k += 1) { var prime = findPrime(k + 2); primes.push(prime); } // посылаем результаты обратно postMessage(primes); };  
+ ```
 
 Чтобы упростить взаимодействие с вебворкерами, я создал сервис:
 
-[javascript] angular.module('Primes', []) .factory('PrimeWorker', function ($q) { var worker = new Worker('./primes.js'); var defer; worker.onmessage = function(e) { defer.resolve(e.data); }; return { computePrimes: function (first, last) { defer = $q.defer(); worker.postMessage({ first: first, last: last }); return defer.promise; } } }); [/javascript]
+```javascript 
+  angular.module('Primes', []) .factory('PrimeWorker', function ($q) { var worker = new Worker('./primes.js'); var defer; worker.onmessage = function(e) { defer.resolve(e.data); }; return { computePrimes: function (first, last) { defer = $q.defer(); worker.postMessage({ first: first, last: last }); return defer.promise; } } });  
+ ```
 
 Метод `$scope.find` должен обрабатывать вычисления асинхронно, поэтому
 
-[javascript] .controller('primesController', function ($scope, $filter, $timeout, $q, PrimeWorker) { function computePrimes(first, last) { return PrimeWorker.computePrimes(first, last).then(function (numbers) { // копируем результаты в массив var k, n = numbers.length; for(k = 0; k < n; k += 1) { $scope.primes.push(numbers[k]); } }); } function computeAndRenderBatch(first, last) { // результатом будет промис return computePrimes(first, last).then(function () { generateTableRows(first, last); return $timeout(angular.noop, 0); }); } [/javascript]
+```javascript 
+  .controller('primesController', function ($scope, $filter, $timeout, $q, PrimeWorker) { function computePrimes(first, last) { return PrimeWorker.computePrimes(first, last).then(function (numbers) { // копируем результаты в массив var k, n = numbers.length; for(k = 0; k < n; k += 1) { $scope.primes.push(numbers[k]); } }); } function computeAndRenderBatch(first, last) { // результатом будет промис return computePrimes(first, last).then(function () { generateTableRows(first, last); return $timeout(angular.noop, 0); }); }  
+ ```
 
 Код доступен по тегу [step-11](https://github.com/bahmutov/primes/releases/tag/step-11).
 
@@ -302,11 +342,15 @@ computing primes: 13084.714ms
 
 Первый кандидат на освобождение памяти - массив `$scope.primes`. Отметим, что он растет динамически, потому что он начинается с размерности 0 и мы продолжаем добавлять новые простые числа в массив одно за одним:
 
-[javascript] var k, n = numbers.length; for(k = 0; k < n; k += 1) { $scope.primes.push(numbers[k]); } [/javascript]
+```javascript 
+  var k, n = numbers.length; for(k = 0; k < n; k += 1) { $scope.primes.push(numbers[k]); }  
+ ```
 
 Это очень не эффективно с точки зрения выделения памяти: когда новый элемент добавляется в непустой массив, среда выполнения выделяет память под новый массив (обычно выделяется в 2 раза больше памяти), скопировать числа и почистить память за исходным. Я изменил код задав массив необходимой длинны с самого начала (используя заданное количество простых чисел):
 
-[javascript] $scope.primes = new Array($scope.n); $scope.computedN = 0; // copy numbers var k, n = numbers.length; for(k = 0; k < n; k += 1) { $scope.primes[$scope.computedN] = numbers[k]; $scope.computedN += 1; } [/javascript]
+```javascript 
+  $scope.primes = new Array($scope.n); $scope.computedN = 0; // copy numbers var k, n = numbers.length; for(k = 0; k < n; k += 1) { $scope.primes[$scope.computedN] = numbers[k]; $scope.computedN += 1; }  
+ ```
 
 Обновляемся из тега [step-12](https://github.com/bahmutov/primes/releases/tag/step-12).
 
@@ -322,7 +366,9 @@ computing primes: 13084.714ms
 
 Чтобы лучше увидеть выделение памяти давайте изолируем конкретные шаги. Для начала давайте выключим генерацию DOM - она создает много "шума" на графике при размещении элементов.
 
-[javascript] function computeAndRenderBatch(first, last) { return computePrimes(first, last).then(function () { // generateTableRows(first, last); return $timeout(angular.noop, 0); }); } [/javascript]
+```javascript 
+  function computeAndRenderBatch(first, last) { return computePrimes(first, last).then(function () { // generateTableRows(first, last); return $timeout(angular.noop, 0); }); }  
+ ```
 
 Теперь мы можем запустить профайлер выделяемой памяти, а не профайлер процессора. Включаем профайлер и затем нажимаем кнопку "Find":
 
@@ -346,15 +392,21 @@ computing primes: 13084.714ms
 
 Давайте изменим способ генерации данных приложением. Вместо предвычислений тысяч простых чисел, сгенерируем небольшую часть чисел и отрисуем таблицу. Если пользователь прокрутит до конца таблицы в поисках большего количества чисел, мы сгенерируем новую партию чисел и добавим их в DOM. Можно легко привязать генерацию к прокрутке используя директиву [ngInfiniteScroll](https://binarymuse.github.io/ngInfiniteScroll/index.html). Для этой директивы нам понадобится также подключить jQuery:
 
-[html] <script src="bower\_components/jquery/dist/jquery.min.js"></script> <script src="bower\_components/angular/angular.js"></script> <script src="bower\_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script> [/html]
+```html 
+  <script src="bower_components/jquery/dist/jquery.min.js"></script> <script src="bower_components/angular/angular.js"></script> <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>  
+ ```
 
 Для простоты я снова использую `ng-repeat`. Мы запустим `$scope.find` метод тогда, когда границы таблицы сравняются с границами окна пользователя. Первый вызов `$scope.find` сделаем вручную с помощью атрибута `infinite-scroll-immediate-check`.
 
-[html] <table id="table" width="500"> <tbody infinite-scroll="find()" infinite-scroll-distance="3" infinite-scroll-immediate-check="true" infinite-scroll-disabled="computing"> <tr ng-repeat="prime in primes"> <td>index</td> <td>{{ $index + 1 | number:0 }}</td> <td>prime number</td> <td>{{ prime | number:0 }}</td> <td>is prime? true</td> </tr> </tbody> </table> [/html]
+```html 
+  <table id="table" width="500"> <tbody infinite-scroll="find()" infinite-scroll-distance="3" infinite-scroll-immediate-check="true" infinite-scroll-disabled="computing"> <tr ng-repeat="prime in primes"> <td>index</td> <td>{{ $index + 1 | number:0 }}</td> <td>prime number</td> <td>{{ prime | number:0 }}</td> <td>is prime? true</td> </tr> </tbody> </table>  
+ ```
 
 Я выкинул ручную генерацию html таблицы, оставил только вычисление числа (которое по прежнему в вебворкере).
 
-[javascript] $scope.find = function () { $scope.computing = true; return computePrimes($scope.primes.length, $scope.primes.length + batchSize) .then(function () { console.log('computed', $scope.primes.length, 'primes'); $scope.computing = false; }); }; [/javascript]
+```javascript 
+  $scope.find = function () { $scope.computing = true; return computePrimes($scope.primes.length, $scope.primes.length + batchSize) .then(function () { console.log('computed', $scope.primes.length, 'primes'); $scope.computing = false; }); };  
+ ```
 
 Обновляем код в теге [step-13](https://github.com/bahmutov/primes/releases/tag/step-13).
 
@@ -372,7 +424,9 @@ computing primes: 13084.714ms
 
 AngularJS делает грязную проверку - в ходе каждого цикла дайджеста каждая наблюдаемая функция вычисляется и возвращает значение, которое сравнивается с предыдущим возвращенным значением. Это означает, что последнее значение было сохранено. Если вы используете вотчер с [глубоким сравнением](# "для объектов это полное сравнение вложенных значений, а не только ссылки на объект"), тогда ангуляр сохраняет полную копию возвращаемого объекта. Это может быть довольно дорого с точки зрения производительности. Например массив с объектами:
 
-[javascript] $scope.n = 10000; $scope.primes = new Array($scope.n); for (k = 0; k < $scope.n; k += 1) { $scope.primes[k] = { foo: { bar: 'baz' } }; } $scope.$watch(function primesWatcher() { return $scope.primes; }, angular.noop, true); // do nothing on value change [/javascript]
+```javascript 
+  $scope.n = 10000; $scope.primes = new Array($scope.n); for (k = 0; k < $scope.n; k += 1) { $scope.primes[k] = { foo: { bar: 'baz' } }; } $scope.$watch(function primesWatcher() { return $scope.primes; }, angular.noop, true); // do nothing on value change  
+ ```
 
 Взять код можно из тега [step-14](https://github.com/bahmutov/primes/releases/tag/step-14).
 
@@ -389,13 +443,17 @@ AngularJS делает грязную проверку - в ходе каждо�
 
 Например:
 
-[javascript] // вместо нескольких вотчеров $scope.$watch(function () { return $scope.primes; }, foo, true); $scope.$watch(function () { return $scope.primes; }, bar, true); $scope.$watch(function () { return $scope.primes; }, baz, true); // используем один $scope.$watch(function () { return $scope.primes; }, function () { foo(); bar(); baz(); }, true); [/javascript]
+```javascript 
+  // вместо нескольких вотчеров $scope.$watch(function () { return $scope.primes; }, foo, true); $scope.$watch(function () { return $scope.primes; }, bar, true); $scope.$watch(function () { return $scope.primes; }, baz, true); // используем один $scope.$watch(function () { return $scope.primes; }, function () { foo(); bar(); baz(); }, true);  
+ ```
 
 -  использовать свою логику определения изменения состояния
 
 Объект `primes` изменяется каждый раз, когда мы добавляем новое число:
 
-[javascript] .controller('primesController', function ($scope) { var primesChanged = 0; $scope.find = function () { $scopes.primes.push(findNextPrime()); primesChanged += 1; }; $scope.$watch(function () { return primesChanged; }, function () { ... }); }); [/javascript]
+```javascript 
+  .controller('primesController', function ($scope) { var primesChanged = 0; $scope.find = function () { $scopes.primes.push(findNextPrime()); primesChanged += 1; }; $scope.$watch(function () { return primesChanged; }, function () { ... }); });  
+ ```
 
 Тут я использую счетчик, чтобы гарантировано запускать вотчер, когда значение изменяется. Если бы я просто возвращал true/false, цикл дайджеста бы не заметил разницы, так как только разница возвращаемых значений играет роль, а не сами значения возвращаемые функцией.
 

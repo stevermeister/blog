@@ -1,6 +1,6 @@
 ---
 title: "\"Start me up\" - new category on blog"
-tags: "blog,idea,start me up,start me up,блог,идея,Новости блога,Хочу сделать мир лучше"
+tags: "blog,idea,start me up,start me up,блог,идея,Новости блога"
 date: "2015-02-16"
 ---
 

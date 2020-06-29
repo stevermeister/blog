@@ -1,6 +1,6 @@
 ---
 title: "Что нового в Angular 4.2"
-tags: "Angular,javascript,Хочу сделать мир лучше"
+tags: "Angular,javascript"
 date: "2017-06-24"
 ---
 

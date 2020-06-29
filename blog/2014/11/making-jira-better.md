@@ -1,6 +1,6 @@
 ---
 title: "Making Jira better"
-tags: "javascript,jira,scrum,userscripts,Хочу сделать мир лучше"
+tags: "javascript,jira,scrum,userscripts"
 date: "2014-11-15"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "jQuery selectors"
-tags: "jQuery,selectors,Хочу сделать мир лучше"
+tags: "jQuery,selectors"
 date: "2013-09-05"
 ---
 

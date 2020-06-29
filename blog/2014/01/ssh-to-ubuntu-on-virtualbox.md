@@ -1,6 +1,6 @@
 ---
 title: "ssh to ubuntu on virtualbox"
-tags: "ssh,ubuntu,virtualbox,Хочу сделать мир лучше"
+tags: "ssh,ubuntu,virtualbox"
 date: "2014-01-08"
 ---
 

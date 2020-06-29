@@ -1,6 +1,6 @@
 ---
 title: "Switching from WebStrom to VS Code"
-tags: "vscode,webStorm,Хочу сделать мир лучше"
+tags: "vscode,webStorm"
 date: "2016-11-19"
 ---
 

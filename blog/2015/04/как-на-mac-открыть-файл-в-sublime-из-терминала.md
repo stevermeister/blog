@@ -1,6 +1,6 @@
 ---
 title: "Как на Mac открыть файл в Sublime из терминала"
-tags: "mac,Sublime,terminal,Хочу сделать мир лучше"
+tags: "mac,Sublime,terminal"
 date: "2015-04-09"
 ---
 

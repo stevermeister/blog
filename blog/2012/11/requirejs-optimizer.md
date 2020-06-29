@@ -1,6 +1,6 @@
 ---
 title: "RequireJS Optimizer"
-tags: "javascript,RequireJS,Хочу сделать мир лучше"
+tags: "javascript,RequireJS"
 date: "2012-11-02"
 ---
 
@@ -57,7 +57,7 @@ $ r.js -o name=main out=main-built.js baseUrl=.
 
 $ r.js -o baseUrl=. paths.requireLib=require name=main include=requireLib out=main-built.js
 
-\- в которых сделаем подключение модуля(_include_) и скажем где его брать(_path_).
+_ в которых сделаем подключение модуля(_include_) и скажем где его брать(_path_).
 
 Если мы хотим исключить какой-то файл из сборки(например: чтобы отдельно его подключить для отладки), то мы должны использовать опцию _excludeShallow_:
 

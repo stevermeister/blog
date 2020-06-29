@@ -1,6 +1,6 @@
 ---
 title: "How to update the git fork"
-tags: "git,git-fork,Хочу сделать мир лучше"
+tags: "git,git-fork"
 date: "2014-07-09"
 ---
 

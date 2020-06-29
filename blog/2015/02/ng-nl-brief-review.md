@@ -38,7 +38,9 @@ There are some expectations to get similar functionality in Angular1.5, we'll se
 
 [Daniel Marjenburgh](https://twitter.com/dmarjenburgh) presented [Visual Review](https://github.com/xebia/VisualReview "https://github.com/xebia/VisualReview") - tool to check visual changes between different project builds (btw name is terrible extremely difficult to google it :). The tool works together with protractor (thanks to special plugin [VisualReview-protractor](https://github.com/xebia/VisualReview-protractor "https://github.com/xebia/VisualReview-protractor")) that makes it really tasty. The base idea is quite simple: to make and compare screenshots. In protractor scenario code it looks simply like:
 
-[javascript] vr.takeScreenshot('AngularJS-homepage'); [/javascript]
+```javascript 
+  vr.takeScreenshot('AngularJS-homepage');  
+ ```
 
 **@Daniel**, I liked the idea. Only one question is still open for me: how could I make it work with remote browsers (for example [Browserstack](https://www.browserstack.com/ "https://www.browserstack.com/") service)?
 

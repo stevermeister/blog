@@ -1,6 +1,6 @@
 ---
 title: "Mac AirPlay problem fix"
-tags: "AirPlay,fix,mac,Хочу сделать мир лучше"
+tags: "AirPlay,fix,mac"
 date: "2013-09-01"
 ---
 

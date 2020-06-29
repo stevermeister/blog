@@ -1,6 +1,6 @@
 ---
 title: "Модули AngularJS и внедрение зависимостей"
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2013-07-04"
 ---
 

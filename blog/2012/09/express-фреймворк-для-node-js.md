@@ -1,6 +1,6 @@
 ---
 title: "express фреймворк для node.js"
-tags: "express,javascript,node.js,Хочу сделать мир лучше"
+tags: "express,javascript,node.js"
 date: "2012-09-21"
 ---
 

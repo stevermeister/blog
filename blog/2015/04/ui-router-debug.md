@@ -1,6 +1,6 @@
 ---
 title: "ui-router debug snippet"
-tags: "AngularJs,debug,ui-router,Хочу сделать мир лучше"
+tags: "AngularJs,debug,ui-router"
 date: "2015-04-13"
 ---
 
@@ -20,6 +20,8 @@ $rootScope.$on('$stateNotFound',function(event, unfoundState, fromState, fromPar
 
 if you have you Angular app root on html element you can simply use:
 
-[javascript] var $rootScope = angular.element(document).scope(); [/javascript]
+```javascript 
+  var $rootScope = angular.element(document).scope();  
+ ```
 
 code is placed [here](https://gist.github.com/stevermeister/aab6dcceff81b1449855 "gist").

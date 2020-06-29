@@ -1,6 +1,6 @@
 ---
 title: "Быстрый старт с Rails"
-tags: "rails,ruby,Хочу сделать мир лучше"
+tags: "rails,ruby"
 date: "2014-01-10"
 ---
 
@@ -208,7 +208,7 @@ $ rake routes
 
 то можно увидеть список всех роутов:
 
-welcome\_index GET /welcome/index(.:format) welcome#index
+welcome_index GET /welcome/index(.:format) welcome#index
       root     /                        welcome#index
 
 ## Добавляем ресурс
@@ -224,11 +224,11 @@ resources :posts
 Пероверим роуты уже знакомой командой:
 
 $ rake routes
-welcome\_index GET    /welcome/index(.:format)  welcome#index
+welcome_index GET    /welcome/index(.:format)  welcome#index
 posts GET    /posts(.:format)          posts#index
 POST   /posts(.:format)          posts#create
-new\_post GET    /posts/new(.:format)      posts#new
-edit\_post GET    /posts/:id/edit(.:format) posts#edit
+new_post GET    /posts/new(.:format)      posts#new
+edit_post GET    /posts/:id/edit(.:format) posts#edit
 post GET    /posts/:id(.:format)      posts#show
 PUT    /posts/:id(.:format)      posts#update
 DELETE /posts/:id(.:format)      posts#destroy
@@ -240,13 +240,13 @@ root        /                         welcome#index
 
 $ rails g controller posts index
 
-команда создаст файл app/controllers/posts\_controller.rb
+команда создаст файл app/controllers/posts_controller.rb
 
 Теперь можем перейти на созданный index-экшен - [http://localhost:3000/posts](http://localhost:3000/posts)
 
 ![](images/Screenshot-2014-01-09-15.15.51.png "Screenshot 2014-01-09 15.15.51")
 
-Созданим экшен для добавления нового поста: для этого перейдем в файл posts-контроллера - app/controllers/posts\_controller.rb и пропишем там новый метод _new_:
+Созданим экшен для добавления нового поста: для этого перейдем в файл posts-контроллера - app/controllers/posts_controller.rb и пропишем там новый метод _new_:
 
 def new
 end
@@ -265,17 +265,17 @@ end
 
 ## Работа с представлением(view)
 
-Итак у нас есть страничка для создания поста, добавим к ней форму. Для этого используем form\_for хелпер(вспомогательный метод для представления), получим:
+Итак у нас есть страничка для создания поста, добавим к ней форму. Для этого используем form_for хелпер(вспомогательный метод для представления), получим:
 
-<%= form\_for :post, url: posts\_path do |f| %>
+<%= form_for :post, url: posts_path do |f| %>
   <p>
     <%= f.label :title %><br>
-    <%= f.text\_field :title %>
+    <%= f.text_field :title %>
   </p>
 
   <p>
     <%= f.label :text %><br>
-    <%= f.text\_area :text %>
+    <%= f.text_area :text %>
   </p>
 
   <p>
@@ -287,7 +287,7 @@ end
 
 ![](images/Screenshot-2014-01-09-16.39.42-231x300.png "Screenshot 2014-01-09 16.39.42")
 
-Вот [тут](https://rusrails.ru/rails-form-helpers)можно почитать о форм-хелперах более подробно. Единственно что хочу разъяснить "posts\_path" - это ссылка на путь /posts. Rails отправляет данные формы POST запросом, поэтому мы попадем на posts#create в роутерах:
+Вот [тут](https://rusrails.ru/rails-form-helpers)можно почитать о форм-хелперах более подробно. Единственно что хочу разъяснить "posts_path" - это ссылка на путь /posts. Rails отправляет данные формы POST запросом, поэтому мы попадем на posts#create в роутерах:
 
 ![](images/Screenshot-2014-01-09-17.21.24-300x39.png "Screenshot 2014-01-09 17.21.24")
 
@@ -335,7 +335,7 @@ $ rake db:migrate
     @post = Post.new(params[:post])  #создаем модель и наполняем данными формы
 
     @post.save    # сохраняем модель
-    redirect\_to @post    #переадресовываем на страницу отображения поста
+    redirect_to @post    #переадресовываем на страницу отображения поста
   end
 
 ## Вывод данных
@@ -394,17 +394,17 @@ $ rake db:migrate
 
 Добавим ссылки: с главной странички(шаблон _app/views/welcome/index.html.erb_) на страничку постов:
 
-<%= link\_to "My Blog", controller: "posts" %>
+<%= link_to "My Blog", controller: "posts" %>
 
 со странички постов на создание нового:
 
-<%= link\_to 'New post', new\_post\_path %>
+<%= link_to 'New post', new_post_path %>
 
 ссылку "Назад" для странички нового поста и просмотра поста:
 
-<%= link\_to 'Back', posts\_path %>
+<%= link_to 'Back', posts_path %>
 
-Как вы уже могли обратить внимание мы использовали **link\_to** вью-хелпер. Более подробно о нем [RTFM](https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html "Rails Api").
+Как вы уже могли обратить внимание мы использовали **link_to** вью-хелпер. Более подробно о нем [RTFM](https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html "Rails Api").
 
 ## Обновление данных
 
@@ -420,13 +420,13 @@ $ rake db:migrate
 
 <h1>Editing post</h1>
 
-<%= form\_for :post, url: post\_path(@post), method: :patch do |f| %>
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
     <% if @post.errors.any? %>
-        <div id="error\_explanation">
+        <div id="error_explanation">
           <h2><%= pluralize(@post.errors.count, "error") %> prohibited
             this post from being saved:</h2>
           <ul>
-            <% @post.errors.full\_messages.each do |msg| %>
+            <% @post.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
@@ -434,12 +434,12 @@ $ rake db:migrate
     <% end %>
     <p>
       <%= f.label :title %><br>
-      <%= f.text\_field :title %>
+      <%= f.text_field :title %>
     </p>
 
     <p>
       <%= f.label :text %><br>
-      <%= f.text\_area :text %>
+      <%= f.text_area :text %>
     </p>
 
     <p>
@@ -447,7 +447,7 @@ $ rake db:migrate
     </p>
 <% end %>
 
-<%= link\_to 'Back', posts\_path %>
+<%= link_to 'Back', posts_path %>
 
 Теперь для сохранения информации добавим update экшн:
 
@@ -455,7 +455,7 @@ $ rake db:migrate
     @post = Post.find(params[:id])
 
     if @post.update(params[:post])
-      redirect\_to @post
+      redirect_to @post
     else
       render 'edit'
     end
@@ -463,8 +463,8 @@ $ rake db:migrate
 
 и добавим ссылку на редактирование при выводе постов:
 
-   <td><%= link\_to 'Show', post %></td>
-   <td><%= link\_to 'Edit', edit\_post\_path(post) %></td>
+   <td><%= link_to 'Show', post %></td>
+   <td><%= link_to 'Edit', edit_post_path(post) %></td>
 
 ## Удаление данных
 
@@ -474,12 +474,12 @@ def destroy
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect\_to posts\_path
+    redirect_to posts_path
   end
 
 и ссылочку для удаления на страницу вывода всех постов
 
-<td><%= link\_to 'Destroy', post\_path(post),
+<td><%= link_to 'Destroy', post_path(post),
            method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
 Обратите внимание что мы передаем данные методом DELETE, и запрашиваем подтверждение на выполнение действия (в нашем случае это удаление)
@@ -490,15 +490,15 @@ def destroy
 
 ## Создание партиалов представления
 
-Для уменьшения количества html-кода, общие фрагменты выносятся в так назвываемые вью-партиалы(partial). В нашем случае это формочка, которая используется для создания поста, а также для его редактирования. Вынесем ее в отдельный шаблон(_app/views/posts/\_form.html.erb_):
+Для уменьшения количества html-кода, общие фрагменты выносятся в так назвываемые вью-партиалы(partial). В нашем случае это формочка, которая используется для создания поста, а также для его редактирования. Вынесем ее в отдельный шаблон(_app/views/posts/_form.html.erb_):
 
-<%= form\_for @post do |f| %>
+<%= form_for @post do |f| %>
     <% if @post.errors.any? %>
-        <div id="error\_explanation">
+        <div id="error_explanation">
           <h2><%= pluralize(@post.errors.count, "error") %> prohibited
             this post from being saved:</h2>
           <ul>
-            <% @post.errors.full\_messages.each do |msg| %>
+            <% @post.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
@@ -506,12 +506,12 @@ def destroy
     <% end %>
     <p>
       <%= f.label :title %><br>
-      <%= f.text\_field :title %>
+      <%= f.text_field :title %>
     </p>
 
     <p>
       <%= f.label :text %><br>
-      <%= f.text\_area :text %>
+      <%= f.text_area :text %>
     </p>
 
     <p>

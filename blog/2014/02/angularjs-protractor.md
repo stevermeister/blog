@@ -1,6 +1,6 @@
 ---
 title: "Тестируем AngularJS используя Protractor"
-tags: "AngularJs,javascript,protractor,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,protractor"
 date: "2014-02-24"
 ---
 
@@ -60,7 +60,7 @@ exports.config = {
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
-  specs: ['example\_spec.js'],
+  specs: ['example_spec.js'],
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
@@ -70,7 +70,7 @@ exports.config = {
 };
 ```
 
-Единственно что вам нужно изменить это опцию _specs_(по умолчанию ['example\_spec.js']). В ней мы укажем путь к файлу(либо группе файлов) тест-сценария. Давайте создадим его также по [примеру](https://github.com/angular/protractor/blob/master/example/example_spec.js):
+Единственно что вам нужно изменить это опцию _specs_(по умолчанию ['example_spec.js']). В ней мы укажем путь к файлу(либо группе файлов) тест-сценария. Давайте создадим его также по [примеру](https://github.com/angular/protractor/blob/master/example/example_spec.js):
 
 ```javascript
 describe('angularjs homepage', function() {
@@ -111,7 +111,7 @@ Finished in 5.629 seconds
 |-------|----------|-----------------------|
 | seleniumAddress | адрес запущенного селениум сервера (обычно http://localhost:4444/wd/hub) | null |
 | allScriptsTimeout | таймаут для выполнения всех сценариев | 11000 |
-| specs | пути к файлам сценариев тестов (относительно конфига) | ['spec/\*\_spec.js'] |
+| specs | пути к файлам сценариев тестов (относительно конфига) | ['spec/\*_spec.js'] |
 | exclude | исключения для предыдущего пункта | [] |
 | capabilities | выбор браузера с параметрами. Более подробно [тут](https://code.google.com/p/selenium/wiki/DesiredCapabilities) | {'browserName': 'chrome'} |
 | multiCapabilities | предыдущая опция для запуска тестов в нескольких браузерах | [] |
@@ -157,7 +157,7 @@ Finished in 5.629 seconds
 
 Учитавая что ваше приложение скорее всего подгружает большое количество контента асинхронно, то повозится со спецификой прийдется прилично.
 
-Воздержусь от подробного разбора данного пункта, так как в зависимости от выбранной библиотеки подходы в написании тестов могут отличатся. Единственное что скажу: сразу для себя настроил **[mocha](https://mochajs.org/ "mocha test framework")**\-фреймворк, с ним намного удобнее работать с асинхронными операциями.
+Воздержусь от подробного разбора данного пункта, так как в зависимости от выбранной библиотеки подходы в написании тестов могут отличатся. Единственное что скажу: сразу для себя настроил **[mocha](https://mochajs.org/ "mocha test framework")**_фреймворк, с ним намного удобнее работать с асинхронными операциями.
 
 ## Создание снимков экрана
 
@@ -184,7 +184,7 @@ function writeScreenShot(data, filename) {
 
 ```javascript
 browser.takeScreenshot().then(function (png) {
-    writeScreenShot(png, 'test\_screen.png');
+    writeScreenShot(png, 'test_screen.png');
 }
 ```
 
@@ -230,7 +230,7 @@ debug>
 $ node ./bin/elementexplorer.js
 ```
 
-(в зависимости от ОС и типа установки путь к директории программы может отличаться. В моем случае это было _/usr/local/lib/node\_modules/protractor/_)
+(в зависимости от ОС и типа установки путь к директории программы может отличаться. В моем случае это было _/usr/local/lib/node_modules/protractor/_)
 
 Теперь можно  выполнить что-то типа такого:
 

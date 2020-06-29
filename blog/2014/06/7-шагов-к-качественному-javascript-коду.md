@@ -1,6 +1,6 @@
 ---
 title: "7 шагов к качественному JavaScript коду"
-tags: "javascript,Хочу сделать мир лучше"
+tags: "javascript"
 date: "2014-06-09"
 ---
 

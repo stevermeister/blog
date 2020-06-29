@@ -1,6 +1,6 @@
 ---
 title: "Отличие Streaming от Progressive Download и Adaptive Streaming"
-tags: "adaptive streaming,player,progressive download,streaming,video,Хочу сделать мир лучше"
+tags: "adaptive streaming,player,progressive download,streaming,video"
 date: "2015-05-18"
 ---
 

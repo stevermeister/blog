@@ -10,4 +10,6 @@ date: "2015-10-22"
 
 to install just put this code into your bookmarks:
 
-[javascript] javascript: (function() {var a = document.createElement("script");a.src = "https://rawgithub.com/kentcdodds/ng-stats/master/dist/ng-stats.js";a.onload=function(){window.showAngularStats()};document.head.appendChild(a)})(); [/javascript]
+```javascript 
+  javascript: (function() {var a = document.createElement("script");a.src = "https://rawgithub.com/kentcdodds/ng-stats/master/dist/ng-stats.js";a.onload=function(){window.showAngularStats()};document.head.appendChild(a)})();  
+ ```

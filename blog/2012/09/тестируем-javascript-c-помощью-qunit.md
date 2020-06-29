@@ -1,6 +1,6 @@
 ---
 title: "Тестируем JavaScript c помощью QUnit"
-tags: "javascript,QUnit,Хочу сделать мир лучше"
+tags: "javascript,QUnit"
 date: "2012-09-25"
 ---
 
@@ -85,7 +85,7 @@ QUnit.asyncTest( "asynchronous test: one second later!", function() {
 
 и тест будет не пройден, если итоговое число проверок не соответствует заданному.
 
-Библиотека позволяет навешивать **callback**\-функции на различные действия begin, done, log, moduleDone, moduleStart, testDone, testStart:
+Библиотека позволяет навешивать **callback**_функции на различные действия begin, done, log, moduleDone, moduleStart, testDone, testStart:
 
 QUnit.begin(function(){ //do something });
 

@@ -1,6 +1,6 @@
 ---
 title: "Шпаргалка по синтаксису шаблонов Angular2"
-tags: "Angular2,cheatsheet,templates,Хочу сделать мир лучше"
+tags: "Angular2,cheatsheet,templates"
 date: "2017-01-07"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Git pre-push hook"
-tags: "deploy,git,git-hook,javascript,pre-push,Хочу сделать мир лучше"
+tags: "deploy,git,git-hook,javascript,pre-push"
 date: "2015-03-13"
 ---
 
@@ -18,13 +18,13 @@ echo "Complete." [/shell]
 
 Поэтому перед началом тестов прячем все незакоммиченные изменения (**git stash**), а потом возвращаем их назад:
 
-[shell] #!/bin/sh CHANGES=$(git diff --numstat | wc -l) CHANGES\_CACHED=$(git diff --cached --numstat | wc -l) TOTAL\_CHANGES=$(($CHANGES + $CHANGES\_CACHED))
+[shell] #!/bin/sh CHANGES=$(git diff --numstat | wc -l) CHANGES_CACHED=$(git diff --cached --numstat | wc -l) TOTAL_CHANGES=$(($CHANGES + $CHANGES_CACHED))
 
 git stash -k grunt test
 
 RETVAL=$?
 
-if [ $TOTAL\_CHANGES -ne "0" ] then echo "Popping" $TOTAL\_CHANGES "changes off the stack..." git stash pop -q fi
+if [ $TOTAL_CHANGES -ne "0" ] then echo "Popping" $TOTAL_CHANGES "changes off the stack..." git stash pop -q fi
 
 if [ $RETVAL -ne 0 ] then echo "Grunt task failed, exiting..." exit 1 fi
 

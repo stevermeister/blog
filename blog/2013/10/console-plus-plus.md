@@ -1,6 +1,6 @@
 ---
 title: "Userscript console++"
-tags: "browser,console,javascript,Хочу сделать мир лучше"
+tags: "browser,console,javascript"
 date: "2013-10-29"
 ---
 

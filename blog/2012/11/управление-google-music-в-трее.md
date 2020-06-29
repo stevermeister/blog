@@ -1,6 +1,6 @@
 ---
 title: "Управление Google music в трее"
-tags: "google,music,ubuntu,Хочу сделать мир лучше"
+tags: "google,music,ubuntu"
 date: "2012-11-28"
 ---
 

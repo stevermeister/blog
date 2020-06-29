@@ -1,6 +1,6 @@
 ---
 title: "Chrome clear DNS cache"
-tags: "cache,chrome,DNS,Хочу сделать мир лучше"
+tags: "cache,chrome,DNS"
 date: "2015-04-09"
 ---
 

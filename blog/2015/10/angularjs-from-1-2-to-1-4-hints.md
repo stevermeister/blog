@@ -1,6 +1,6 @@
 ---
 title: "AngularJS: from 1.2 to 1.4 hints"
-tags: "AngularJs,migration,Хочу сделать мир лучше"
+tags: "AngularJs,migration"
 date: "2015-10-20"
 ---
 
@@ -9,7 +9,7 @@ Just a checklist to prevent issues with application migration.
 ## Expressions
 
 - no .bind, .call and .apply
-- no \_\_proto\_\_
+- no __proto__
 - no Object
 
 ## toBoolean

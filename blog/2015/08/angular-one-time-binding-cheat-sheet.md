@@ -1,6 +1,6 @@
 ---
 title: "Angular one-time binding cheat sheet"
-tags: "AngularJs,cheatsheet,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,cheatsheet,javascript"
 date: "2015-08-06"
 ---
 

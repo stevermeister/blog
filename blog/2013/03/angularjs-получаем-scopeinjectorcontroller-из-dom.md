@@ -1,6 +1,6 @@
 ---
 title: "AngularJS: получаем scope/injector/controller из DOM"
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2013-03-14"
 ---
 

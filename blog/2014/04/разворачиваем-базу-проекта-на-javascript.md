@@ -1,6 +1,6 @@
 ---
 title: "Разворачиваем базу проекта на JavaScript"
-tags: "db,deploy,javascript,migrate,node.js,Хочу сделать мир лучше"
+tags: "db,deploy,javascript,migrate,node.js"
 date: "2014-04-09"
 ---
 
@@ -21,17 +21,21 @@ $ npm install grunt-db-migrate
 
 В **grunt** файле добавляем блок:
 
-[javascript]migrate:{ options:{ env: { DATABASE\_URL: databaseUrl } } }[/javascript]
+```javascript 
+ migrate:{ options:{ env: { DATABASE_URL: databaseUrl } } } 
+ ```
 
 databaseUrl - строка подключения к базе, например:
 
-[javascript] databaseUrl = 'mysql://root:@localhost/mypetdb'; [/javascript]
+```javascript 
+  databaseUrl = 'mysql://root:@localhost/mypetdb';  
+ ```
 
 ## Создаем файл миграции
 
 Чтобы создать файл миграции(с шаблоном внутри) выполняем команду:
 
-$ grunt migrate:create:migrate\_name
+$ grunt migrate:create:migrate_name
 
 После чего у нас в проекте появится директория "migrations", и файл в ней с таким содержимым:
 
@@ -92,7 +96,7 @@ $ grunt migrate:down
 
 создать новый файл миграции:
 
-$ grunt migrate:create:migration\_name
+$ grunt migrate:create:migration_name
 
 ## Дополнительно
 
@@ -110,7 +114,7 @@ exports.up = function (db, callback) { async.series([ db.createTable.bind(db, 'p
 
 [javascript] var dbm = require('db-migrate'); var async = require('async');
 
-exports.up = function (db, callback) { async.series([ db.createTable.bind(db, 'marks', { user\_id: { type: 'int', notNull: true }, release\_id: { type: 'int', notNull: true }, feed: { type:'string', notNull: true } }) ], function(){ db.addIndex('marks', 'usermark', ['user\_id', 'release\_id'], true); callback(); }); };
+exports.up = function (db, callback) { async.series([ db.createTable.bind(db, 'marks', { user_id: { type: 'int', notNull: true }, release_id: { type: 'int', notNull: true }, feed: { type:'string', notNull: true } }) ], function(){ db.addIndex('marks', 'usermark', ['user_id', 'release_id'], true); callback(); }); };
 
 exports.down = function (db, callback) { async.series([ db.dropTable.bind(db, 'marks', { ifExists: true }), db.removeIndex('marks', 'usermark'), ], callback); }; [/javascript]
 

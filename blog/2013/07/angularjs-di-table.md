@@ -1,6 +1,6 @@
 ---
 title: "Таблица внедрения зависимостей между сущностях AngularJS"
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2013-07-10"
 ---
 

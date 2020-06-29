@@ -1,6 +1,6 @@
 ---
 title: "Как правильно готовить Angular"
-tags: "AngularJs,javascript,jQuery,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,jQuery"
 date: "2014-07-07"
 ---
 
@@ -8,7 +8,7 @@ date: "2014-07-07"
 
 # 1\. Проектируйте страницу в момент написания HTML
 
-В **jQuery**\-ориентированном подходе вы сначала верстаете страницу, а потом - делаете ее "динамической".
+В **jQuery**_ориентированном подходе вы сначала верстаете страницу, а потом - делаете ее "динамической".
 
 В **AngularJS** вы должны начинать с архитектуры в самом начале. Вместо того, чтобы думать "У меня есть этот кусок DOM и я хочу заставить его делать что-то такое ...", сразу думать о том, что хотите достичь в целом(от приложения), и только затем переходить к структуре, и в самую последнюю очередь - к дизайну конкретного отображения.
 
@@ -30,17 +30,23 @@ Single page applications - это приложение, но не в коем с
 
 В jQuery мы программно изменяем представление(**view**). Рассмотрим пример выпадающего меню:
 
-[html] <ul class="main-menu"> <li class="active"><a href="#/home">Home</a></li> <li><a href="#/menu1">Menu 1</a> <ul> <li><a href="#/sm1">Submenu 1</a></li> <li><a href="#/sm2">Submenu 2</a></li> <li><a href="#/sm3">Submenu 3</a></li> </ul> </li> <li><a href="#/home">Menu 2</a></li> </ul> [/html]
+```html 
+  <ul class="main-menu"> <li class="active"><a href="#/home">Home</a></li> <li><a href="#/menu1">Menu 1</a> <ul> <li><a href="#/sm1">Submenu 1</a></li> <li><a href="#/sm2">Submenu 2</a></li> <li><a href="#/sm3">Submenu 3</a></li> </ul> </li> <li><a href="#/home">Menu 2</a></li> </ul>  
+ ```
 
 В jQuery мы активируем логику нашего приложения как-то так:
 
-[javascript]$('.main-menu').dropdownMenu();[/javascript]
+```javascript 
+ $('.main-menu').dropdownMenu(); 
+ ```
 
 Если мы посмотрим только на первую часть, то совсем не очевидно будет ли там какая-то функциональность. Для небольших проектов это нормально. Но для сложных много компонентных приложений, все становится более чем запутано.
 
 В AngularJS представление определяет логику представления. Наше объявление View будет следующим:
 
-[html] <ul class="main-menu" dropdown-menu>...</ul> [/html]
+```html 
+  <ul class="main-menu" dropdown-menu>...</ul>  
+ ```
 
 Обе версии(jQuery & AngularJS) делают одно и тоже, но в случае с AngularJS - любой смотря в шаблон может понять суть. Когда новый разработчик изучает проект, он может посмотреть на этот код  и сделать вывод что тут используется директива _dropdownMenu_. Представление раскажет все, что ожидается в плане функциональности намного яснее, чем какой-то сторонний код, прикрепленный непонятно где.
 
@@ -52,31 +58,43 @@ Single page applications - это приложение, но не в коем с
 
 Это одна из самых крутых фишек AngularJS. Она отбрасывает кучу не нужной работы с DOM. AngularJS автоматически обновит ваше представление и вам не нужно будет этого делать! В jQuery, мы реагируем на события и обновляем контент:
 
-[javascript] $.ajax({ url: '/myEndpoint.json', success: function ( data, status ) { $('ul#log').append('<li>Data Received!</li>'); } }); [/javascript]
+```javascript 
+  $.ajax({ url: '/myEndpoint.json', success: function ( data, status ) { $('ul#log').append('<li>Data Received!</li>'); } });  
+ ```
 
 а представление выглядит так:
 
-[html] <ul id="log" class="messages"> </ul> [/html]
+```html 
+  <ul id="log" class="messages"> </ul>  
+ ```
 
 Как видим, у нас теже проблемы. Но что более важно - мы должны в ручную обновлять DOM. А если мы захотим удалить один элемент из списка - мы тоже должны писать для этого дополнительный код. Как мы можем протестировать логику отдельно от DOM? И что, если я хочу изменить представление?
 
 Немного хардкорно, но в AngularJS мы можем сделать так:
 
-[javascript] $http( '/myEndpoint.json' ).then( function ( response ) { $scope.log.push( { msg: 'Data Received!' } ); }); [/javascript]
+```javascript 
+  $http( '/myEndpoint.json' ).then( function ( response ) { $scope.log.push( { msg: 'Data Received!' } ); });  
+ ```
 
 И представление будет выглядеть следующим образом:
 
-[html] <ul class="messages"> <li class="alert" ng-repeat="entry in log">{{ entry.msg }}</li> </ul> [/html]
+```html 
+  <ul class="messages"> <li class="alert" ng-repeat="entry in log">{{ entry.msg }}</li> </ul>  
+ ```
 
 Но наше представление так же может выглядеть так:
 
-[html] <div class="messages"> <div class="alert" ng-repeat="entry in log">{{ entry.msg }}</div> </div> [/html]
+```html 
+  <div class="messages"> <div class="alert" ng-repeat="entry in log">{{ entry.msg }}</div> </div>  
+ ```
 
 Теперь мы используем бустраповские алерты вместо списка. И мы даже не прикасались к коду контроллера! Но еще важнее, что каким бы способом не обновлялся log - представление тоже обновится. Автоматически!
 
 Связывание данных двух стороннее(two-way). Лог-сообщения могут быть редактируемыми, просто вот так:
 
-[html] <input type="text" ng-model="entry.msg"/> [/html]
+```html 
+  <input type="text" ng-model="entry.msg"/>  
+ ```
 
 Разве не повод для радости?
 
@@ -106,7 +124,9 @@ Single page applications - это приложение, но не в коем с
 
 Но, так как в **AngularJS** мы используем разделение концептов, то мы можем легко делать TDD! Например: мы хотим простую директиву для индикации роли в меню. Мы можем объявить что мы хотим в нашем представлении:
 
-[html] <a href="/hello" when-active>Hello</a> [/html]
+```html 
+  <a href="/hello" when-active>Hello</a>  
+ ```
 
 Теперь мы можем написать тест:
 
@@ -118,7 +138,9 @@ $location.path( '/hello' ); expect( elm.hasClass('active') ).toBeTruthy(); })); 
 
 Запускаем тест, убеждаемся, что он не проходит, и пишем директиву:
 
-[javascript] .directive( 'whenActive', function ( $location ) { return { scope: true, link: function ( scope, element, attrs ) { scope.$on( '$routeChangeSuccess', function () { if ( $location.path() == element.attr( 'href' ) ) { element.addClass( 'active' ); } else { element.removeClass( 'active' ); } }); } }; }); [/javascript]
+```javascript 
+  .directive( 'whenActive', function ( $location ) { return { scope: true, link: function ( scope, element, attrs ) { scope.$on( '$routeChangeSuccess', function () { if ( $location.path() == element.attr( 'href' ) ) { element.addClass( 'active' ); } else { element.removeClass( 'active' ); } }); } }; });  
+ ```
 
 Теперь тест проходит и меню рабоает. TDD.
 
@@ -152,7 +174,9 @@ on = !on; }); } }; }); [/javascript]
 
 Эта директива может быть переписана следующим образом:
 
-[javascript] .directive( 'myDirective', function () { return { scope: true, template: '<a class="btn" ng-class="{active:on}" ng-click="toggle()">Toggle me!</a>', link: function ( scope, element, attrs ) { scope.on = false; scope.toggle = function () { scope.on = !scope.on; }; } }; }); [/javascript]
+```javascript 
+  .directive( 'myDirective', function () { return { scope: true, template: '<a class="btn" ng-class="{active:on}" ng-click="toggle()">Toggle me!</a>', link: function ( scope, element, attrs ) { scope.on = false; scope.toggle = function () { scope.on = !scope.on; }; } }; });  
+ ```
 
 Опять же таки: логика и шаблон идут раздельно, тестирование делать просто, изменнеия вносить просто: как шаблона, так и логики.
 

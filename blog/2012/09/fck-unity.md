@@ -1,6 +1,6 @@
 ---
 title: "Fck Unity!"
-tags: "gnome,ubuntu,unity,Хочу сделать мир лучше"
+tags: "gnome,ubuntu,unity"
 date: "2012-09-09"
 ---
 

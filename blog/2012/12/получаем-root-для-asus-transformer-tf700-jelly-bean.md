@@ -1,6 +1,6 @@
 ---
 title: "Получаем root для Asus Transformer TF700 (Jelly Bean)"
-tags: "Android,Asus Transformer,Jelly Bean,root,Хочу сделать мир лучше"
+tags: "Android,Asus Transformer,Jelly Bean,root"
 date: "2012-12-22"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "ngWig - Release 1.0"
-tags: "Angular,javascript,ng-wig,Хочу сделать мир лучше"
+tags: "Angular,javascript,ng-wig"
 date: "2015-04-29"
 ---
 

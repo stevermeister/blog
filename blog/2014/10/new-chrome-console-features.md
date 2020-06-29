@@ -1,6 +1,6 @@
 ---
 title: "New Chrome console features"
-tags: "chrome,console,javascript,Хочу сделать мир лучше"
+tags: "chrome,console,javascript"
 date: "2014-10-29"
 ---
 

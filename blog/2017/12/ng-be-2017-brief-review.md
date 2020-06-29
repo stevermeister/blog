@@ -227,7 +227,7 @@ Asim told us 3 hacker break-in stories that based on simple things.
 
 Story1: Github story
 
-git hook to localhost -> https://0:9200/\_shutdown -> https://0:email -> memcache -> deprecated python library
+git hook to localhost -> https://0:9200/_shutdown -> https://0:email -> memcache -> deprecated python library
 
 moral: don't underestimate small things
 

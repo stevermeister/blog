@@ -1,22 +1,35 @@
 ---
 title: "Примеры интерсепторов AngularJS"
-tags: "AngularJs,interceptor,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,interceptor,javascript"
 date: "2014-04-01"
 ---
 
-Насколько вам известно:  **$http**\-сервис **AngularJs** позволяет общаться с сервером и делать **HTTP**\-запросы. В некоторых случаях необходимо перехватывать запрос и обрабатывать его до отправки на сервер, или наоборот: мы хотим перехватить ответ и модифицировать его. Также хорошим примером может послужить глобальная обработка http-ошибок. Именно для таких случаев в **AngularJS** и созданы интерсепторы(**interceptors**).
+Насколько вам известно:  **\$http\***сервис **AngularJs** позволяет общаться с сервером и делать **HTTP\***запросы. В некоторых случаях необходимо перехватывать запрос и обрабатывать его до отправки на сервер, или наоборот: мы хотим перехватить ответ и модифицировать его. Также хорошим примером может послужить глобальная обработка http-ошибок. Именно для таких случаев в **AngularJS** и созданы интерсепторы(**interceptors**).
 
 Пост написан на основе переведенной/переработанной статьи Naor Yehudaey "[Interceptors in AngularJS and Useful Examples](https://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/)"
 
 ## Что такое Интерсепторы?
 
-**$httpProvider** содержит массив интерсепторов. Интерсептор, если по простому - это стандартная фабрика, которая зарегистрированна в этот массив. Вот так можно создать интерсептор:
+**\$httpProvider** содержит массив интерсепторов. Интерсептор, если по простому - это стандартная фабрика, которая зарегистрированна в этот массив. Вот так можно создать интерсептор:
 
-[javascript] module.factory('myInterceptor', ['$log', function($log) { $log.debug('$log используется чтобы показать что это стандартная фабрика, в которую можно инжектить сервисы'); var myInterceptor = { .... .... .... }; return myInterceptor; }]); [/javascript]
+```javascript
+module.factory('myInterceptor', ['$log', function($log) {
+  $log.debug('$log используется чтобы показать что это стандартная фабрика, в которую можно инжектить сервисы');
+  var myInterceptor = { .... .... .... };
+  return myInterceptor;
+}]);
+```
 
-И затем добавить его в интерсепоторы **$httpProvider**:
+И затем добавить его в интерсепоторы **\$httpProvider**:
 
-[javascript] module.config(['$httpProvider', function($httpProvider) { $httpProvider.interceptors.push('myInterceptor'); }]); [/javascript]
+```javascript
+module.config([
+  "$httpProvider",
+  function ($httpProvider) {
+    $httpProvider.interceptors.push("myInterceptor");
+  },
+]);
+```
 
 По области применения различают следующие интерсепоторы:
 
@@ -25,31 +38,59 @@ date: "2014-04-01"
 - **перехват ошибки запроса** ( реализуя функцию **requestError**) - вызывается, когда запрос не может быть послан либо отменен другим интерсептором. Это может быть использовано для восстановления/возвращения в предыдущее состояние, например: индикатор удаления
 - **перехват ошибки ответа** ( реализуя функцию **responseError**) - вызывает, когда запрос к серверу завершился неудачей, отменен интерсептором запроса либо предыдущим интерсептором ответа. В этих случаях интерсептор может помочь восстановить соединение с сервером.
 
- 
-
 ## Асинхронные операции
 
 Иногда возникает необходимость делать асинхронные операции внутри интерсептора. К счастью, AngularJS позволяет возвращать **промис**, который будет разрешен позже.
 
-[javascript]
+```javascript
+module.factory("myInterceptor", [
+  "$q",
+  "someAsyncService",
+  function ($q, someAsyncService) {
+    var requestInterceptor = {
+      request: function (config) {
+        return someAsyncService.doAsyncOperation().then(
+          function () {
+            return config;
+          },
+          function () {
+            return config;
+          }
+        );
+      },
+    };
+    return requestInterceptor;
+  },
+]);
+```
 
-module.factory('myInterceptor', ['$q', 'someAsyncService', function ($q, someAsyncService) { var requestInterceptor = { request: function (config) { return someAsyncService.doAsyncOperation().then(function () { return config; }, function () { return config; }); }}; return requestInterceptor; }]);
-
-[/javascript]
-
-В этом примере **интерсептор запроса** делает асинхронные действия и обновляет конфиг согласно результатов. Затем **$http** продолжает выполнение с модифицированным конфигом.
+В этом примере **интерсептор запроса** делает асинхронные действия и обновляет конфиг согласно результатов. Затем **\$http** продолжает выполнение с модифицированным конфигом.
 
 Аналогично с **интерсептором ответа**:
 
-[javascript] module.factory('myInterceptor', ['$q', 'someAsyncService', function($q, someAsyncService) { var responseInterceptor = { response: function(response) {
+```javascript
+module.factory("myInterceptor", [
+  "$q",
+  "someAsyncService",
+  function ($q, someAsyncService) {
+    var responseInterceptor = {
+      response: function (response) {
+        return someAsyncService.doAsyncOperation().then(
+          function () {
+            return response; // асинхронная операция выполнена успешно
+          },
+          function () {
+            return response; //асинхронная операция вернула ошибку
+          }
+        );
+      },
+    };
+    return responseInterceptor;
+  },
+]);
+```
 
-return someAsyncService.doAsyncOperation().then(function() { return response; // асинхронная операция выполнена успешно }, function() { return response; //асинхронная операция вернула ошибку });
-
-} };
-
-return responseInterceptor; }]); [/javascript]
-
-**Примечание**: ошибка асинхронно операции не обязательно должна становиться ошибкой **$http** запроса.
+**Примечание**: ошибка асинхронно операции не обязательно должна становиться ошибкой **\$http** запроса.
 
 Далее рассмотрим некоторые примеры использования интерсепторов.
 
@@ -59,37 +100,99 @@ return responseInterceptor; }]); [/javascript]
 
 Создадим интерсептор **sessionInjector**, который будет добавлять заголовок "_x-ssession-token_" к каждому запросу (если пользователь залогинен):
 
-[javascript]
-
-module.factory('sessionInjector', ['SessionService', function(SessionService) { var sessionInjector = { request: function(config) { if (!SessionService.isAnonymus){ config.headers['x-session-token'] = SessionService.token; } return config; } }; return sessionInjector; }]);
-
-module.config(['$httpProvider', function($httpProvider) { $httpProvider.interceptors.push('sessionInjector'); }]);
-
-[/javascript]
+```javascript
+module.factory("sessionInjector", [
+  "SessionService",
+  function (SessionService) {
+    var sessionInjector = {
+      request: function (config) {
+        if (!SessionService.isAnonymus) {
+          config.headers["x-session-token"] = SessionService.token;
+        }
+        return config;
+      },
+    };
+    return sessionInjector;
+  },
+]);
+module.config([
+  "$httpProvider",
+  function ($httpProvider) {
+    $httpProvider.interceptors.push("sessionInjector");
+  },
+]);
+```
 
 И теперь посылая GET-запрос :
 
-[javascript]$http.get('https://api.github.com/users/naorye/repos');[/javascript]
+```javascript
+$http.get("https://api.github.com/users/naorye/repos");
+```
 
 имеем объект конфигурации до прохождения **sessionInjector**:
 
-[javascript] { "transformRequest": [ null ], "transformResponse": [ null ], "method": "GET", "url": "https://api.github.com/users/naorye/repos", "headers": { "Accept": "application/json, text/plain, \*/\*" } } [/javascript]
+```javascript
+{
+  "transformRequest": [ null ],
+  "transformResponse": [ null ],
+  "method": "GET",
+  "url": "https://api.github.com/users/naorye/repos",
+  "headers": { "Accept": "application/json, text/plain, \*/\*" }
+}
+```
 
 и после:
 
-[javascript] { "transformRequest": [ null ], "transformResponse": [ null ], "method": "GET", "url": "https://api.github.com/users/naorye/repos", "headers": { "Accept": "application/json, text/plain, \*/\*", "x-session-token": 415954427904 } } [/javascript]
+```javascript
+{
+  "transformRequest": [ null ],
+  "transformResponse": [ null ],
+  "method": "GET",
+  "url": "https://api.github.com/users/naorye/repos",
+  "headers": { "Accept": "application/json, text/plain, \*/\*", "x-session-token": 415954427904 }
+}
+```
 
 ## Временная метка (используя интерсепторы запроса и ответа)
 
 Давайте попробуем измерить время затраченное на запрос к серверу используя интерсепторы. Это можно сделать добавляя временную метку к каждому запросу и ответу:
 
-[javascript] module.factory('timestampMarker', [function() { var timestampMarker = { request: function(config) { config.requestTimestamp = new Date().getTime(); return config; }, response: function(response) { response.config.responseTimestamp = new Date().getTime(); return response; } }; return timestampMarker; }]);
+```javascript
+module.factory("timestampMarker", [
+  function () {
+    var timestampMarker = {
+      request: function (config) {
+        config.requestTimestamp = new Date().getTime();
+        return config;
+      },
+      response: function (response) {
+        response.config.responseTimestamp = new Date().getTime();
+        return response;
+      },
+    };
+    return timestampMarker;
+  },
+]);
 
-module.config(['$httpProvider', function($httpProvider) { $httpProvider.interceptors.push('timestampMarker'); }]); [/javascript]
+module.config([
+  "$httpProvider",
+  function ($httpProvider) {
+    $httpProvider.interceptors.push("timestampMarker");
+  },
+]);
+```
 
 И теперь мы можем посчитать:
 
-[javascript] $http.get('https://api.github.com/users/naorye/repos').then(function(response) { var time = response.config.responseTimestamp - response.config.requestTimestamp; console.log('The request took ' + (time / 1000) + ' seconds.'); }); [/javascript]
+```javascript
+$http
+  .get("https://api.github.com/users/naorye/repos")
+  .then(function (response) {
+    var time =
+      response.config.responseTimestamp - response.config.requestTimestamp;
+    console.log("The request took " + time / 1000 + " seconds.");
+  });
+```
 
 Код примера можно найти [тут](https://raw.githubusercontent.com/naorye/web-dev-easy-src/86b9d00ce8fff6bb7c2b8353550c621787dcc72a/source/code/interceptors-in-angularjs-and-useful-examples/timestamp-marker.html "github"). Поиграться в песочнице [тут](https://jsbin.com/xenem/1/ "jsbin").
 
@@ -99,15 +202,63 @@ module.config(['$httpProvider', function($httpProvider) { $httpProvider.intercep
 
 Давайте создадим 2 интерсептора: requestRejector и requestRecoverer:
 
-[javascript] module.factory('requestRejector', ['$q', function($q) { var requestRejector = { request: function(config) { return $q.reject('requestRejector'); } }; return requestRejector; }]);
+```javascript
+module.factory("requestRejector", [
+  "$q",
+  function ($q) {
+    var requestRejector = {
+      request: function (config) {
+        return $q.reject("requestRejector");
+      },
+    };
+    return requestRejector;
+  },
+]);
 
-module.factory('requestRecoverer', ['$q', function($q) { var requestRecoverer = { requestError: function(rejectReason) { if (rejectReason === 'requestRejector') { // Восстановление запроса return { transformRequest: [], transformResponse: [], method: 'GET', url: 'https://api.github.com/users/naorye/repos', headers: { Accept: 'application/json, text/plain, \*/\*' } }; } else { return $q.reject(rejectReason); } } }; return requestRecoverer; }]);
+module.factory("requestRecoverer", [
+  "$q",
+  function ($q) {
+    var requestRecoverer = {
+      requestError: function (rejectReason) {
+        if (rejectReason === "requestRejector") {
+          // Восстановление запроса
+          return {
+            transformRequest: [],
+            transformResponse: [],
+            method: "GET",
+            url: "https://api.github.com/users/naorye/repos",
+            headers: { Accept: "application/json, text/plain, */*" },
+          };
+        } else {
+          return $q.reject(rejectReason);
+        }
+      },
+    };
+    return requestRecoverer;
+  },
+]);
 
-module.config(['$httpProvider', function($httpProvider) { $httpProvider.interceptors.push('requestRejector'); // Удалении 'requestRecoverer' приведет к ошибке $http $httpProvider.interceptors.push('requestRecoverer'); }]); [/javascript]
+module.config([
+  "$httpProvider",
+  function ($httpProvider) {
+    $httpProvider.interceptors.push("requestRejector"); // Удалении 'requestRecoverer' приведет к ошибке $http
+    $httpProvider.interceptors.push("requestRecoverer");
+  },
+]);
+```
 
 Мы получим успешно выполненный запрос:
 
-[javascript] $http.get('https://api.github.com/users/naorye/repos').then(function() { console.log('success'); }, function(rejectReason) { console.log('failure'); }); [/javascript]
+```javascript
+$http.get("https://api.github.com/users/naorye/repos").then(
+  function () {
+    console.log("success");
+  },
+  function (rejectReason) {
+    console.log("failure");
+  }
+);
+```
 
 [Код](https://raw.githubusercontent.com/naorye/web-dev-easy-src/86b9d00ce8fff6bb7c2b8353550c621787dcc72a/source/code/interceptors-in-angularjs-and-useful-examples/request-recover.html "github"), [песочница](https://jsbin.com/hihak/1/ "jsbin").
 
@@ -117,17 +268,36 @@ module.config(['$httpProvider', function($httpProvider) { $httpProvider.intercep
 
 Для примера давайте примем что http-статус код для случая окончания времени действия сесии - 419.
 
-[javascript] module.factory('sessionRecoverer', ['$q', '$injector', function($q, $injector) {
+```javascript
+module.factory("sessionRecoverer", [
+  "$q",
+  "$injector",
+  function ($q, $injector) {
+    var sessionRecoverer = {
+      responseError: function (response) {
+        // Время сессии истекло
+        if (response.status == 419) {
+          var SessionService = $injector.get("SessionService");
+          var $http = $injector.get("$http"); // Создаем новую сессию // и авторизируем пользователя
+          return SessionService.login().then(function () {
+            // Когда сессия восстановлена делаем запрос еще раз
+            return $http(response.config);
+          });
+        }
+        return $q.reject(response);
+      },
+    };
+    return sessionRecoverer;
+  },
+]);
 
-var sessionRecoverer = {
-
-responseError: function(response) { // Время сессии истекло if (response.status == 419){ var SessionService = $injector.get('SessionService'); var $http = $injector.get('$http');
-
-// Создаем новую сессию // и авторизируем пользователя return SessionService.login().then(function() { // Когда сессия восстановлена делаем запрос еще раз return $http(response.config); }); } return $q.reject(response); } }
-
-return sessionRecoverer; }]);
-
-module.config(['$httpProvider', function($httpProvider) { $httpProvider.interceptors.push('sessionRecoverer'); }]); [/javascript]
+module.config([
+  "$httpProvider",
+  function ($httpProvider) {
+    $httpProvider.interceptors.push("sessionRecoverer");
+  },
+]);
+```
 
 Таким образом, если запрос не удается из-за того что время сессии истекло, то интерсептор создаст новую сессию и повторит запрос.
 

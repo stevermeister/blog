@@ -1,6 +1,6 @@
 ---
 title: "С чего начать изучение AngularJS. Часть3 - Ох уж эти сервисы."
-tags: "AngularJs,javascript,сервисы,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,сервисы"
 date: "2015-02-23"
 ---
 
@@ -21,11 +21,15 @@ date: "2015-02-23"
 
 Приведу простейший пример: допустим нам нужно сделать приложение-калькулятор. Для этого в сервис поместим все операции по вычислению:
 
-[javascript] app.service('Calculator', function(){ this.add = function(a, b){ return a + b; }; this.subtract = function(a, b){ return a - b; }; this.multiply = function(a, b){ return a \* b; }; this.divide = function(a, b){ return a / b; }; }); [/javascript]
+```javascript 
+  app.service('Calculator', function(){ this.add = function(a, b){ return a + b; }; this.subtract = function(a, b){ return a - b; }; this.multiply = function(a, b){ return a \* b; }; this.divide = function(a, b){ return a / b; }; });  
+ ```
 
 теперь мы можем подключить нашу зависимость - сервис Calculator - в контроллер компонента и использовать его методы:
 
-[javascript] controller: function(Calculator) { this.result = Calculator.add(this.a, this.b); }); [/javascript]
+```javascript 
+  controller: function(Calculator) { this.result = Calculator.add(this.a, this.b); });  
+ ```
 
 Полный пример можно посмотреть [тут](https://plnkr.co/edit/JgKOiBGaJkdvxujHoklG?p=preview "jsfiddle").
 
@@ -59,7 +63,9 @@ User.getAll().then(users => { this.users = users; $scope.$apply(); }); }); [/jav
 
 Простейший пример этому будет сервис авторизации и хранение значение авторизирован ли пользователь или нет:
 
-[javascript] app.service('Auth', function(){ this.isAuthorized = false; this.login = function(){ this.isAuthorized = true; } this.logout = function(){ this.isAuthorized = false; } }); [/javascript]
+```javascript 
+  app.service('Auth', function(){ this.isAuthorized = false; this.login = function(){ this.isAuthorized = true; } this.logout = function(){ this.isAuthorized = false; } });  
+ ```
 
 Полный пример [тут](https://plnkr.co/edit/ZBL9dEHVvxdCudrQG4wC?p=preview "jsfiddle.net").
 

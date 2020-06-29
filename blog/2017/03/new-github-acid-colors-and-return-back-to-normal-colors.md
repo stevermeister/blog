@@ -1,6 +1,6 @@
 ---
 title: "New github acid colors ... and return back to normal colors"
-tags: "github,Хочу сделать мир лучше"
+tags: "github"
 date: "2017-03-01"
 ---
 

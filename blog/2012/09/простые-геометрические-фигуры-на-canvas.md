@@ -1,6 +1,6 @@
 ---
 title: "Простые геометрические фигуры на canvas"
-tags: "canvas,javascript,Хочу сделать мир лучше"
+tags: "canvas,javascript"
 date: "2012-09-02"
 ---
 

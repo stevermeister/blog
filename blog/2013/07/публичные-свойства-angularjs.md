@@ -1,6 +1,6 @@
 ---
 title: "Публичные свойства AngularJS"
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2013-07-22"
 ---
 
@@ -11,7 +11,7 @@ date: "2013-07-22"
 - **extend(dst, src[,src2[,src3...]])** - расширение объекта
 - **equals(o1, o2)** - сравнение значений/объектов
 - **element(element)** - ссылка на jqLite
-- **forEach(obj, iterator[, context])** \- организация цилка forEach
+- **forEach(obj, iterator[, context])** _ организация цилка forEach
 - **noop()** - функция "пустышка", которую можно использовать как заглушку для колбэков
 - **identity(value)** - создает функцию, которая вернет значение(используется как обертка для мест, где нужно передавать строго функцию)
 - **bind(self, fn, args)** - [карринг](https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5 "Каррирование wiki") для функции fn

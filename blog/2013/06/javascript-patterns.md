@@ -1,6 +1,6 @@
 ---
 title: "Паттерны в JavaScript"
-tags: "javascript,patterns,Хочу сделать мир лучше"
+tags: "javascript,patterns"
 date: "2013-06-24"
 ---
 

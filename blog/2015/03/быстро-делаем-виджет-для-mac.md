@@ -1,6 +1,6 @@
 ---
 title: "Быстро делаем виджет для mac"
-tags: "dashboard,html,javascript,mac,widget,Хочу сделать мир лучше"
+tags: "dashboard,html,javascript,mac,widget"
 date: "2015-03-28"
 ---
 
@@ -22,7 +22,9 @@ date: "2015-03-28"
 - иконку для виджета можно задать поместив в папку файл icon.png
 - с дебагом все совсем печально: никакой консоли нет. в сети советуют тупо создать текстовое поле в виджете и туда логировать в случае необходимости информацию, типа:
     
-    [javascript] document.getElementById('debug').textContent = 'something that you want to log'; [/javascript]
+    ```javascript 
+  document.getElementById('debug').textContent = 'something that you want to log';  
+ ```
     
 
 ## Пример

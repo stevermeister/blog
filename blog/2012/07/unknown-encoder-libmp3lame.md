@@ -1,6 +1,6 @@
 ---
 title: "Unknown encoder 'libmp3lame'"
-tags: "codecs,ffmpeg,ubuntu,Хочу сделать мир лучше"
+tags: "codecs,ffmpeg,ubuntu"
 date: "2012-07-28"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Node.js установка модулей."
-tags: "javascript,node.js,ubuntu,Хочу сделать мир лучше"
+tags: "javascript,node.js,ubuntu"
 date: "2012-04-02"
 ---
 
@@ -27,8 +27,10 @@ sudo apt-get install curl
 
 Все мы готовы ставить модули. Поставим например express и sockets.io:
 
+```
 npm install express
 npm install socket.io
 npm install supervisor
+```
 
 Все просто. Полный список модулей можно посмотреть [тут](https://github.com/joyent/node/wiki/modules "node.js modules").

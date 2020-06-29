@@ -1,6 +1,6 @@
 ---
 title: "Пишем свой Uploader с нуля на javascript используя FileApi. Часть3"
-tags: "javascript,uploader,Хочу сделать мир лучше"
+tags: "javascript,uploader"
 date: "2012-07-26"
 ---
 
@@ -41,7 +41,7 @@ document.getElementById('file-field').onchange = function(){
 
 var file;
 var pointer = 0;
-var blob\_size = 16;
+var blob_size = 16;
 var reader;
 
 document.getElementById('file-field').onchange = function(){
@@ -49,7 +49,7 @@ document.getElementById('file-field').onchange = function(){
   reader = new FileReader;
   reader.onloadend = function(e){
     if (e.target.readyState == FileReader.DONE) {
-      pointer += blob\_size;
+      pointer += blob_size;
       document.getElementById('buffer').innerHTML =
          'bytes: ' + pointer + '/from' + file.size;
     }
@@ -58,7 +58,7 @@ document.getElementById('file-field').onchange = function(){
 
 function doRead(){
   if(window.file){
-    var blob = fixSlice(file, pointer, pointer+blob\_size);
+    var blob = fixSlice(file, pointer, pointer+blob_size);
     reader.readAsBinaryString(blob);
   }else{
     alert('Please select the file');

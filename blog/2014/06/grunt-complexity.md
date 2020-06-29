@@ -1,6 +1,6 @@
 ---
 title: "grunt-complexity"
-tags: "grunt,grunt-complexity,javascript,Хочу сделать мир лучше"
+tags: "grunt,grunt-complexity,javascript"
 date: "2014-06-17"
 ---
 
@@ -12,7 +12,9 @@ $ npm install grunt-complexity
 
 Конфигурирование в grunt-файле:
 
-[javascript] complexity: { generic: { src: ['grunt.js', 'tasks/grunt-complexity.js'], options: { errorsOnly: false, cyclomatic: 3, halstead: 8, maintainability: 100 } } } [/javascript]
+```javascript 
+  complexity: { generic: { src: ['grunt.js', 'tasks/grunt-complexity.js'], options: { errorsOnly: false, cyclomatic: 3, halstead: 8, maintainability: 100 } } }  
+ ```
 
 И запустив:
 

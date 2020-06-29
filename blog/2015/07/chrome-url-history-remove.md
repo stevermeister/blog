@@ -1,6 +1,6 @@
 ---
 title: "Remove some URLs from Chrome autocomplete history"
-tags: "browser-history,chrome,Хочу сделать мир лучше"
+tags: "browser-history,chrome"
 date: "2015-07-25"
 ---
 

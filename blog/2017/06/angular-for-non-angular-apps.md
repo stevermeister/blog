@@ -1,6 +1,6 @@
 ---
 title: "Запускаем Angular виджет в приложение без Angular"
-tags: "Angular,angular-componentFactory,javascript,Хочу сделать мир лучше"
+tags: "Angular,angular-componentFactory,javascript"
 date: "2017-06-25"
 ---
 

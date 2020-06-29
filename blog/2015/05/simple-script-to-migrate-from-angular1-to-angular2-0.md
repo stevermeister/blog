@@ -1,6 +1,6 @@
 ---
 title: "Simple script to migrate from Angular1.* to Angular2.0"
-tags: "AngularJs,humor,Хочу сделать мир лучше"
+tags: "AngularJs,humor"
 date: "2015-05-05"
 ---
 

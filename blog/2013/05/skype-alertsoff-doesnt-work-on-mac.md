@@ -1,6 +1,6 @@
 ---
 title: "Skype /alertsoff doesn't work on Mac"
-tags: "alersoff,mac,skype,Хочу сделать мир лучше"
+tags: "alersoff,mac,skype"
 date: "2013-05-29"
 ---
 

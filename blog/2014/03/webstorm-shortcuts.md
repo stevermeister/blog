@@ -1,6 +1,6 @@
 ---
 title: "WebStorm/PhpStorm комбинации клавиш, которые жить помогают"
-tags: "phpStorm,shortcuts,webStorm,Хочу сделать мир лучше"
+tags: "phpStorm,shortcuts,webStorm"
 date: "2014-03-01"
 ---
 

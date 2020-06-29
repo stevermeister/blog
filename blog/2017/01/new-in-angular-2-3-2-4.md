@@ -1,6 +1,6 @@
 ---
 title: "Что нового в Angular 2.3 и Angular 2.4"
-tags: "Angular2,Хочу сделать мир лучше"
+tags: "Angular2"
 date: "2017-01-22"
 ---
 
@@ -46,7 +46,9 @@ date: "2017-01-22"
 
 Версию Ангуляра мы можем получить как импортировав специальную константу **VERSION**:
 
-[javascript] import {VERSION} from '@angular/core'; console.log(VERSION); [/javascript]
+```javascript 
+  import {VERSION} from '@angular/core'; console.log(VERSION);  
+ ```
 
 так и из атрибута корневого элемента:
 

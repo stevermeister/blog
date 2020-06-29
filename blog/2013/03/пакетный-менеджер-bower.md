@@ -1,6 +1,6 @@
 ---
 title: "Пакетный менеджер Bower"
-tags: "bower,javascript,Хочу сделать мир лучше"
+tags: "bower,javascript"
 date: "2013-03-26"
 ---
 
@@ -91,7 +91,7 @@ bower install
 
 bower register myawesomepackagename git://github.com/maccmans/face
 
-\- т.е. указывается название пакета и путь к нему.
+_ т.е. указывается название пакета и путь к нему.
 
 После чего вашу библиотеку можно будет также установить с помощью bower:
 

@@ -1,6 +1,6 @@
 ---
 title: "Запукаем Protractor на Browserstack"
-tags: "AngularJs,BrowserStack,javascript,protractor,Хочу сделать мир лучше"
+tags: "AngularJs,BrowserStack,javascript,protractor"
 date: "2015-01-19"
 ---
 
@@ -12,11 +12,11 @@ date: "2015-01-19"
 
 Ключевые опции это **capabilities** и **seleniumAddress**:
 
-[javascript] capabilities: { //эти параметры можно получить на странице - https://www.browserstack.com/automate 'browserstack.user' : 'my\_user\_name', 'browserstack.key' : 'my\_secret\_key',
+[javascript] capabilities: { //эти параметры можно получить на странице - https://www.browserstack.com/automate 'browserstack.user' : 'my_user_name', 'browserstack.key' : 'my_secret_key',
 
 'browserstack.local' : 'true',
 
-'browser' : 'Chrome', 'browser\_version' : '36.0', 'os' : 'OS X', 'os\_version' : 'Mavericks', 'resolution' : '1024x768' },
+'browser' : 'Chrome', 'browser_version' : '36.0', 'os' : 'OS X', 'os_version' : 'Mavericks', 'resolution' : '1024x768' },
 
 seleniumAddress: 'https://hub.browserstack.com/wd/hub' [/javascript]
 
@@ -24,13 +24,15 @@ seleniumAddress: 'https://hub.browserstack.com/wd/hub' [/javascript]
 
 Подробный лог (например: для отладки) можно включить следующей опцией:
 
-[javascript] capabilities: { //... 'browserstack.debug' : 'true', //... }, [/javascript]
+```javascript 
+  capabilities: { //... 'browserstack.debug' : 'true', //... },  
+ ```
 
 ## Настройка Browserstack для локального запуска
 
 Достаточно скачать([тут](https://www.browserstack.com/automate/node#setting-local-tunnel "browserstack.com")) и запустить файл:
 
-[bash] ./BrowserStackLocal my\_secret\_key localhost,3000,0 [/bash]
+[bash] ./BrowserStackLocal my_secret_key localhost,3000,0 [/bash]
 
 3000 - номер порта, на котором локально проект (только для случая локального тестирования)
 

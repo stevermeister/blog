@@ -1,6 +1,6 @@
 ---
 title: "Пишем свой Uploader с нуля на javascript используя FileApi. Часть4"
-tags: "ajax,fileApi,javascript,uploader,Хочу сделать мир лучше"
+tags: "ajax,fileApi,javascript,uploader"
 date: "2012-07-30"
 ---
 
@@ -32,8 +32,8 @@ uploader.php  - тоже пока файл-заглушка на стороне
 
 <?php
 
-var\_dump($\_POST);
-var\_dump($\_FILES);
+var_dump($_POST);
+var_dump($_FILES);
 
 Теперь перейдем к более важным моментам. contentType определяем следующим образом:
 

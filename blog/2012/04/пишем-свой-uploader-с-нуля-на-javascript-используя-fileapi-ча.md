@@ -1,6 +1,6 @@
 ---
 title: "Пишем свой Uploader с нуля на javascript используя FileApi. Часть1"
-tags: "fileApi,javascript,uploader,Хочу сделать мир лучше"
+tags: "fileApi,javascript,uploader"
 date: "2012-04-29"
 ---
 

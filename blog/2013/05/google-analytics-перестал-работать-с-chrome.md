@@ -1,6 +1,6 @@
 ---
 title: "Google Analytics перестал работать с Chrome"
-tags: "AdBlock,analytics,google,Хочу сделать мир лучше"
+tags: "AdBlock,analytics,google"
 date: "2013-05-23"
 ---
 

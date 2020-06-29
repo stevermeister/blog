@@ -1,6 +1,6 @@
 ---
 title: "INSERT ... ON DUPLICATE KEY UPDATE"
-tags: "mysql,sql,Хочу сделать мир лучше"
+tags: "mysql,sql"
 date: "2012-08-14"
 ---
 

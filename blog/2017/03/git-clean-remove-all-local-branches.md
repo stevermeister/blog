@@ -8,8 +8,12 @@ Made a [note](https://stepansuvorov.com/blog/2013/04/%D1%83%D0%B4%D0%B0%D0%BB%D0
 
 To remove all merged branches(except current -v '\*'):
 
-git branch --merged | grep -v '\*' | xargs git branch -D
+```
+$ git branch --merged | grep -v '\*' | xargs git branch -D
+```
 
 also I made such command for repo complete clean up:
 
-alias git-clean="git branch  | grep -v '\*' | grep -v 'master' | xargs git branch -D  && git reset --hard && git clean -d -x -f"
+```
+$ alias git-clean="git branch  | grep -v '\*' | grep -v 'master' | xargs git branch -D  && git reset --hard && git clean -d -x -f"
+```

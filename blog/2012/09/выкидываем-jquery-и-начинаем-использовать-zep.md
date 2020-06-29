@@ -23,9 +23,11 @@ date: "2012-09-14"
 
 Причем для IE мы всегда сможем подключить jQuery. На сайте это советуют сделать так:
 
+```html
 <script>
-document.write('<script src=' + ('\_\_proto\_\_' in {} ? 'zepto' : 'jquery') + '.js><\\/script>')
+document.write('<script src=' + ('__proto__' in {} ? 'zepto' : 'jquery') + '.js><\\/script>')
 </script>
+```
 
 [jQuery CSS селекторы](https://api.jquery.com/category/selectors/jquery-selector-extensions/) правда не поддерживаются, но поддерживается некоторые самые популярные для совместимости.
 

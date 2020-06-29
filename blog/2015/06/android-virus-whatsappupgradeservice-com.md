@@ -1,6 +1,6 @@
 ---
 title: "Android virus \"whatsappupgradeservice.com\""
-tags: "Android,virus,Хочу сделать мир лучше"
+tags: "Android,virus"
 date: "2015-06-14"
 ---
 

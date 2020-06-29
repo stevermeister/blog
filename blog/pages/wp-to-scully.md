@@ -125,6 +125,9 @@ Unfortunatelly [wordpress-export-to-markdown](https://github.com/lonekorean/word
 
 Also if you used brackets like '[' and ']' be prepared that they gonna be ecranized to '\[' and '\]' but this one is easy to fix with autoreplace. 
 And symbol '\`' is gonna be '\\\`' 
+and '-' is '\\-'
+and '_' is '\_'
+and '$' is '\\$'
 
 
 # Angular Services: articles, tags, search

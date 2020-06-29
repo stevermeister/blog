@@ -1,6 +1,6 @@
 ---
 title: "В поисках сервиса для деплоя"
-tags: "bitbucket,deploy,github,online,tool,Хочу сделать мир лучше"
+tags: "bitbucket,deploy,github,online,tool"
 date: "2015-03-03"
 ---
 

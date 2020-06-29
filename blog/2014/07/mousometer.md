@@ -1,6 +1,6 @@
 ---
 title: "Mousometer - check how fast you are with your mouse"
-tags: "fun,highcharts,javascript,online,Хочу сделать мир лучше"
+tags: "fun,highcharts,javascript,online"
 date: "2014-07-04"
 ---
 

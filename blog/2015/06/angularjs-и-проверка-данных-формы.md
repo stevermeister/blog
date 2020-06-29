@@ -1,6 +1,6 @@
 ---
 title: "AngularJS и проверка данных формы"
-tags: "AngularJs,form,html5,javascript,validation,Хочу сделать мир лучше"
+tags: "AngularJs,form,html5,javascript,validation"
 date: "2015-06-14"
 ---
 
@@ -12,8 +12,6 @@ date: "2015-06-14"
 - AngularJS расширения для валидации
 - Свои кастомные проверки данных на AngularJS
 - Вывод сообщений об ошибках и ng-messages
-
- 
 
 ## HTML5 валидация данных
 
@@ -39,31 +37,50 @@ API для проверки данных:
 
 ## AngularJS расширения для валидации
 
-Ангуляр автоматически применяется к элементу формы, в текущий **$scope** будет добавлена ссылка на **[formCotroller](https://docs.angularjs.org/api/ng/type/form.FormController)**, ключом будет являться значение атрибута **name**. В нем мы можем найти ссылки на **[ngModelController](https://docs.angularjs.org/api/ng/type/ngModel.NgModelController)** для всех элементов формы ( так же по  name). То есть, мы добавили в наше Ангуляр приложение форму:
+Ангуляр автоматически применяется к элементу формы, в текущий **\$scope** будет добавлена ссылка на **[formCotroller](https://docs.angularjs.org/api/ng/type/form.FormController)**, ключом будет являться значение атрибута **name**. В нем мы можем найти ссылки на **[ngModelController](https://docs.angularjs.org/api/ng/type/ngModel.NgModelController)** для всех элементов формы ( так же по  name). То есть, мы добавили в наше Ангуляр приложение форму:
 
-[html] <form name=login> <input name="username"> <input name="password"> </form> [/html]
+```html
+<form name="login">
+  <input name="username" />
+  <input name="password" />
+</form>
+```
 
 После чего в нашем скоуп будут:
 
-[javascript] $scope.login // formController $scope.login.username //ngModelController $scope.login.password //ngModelController [/javascript]
+```javascript
+$scope.login; // formController
+$scope.login.username; //ngModelController
+$scope.login.password; //ngModelController
+```
 
 И при этом каждый объект **formController** и **ngModelController** содержит следующие свойства (касательно валидации):
 
-- **$valid** - true/false - валидности введенных данных относительно заданных правил
-- **$invalid** - false/true - обратный к предыдущему
-- **$pristine** - true, если форма/элемент еще не использовались
-- **$dirty** - обратные к предыдущему
-- **$touched** - на элементе произошло событие blur
-- **$error** - объект ошибки
-- **$isEmpty(value)** - вспомогательный метод, который проверяет является ли значение undefined, '', null или NaN
-- **$validate()** - true/false - запускает все валидаторы зарегистрированные на модели
-- **$setValidity(validationErrorKey, isValid)** - задание значения валидности для одного из критериев
-- **$setPristine()**/**$setDirty()** - сеттеры для $pristine/$dirty
-- **$setUntouched()**/**$setTouched()** - сеттеры для $touched
+- **\$valid** - true/false - валидности введенных данных относительно заданных правил
+- **\$invalid** - false/true - обратный к предыдущему
+- **\$pristine** - true, если форма/элемент еще не использовались
+- **\$dirty** - обратные к предыдущему
+- **\$touched** - на элементе произошло событие blur
+- **\$error** - объект ошибки
+- **\$isEmpty(value)** - вспомогательный метод, который проверяет является ли значение undefined, '', null или NaN
+- **\$validate()** - true/false - запускает все валидаторы зарегистрированные на модели
+- **\$setValidity(validationErrorKey, isValid)** - задание значения валидности для одного из критериев
+- **\$setPristine()**/**\$setDirty()** - сеттеры для $pristine/$dirty
+- **\$setUntouched()**/**\$setTouched()** - сеттеры для \$touched
 
-Так же ngModelController содержит свойство **$validators**, в котором мы можем определять наши методы для проверки данных, то есть:
+Так же `ngModelController` содержит свойство **\$validators**, в котором мы можем определять наши методы для проверки данных, то есть:
 
-[javascript] ngModel.$validators.validCharacters = function(modelValue, viewValue) { var value = modelValue || viewValue; return /[0-9]+/.test(value) && /[a-z]+/.test(value) && /[A-Z]+/.test(value) && /\\W+/.test(value); }; [/javascript]
+```javascript
+ngModel.$validators.validCharacters = function (modelValue, viewValue) {
+  var value = modelValue || viewValue;
+  return (
+    /[0-9]+/.test(value) &&
+    /[a-z]+/.test(value) &&
+    /[A-Z]+/.test(value) &&
+    /\\W+/.test(value)
+  );
+};
+```
 
 Вот тут можно посмотреть как изменяются свойства в зависимости от изменения значений полей:
 
@@ -72,7 +89,7 @@ API для проверки данных:
 Ангуляр полностью дублирует атрибуты валидации HTML5, причем в некоторых случаях оставляя их без изменения (как required), а в некоторых изменяет названия атрибута (ng-maxlength); плюс использует свои дополнительные:
 
 - **required** - просто парсит HTML5 атрибут
-- **ng-minlength**/**ng-maxlength** - ограничения по количеству символово (как и maxlength)
+- **ng-minlength** / **ng-maxlength** - ограничения по количеству символово (как и maxlength)
 - **type** - использует атрибут HTML5
 - **ng-pattern** - отличие в том что мы можем подставлять паттерн динамически и ошибка по умолчанию не тригерится наверх ([сравнить](https://plnkr.co/edit/O3RDTSi06iVNEj9jfLx4?p=preview))
 
@@ -89,41 +106,98 @@ C директивой все понятно. Но вот то, как мы ве
 
 Вот пример проверки уникальности записи от [ng-newsletter](https://www.ng-newsletter.com/posts/validations.html), атрибут-директива для элемента формы, которая следит за изменением значения:
 
-[javascript] app.directive('ensureUnique', ['$http', function($http) { return { require: 'ngModel', link: function(scope, ele, attrs, c) { scope.$watch(attrs.ngModel, function() { $http({ method: 'POST', url: '/api/check/' + attrs.ensureUnique, data: {'field': attrs.ensureUnique} }).success(function(data, status, headers, cfg) { c.$setValidity('unique', data.isUnique); }).error(function(data, status, headers, cfg) { c.$setValidity('unique', false); }); }); } } }]); [/javascript]
+```javascript
+app.directive("ensureUnique", [
+  "$http",
+  function ($http) {
+    return {
+      require: "ngModel",
+      link: function (scope, ele, attrs, c) {
+        scope.$watch(attrs.ngModel, function () {
+          $http({
+            method: "POST",
+            url: "/api/check/" + attrs.ensureUnique,
+            data: { field: attrs.ensureUnique },
+          })
+            .success(function (data, status, headers, cfg) {
+              c.$setValidity("unique", data.isUnique);
+            })
+            .error(function (data, status, headers, cfg) {
+              c.$setValidity("unique", false);
+            });
+        });
+      },
+    };
+  },
+]);
+```
 
 А вот так (взято из [оф доки](https://docs.angularjs.org/guide/forms)) мы можем переопределить стандартную проверку:
 
-[javascript] app.directive('overwriteEmail', function() { var EMAIL\_REGEXP = /^[a-z0-9!#$%&'\*+/=?^\_`{|}~.-]+@example\\.com$/i;
-
-return { require: 'ngModel', restrict: '', link: function(scope, elm, attrs, ctrl) { if (ctrl && ctrl.$validators.email) {
-
-ctrl.$validators.email = function(modelValue) { return ctrl.$isEmpty(modelValue) || EMAIL\_REGEXP.test(modelValue); }; } } }; }); [/javascript]
+```javascript
+app.directive('overwriteEmail', function() {
+  var EMAIL*REGEXP = /^[a-z0-9!#$%&'\*+/=?^*`{|}~.-]+@example\\.com$/i;
+  return {
+    require: 'ngModel',
+    restrict: '',
+    link: function(scope, elm, attrs, ctrl) {
+      if (ctrl && ctrl.$validators.email) {
+        ctrl.$validators.email = function(modelValue) {
+          return ctrl.$isEmpty(modelValue) || EMAIL_REGEXP.test(modelValue);
+        };
+      }
+    }
+  };
+});
+```
 
 И есть еще один интересный [пример](https://habrahabr.ru/post/167793/) с хабра и использованием свойств котроллера модели $parsers и $formatters:
 
-[javascript] mod.directive('strongPassRequired', function () { var isValid = function(s) { return s && s.length > 5 && /\\D/.test(s) && /\\d/.test(s); };
+```javascript
+mod.directive("strongPassRequired", function () {
+  var isValid = function (s) {
+    return s && s.length > 5 && /\\D/.test(s) && /\\d/.test(s);
+  };
 
-return { require:'ngModel', link:function (scope, elm, attrs, ngModelCtrl) {
+  return {
+    require: "ngModel",
+    link: function (scope, elm, attrs, ngModelCtrl) {
+      ngModelCtrl.$parsers.unshift(function (viewValue) {
+        ngModelCtrl.$setValidity("strongPass", isValid(viewValue));
+        return viewValue;
+      });
+      ngModelCtrl.$formatters.unshift(function (modelValue) {
+        ngModelCtrl.$setValidity("strongPass", isValid(modelValue));
+        return modelValue;
+      });
+    },
+  };
+});
+```
 
-ngModelCtrl.$parsers.unshift(function (viewValue) { ngModelCtrl.$setValidity('strongPass', isValid(viewValue)); return viewValue; });
-
-ngModelCtrl.$formatters.unshift(function (modelValue) { ngModelCtrl.$setValidity('strongPass', isValid(modelValue)); return modelValue; }); } }; }); [/javascript]
-
-хотя думаю можно было ограничится просто использованием свойства $validators.
-
- 
+хотя думаю можно было ограничится просто использованием свойства \$validators.
 
 ## Вывод сообщений об ошибках и ng-messages
 
 Начиная с Angular 1.3 появилась возможность подключить прекрасный модуль [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages), который серьезно упрощает работу по выводу ошибок. В старых версиях нам приходилось выдумывать что-то с ng-if/ng-show, а теперь все можно сделать так:
 
-[html] <form name="demoForm"> <input name="amount" type="number" ng-model="amount" max="100"> <div ng-messages="demoForm.amount.$error"> <div ng-message="number">Should be a number</div> <div ng-message="max">The number is too large.</div> </div> </form> [/html]
+```html
+<form name="demoForm">
+  <input name="amount" type="number" ng-model="amount" max="100" />
+  <div ng-messages="demoForm.amount.$error">
+    <div ng-message="number">Should be a number</div>
+    <div ng-message="max">The number is too large.</div>
+  </div>
+</form>
+```
 
 Поиграться с кодом можно [тут](https://jsfiddle.net/STEVER/n7uzrets/).
 
 !Внимание: при этом не забудьте подключить в зависимости ваш модуль:
 
-[javascript] angular.module('app', ['ngMessages']); [/javascript]
+```javascript
+angular.module('app', ['ngMessages']);
+```
 
 ну и конечно подключить .js файл.
 
@@ -132,11 +206,9 @@ ngModelCtrl.$formatters.unshift(function (modelValue) { ngModelCtrl.$setValidity
 Для каждого состояния Ангуляр добавляет специальный класс:
 
 - **ng-valid**/**ng-invalid**
-- **ng-valid-[key]** / **ng-invalid-[key]** - отдельный для каждого ключа заданного через  **$setValidity**
+- **ng-valid-[key]** / **ng-invalid-[key]** - отдельный для каждого ключа заданного через  **\$setValidity**
 - **ng-pristine**/**ng-dirty**
 - **ng-touched**/**ng-untouched**
-- **ng-pending** - ждет асинронной валидации от **$asyncValidators**
-
- 
+- **ng-pending** - ждет асинронной валидации от **\$asyncValidators**
 
 Сейчас вот задался вопросом: "Почему до сих пор нет никакого готового (и популярного) модуля для валидации данных?" Чтобы можно было на всю форму (например) навесить директиву и передать ей конфиг заполняемых полей. Если что-то знаете в тему - подскажите пожалуйста в комментариях. Иначе прийдется делать свой велосипед.

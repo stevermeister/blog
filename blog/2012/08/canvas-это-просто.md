@@ -1,6 +1,6 @@
 ---
 title: "Canvas - это просто!"
-tags: "canvas,html5,javascript,Хочу сделать мир лучше"
+tags: "canvas,html5,javascript"
 date: "2012-08-21"
 ---
 
@@ -16,7 +16,7 @@ date: "2012-08-21"
 
 <canvas id="tutorial" width="150" height="150"></canvas>
 
-\- добавляем HTML элемент в страницу. Для рисования необходимо обратиться к нему на javascript и получить контекст:
+_ добавляем HTML элемент в страницу. Для рисования необходимо обратиться к нему на javascript и получить контекст:
 
 var canvas = document.getElementById('tutorial');
 var ctx = canvas.getContext('2d');

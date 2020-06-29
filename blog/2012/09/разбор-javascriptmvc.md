@@ -1,6 +1,6 @@
 ---
 title: "Разбор JavaScriptMVC"
-tags: "javascript,JavascriptMVC,Хочу сделать мир лучше"
+tags: "javascript,JavascriptMVC"
 date: "2012-09-06"
 ---
 
@@ -26,7 +26,7 @@ steal(param1, param2, param3, ...)
 
 steal('jquery/class')
 
-\- это значит что он подключит файл %framework\_path%/jquery/class.js
+_ это значит что он подключит файл %framework_path%/jquery/class.js
 
 Внимание. Так как **steal** работает асинхронно, то мы должны помещать код, который зависит от подключаемого модуля в callback:
 

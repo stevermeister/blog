@@ -1,12 +1,12 @@
 ---
 title: "Dnsmasq для локальной разработки под Mac"
-tags: "DNS,dnsmasq,Хочу сделать мир лучше"
+tags: "DNS,dnsmasq"
 date: "2015-05-09"
 ---
 
 Так как наш проект использует динамические поддомены, то есть, кроме основного `www.studytube.com`, может быть еще сколько угодно `XXX.studytube.com`. Для локальной среды мы настроили домен `studytube.dev`. Но тут же появился вопрос: как сделать так, чтобы не нужно было каждый раз прописывать в хосты новый поддомен. Wildcard опцию, то есть возможность указать `*.studytube.dev`, к сожалению, `/etc/hosts` не поддерживает.
 
-К счастью, на помощь к нам пришел локальный `DNS`\-сервер **[Dnsmasq](https://www.thekelleys.org.uk/dnsmasq/doc.html)**.
+К счастью, на помощь к нам пришел локальный `DNS`_сервер **[Dnsmasq](https://www.thekelleys.org.uk/dnsmasq/doc.html)**.
 
 Настройка его очень простая. Все что вам нужно сделать это:
 
@@ -18,4 +18,15 @@ date: "2015-05-09"
 
 На всякий случай, список команд сохраню тут:
 
-[shell] brew install dnsmasq cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist echo "\\naddress=/dev/127.0.0.1" >> /usr/local/etc/dnsmasq.conf sudo launchctl stop homebrew.mxcl.dnsmasq sudo launchctl start homebrew.mxcl.dnsmasq sudo mkdir -p /etc/resolver sudo tee /etc/resolver/dev >/dev/null <<EOF nameserver 127.0.0.1 EOF ping xxx.dev [/shell]
+```
+brew install dnsmasq 
+cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf 
+sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/ 
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist 
+echo "\\naddress=/dev/127.0.0.1" >> /usr/local/etc/dnsmasq.conf 
+sudo launchctl stop homebrew.mxcl.dnsmasq 
+sudo launchctl start homebrew.mxcl.dnsmasq 
+sudo mkdir -p /etc/resolver 
+sudo tee /etc/resolver/dev >/dev/null <<EOF nameserver 127.0.0.1 EOF 
+ping xxx.dev
+```

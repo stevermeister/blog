@@ -1,6 +1,6 @@
 ---
 title: "setTimeout может содержать больше 2х параметров"
-tags: "javascript,setTimeout,Хочу сделать мир лучше"
+tags: "javascript,setTimeout"
 date: "2013-06-26"
 ---
 

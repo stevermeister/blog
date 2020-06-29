@@ -1,6 +1,6 @@
 ---
 title: "Полезности для .gitconfig"
-tags: ".gitconfig,git,Хочу сделать мир лучше"
+tags: ".gitconfig,git"
 date: "2014-02-25"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Snippet to visualise amount of watchers for each AngularJS scope"
-tags: "AngularJs,javascript,scope,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,scope"
 date: "2015-03-14"
 ---
 

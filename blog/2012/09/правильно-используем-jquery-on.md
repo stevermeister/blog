@@ -1,6 +1,6 @@
 ---
 title: "Правильно используем jQuery ON"
-tags: "javascript,jQuery,Хочу сделать мир лучше"
+tags: "javascript,jQuery"
 date: "2012-09-18"
 ---
 

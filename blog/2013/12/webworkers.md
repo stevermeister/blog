@@ -1,6 +1,6 @@
 ---
 title: "Многопоточность в JavaScript"
-tags: "html5,javascript,web workers,Хочу сделать мир лучше"
+tags: "html5,javascript,web workers"
 date: "2013-12-04"
 ---
 
@@ -126,7 +126,7 @@ addEventListener('message', function(e) {
 
 ## Ограничения Web Worker
 
-К чему **можно** обращаться внутри **worker**\-скрипта:
+К чему **можно** обращаться внутри **worker**_скрипта:
 
 - Объект `navigator`
 - Объект `location` (только чтение)
@@ -136,7 +136,7 @@ addEventListener('message', function(e) {
 - Импорт внешних скриптов с использованием метода `importScripts()`
 - [Создание других объектов Web Worker](https://www.html5rocks.com/ru/tutorials/workers/basics/#toc-enviornment-subworkers)
 
-У **worker**\-скрипта **нет доступа** к:
+У **worker**_скрипта **нет доступа** к:
 
 - Модель DOM (она не ориентирована на многопоточное исполнение)
 - Объект `window`
@@ -164,7 +164,7 @@ Maximum number of Web Worker instances(256) exceeded for this window.
 
 ## Динамическое создание worker-скриптов
 
-Иногда возникает необходимо создать **worker**\-скрипт динамически(!внимание именно **worker**\-скрипт, а не сам **worker**), в зависимости от различных условий. В таком случае создание **worker** из отдельного файла нас не устраивает и мы должны воспользоваться вторым способом - через подготовленный объект [Blob](https://dev.w3.org/2009/dap/file-system/file-writer.html#the-blobbuilder-interface), а точнее - ссылки на него.
+Иногда возникает необходимо создать **worker**_скрипт динамически(!внимание именно **worker**_скрипт, а не сам **worker**), в зависимости от различных условий. В таком случае создание **worker** из отдельного файла нас не устраивает и мы должны воспользоваться вторым способом - через подготовленный объект [Blob](https://dev.w3.org/2009/dap/file-system/file-writer.html#the-blobbuilder-interface), а точнее - ссылки на него.
 
 Вот так это будет выглядеть в коде
 

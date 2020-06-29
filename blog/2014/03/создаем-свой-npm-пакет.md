@@ -1,6 +1,6 @@
 ---
 title: "Создаем свой npm-пакет"
-tags: "javascript,npm,package.json,Хочу сделать мир лучше"
+tags: "javascript,npm,package.json"
 date: "2014-03-09"
 ---
 
