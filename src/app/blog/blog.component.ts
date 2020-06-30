@@ -4,6 +4,7 @@ import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, of, merge } from 'rxjs';
 import { map, filter, switchMap, tap } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
+import { Article } from '../article.service';
 
 declare var ng: any;
 
@@ -52,5 +53,9 @@ export class BlogComponent implements OnInit {
         )
       )
     );
+  }
+
+  getArticleEditLink(article: Article): string {
+    return 'https://github.com/stevermeister/blog/edit/master' + article.route + '.md';
   }
 }

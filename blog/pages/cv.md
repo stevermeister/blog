@@ -9,22 +9,23 @@ date: "2012-01-02"
 *I enjoy teaching and making other people better.*
 
 
-### Summary
+### Highlights
 
-- Solid **academic background**
-- 10+ years in **software engineering**, 5+ years of **people management** experience, SaaS B2B/B2C2B companies preferred.
-- Strong **prioritisation** and **project management** skills, understanding of **business impact** for various solutions.
-- Result focused, **data-driven** engineering strategy development skills.
-- Understanding engineering **architecture** and trade-offs.
+- 10+ years in software engineering, 5+ years of people management experience, SaaS B2B/B2C2B companies preferred.
+- Strong prioritisation and project management skills, understanding of business impact for various solutions.
+- Result focused, data-driven engineering strategy development skills.
+- Understanding engineering architecture and trade-offs.
 - Proven experience building a platform for cloud products.
-- Good understanding of **software design principles** and ability to guide others
-- Experience managing **remote teams**, building sustainable processes
-- Innate ability to **inspire** passion in others
+- Good understanding of software design principles and ability to guide others
+- Experience managing remote teams, building sustainable processes
+- Innate ability to inspire passion in others
+- 20+ conference tech talks
+- 50+ workshops (in-company and public)
 
 
 ### Experience
 
-### [StudyTube](https://www.studytube.nl/) (2014 – still here) - Online Learning Management Platform
+## [StudyTube](https://www.studytube.nl/) (2014 – still here) - Online Learning Management Platform
 
 - Managing tech and product
 - Technical strategy and architecture
@@ -38,16 +39,13 @@ Tags:
 [Ruby](/?tag=ruby), 
 [Angular](/?tag=angular), 
 [Terraform](/?tag=terraform), 
-[Ansible](/?tag=ansible), 
 [node.js](/?tag=node.js), 
 [AWS](/?tag=aws),
 [git](/?tag=git)
 
-### Daxx (2012 – 2014)
-(consulting company)
+## Daxx (2012 – 2014) 
 
-
-### SwiftySite(http://www.swiftysite.com/)
+#### SwiftySite
 Complex single-page site WYSIWYG site creator. Render and save all style and structure changes on fly. Give the possibility to everyone to create his own personal page by taking easy steps.
 
 - Team leader
@@ -71,7 +69,7 @@ Tags:
 [git](/?tag=git),
 [Jira](/?tag=jira)
 
-### iStack - Intelligent Life System 
+#### iStack - Intelligent Life System 
 Work on complex UI of B2B solution, JavaScript AngularJs-based web-application that provides access to several big data storages threw server-side RESTful API.
 
 - AngularUI best practices.
@@ -106,7 +104,7 @@ Tags:
 
 
 
-### EnvionSoftware (2011 – 2012) - Brand Asset Management
+## EnvionSoftware (2011 – 2012) - Brand Asset Management
 
 Complex high-load SaaS service of creating and managing assets, including communication function: text, audio, video conferences. File distribution options. Asset tracking: starts with brief creation. 
 
@@ -136,7 +134,7 @@ Tags:
 
 
 
-### RightFusion (2010 – 2011) - Bank Data Processing
+## RightFusion (2010 – 2011) - Bank Data Processing
 
 Multi-functional processing of huge amounts of data that is loaded in different ways from bank net branches. Output analytics, statistics, data dependencies, graphics  in convenient UI. 
 
@@ -151,13 +149,11 @@ Key Contributions:
 Tags:  JavaScript, jQuery, PHP, SQL, MySQL, Jira, SVN, Unix, Apache, Memcache
 
 
-### Gameloft (2008 – 2010) - Ecommerce Department
+## Gameloft (2008 – 2010) - Ecommerce Department
 
-- different kind of b2c sites for mobile handsets
-- promo sites 
+- b2c sites for mobile handsets
 - product subscriptions
-- implementation of external billing systems
-- communication with partners
+- integration of external billing systems
 - affiliate services
 - analysing conversion
 - internal Framework optimizations:
@@ -180,7 +176,7 @@ Tags:
 [svn](/?tag=svn)
 
 
-### Freelance (2005 – 2008)
+## Freelance (2005 – 2008)
 
 More than 20 finished projects, development of various modules/widgets/scripts for existing portals. 
 Since 2007 a leader of a freelance team that consists of local and remote members. Searching for clients, gathering requirements, creating project specification, distributing tasks between team members, coordinating team on each step project life cycle, control quality of product and code, make presentations for clients. Experience in solving unexpected situations. Work with foreign clients.
@@ -194,16 +190,17 @@ Tags:
 [MySQL](/?tag=mysql),
 [Apache](/?tag=apache)
 
-## Education
+### Education
 
-2003-2008: Kharkiv National University of Radio Electronics. 
-Master degree in Information Security.
+## Kharkiv National University of Radio Electronics (2003-2008)
+Information Security Master
 
-## Personal
+### Personal
 
 - Play football, table tennis, chess
 - Riding bicycle 
 - Open source contributor
+- Public speaker
 
 
 
