@@ -1,6 +1,6 @@
 ---
 title: "Что нужно для создания внешнего ключа(FOREIGN KEY) в MySQL"
-tags: "foreing key,mysql,phpmyadmin,sql,Хочу сделать мир лучше"
+tags: "foreing key,mysql,phpmyadmin,sql"
 date: "2012-07-15"
 ---
 
@@ -14,11 +14,11 @@ date: "2012-07-15"
 
 Теперь синтаксис взятый из официального мануала:
 
-\[CONSTRAINT \[_`symbol`_\]\] FOREIGN KEY
-    \[_`index_name`_\] (_`index_col_name`_, ...)
+[CONSTRAINT [_`symbol`_]] FOREIGN KEY
+    [_`index_name`_] (_`index_col_name`_, ...)
     REFERENCES _`tbl_name`_ (_`index_col_name`_,...)
-    \[ON DELETE _`reference_option`_\]
-    \[ON UPDATE _`reference_option`_\]
+    [ON DELETE _`reference_option`_]
+    [ON UPDATE _`reference_option`_]
 
 _`reference_option`_:
     RESTRICT | CASCADE | SET NULL | NO ACTION

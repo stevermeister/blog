@@ -1,6 +1,6 @@
 ---
 title: "Editing breakpoints in Chrome devtools"
-tags: "chrome,debug,devtools,javascript,Хочу сделать мир лучше"
+tags: "chrome,debug,devtools,javascript"
 date: "2015-01-09"
 ---
 

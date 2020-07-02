@@ -1,6 +1,6 @@
 ---
 title: "С чего начать изучение AngularJS. Часть2 - Шаблоны оживают."
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2013-06-24"
 ---
 

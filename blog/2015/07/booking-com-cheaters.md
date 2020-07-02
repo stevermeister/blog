@@ -1,6 +1,6 @@
 ---
 title: "Booking.com cheaters?"
-tags: "booking.com,online,Хочу сделать мир лучше"
+tags: "booking.com,online"
 date: "2015-07-28"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "AngularJS: Синтаксис Controller as"
-tags: "AngularJs,ng-controller,scope,Хочу сделать мир лучше"
+tags: "AngularJs,ng-controller,scope"
 date: "2015-09-16"
 ---
 

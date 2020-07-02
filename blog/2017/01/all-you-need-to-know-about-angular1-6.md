@@ -1,6 +1,6 @@
 ---
 title: "Все что вы должны знать о Angular 1.6"
-tags: "Angular,Хочу сделать мир лучше"
+tags: "Angular"
 date: "2017-01-15"
 ---
 
@@ -10,7 +10,9 @@ date: "2017-01-15"
 
 Есть костыль, который можно использовать на переходное время:
 
-\[javascript\] .config(function($compileProvider) { $compileProvider.preAssignBindingsEnabled(true); }); \[/javascript\]
+```javascript 
+  .config(function($compileProvider) { $compileProvider.preAssignBindingsEnabled(true); });  
+ ```
 
 ## Наследование ngModelOptions
 

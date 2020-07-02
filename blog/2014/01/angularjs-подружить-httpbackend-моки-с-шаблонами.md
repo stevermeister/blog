@@ -1,6 +1,6 @@
 ---
 title: "AngularJS: подружить $httpBackend моки с шаблонами"
-tags: "$httpBackend,AngularJs,mock,templates,Хочу сделать мир лучше"
+tags: "$httpBackend,AngularJs,mock,templates"
 date: "2014-01-29"
 ---
 

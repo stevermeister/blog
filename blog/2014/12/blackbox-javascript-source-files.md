@@ -1,6 +1,6 @@
 ---
 title: "Blackbox JavaScript Source Files"
-tags: "chrome,debug,javascript,Хочу сделать мир лучше"
+tags: "chrome,debug,javascript"
 date: "2014-12-16"
 ---
 

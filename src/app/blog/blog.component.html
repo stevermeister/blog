@@ -3,13 +3,19 @@
     <article class="post type-post status-publish format-standard hentry category-uncategorized">
       <header class="entry-header">
         <h1 class="entry-title">
-          {{article?.title}}
+          {{ article?.title }}
         </h1>
+
+        <span class="github-link">
+          <a [href]="getArticleEditLink(article)" aria-label="Suggest Edits" title="Suggest Edits">
+            <i class="material-icons" aria-hidden="true" role="img">mode_edit</i>
+          </a>
+        </span>
 
         <div class="entry-meta">
           <span class="sep">Posted on </span>
-          <a routerLink="{{article.route}}" rel="bookmark">
-            <time class="entry-date">{{article.date|date}}</time>
+          <a routerLink="{{ article.route }}" rel="bookmark">
+            <time class="entry-date">{{ article.date | date }}</time>
           </a>
         </div>
         <!-- .entry-meta -->
@@ -23,17 +29,46 @@
 
       <footer class="entry-meta">
         This entry was posted in
-        <ng-container *ngFor="let tag of article.tags?.split(',')" >
-          <a routerLink="" [queryParams]="{tag: tag}"  rel="category tag">{{tag}}</a>,
+        <ng-container *ngFor="let tag of article.tags?.split(',')">
+          <a routerLink="" [queryParams]="{ tag: tag }" rel="category tag">{{
+            tag
+          }}</a
+          >,
         </ng-container>
-        by <a href="">Stepan</a>.
-        Bookmark the <a routerLink="{{article.route}}" title="{{article.title}}" rel="bookmark">permalink</a>.
+        by <a href="">Stepan</a>. Bookmark the
+        <a
+          routerLink="{{ article.route }}"
+          title="{{ article.title }}"
+          rel="bookmark"
+          >permalink</a
+        >.
       </footer>
       <!-- .entry-meta -->
     </article>
     <!-- #post-3574 -->
+
+    <div id="disqus_thread"></div>
+    <script>
+    
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://stepansuvorovblog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
   </div>
   <!-- #content -->
 </div>
 <!-- #primary -->
-

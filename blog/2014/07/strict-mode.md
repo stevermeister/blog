@@ -1,6 +1,6 @@
 ---
 title: "Что нужно знать о 'strict mode' в JavaScript"
-tags: "javascript,use strict,Хочу сделать мир лучше"
+tags: "javascript,use strict"
 date: "2014-07-08"
 ---
 

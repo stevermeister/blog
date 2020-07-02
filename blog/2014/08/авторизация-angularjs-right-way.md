@@ -1,6 +1,6 @@
 ---
 title: "Авторизация AngularJS. Right way."
-tags: "AngularJs,auth,javascript,ui-router,Хочу сделать мир лучше"
+tags: "AngularJs,auth,javascript,ui-router"
 date: "2014-08-15"
 ---
 
@@ -14,7 +14,9 @@ date: "2014-08-15"
 
 Так как я сторонник модульного подхода и считаю, что именно это правильный способ использования **AngualrJS**, то весь функционал связанный с авторизацией я сложил в отдельный модуль **auth**. К нему подключаю модуль управления [кукисами](https://docs.angularjs.org/api/ngCookies/service/$cookies) и модуль организации удобной работы с **REST**([restangular](https://github.com/mgonto/restangular "github.com/mgonto/restangular")):
 
-\[javascript\]angular.module('auth', \['ngCookies', 'restangular'\]);\[/javascript\]
+```javascript
+angular.module('auth', ['ngCookies', 'restangular']);
+```
 
 ## Сервис авторизации
 
@@ -27,25 +29,50 @@ date: "2014-08-15"
 
 Вот упрощенная версия кода(выкинул обработку ошибок):
 
-\[javascript\]angular.module('auth') .service('AuthService', function($cookies, $http, Restangular) { 'use strict';
-
-var self = this; this.status = { authorized: false, };
-
-this.loginByCredentials = function(username, password) { return Restangular.all('sessions').post({ email: username, password: password }) .then(function(response) { return self.loginByToken(response.contents); }); };
-
-this.loginByToken = function(token) { $http.defaults.headers.common\['X-Token'\] = token;
-
-return Restangular.all('sessions').get(token) .then(function(response) { $cookies.accessToken = token; self.status.authorized = true; return response; }); };
-
-this.logout = function() { self.status.authorized = false; $cookies.accessToken = '';
-
-Restangular.all('sessions').remove(); }; });\[/javascript\]
+```javascript
+angular.module('auth')
+  .service('AuthService', function($cookies, $http, Restangular) {
+    'use strict';
+ 
+    var self = this;
+    this.status = {
+      authorized: false,
+    };
+ 
+    this.loginByCredentials = function(username, password) {
+      return Restangular.all('sessions').post({ email: username, password: password })
+        .then(function(response) {
+          return self.loginByToken(response.contents);
+        });
+    };
+ 
+    this.loginByToken = function(token) {
+      $http.defaults.headers.common['X-Token'] = token;
+ 
+      return Restangular.all('sessions').get(token)
+        .then(function(response) {
+          $cookies.accessToken = token;
+          self.status.authorized = true;
+          return response;
+        });
+    };
+ 
+    this.logout = function() {
+      self.status.authorized = false;
+      $cookies.accessToken = '';
+ 
+      Restangular.all('sessions').remove();
+    };
+  });
+```
 
 Приходится подключать **$http** сервис для вот этого хака:
 
-\[javascript\]$http.defaults.headers.common\['X-Token'\] = token;\[/javascript\]
+```javascript
+$http.defaults.headers.common['X-Token'] = token;
+```
 
-\- по другому в **Restangular** не получается динамически задать хедер, в котором мы хотим отправлять токен авторизации.
+_ по другому в **Restangular** не получается динамически задать хедер, в котором мы хотим отправлять токен авторизации.
 
 (если у вас есть другое решение данной ситуации - пожалуйста поделитесь)
 
@@ -57,7 +84,9 @@ Restangular.all('sessions').remove(); }; });\[/javascript\]
 
 Итого имеем(опять очень упрощенная версия):
 
-\[html\] <div ng-if="isAutorized"> <menu></menu> <ui-view></ui-vew> <div ng-if="!isAutorized"> <login></login> </div> \[/html\]
+```html
+<div ng-if="isAutorized"> <menu></menu> <ui-view></ui-vew> <div ng-if="!isAutorized"> <login></login> </div>
+```
 
 ## Плюшки с интерсепторами
 
@@ -78,38 +107,81 @@ Restangular.all('sessions').remove(); }; });\[/javascript\]
 
 Про интерсепторы можно более подробно почитать [тут](https://stepansuvorov.com/blog/2014/04/angularjs-interceptors-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/). Мы с вами реализуем один из них интесептор ошибки ответа:
 
-\[javascript\] app.service('authRejector', function($q) { this.responseError = (rejection) => { if (rejection.status === 401) { //делаем какие-то действия для пользователя без авторизации }
+```javascript
+app.service('authRejector', function($q) { 
+    this.responseError = (rejection) => { 
+        if (rejection.status === 401) { //делаем какие-то действия для пользователя без авторизации 
+        }
 
-return $q.reject(rejection); }; }); \[/javascript\]
+        return $q.reject(rejection); 
+    }; 
+});
+```
 
 и потом подключаем наш интерсептор к остальным:
 
-\[javascript\] app.config(function($httpProvider) { $httpProvider.interceptors.push('authRejector'); }); \[/javascript\]
+```javascript
+app.config(function($httpProvider) { 
+    $httpProvider.interceptors.push('authRejector'); 
+});
+```
 
 ## Изменение стейта
 
 Навесить хук в событие **ui-router** можно с помощью сервиса **$transitions**:
 
-\[javascript\] $transitions.onEnter({ to: 'stateName' }, function($state$, $transition$) { if(!AuthService.status.authorized){ //делаем какие-то действия для пользователя без авторизации return $q.reject() } } \[/javascript\]
+```javascript
+$transitions.onEnter({ to: 'stateName' }, function($state$, $transition$) { 
+    if(!AuthService.status.authorized){ //делаем какие-то действия для пользователя без авторизации 
+      return $q.reject() 
+    } 
+}
+```
 
 ## Запрет доступа к страница с помощью резолв
 
 Давайте предлополжим, что у нас есть стейт **users**:
 
-\[javascript\] .state('users', {}) \[/javascript\]
+```javascript
+.state('users', {})
+```
 
 к которому мы хотим ограничить доступ. Для этого добавим резолв с использованием все того же сервиса авторизации:
 
-\[javascript\] .state('users', { resolve: { auth: function($q, AuthService) { if(!AuthService.status.authorized) { $q.reject(); alert('Вы должны авторизироваться!'); } } } }) \[/javascript\]
+```javascript
+.state('users', { 
+    resolve: { 
+        auth: function($q, AuthService) { 
+            if(!AuthService.status.authorized) { 
+                $q.reject(); alert('Вы должны авторизироваться!'); 
+            } 
+        } 
+    } 
+})
+```
 
 ## Проверка авторизации при переходе на другую страницу
 
 В **ui-router** мы можем навесить хук на событие перехода на какой либо стейт с помощью сервиса **$transitions**:
 
-\[javascript\] $transitions.onEnter({ to: 'stateName' }, function($state$, $transition$) { if(!AuthService.status.authorized){ //делаем какие-то действия для пользователя без авторизации return $q.reject() } } \[/javascript\]
+```javascript
+$transitions.onEnter({ to: 'stateName' }, function($state$, $transition$) { 
+    if(!AuthService.status.authorized){ //делаем какие-то действия для пользователя без авторизации 
+      return $q.reject() 
+    } 
+}
+```
 
 Но у приведем сам логин компонент для полноты примера.
 
 ## Пример логин компонента
 
-\[javascript\] app.component('login', { controller: function(AuthService){ this.login = function(login, password) AuthService.loginByCredentials(login, password).catch(function(){ //выводим ошибку авторизации }); } }); \[/javascript\]
+```javascript
+app.component('login', {
+  controller: function(AuthService){
+    AuthService.loginByCredentials(login, password).catch(function(){
+      //выводим ошибку авторизации
+    });
+  }
+});
+```

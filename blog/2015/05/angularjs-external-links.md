@@ -1,6 +1,6 @@
 ---
 title: "AngularJS external links"
-tags: "AngularJs,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,javascript"
 date: "2015-05-05"
 ---
 
@@ -10,6 +10,8 @@ For example you have application on `https://somedomain.com` and on `https://so
 
 The only way to solve it is to use `href` together with `target="_self"` attribute:
 
-\[javascript\] <a href="/admin" target="\_self">Admin</a> \[/javascript\]
+```javascript 
+  <a href="/admin" target="_self">Admin</a>  
+ ```
 
 And yes, this option is [documented](https://docs.angularjs.org/guide/$location), but why it's so hard to find?

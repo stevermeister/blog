@@ -1,6 +1,6 @@
 ---
 title: "Виды лицензий Open Source"
-tags: "git,license,opensource,лицензия,Хочу сделать мир лучше"
+tags: "git,license,opensource,лицензия"
 date: "2014-07-13"
 ---
 

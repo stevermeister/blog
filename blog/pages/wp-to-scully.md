@@ -119,9 +119,40 @@ Ideally to have tags from your posts as well. By defalt [wordpress-export-to-mar
 It looks like there is an issue with WordPress XML Export, if you have many non-latin symbols, for example, you are writing your posts in other language it will be encoded 2 times, so when I did export (with [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)), I changed [this line](https://github.com/lonekorean/wordpress-export-to-markdown/pull/41/files#diff-6947033678b93d106e25614dd972e66fR45).
 
 
-# Angular Services: articles, tags, search
+## No tables and brackets
 
-When you have all your information in place (in .md files) you could think about such a nice and obvious functionality for WordPress (as well as any blog) like **tags** or **search**, and now you can do it all on client side!
+Unfortunatelly [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not recognize old good html tables, so if you had them in WP Posts be prepared to do it manually again in md.
+
+Also if you used brackets like '[' and ']' be prepared that they gonna be ecranized to '\[' and '\]' but this one is easy to fix with autoreplace. 
+And symbol '\`' is gonna be '\\\`' 
+and '-' is '\\-'
+and '_' is '\_'
+and '$' is '\\$'
+
+
+# Angular Services: title, articles, tags, search
+
+When you have all your information in place (in .md files) you could think about such a nice and obvious functionality for WordPress (as well as any blog) like dynamic title, **tags** or **search**, and now you can do it all on client side!
+
+## TitleService
+
+Angular already has a title serive. I wrote about it [here](/blog/2017/03/angular-set-title/).
+Now you only need to inject this service
+
+```typescript
+  constructor(
+    ...
+    private titleService: Title) {
+```
+
+ and set title based on your article: 
+
+```typescript
+this.scully.getCurrent().subscribe(article => {
+  this.titleService.setTitle(article.title);
+  this.article = article;
+});
+```
 
 
 ## Article Service

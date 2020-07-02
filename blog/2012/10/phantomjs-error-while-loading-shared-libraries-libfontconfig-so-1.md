@@ -1,6 +1,6 @@
 ---
 title: "phantomjs: error while loading shared libraries: libfontconfig.so.1"
-tags: "phantomjs,ubuntu,Хочу сделать мир лучше"
+tags: "phantomjs,ubuntu"
 date: "2012-10-22"
 ---
 

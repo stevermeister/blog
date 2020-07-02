@@ -1,6 +1,6 @@
 ---
 title: "Наследование scope в AngularJS"
-tags: "AngularJs,javascript,prototype,scope,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,prototype,scope"
 date: "2014-09-10"
 ---
 

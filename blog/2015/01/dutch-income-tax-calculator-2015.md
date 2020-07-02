@@ -1,6 +1,6 @@
 ---
 title: "DIT 2015 - Dutch income tax calculator"
-tags: "income,online,tax,tool,Хочу сделать мир лучше"
+tags: "income,online,tax,tool"
 date: "2015-01-24"
 ---
 

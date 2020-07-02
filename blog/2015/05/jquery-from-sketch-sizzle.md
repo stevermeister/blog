@@ -1,6 +1,6 @@
 ---
 title: "Пишем jQuery c нуля. Часть2 - Поисковый движок и вывод результатов"
-tags: "javascript,jQuery,sizzle,Хочу сделать мир лучше"
+tags: "javascript,jQuery,sizzle"
 date: "2015-05-04"
 ---
 
@@ -8,7 +8,9 @@ date: "2015-05-04"
 
 Все разработчики, которые хоть раз использовали **jQuery**, знают, что если написать:
 
-\[javascript\] $('div.myclass') \[/javascript\]
+```javascript 
+  $('div.myclass')  
+ ```
 
 нам вернуться все элементы попадающие под этот селектор. Но вот, что происходит внутри и как jQuery обрабатывает эти селекторы и выдает результаты, знает не каждый.
 
@@ -29,11 +31,15 @@ date: "2015-05-04"
 
 -  если Sizzle обнаруживает #id селектор внутри строки, то он игнорирует остальное, то есть:
 
-\[javascript\] $('div.myclass#myelem') \[/javascript\]
+```javascript 
+  $('div.myclass#myelem')  
+ ```
 
 и
 
-\[javascript\] $('#myelem') \[/javascript\]
+```javascript 
+  $('#myelem')  
+ ```
 
 будут восприняты одинаково
 
@@ -44,41 +50,55 @@ date: "2015-05-04"
 
 Как мы и договорились поддерживать старые браузеры не будем, поэтому ограничимся использованием querySelector:
 
-\[javascript\] var result = document.querySelectorAll(selector); \[/javascript\]
+```javascript 
+  var result = document.querySelectorAll(selector);  
+ ```
 
 Но просто результат мы не можем вернуть, так как помним, что jQuery возвращает свой экземпляр, поэтому:
 
-\[javascript\] return this; \[/javascript\]
+```javascript 
+  return this;  
+ ```
 
 ну и предварительно наполним этот объект результатами:
 
-\[javascript\] for (var i = 0; i < results.length; i++) { this\[i\] = results\[i\]; } this.length = i; \[/javascript\]
+```javascript 
+  for (var i = 0; i < results.length; i++) { this[i] = results[i]; } this.length = i;  
+ ```
 
 все бы хорошо, но правильно работать будет только, если мы сделаем new, то есть вызов:
 
-\[javascript\] new djQuery('div') \[/javascript\]
+```javascript 
+  new djQuery('div')  
+ ```
 
 это не совсем то, чего мы хотели. Как создать контекст уже внутри конструктора?
 
 Хочется сделать как-то так:
 
-\[javascript\] var djQuery = function(selector, context) { return new djQuery(selector, context); }; \[/javascript\]
+```javascript 
+  var djQuery = function(selector, context) { return new djQuery(selector, context); };  
+ ```
 
 Только, понятное дело, внутренняя функция не может дублировать внешнюю. Поэтому сделаем метод `init`, в который перенесем внутренности djQuery инициализации:
 
-\[javascript\] var djQuery = function(selector, context) { return new init(selector, context) };
+[javascript] var djQuery = function(selector, context) { return new init(selector, context) };
 
-init = function( selector ) { var results = document.querySelectorAll(selector); for (var i = 0; i < results.length; i++) { this\[i\] = results\[i\]; }
+init = function( selector ) { var results = document.querySelectorAll(selector); for (var i = 0; i < results.length; i++) { this[i] = results[i]; }
 
-this.length = i; }; \[/javascript\]
+this.length = i; }; [/javascript]
 
 А для того, чтобы все методы прототипа djQuery были доступны из объектов созданных с помощью init конструктора свяжем их прототипы:
 
-\[javascript\] init.prototype = djQuery.prototype; \[/javascript\]
+```javascript 
+  init.prototype = djQuery.prototype;  
+ ```
 
 Ну вот теперь можем выполнить:
 
-\[javascript\] djQuery('div') \[/javascript\]
+```javascript 
+  djQuery('div')  
+ ```
 
 И получить ожидаемый список объектов.
 
@@ -88,7 +108,9 @@ this.length = i; }; \[/javascript\]
 
 Почему-то jQuery выводит результаты в виде массива, а наша djQuery возвращает объект. Оказывается, чтобы объект воспринимался как массив в нем должны присутствовать следующие метод `splice`. Ну что ж, добавим их в прототип вместе с `push` и `sort`:
 
-\[javascript\] djQuery.prototype = { length: 0, push: \[\].push, sort: \[\].sort, splice: \[\].splice }; \[/javascript\]
+```javascript 
+  djQuery.prototype = { length: 0, push: [].push, sort: [].sort, splice: [].splice };  
+ ```
 
 И... Ура! мы добились того, чего хотели:
 
@@ -96,6 +118,8 @@ this.length = i; }; \[/javascript\]
 
 Еще добавим небольшую проверочку для случая, когда селектор не был передан:
 
-\[javascript\] if(!selector){ return this; } \[/javascript\]
+```javascript 
+  if(!selector){ return this; }  
+ ```
 
 Текущая версия кода в теге [step-2](https://github.com/stevermeister/djQuery/tree/step-2).

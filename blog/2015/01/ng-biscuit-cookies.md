@@ -1,6 +1,6 @@
 ---
 title: "ng-biscuit - cookies extension for AngularJS"
-tags: "AngularJs,cookies,javascript,ng-biscuit,Хочу сделать мир лучше"
+tags: "AngularJs,cookies,javascript,ng-biscuit"
 date: "2015-01-25"
 ---
 

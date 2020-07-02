@@ -1,6 +1,6 @@
 ---
 title: "git hook: Не пускаем в репозиторий ошибки"
-tags: "git,grunt,hook,Хочу сделать мир лучше"
+tags: "git,grunt,hook"
 date: "2013-01-02"
 ---
 
@@ -26,7 +26,7 @@ date: "2013-01-02"
 - pre-applypatch
 - pre-rebase
 
-\- подробное описание можно посмотреть [тут](https://www.kernel.org/pub/software/scm/git/docs/githooks.html).
+_ подробное описание можно посмотреть [тут](https://www.kernel.org/pub/software/scm/git/docs/githooks.html).
 
 Все перехватчики(hooks) можно разделить по месту их выполнения на клиентские и серверные. В нашем случае мы можем проверять код как на стороне клиента перед отправкой, так и на стороне сервера после получения. В первом случае решение будет менее строгим, т.к. позволит разработчику отключить или изменить его в случае чего. Для этого создаем файл pre-commit, где будет описание действия нашего перехватчика.
 
@@ -34,20 +34,20 @@ date: "2013-01-02"
 
 #!/bin/sh
 
-GRUNTJS\_DIR='/path\_to\_project/project\_dir'
-GRUNT\_CMD=grunt
-cd $GRUNTJS\_DIR
-$GRUNT\_CMD pre-commit-test
-EXIT\_CODE=$?
-\[ $EXIT\_CODE -gt 0 \] && echo && echo validation fail! && echo
-exit $EXIT\_CODE
+GRUNTJS_DIR='/path_to_project/project_dir'
+GRUNT_CMD=grunt
+cd $GRUNTJS_DIR
+$GRUNT_CMD pre-commit-test
+EXIT_CODE=$?
+[ $EXIT_CODE -gt 0 ] && echo && echo validation fail! && echo
+exit $EXIT_CODE
 
 Немного комментариев:
 
-GRUNT\_CMD=grunt
+GRUNT_CMD=grunt
 
 пусть к команде grunt(в случае, если она не глобальная)
 
-\[ $EXIT\_CODE -gt 0 \]
+[ $EXIT_CODE -gt 0 ]
 
 проверяем выдал ли что-то валидатор и в случае чего - прерываем выполнение.

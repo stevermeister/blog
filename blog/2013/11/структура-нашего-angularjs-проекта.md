@@ -1,6 +1,6 @@
 ---
 title: "Структура нашего AngularJS проекта"
-tags: "Angular,javascript,Хочу сделать мир лучше"
+tags: "Angular,javascript"
 date: "2013-11-27"
 ---
 

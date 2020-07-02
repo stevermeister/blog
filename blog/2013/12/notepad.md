@@ -1,6 +1,6 @@
 ---
 title: "Browser to Notepad in one click"
-tags: "browser,notepad,Хочу сделать мир лучше"
+tags: "browser,notepad"
 date: "2013-12-07"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Анимация stateChange AngularJS"
-tags: "AngularJs,animation,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,animation,javascript"
 date: "2015-03-14"
 ---
 
@@ -13,15 +13,15 @@ date: "2015-03-14"
 
 Теперь можем написать нашу анимацию:
 
-\[css\] \[ui-view\].ng-enter, \[ui-view\].ng-leave { left: 0; right: 0; -webkit-transition:all .5s ease-in-out; transition:all .5s ease-in-out; }
+[css] [ui-view].ng-enter, [ui-view].ng-leave { left: 0; right: 0; -webkit-transition:all .5s ease-in-out; transition:all .5s ease-in-out; }
 
-\[ui-view\].ng-enter { opacity: 0; }
+[ui-view].ng-enter { opacity: 0; }
 
-\[ui-view\].ng-enter-active { opacity: 1; }
+[ui-view].ng-enter-active { opacity: 1; }
 
-\[ui-view\].ng-leave { opacity: 1; }
+[ui-view].ng-leave { opacity: 1; }
 
-\[ui-view\].ng-leave-active { opacity: 0; } \[/css\]
+[ui-view].ng-leave-active { opacity: 0; } [/css]
 
 И все, наслаждаемся анимацией при переходе.  Это работает с **ui-router**, с **ngRoute** вероятно тоже будет работать, если подправить селекторы.
 

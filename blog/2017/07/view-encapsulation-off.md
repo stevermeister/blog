@@ -17,6 +17,6 @@ https://gist.github.com/stevermeister/68c678b749a077cb2fe97514de2ef6da
 - **useDebug** - включение дебаг режима (и уже деприкейтед начиная с v4)
 - **useJit** - переключатель режима: **Codegen** и **Interpretative** (не путать с AOT/JIT), по умолчанию работает кодогенерация.
 - **defaultEncapsulation** - задает инкапсуляцию стилей по умолчанию (то что мы сделали выше)
-- **providers** - переопределение провайдеров для компилятора **[COMPILER\_PROVIDERS](https://github.com/angular/angular/blob/4.3.x/packages/compiler/src/jit/compiler_factory.ts#L48-L97)** (вы не можете сделать тоже самое в ngModule, так как компилятор использует **[свой собственный инжектор](https://github.com/angular/angular/blob/4.3.x/packages/compiler/src/jit/compiler_factory.ts#L115)**)
+- **providers** - переопределение провайдеров для компилятора **[COMPILER_PROVIDERS](https://github.com/angular/angular/blob/4.3.x/packages/compiler/src/jit/compiler_factory.ts#L48-L97)** (вы не можете сделать тоже самое в ngModule, так как компилятор использует **[свой собственный инжектор](https://github.com/angular/angular/blob/4.3.x/packages/compiler/src/jit/compiler_factory.ts#L115)**)
 - **missingTranlsations** - задает стратегию поведения при отсутсвующих переводах
 - **enableLegacyTemplate** - чтобы продолжать поддерживать тег **template**

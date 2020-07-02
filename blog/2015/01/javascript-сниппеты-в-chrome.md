@@ -1,6 +1,6 @@
 ---
 title: "JavaScript сниппеты в Chrome"
-tags: "chrome,Developer Tools,javascript,snippet,Хочу сделать мир лучше"
+tags: "chrome,Developer Tools,javascript,snippet"
 date: "2015-01-30"
 ---
 

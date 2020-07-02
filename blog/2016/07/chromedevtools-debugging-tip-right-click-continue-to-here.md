@@ -1,6 +1,6 @@
 ---
 title: "ChromeDevTools: debugging tip: right-click > \"continue to here\""
-tags: "chrome,debug,Хочу сделать мир лучше"
+tags: "chrome,debug"
 date: "2016-07-21"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Серверный рендеринг с Angular4"
-tags: "Angular,angular-universal,Angular2,angular4,Хочу сделать мир лучше"
+tags: "Angular,angular-universal,Angular2,angular4"
 date: "2017-03-13"
 ---
 
@@ -30,21 +30,21 @@ ng eject
 
 Вариант конфигурации(**webpack.config.js**) предложенный CLI не включает **Uglify** плагина, а **AOT** компиляция отключена, давайте включим обе опции:
 
-\[javascript\]
-\[...\]
-"plugins": \[
-	\[...\],
+```typescript
+[...]
+"plugins": [
+	[...],
 	new AotPlugin({
-          \[...\]
+          [...]
 	  // влючаем AOT
 	  "skipCodeGeneration": false
 	}),
 
 	// добавляем UglifyJsPlugin
 	new webpack.optimize.UglifyJsPlugin()
-\]
-\[...\]
-\[/javascript\]
+]
+[...]
+```
 
 В то время как **AOT** совсем не обязательно для серверного рендеринга, комбинируя эти опции мы можем добиться прекрасного результата в плане скорости загрузки.
 
@@ -52,7 +52,9 @@ ng eject
 
 Все необходимое для Angular уже подключено с помощью angular-cli, кроме пакета @angular/animations, который поставим вручную:
 
+```
 npm install --save @angular/animations
+```
 
 теперь подумаем о сервере.  В представленном решении используются [node.js](https://nodejs.org/en/) вместе с [express](https://expressjs.com/). Поэтому мы установим express c его типами вместе с **@angular/platform-server**:
 
@@ -65,7 +67,7 @@ npm i express @types/express --save
 
 Для использования серверного рендеринга нам нужен корневой модуль, который включает ServerModule. Согласно [примеру от Rob Wormald](https://github.com/robwormald/ng-universal-demo/), мы также включаем корневой модуль нашего основного приложения (тот что отрисовывается в браузере):
 
-\[javascript\]
+```typescript
 // app.server.module.ts
 
 import { NgModule } from '@angular/core';
@@ -74,40 +76,43 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  imports: \[
+  imports: [
 	  ServerModule,
 	  AppModule
-  \],
-  bootstrap: \[
+  ],
+  bootstrap: [
 	  AppComponent
-  \],
-  providers: \[ \]
+  ],
+  providers: [ ]
 })
 export class AppServerModule {}
-\[/javascript\]
+```
 
 Далее мы должны расширить **BrowserModule** основного приложения указав идентификатор приложения (просто строка):
 
-\[javascript\]// app.module.ts
+```typescript
+// app.module.ts
 
 @NgModule({
-    imports: \[
+    imports: [
         BrowserModule.withServerTransition({
             appId: 'demo-app'
         }),
         HttpModule,
         FormsModule,
-	    \[...\]
-    \],
-    \[...\]
+	    [...]
+    ],
+    [...]
 })
-export class AppModule {}\[/javascript\]
+export class AppModule {}
+```
 
 ## AOT для сервера
 
 Так как **AotPlugin** не поддерживает серверный AOT, мы используем компилятор Angular напрямую, для этого создадим **tsconfig.server.json** (копию **tsconfig.json**) со следующими настройками **angularCompilerOptions**:
 
-```
+
+```typescript
 "compilerOptions": {
     [...]
 },
@@ -120,7 +125,7 @@ export class AppModule {}\[/javascript\]
 
 Настроим алиас команду в **package.json**:
 
-```
+```json
 [...]
 "scripts": {
     [...]
@@ -145,7 +150,7 @@ npm run ngc:server
 
 Теперь можем создать главный файл для сервера - **main.server.ts**, в котором используем сгенерированный **AppServerModuleNgFactory**:
 
-\[javascript\]
+```typescript
 //main.server.ts
 import 'zone.js/dist/zone-node';
 import { renderModuleFactory } from '@angular/platform-server';
@@ -184,23 +189,23 @@ app.get('/page2\*', (req, res) =&amp;gt; {
 app.use(express.static('.'));
 
 app.listen(8000, () =&amp;gt; console.log('listening...'));
-\[/javascript\]
+```
 
 Убедимся что в роутере основного модуля также есть данные стейты:
 
-\[javascript\]
+```typescript
 //app.module.ts
-    RouterModule.forRoot(\[
+    RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'page2', component: Page2Component }
-    \])
-\[/javascript\]
+    ])
+```
 
 ## Webpack для серверного рендеринга
 
 Давайте создадим отдельный webpack конфиг(**webpack.server.config.js**) для сборки бандла серверного рендеринга, отличием будут следующие строчки:
 
-```
+```javascript
   // main.server.ts
   
   [...]
@@ -217,7 +222,7 @@ app.listen(8000, () =&amp;gt; console.log('listening...'));
 
 Чтобы один бандл не перетирал другой, мы сделаем вывод в другой файл:
 
-```
+```javascript
   "output": {
     "path": path.join(process.cwd(), "dist"),
     "filename": "[name].server.bundle.js",
@@ -227,7 +232,7 @@ app.listen(8000, () =&amp;gt; console.log('listening...'));
 
 и сконфигурируем специальным образом **AotPlugin**:
 
-```
+```typescript
 new AotPlugin({
   "entryModule": __dirname + "/src/app/app.server.module.ts#AppServerModule",
   "hostReplacementPaths": {
@@ -264,13 +269,13 @@ node main.server.bundle.js
 
 Чтобы не перегружать файловую систему, мы можем кешировать результат чтения файла:
 
-\[javascript\]
+```javascript
 let templateCache = {};
 function ngExpressEngine() {
   return function (filePath, options, callback) {
-    if (!templateCache\[filePath\]) {
+    if (!templateCache[filePath]) {
       let file = fs.readFileSync(filePath);
-      templateCache\[filePath\] = file.toString();
+      templateCache[filePath] = file.toString();
     }
     renderModuleFactory(AppServerModuleNgFactory, {
       document: fs.readFileSync(filePath).toString(),
@@ -280,13 +285,13 @@ function ngExpressEngine() {
     });
   };
 }
-\[/javascript\]
+```
 
 ## **UPD2: Удобные команды для запуска**
 
 Мы можем прописать следующие алиас-команды в package.json:
 
-```
+```json
 "scripts": {
 	[...]
 	"build": "npm run build:client",
@@ -297,21 +302,25 @@ function ngExpressEngine() {
 }
 ```
 
-## UPD3: Проблемы с APP\_BASE\_HREF
+## UPD3: Проблемы с APP_BASE_HREF
 
-Для серверного модуля(app.server.module) необходимо указать **APP\_BASE\_HREF**:
+Для серверного модуля(app.server.module) необходимо указать **APP_BASE_HREF**:
 
-providers: \[{provide: APP\_BASE\_HREF, useValue : '/' }\]
+```typescript
+providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+```
 
 иначе будет следующая ошибка:
 
-Error: No base href set. Please provide a value for the APP\_BASE\_HREF token or add a base element to the document.
+Error: No base href set. Please provide a value for the APP_BASE_HREF token or add a base element to the document.
 
 ## UPD4: 2 модуля в одной папке ломают Angular CLI
 
 И вы получаете следующую ошибку:
 
+```
 Error locating module for declaration
  SilentError: Multiple module files found:
+```
 
 Чтобы починить пришлось во всех местах переименовать **app.server.module.ts** в **app.server-module.ts**

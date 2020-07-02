@@ -1,6 +1,6 @@
 ---
 title: "OpenVPN и проблема с DNS на Ubuntu"
-tags: "DNS,OpenVPN,ubuntu,Хочу сделать мир лучше"
+tags: "DNS,OpenVPN,ubuntu"
 date: "2013-01-02"
 ---
 

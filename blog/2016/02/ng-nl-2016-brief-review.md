@@ -22,9 +22,9 @@ _Because keynote talks were not separated and columns were not sync in time you
 
 After it was quick introduction of all new things in Angular2. New **template syntax** that gets rid of tons nested directives and uses explicit attribute binding, and you always know whether it is property, event or two-way binding:
 
-- **\[property\]** - property binding
+- **[property]** - property binding
 - **(event)** - event binding
-- **\[(two-way)\]** - two-way biding (still confusing)
+- **[(two-way)]** - two-way biding (still confusing)
 
 Some words about the **component concept** that will kill old directives, scopes, controllers. Exact announcement about **performance**: Angular2 is 4-times faster than Angular1.
 
@@ -48,19 +48,23 @@ It was light talk by [Tero Parviainen](https://twitter.com/teropa) who showed 
 
 When you have ideal decoupled component application you can start with ngUpgrade:
 
-\[javascript\] import {UpgradeAdapter} from 'angular2/upgrade';
+[javascript] import {UpgradeAdapter} from 'angular2/upgrade';
 
-var adapter = new UpgradeAdapter(); var app = angular.module('myApp', \[\]);
+var adapter = new UpgradeAdapter(); var app = angular.module('myApp', []);
 
-adapter.bootstrap(document.body, \['myApp'\]); \[/javascript\]
+adapter.bootstrap(document.body, ['myApp']); [/javascript]
 
 and to have new components in old project you should you such hack:
 
-\[javascript\] app.directive('productDetail', adapter.downgradeNg2Component(ProductDetail)); \[/javascript\]
+```javascript 
+  app.directive('productDetail', adapter.downgradeNg2Component(ProductDetail));  
+ ```
 
 and the same goes for services:
 
-\[javascript\] adapter.addProvider(ProductService); \[/javascript\]
+```javascript 
+  adapter.addProvider(ProductService);  
+ ```
 
 But when you code is not ideal (that we usually call real life) you have to solve all architectural issues first and only then do ngUpgrade manipulations.
 
@@ -100,7 +104,9 @@ and how Angular gets known about it? -  ZONES!
 
 Some explanation about async flow magic and back to zones:
 
-\[javascript\] zone.run(() => { foo(); setTimeout(doSth, 0); bar(); }); \[/javascript\]
+```javascript 
+  zone.run(() => { foo(); setTimeout(doSth, 0); bar(); });  
+ ```
 
 and for Angular2 it's [ngZone](https://angular.io/docs/js/latest/api/core/NgZone-class.html).
 
@@ -157,7 +163,9 @@ pure function - returns new object.
 
 Angular implementation
 
-\[javascript\] const appStore = createStore(rootReducer); bootstrap(App, \[ provide('AppStore', {userValue: appStore}), Actions \]); \[/javascript\]
+```javascript 
+  const appStore = createStore(rootReducer); bootstrap(App, [ provide('AppStore', {userValue: appStore}), Actions ]);  
+ ```
 
 or
 
@@ -185,13 +193,15 @@ Lazy loading for components is there.
 
 Router part inside each component:
 
-\[javascript\] app.component('bookFlight', { controller: BookFlightController, templateUrl: 'components/book-flight/book-flight.html', $routeConfig: \[ { path: '/', component: 'passenger', name: 'Passenger' }, { path: '/flight', component: 'flight', name: 'Flight', useAsDefault: true }, { path: '/booking', component: 'booking', name: 'Booking' }, { path: '/passenger/:id', component: 'passengerEdit', name: 'PassengerEdit' } \] });
+[javascript] app.component('bookFlight', { controller: BookFlightController, templateUrl: 'components/book-flight/book-flight.html', $routeConfig: [ { path: '/', component: 'passenger', name: 'Passenger' }, { path: '/flight', component: 'flight', name: 'Flight', useAsDefault: true }, { path: '/booking', component: 'booking', name: 'Booking' }, { path: '/passenger/:id', component: 'passengerEdit', name: 'PassengerEdit' } ] });
 
-\[/javascript\]
+[/javascript]
 
 Access control could be done via @canActivate:
 
-\[javascript\] app.component('passengerEdit', { controller: PassengerEditController, template: passengerEditTemplate, $canActivate: () => { console.debug("$canActivate"); return true; } }); \[/javascript\]
+```javascript 
+  app.component('passengerEdit', { controller: PassengerEditController, template: passengerEditTemplate, $canActivate: () => { console.debug("$canActivate"); return true; } });  
+ ```
 
 Can be installed in Angular1 via ng-controller, unfortunately did not find this place in your code.
 

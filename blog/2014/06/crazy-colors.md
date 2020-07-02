@@ -1,6 +1,6 @@
 ---
 title: "Crazy-colors - playing random-color blocks on pure JS"
-tags: "javascript,Хочу сделать мир лучше"
+tags: "javascript"
 date: "2014-06-15"
 ---
 

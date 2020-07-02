@@ -1,6 +1,6 @@
 ---
 title: "FeedTheDevs. For the moral of our developers"
-tags: "AngularJs,feedthedevs,github,javascript,online,tool,Хочу сделать мир лучше"
+tags: "AngularJs,feedthedevs,github,javascript,online,tool"
 date: "2014-08-28"
 ---
 

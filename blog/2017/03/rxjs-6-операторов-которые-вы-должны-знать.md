@@ -1,6 +1,6 @@
 ---
 title: "Rxjs: 6 операторов, которые вы должны знать"
-tags: "RxJs,Хочу сделать мир лучше"
+tags: "RxJs"
 date: "2017-03-28"
 ---
 
@@ -8,7 +8,12 @@ date: "2017-03-28"
 
 ## 1\. Concat
 
-https://gist.github.com/stevermeister/633ed30d486a22234a97e4fe2a1f7247
+```typescript
+const getPostOne$ = Rx.Observable.timer(3000).mapTo({id: 1});
+const getPostTwo$ = Rx.Observable.timer(1000).mapTo({id: 2});
+
+Rx.Observable.concat(getPostOne$, getPostTwo$).subscribe(res => console.log(res));
+```
 
 ![](images/1-aQ_6079QZclqyzdyGRe9cQ.gif)
 
@@ -16,17 +21,27 @@ https://gist.github.com/stevermeister/633ed30d486a22234a97e4fe2a1f7247
 
 ## 2. forkJoin
 
-\- аналог **Promise.all()**
+_ аналог **Promise.all()**
 
-https://gist.github.com/stevermeister/ebfabc8b15aacd8ad2aaae9b2a92b98d
+```typescript
+const getPostOne$ = Rx.Observable.timer(1000).mapTo({id: 1});
+const getPostTwo$ = Rx.Observable.timer(2000).mapTo({id: 2});
+
+Rx.Observable.forkJoin(getPostOne$, getPostTwo$).subscribe(res => console.log(res)) 
+```
 
 ![](images/1-3GfSzQY-D4LJ1Qbemjfzzg.gif)
 
 ## 3\. mergeMap
 
-https://gist.github.com/stevermeister/4e4535c72b00894a3783935757b833ca
+```typescript
+const post$ = Rx.Observable.of({id: 1});
+const getPostInfo$ = Rx.Observable.timer(3000).mapTo({title: "Post title"});
 
-\- применяется, когда у вас есть **Observable**, элементы последовательности которого тоже **Observable**, а вам хочется объединить все в один поток (чтобы все элементы внутренние Observable порождали событие основного). Не путать со **switchMap**!
+const posts$ = post$.mergeMap(post => getPostInfo$).subscribe(res => console.log(res));
+```
+
+_ применяется, когда у вас есть **Observable**, элементы последовательности которого тоже **Observable**, а вам хочется объединить все в один поток (чтобы все элементы внутренние Observable порождали событие основного). Не путать со **switchMap**!
 
 ![](images/1-kHit0W9nFk2U3-sA7Y936g.gif)
 
@@ -34,15 +49,28 @@ https://gist.github.com/stevermeister/4e4535c72b00894a3783935757b833ca
 
 ## 4. pairwise
 
-\- возвращает не только текущее значение, но в месте с ним и предыдущее значение последовательности
+_ возвращает не только текущее значение, но в месте с ним и предыдущее значение последовательности
 
-https://gist.github.com/stevermeister/8367fef7781ec73c7b74ad641846266f
+```typescript
+// Tracking the scroll delta
+Rx.Observable
+  .fromEvent(document, 'scroll')
+  .map(e => window.pageYOffset)
+  .pairwise()
+  .subscribe(pair => console.log(pair)); // pair[1] - pair[0]
+```  
 
 ![](images/1-rBxLNG7G_IaXPN_RqBjh6g.gif)
 
 ## 5. switchMap
 
-https://gist.github.com/stevermeister/8f30656f748a4559a19948ded09be712
+```typescript
+const clicks$ = Rx.Observable.fromEvent(document, 'click');
+const innerObservable$ = Rx.Observable.interval(1000);
+
+clicks$.switchMap(event => innerObservable$)
+                    .subscribe(val => console.log(val));
+```
 
 **switchMap** делает **complete** для предыдущего **Observable**, то есть в данном случае у нас всегда будет только один активный Observable для интервала:
 
@@ -52,8 +80,16 @@ https://gist.github.com/stevermeister/8f30656f748a4559a19948ded09be712
 
 ## 6. combineLatest
 
-\- получить последние значения из каждой последовательности при эммите одного из них:
+_ получить последние значения из каждой последовательности при эммите одного из них:
 
-https://gist.github.com/stevermeister/d70d06abd6ff2bb934aed6f7035d0820
+```typescript
+const intervalOne$ = Rx.Observable.interval(1000);
+const intervalTwo$ = Rx.Observable.interval(2000);
+
+Rx.Observable.combineLatest(
+    intervalOne$,
+    intervalTwo$ 
+).subscribe(all => console.log(all));
+```
 
 ![](images/1-vTgRTk8kjyw68kbOS7GByg.gif)

@@ -1,6 +1,6 @@
 ---
 title: "npm-check-updates"
-tags: "ncu,npm,npm-check-updates,tool,Хочу сделать мир лучше"
+tags: "ncu,npm,npm-check-updates,tool"
 date: "2017-03-15"
 ---
 

@@ -8,6 +8,6 @@ date: "2015-05-21"
 
 All you need to so is run 2 commands:
 
-\[shell\] $ npm install -g localtunnel $ lt --port 8000 \[/shell\]
+[shell] $ npm install -g localtunnel $ lt --port 8000 [/shell]
 
 And after you'll get the link to share, something like _https://gqgh.localtunnel.me_

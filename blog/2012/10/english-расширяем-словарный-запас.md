@@ -1,6 +1,6 @@
 ---
 title: "English расширяем словарный запас"
-tags: "English,Хочу сделать мир лучше"
+tags: "English"
 date: "2012-10-15"
 ---
 

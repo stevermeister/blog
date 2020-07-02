@@ -1,6 +1,6 @@
 ---
 title: "Десктопное приложение для Mac на JavaScript"
-tags: "desktop,javascript,mac,Хочу сделать мир лучше"
+tags: "desktop,javascript,mac"
 date: "2015-05-17"
 ---
 

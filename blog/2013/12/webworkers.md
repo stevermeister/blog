@@ -1,6 +1,6 @@
 ---
 title: "Многопоточность в JavaScript"
-tags: "html5,javascript,web workers,Хочу сделать мир лучше"
+tags: "html5,javascript,web workers"
 date: "2013-12-04"
 ---
 
@@ -18,10 +18,12 @@ date: "2013-12-04"
 
 Для проверки поддерживает ли браузер технологию **Web Workers** достаточно проверить наличие объекта **window.Worker**:
 
+```javascript
 if (!!window.Worker)
 {
     //поддерживается
 }
+```
 
 ##  Простой пример
 
@@ -29,6 +31,7 @@ if (!!window.Worker)
 
 Итого, **test.html**:
 
+```html
 <!DOCTYPE HTML>
 <html>
 <body>
@@ -42,9 +45,11 @@ if (!!window.Worker)
 </script>
 </body>
 </html>
+```
 
 и файл **worker.js**:
 
+```javascript
 onmessage = function(event)
 {
     var n = event.data.from;
@@ -65,30 +70,41 @@ function isPrime(number){
     }
     return true;
 }
+```
 
-Для тех,  кто хочет поиграться с примером, - пожалуйста [сюда](https://learn.javascript.ru/play/DJ8n1b).
+Для тех,  кто хочет поиграться с примером, - пожалуйста [сюда](https://plnkr.co/edit/Mlq0qgHWJZZdEd3u).
 
 Теперь немного комментариев.
 
+```javascript
 var worker = new Worker('worker.js');
+```
 
 создаем объект Worker. Объект не запускается до полной загрузки и выполнения файла. Если путь к объекту Worker возвращает ошибку 404, его выполнение прекращается без уведомлений.
 
+```javascript
 worker.onmessage = function (event) {
+```    
 
 прописываем колбэк, который выполнится при вызове метода **postMessage** внутри воркера
 
+```javascript
 worker.postMessage({from:17,to:50});
+```
 
 отправляем в воркер сообщение с параметрами диапазона ( мы хотим получить все простые числа в диапозоне с 17 до 50 )
 
 Перейдем к коду воркера:
 
+```javascript
 onmessage = function(event){
+```
 
 функция будет вызвана, при обращении к метод **worker.postMessage()** в основном скрипте
 
- var n = event.data.from;
+```javascript
+var n = event.data.from;
+```
 
 доступ к данным внутри метода можно получить через **event.data**
 
@@ -100,7 +116,9 @@ onmessage = function(event){
 
 Колбэк на получение сообщения можно также навешивать следующим способом:
 
+```javascript
 addEventListener('message', function(e) {
+```
 
 именно он является рекомендуемым для использования.
 
@@ -108,7 +126,7 @@ addEventListener('message', function(e) {
 
 ## Ограничения Web Worker
 
-К чему **можно** обращаться внутри **worker**\-скрипта:
+К чему **можно** обращаться внутри **worker**_скрипта:
 
 - Объект `navigator`
 - Объект `location` (только чтение)
@@ -118,7 +136,7 @@ addEventListener('message', function(e) {
 - Импорт внешних скриптов с использованием метода `importScripts()`
 - [Создание других объектов Web Worker](https://www.html5rocks.com/ru/tutorials/workers/basics/#toc-enviornment-subworkers)
 
-У **worker**\-скрипта **нет доступа** к:
+У **worker**_скрипта **нет доступа** к:
 
 - Модель DOM (она не ориентирована на многопоточное исполнение)
 - Объект `window`
@@ -139,30 +157,37 @@ Maximum number of Web Worker instances(256) exceeded for this window.
 
 Также, как и с сообщениями, мы можем подписаться на получение ошибок:
 
+```javascript
  worker.addEventListener('error', onError, false);
-
+```
  
 
 ## Динамическое создание worker-скриптов
 
-Иногда возникает необходимо создать **worker**\-скрипт динамически(!внимание именно **worker**\-скрипт, а не сам **worker**), в зависимости от различных условий. В таком случае создание **worker** из отдельного файла нас не устраивает и мы должны воспользоваться вторым способом - через подготовленный объект [Blob](https://dev.w3.org/2009/dap/file-system/file-writer.html#the-blobbuilder-interface), а точнее - ссылки на него.
+Иногда возникает необходимо создать **worker**_скрипт динамически(!внимание именно **worker**_скрипт, а не сам **worker**), в зависимости от различных условий. В таком случае создание **worker** из отдельного файла нас не устраивает и мы должны воспользоваться вторым способом - через подготовленный объект [Blob](https://dev.w3.org/2009/dap/file-system/file-writer.html#the-blobbuilder-interface), а точнее - ссылки на него.
 
 Вот так это будет выглядеть в коде
 
+```javascript
 var script = "onmessage = function(e) { postMessage('msg from worker'); }";
-var blob = new Blob(\[script\]);
+var blob = new Blob([script]);
 var blobURL = window.URL.createObjectURL(blob);
 var worker = new Worker(blobURL);
+```
 
 Для удобства скрипт изначально пожно записать в script тег:
 
+```html
 <script id="worker1" type="javascript/worker">
     //...код вашего воркера
 </script>
+```
 
 а потом получить содержимое:
 
+```javascript
 var script = document.querySelector('#worker1').textContent;
+```
 
 !Внимание: не забудьте поставить тип **javascript/worker**, это предотвратит разбор кода js-движком браузера.
 

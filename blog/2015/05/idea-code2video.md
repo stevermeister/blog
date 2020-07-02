@@ -4,7 +4,7 @@ tags: "code,idea,start me up,video"
 date: "2015-05-03"
 ---
 
-\[embed\]https://youtu.be/AQLVxvKDwyY?t=5s\[/embed\]
+[embed]https://youtu.be/AQLVxvKDwyY?t=5s[/embed]
 
 Making code writing video recordings become more and more popular.
 

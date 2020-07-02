@@ -1,6 +1,6 @@
 ---
 title: "jQuery: click + ctrlKey"
-tags: "javascript,jQuery,Хочу сделать мир лучше"
+tags: "javascript,jQuery"
 date: "2013-03-26"
 ---
 

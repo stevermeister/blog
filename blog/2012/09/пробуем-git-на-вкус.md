@@ -1,6 +1,6 @@
 ---
 title: "Пробуем git на вкус"
-tags: "git,ubuntu,Хочу сделать мир лучше"
+tags: "git,ubuntu"
 date: "2012-09-15"
 ---
 
@@ -15,20 +15,20 @@ apt-get install git-core
 не совсем понимаю зачем именно **git-core**, а не просто **git**. Ну ладно, сделаем все по инструкции. Есть. Переходим на следующий шаг - задаем необходимые настройки:
 
 git config --global user.name "Your Name"
-git config --global user.email "your\_email@whatever.com"
+git config --global user.email "your_email@whatever.com"
 
 Можно обойтись и без этого, как показала практика, но тогда система каждый будет запрашивать эти параметры. Далее задаем параметры окончания строк:
 
 git config --global core.autocrlf input
 git config --global core.safecrlf true
 
-Настройки закончены, теперь **создаем репозиторий**: создадим папочку для этого _git\_test_, а в ней html файл _git\_test.html_. и выполним в ней команду:
+Настройки закончены, теперь **создаем репозиторий**: создадим папочку для этого _git_test_, а в ней html файл _git_test.html_. и выполним в ней команду:
 
 git init
 
-получим следующее сообщение "_Initialized empty Git repository in ..._". Теперь добавим в репозиторий наш файл _git\_test.html_ и закомитим его:
+получим следующее сообщение "_Initialized empty Git repository in ..._". Теперь добавим в репозиторий наш файл _git_test.html_ и закомитим его:
 
-git add git\_test.html
+git add git_test.html
 git commit -m "First Test Commit"
 
 Я не даю подробных объяснений что такое коммит или комментарий к нему, так как подразумевается что читатель статьи уже работал с системами контроля версий.
@@ -39,7 +39,7 @@ git status
 
 которая покажет нам на какой ветке мы находимся и есть ли у нас измененные файлы. Попробуем внести изменения в файл и выполнить команду еще раз. На этот раз она должна показать что были внесены изменения. Терерь добавим измененный файл
 
-git add git\_test.html
+git add git_test.html
 
 и еще раз запросим статус. Ну и снова коммит. Так дальше в учебнике скучно: разные вариант add & commit.
 
@@ -51,12 +51,12 @@ git log
 
 Рассмотрим полезную фишку, такую как алиасы. Наверняка вы уже работали с алиасами команд в SVN: commit - co, update - up. Чтобы git у нас заработал также необходимо внести изменения в его конфиг (~/.gitconfig) - добавить следующие строчки:
 
-\[alias\]
+[alias]
   co = checkout
   ci = commit
   st = status
   br = branch
-  hist = log --pretty=format:\\"%h %ad | %s%d \[%an\]\\" --graph --date=short
+  hist = log --pretty=format:\\"%h %ad | %s%d [%an]\\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
 
@@ -86,11 +86,11 @@ git tag
 
 Откатить изменения в файле можно опять же с помощью команды checkout:
 
-git checkout имя\_файла
+git checkout имя_файла
 
 Чтобы откатить изменения уже добавленного файла:
 
-git reset HEAD имя\_файла
+git reset HEAD имя_файла
 
 Чтобы откатить уже коммит:
 

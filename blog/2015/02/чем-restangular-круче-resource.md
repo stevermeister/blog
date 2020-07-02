@@ -1,6 +1,6 @@
 ---
 title: "Чем Restangular круче $resource"
-tags: "$resource,AngularJs,javascript,RestAngular,Хочу сделать мир лучше"
+tags: "$resource,AngularJs,javascript,RestAngular"
 date: "2015-02-24"
 ---
 

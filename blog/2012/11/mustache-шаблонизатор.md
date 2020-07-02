@@ -1,6 +1,6 @@
 ---
 title: "Mustache шаблонизатор"
-tags: "javascript,mustache,Хочу сделать мир лучше"
+tags: "javascript,mustache"
 date: "2012-11-16"
 ---
 
@@ -14,20 +14,23 @@ date: "2012-11-16"
 
 Разберем пример с офсайта. Структура данных:
 
+```javascript
 var  data = {
         "header": "Colors",
-        "items": \[
+        "items": [
             {"name": "red", "first": true, "url": "#Red"},
             {"name": "green", "link": true, "url": "#Green"},
             {"name": "blue", "link": true, "url": "#Blue"}
-        \],
+        ],
         "empty": false
     };
+```
 
 (добавим его в javascript тег к нашей html страничке)
 
 и сам шаблон **Mustache**:
 
+```html
 <h1>{{header}}</h1>
 {{#bug}}
 {{/bug}}
@@ -44,33 +47,44 @@ var  data = {
 {{#empty}}
   <p>The list is empty.</p>
 {{/empty}}
+```
 
 Для простоты первого примера поместим весь этот шаблон в строковую переменную _template_.
 
-осталось применить метод **Mustache.to\_html**():
+осталось применить метод **Mustache.to_html**():
 
-console.log(Mustache.to\_html(template, data));
+```javascript
+console.log(Mustache.to_html(template, data));
+```
 
 Вот [тут](https://jsfiddle.net/STEVER/nvxe3/1/) можно поиграть с исходным кодом.
 
 Расширим этот вариант и сделаем его полным аналогом офсайта: т.е. чтобы можно было подавать данные и шаблон через textarea, [вот так](https://jsfiddle.net/STEVER/nvxe3/2/).
 
-С песочницей разобрались, переходим рассмотрению самой библиотеки. Мы уже опробовали основной метод _Mustache.to\_html_, который имеет следующий синтаксис:
+С песочницей разобрались, переходим рассмотрению самой библиотеки. Мы уже опробовали основной метод _Mustache.to_html_, который имеет следующий синтаксис:
 
-to\_html(template, data, partials, send)
+```javascript
+to_html(template, data, partials, send)
+```
 
 Но! Этот метод, как оказалось, уже является deprecated и вместо него стоит использовать render():
 
+```javascript
 render(template, data, partials)
+```
 
 template - шаблон (string)
+
 data - данные подставляемые в шаблон (object)
+
 partials - массив подшаблонов, также динамически собираемых
 
 Остальные методы, которые не так реже используются это:
 
 clearCache() - для очистки кеша
+
 compile(template, tags) - компилирует шаблон в выполняемую функцию
+
 compilePartial(name, template, tags) - тоже для подшаблонов
 
 Как видим: методов у **mustache.js** совсем не много. Поэтому продолжим разбирать структуру шаблонов.

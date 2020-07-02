@@ -1,6 +1,6 @@
 ---
 title: "Почта gmail со своего домена"
-tags: "email,gmail,google,Хочу сделать мир лучше"
+tags: "email,gmail,google"
 date: "2012-07-28"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Поиграемся с HTML5 history API"
-tags: "historyAPI,html5,javascript,Хочу сделать мир лучше"
+tags: "historyAPI,html5,javascript"
 date: "2012-08-12"
 ---
 

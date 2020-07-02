@@ -1,6 +1,6 @@
 ---
 title: "Skype: P2P connect failed (english)"
-tags: "skype,ubuntu,Хочу сделать мир лучше"
+tags: "skype,ubuntu"
 date: "2012-04-02"
 ---
 

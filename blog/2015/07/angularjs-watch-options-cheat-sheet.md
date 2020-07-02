@@ -1,6 +1,6 @@
 ---
 title: "AngularJS $watch options Cheat Sheet"
-tags: "$watch,AngularJs,cheatsheet,javascript,Хочу сделать мир лучше"
+tags: "$watch,AngularJs,cheatsheet,javascript"
 date: "2015-07-23"
 ---
 

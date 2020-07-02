@@ -1,6 +1,6 @@
 ---
 title: "INSERT ... ON DUPLICATE KEY UPDATE"
-tags: "mysql,sql,Хочу сделать мир лучше"
+tags: "mysql,sql"
 date: "2012-08-14"
 ---
 
@@ -12,46 +12,50 @@ date: "2012-08-14"
 
 Чтобы не уходить далеко от практики, разберем пример. Создадим таблицу:
 
-CREATE TABLE \`test\` (
-\`a\` INT,
-\`b\` INT,
-\`c\` INT,
-PRIMARY KEY ( \`a\` )
+```sql
+CREATE TABLE `test` (
+`a` INT,
+`b` INT,
+`c` INT,
+PRIMARY KEY ( `a` )
 )
+```
 
 Добавим одну запись в таблицу:
 
- ``` ``INSERT INTO `test` (`` ```\`a\` ,\`b\` ,\`c\``` `) VALUES (` ``1, 1, 1`);`
+```sql
+INSERT INTO `test` (`a` ,`b` ,`c`) VALUES (1, 1, 1);
+```
 
 Попробуем добавить еще одну запись в таблицу с дублированием ключа:
 
- ``` ``INSERT INTO `test` (`` ```\`a\` ,\`b\` ,\`c\``` `) VALUES (` ``1, 2, 3`);`
+```sql
+INSERT INTO `test` (`a` ,`b` ,`c`) VALUES (1, 2, 3);
+```
 
 Получим ошибку:
 
+```sql
 #1062 - Duplicate entry '1' for key 'PRIMARY'
+```
 
 и запись не будет добавлена.
 
 А теперь мы хотим построить такой запрос, который при совпадении индекса обновит информацию в старой записи:
 
-INSERT INTO test (a,b,c) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
+```sql
+INSERT INTO `test` (`a`,`b`,`c`) VALUES (1,2,3) ON DUPLICATE KEY UPDATE c=c+1;
+```
 
 В итоге получим таблицу:
 
-a
+| a | b | c |
+|---|---|---|
+| 1 | 1 | 2 | 
 
-b
-
-c
-
-1
-
-1
-
-2
 
 Что для нас может быть интересно? что во второй части, а именно в **UPDATE** мы можем прописать не обязательно инкремент значения поля, а любые действия, которые захотим - как одно, так и несколько (через запятую).
 
-INSERT INTO test (a,b,c) VALUES (1,2,3)
-ON DUPLICATE KEY UPDATE a=300, b=300, c = a+b;
+```sql
+INSERT INTO `test` (`a`,`b`,`c`) VALUES (1,2,3) ON DUPLICATE KEY UPDATE a=300, b=300, c=a+b;
+```

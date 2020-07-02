@@ -1,6 +1,6 @@
 ---
 title: "AngularCamp 2017, notes"
-tags: "Angular,AngularCamp,Хочу сделать мир лучше"
+tags: "Angular,AngularCamp"
 date: "2017-07-07"
 ---
 

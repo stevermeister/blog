@@ -1,6 +1,6 @@
 ---
 title: "Пишем jQuery c нуля. Часть1"
-tags: "javascript,jQuery,Хочу сделать мир лучше"
+tags: "javascript,jQuery"
 date: "2015-03-17"
 ---
 
@@ -10,23 +10,25 @@ date: "2015-03-17"
 
 Специально для этого я создал [репозиторий](https://github.com/stevermeister/djQuery "https://github.com/stevermeister/djQuery") на gitHub(с кодовым именем **djQuery**), где буду выкладывать код рубрики:
 
-\[shell\] git clone git@github.com:stevermeister/djQuery.git cd djQuery git checkout step-1 \[/shell\]
+[shell] git clone git@github.com:stevermeister/djQuery.git cd djQuery git checkout step-1 [/shell]
 
 Ну что начнем?
 
-_\- Что представляет из себя jQuery?_ _\- Это функция._ _\- какие принимает параметры?_ _\- селектор, ну и что-то еще может_
+__ Что представляет из себя jQuery?_ __ Это функция._ __ какие принимает параметры?_ __ селектор, ну и что-то еще может_
 
 Отлично, тогда напишем такой базовый код:
 
-\[javascript\] var djQuery = function(selector, content){ }; \[/javascript\]
+```javascript 
+  var djQuery = function(selector, content){ };  
+ ```
 
 Пока вроде все понятно.
 
 Еще сразу, для красоты модульной, завернем все в самовыполняющуюся функцию:
 
-\[javascript\] (function(w){ var djQuery = function(selector, content){ };
+[javascript] (function(w){ var djQuery = function(selector, content){ };
 
-w.$ = w.djQuery = djQuery; })(window); \[/javascript\]
+w.$ = w.djQuery = djQuery; })(window); [/javascript]
 
 и внутрь передали объект window и импортировали в него ссылку на нашу функцию(плюс привычный $ - алиас).
 

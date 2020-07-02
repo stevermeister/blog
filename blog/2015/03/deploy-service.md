@@ -1,6 +1,6 @@
 ---
 title: "В поисках сервиса для деплоя"
-tags: "bitbucket,deploy,github,online,tool,Хочу сделать мир лучше"
+tags: "bitbucket,deploy,github,online,tool"
 date: "2015-03-03"
 ---
 
@@ -20,6 +20,6 @@ date: "2015-03-03"
 
 **UPD:** после того как узнал, что в **semaphore** можно делать даже так:
 
-\[shell\]sudo apt-get install -yqq ftp\[/shell\]
+[shell]sudo apt-get install -yqq ftp[/shell]
 
 решил пока остаться на нем.

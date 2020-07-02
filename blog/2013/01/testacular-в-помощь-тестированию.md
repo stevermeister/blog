@@ -1,6 +1,6 @@
 ---
 title: "Karma в помощь тестированию"
-tags: "javascript,karma,phpStorm,testacular,tests,webStorm,Хочу сделать мир лучше"
+tags: "javascript,karma,phpStorm,testacular,tests,webStorm"
 date: "2013-01-09"
 ---
 
@@ -31,68 +31,88 @@ date: "2013-01-09"
 
 ## Установка:
 
+```
 $ npm install -g karma
+```
 
 Проверяем что все установилось:
 
+```
 $ karma --version
+```
 
 Так же нам понадобиться тест фреймворк, используем Jasmine:
 
+```
 npm install karma-jasmine
+```
 
 и подключение к браузеру(возьмем Chrome):
 
+```
 npm install karma-chrome-launcher
+```
 
 ## Настройка:
 
 Все настройки можно задать в [конфигурационном файле](https://raw.githubusercontent.com/vojtajina/karma/master/test/client/karma.conf.js). Мы можем создать свой файл настроек воспользовавшись мастером инициализации:
 
+```
 $ karma init
+```
 
 Разберем основные моменты **karma.config.js**:
 
 //в скобках указано значение по умолчанию
-basePath('') -
-files(\[\]) - список файлов/шаблонов для загрузки
-exclude(\[\]) - список исключений для предыдущего пункта
-reporters(\['progress'\]) - вариант вывода прогресса
-port(8080) - порт веб-сервера(testacular)
-runnerPort(9100) - порт клиента
-colors(true) - включение/выключение цветов при выводе
-logLevel(LOG\_INFO) - LOG\_DISABLE|LOG\_ERROR|LOG\_WARN|LOG\_INFO|LOG\_DEBUG
-autoWatch(false) - выполнение тестов при изменении файлов
-browsers(\[\]) - Chrome, ChromeCanary, Firefox, Opera, Safari, PhantomJS
-captureTimeout(5000) - задание таймаута в миллисекундах
-singleRun(false) - для одноразового запуска
-preprocessors({}) - список обработчиков, которые будут применены к файлам, до загрузки в браузер, например - CoffeeScript
+- `basePath('')` -
+- `files([])` - список файлов/шаблонов для загрузки
+- `exclude([])` - список исключений для предыдущего пункта
+- `reporters(['progress'])` - вариант вывода прогресса
+- `port(8080)` - порт веб-сервера(testacular)
+- `runnerPort(9100)` - порт клиента
+- `colors(true)` - включение/выключение цветов при выводе
+- `logLevel(LOG_INFO)` - LOG_DISABLE|LOG_ERROR|LOG_WARN|LOG_INFO|LOG_DEBUG
+- `autoWatch(false)` - выполнение тестов при изменении файлов
+- `browsers([])` - Chrome, ChromeCanary, Firefox, Opera, Safari, PhantomJS
+- `captureTimeout(5000)` - задание таймаута в миллисекундах
+- `singleRun(false)` - для одноразового запуска
+- `preprocessors({})` - список обработчиков, которые будут применены к файлам, до загрузки в браузер, например - CoffeeScript
 
 Итак, у файл настроек есть, теперь можем запускать утилиту:
 
+```
 $ karma start
+```
 
 Т.к. мы еще не добавили сами тесты, то должно вывести что-то типа:
 
+```
 Executed 0 of 0 ERROR (0.006 secs / 0 secs)
+```
 
 Давайте создадим простой тест (на **Jasmine**):
 
+```javascript
 describe("A suite", function() {
     it("contains spec with an expectation", function() {
         expect(true).toBe(true);
     });
 });
+```
 
 сохраним его в файл **test.js** и подключим этот файл в конфиг:
 
-files: \[
+```javascript
+files: [
   'test.js'
-\],
+],
+```
 
 после чего снова запустим karma и посмотрим в консоль:
 
+```
 Executed 1 of 1 SUCCESS (0.086 secs / 0.002 secs)
+```
 
 Как видим: тесты прошли успешно, один тест выполнился.
 

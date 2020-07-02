@@ -12,30 +12,8 @@ date: "2013-07-06"
 
 Копаем дальше...
 
-Проанализируем: из 3 доменных имен (_prostopleer.com, prostopleer.ru, prostopleer.net_) на текущий момент на DNS запрос отвечает только на одно - **prostopleer.net**. Перейдя по нему внезапно получаем редирект на [pleer.com](https://pleer.com/). Где находим старый добрый сервис. Который по прежнему хостится на российских серверах:
+Проанализируем: из 3 доменных имен (_prostopleer.com, prostopleer.ru, prostopleer.net_) на текущий момент на DNS запрос отвечает только на одно - **prostopleer.net**. Перейдя по нему внезапно получаем редирект на [pleer.com](https://pleer.com/). Где находим старый добрый сервис. Который по прежнему хостится на российских серверах.
 
-IP Address
-
-Country
-
-Region
-
-City
-
-ISP
-
-91.208.16.3
-
-Russian Federation
-
-Saint Petersburg City
-
-Saint Petersburg
-
-Llc Maersk-invest
-
-ddfd
-
-**UPD \[16.01.2014\]**: Снова упал, правда в этот раз только веб-сервер(nginx).
+**UPD [16.01.2014]**: Снова упал, правда в этот раз только веб-сервер(nginx).
 
 [![](images/Screenshot-2014-01-16-10.41.30-300x114.png "Screenshot 2014-01-16 10.41.30")](https://stepansuvorov.com/blog/wp-content/uploads/2013/07/Screenshot-2014-01-16-10.41.30.png)

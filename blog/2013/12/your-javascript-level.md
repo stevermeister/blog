@@ -1,6 +1,6 @@
 ---
 title: "Your JavaScript level"
-tags: "javascript,Хочу сделать мир лучше"
+tags: "javascript"
 date: "2013-12-21"
 ---
 

@@ -3,6 +3,8 @@ import {ActivatedRoute, Router, ROUTES, NavigationEnd} from '@angular/router';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, of, merge } from 'rxjs';
 import { map, filter, switchMap, tap } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
+import { Article } from '../article.service';
 
 declare var ng: any;
 
@@ -17,14 +19,21 @@ declare var ng: any;
 export class BlogComponent implements OnInit {
   article;
 
-  constructor(private router: Router, private route: ActivatedRoute, private scully: ScullyRoutesService) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private scully: ScullyRoutesService,
+    private titleService: Title) {
   }
 
   ngOnInit() {
     // this.scully.getCurrent().subscribe(article => this.article = article);
     const stateUpdated$ = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
     merge(stateUpdated$, of(true)).pipe(switchMap(_ => this.getCurrent()))
-    .subscribe(article => this.article = article);
+    .subscribe(article => {
+      this.titleService.setTitle(article.title + '| Stepan Suvorov Blog | Release 3.0');
+      this.article = article;
+    });
   }
 
   getCurrent(): Observable<ScullyRoute> {
@@ -44,5 +53,9 @@ export class BlogComponent implements OnInit {
         )
       )
     );
+  }
+
+  getArticleEditLink(article: Article): string {
+    return 'https://github.com/stevermeister/blog/edit/master' + article.route + '.md';
   }
 }

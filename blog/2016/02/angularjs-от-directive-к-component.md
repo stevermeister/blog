@@ -1,6 +1,6 @@
 ---
 title: "AngularJS: от directive() к component()"
-tags: "Angular2,AngularJs,angularjs-component,angularjs-directive,javascript,Хочу сделать мир лучше"
+tags: "Angular2,AngularJs,angularjs-component,angularjs-directive,javascript"
 date: "2016-02-17"
 ---
 
@@ -12,7 +12,9 @@ _пост был подготовлен на основе статьи [Explori
 
 На примере простой директивы **counter** мы посмотрим как можно создать компонент с аналогичной функциональностью:
 
-\[javascript\] .directive('counter', function counter() { return { scope: {}, bindToController: { count: '=' }, controller: function () { function increment() { this.count++; } function decrement() { this.count--; } this.increment = increment; this.decrement = decrement; }, controllerAs: 'counter', template: \[ ' <div class="todo">', '<input type="text" ng-model="counter.count">', '<button type="button" ng-click="counter.decrement();">-</button>', '<button type="button" ng-click="counter.increment();">+</button>', '</div> ' \].join('') }; }); \[/javascript\]
+```javascript
+.directive('counter', function counter() { return { scope: {}, bindToController: { count: '=' }, controller: function () { function increment() { this.count++; } function decrement() { this.count--; } this.increment = increment; this.decrement = decrement; }, controllerAs: 'counter', template: [ ' <div class="todo">', '<input type="text" ng-model="counter.count">', '<button type="button" ng-click="counter.decrement();">-</button>', '<button type="button" ng-click="counter.increment();">+</button>', '</div> ' ].join('') }; });
+```
 
 вот как это будет выглядеть:
 
@@ -22,9 +24,12 @@ _пост был подготовлен на основе статьи [Explori
 
 Начнем наш анализ со способа задания и обратим внимание на то, что параметры в компонент передаются как объект (а не функция, что было в директиве):
 
-\[javascript\] // до .directive('counter', function counter() { return { }; });
-
-// после .component('counter', { }); \[/javascript\]
+```javascript
+// до
+.directive('counter', function counter() { return { }; });
+// после
+.component('counter', { });
+```
 
 ## Scope и BindToController становятся просто Bindings
 
@@ -32,25 +37,56 @@ _пост был подготовлен на основе статьи [Explori
 
 Свойство компонента **bindings** позволяет использовать 2 в одном, так как компонент использует изолированный скоуп по умолчанию:
 
-\[javascript\] // before .directive('counter', function counter() { return { scope: {}, bindToController: { count: '=' } }; });
-
-// after .component('counter', { bindings: { count: '=' } }); \[/javascript\]
+```javascript
+// до
+.directive('counter', function counter() { return { scope: {}, bindToController: { count: '=' } }; });
+// после
+.component('counter', { bindings: { count: '=' } });
+```
 
 ## Controller и ControllerAs
 
-Ничего не изменилось в способе задания контроллера, однако теперь **controllerAs** параметр по умолчанию, который задан как "**$ctrl**": то есть если мы в контроллере напишем:
+Ничего не изменилось в способе задания контроллера, однако теперь **controllerAs** параметр по умолчанию, который задан как "**\$ctrl**": то есть если мы в контроллере напишем:
 
-\[javascript\] this.x = 5; \[/javascript\]
+```javascript
+this.x = 5;
+```
 
 то в шаблоне компонента потом можно будет обратиться вот так:
 
-\[html\] <div>{{$ctrl.x}}</div> \[/html\]
+```html
+<div>{{$ctrl.x}}</div>
+```
 
 Итак, что у нас получилось с контроллером для обоих случаев:
 
-\[javascript\] // до .directive('counter', function counter() { return { scope: {}, bindToController: { count: '=' }, controller: function () { function increment() { this.count++; } function decrement() { this.count--; } this.increment = increment; this.decrement = decrement; }, controllerAs: 'counter' }; });
+```javascript
+// до
+.directive('counter', function counter() {
+  return {
+    scope: {},
+    bindToController: { count: '=' },
+    controller: function () {
+      function increment() { this.count++; }
+      function decrement() { this.count--; }
+      this.increment = increment;
+      this.decrement = decrement;
+      },
+    controllerAs: 'counter'
+  };
+});
 
-// после .component('counter', { bindings: { count: '=' }, controller: function () { function increment() { this.count++; } function decrement() { this.count--; } this.increment = increment; this.decrement = decrement; } }); \[/javascript\]
+// после
+.component('counter', {
+  bindings: { count: '=' },
+  controller: function () {
+    function increment() { this.count++; }
+    function decrement() { this.count--; }
+    this.increment = increment;
+    this.decrement = decrement;
+  }
+});
+```
 
 Я очень упростил для понимания пункт из статьи, поэтому рекомендую также заглянуть в оригинал.
 
@@ -58,13 +94,25 @@ _пост был подготовлен на основе статьи [Explori
 
 В определении шаблонов есть небольшое различие: шаблон компонента может задаваться как функция, в которую инжектятся элемент и атрибуты:
 
-\[javascript\] { ... template: function ($element, $attrs) { // access to $element and $attrs return '...'; } ... } \[/javascript\]
+```javascript
+{ ...
+  template: function ($element, $attrs) { // access to $element and $attrs
+    return '...'; }
+    ...
+}
+```
 
 ## Улучшенное require
 
 Да, это свершилось! Теперь мы можем задать имя для контроллера, подключаемого к нашему компоненту, и обратиться к нему из контроллера( до этого только из метода link, а в контроллер оно попадало только [путем ужасных костылей](https://github.com/angular/angular.js/issues/5893)):
 
-\[javascript\] { ... require: { parent: '^parentComponent' }, controller: function () { // use this.parent to access required Objects this.parent.foo(); } ... } \[/javascript\]
+```javascript
+{ ...
+  require: { parent: '^parentComponent' },
+  controller: function () { // use this.parent to access required Objects
+    this.parent.foo(); } ...
+  }
+```
 
 В данном случае мы определили подключаемый контроллер на свойстве **parent**.
 
@@ -72,9 +120,14 @@ _пост был подготовлен на основе статьи [Explori
 
 Еще одна фишка компонентов и **Angular1.5** это одностороннее связывание, которое определяется следующим синтаксисом:
 
-\[javascript\] { ... bindings: { oneWay: '<', twoWay: '=' }, ... } \[/javascript\]
+```javascript
+{ ...
+  bindings: { oneWay: '<', twoWay: '=' },
+  ...
+}
+```
 
-если мы задали свойство _oneWay_ таким образом, то оно будет реагировать на изменения внешнего связанного объекта, при этом свои изменения передавать "наружу" не будет. И да, сразу отвечу на вопрос, который у вас наверное появился: работает только в одну сторону.
+если мы задали свойство *oneWay* таким образом, то оно будет реагировать на изменения внешнего связанного объекта, при этом свои изменения передавать "наружу" не будет. И да, сразу отвечу на вопрос, который у вас наверное появился: работает только в одну сторону.
 
 ## Нет никакого нового концепта
 
@@ -84,4 +137,13 @@ _пост был подготовлен на основе статьи [Explori
 
 Как уже было сказано: использование метода **.component()** серьезно упростит переход на **Angular2**. Посмотрите как будет выглядеть ваш компонент во второй версии фреймворка(конечно, с новым синтаксисом шаблонов):
 
-\[javascript\] var Counter = ng .Component({ selector: 'counter', template: \[ ' <div class="todo">', '<input type="text" \[(ng-model)\]="count">', '<button type="button" (click)="decrement();">-</button>', '<button type="button" (click)="increment();">+</button>', '</div> ' \].join('') }) .Class({ constructor: function () { this.count = 0; }, increment: function () { this.count++; }, decrement: function () { this.count--; } }); \[/javascript\]
+````javascript
+var Counter = ng .Component({
+  selector: 'counter',
+  template: [ ' <div class="todo">', '<input type="text" [(ng-model)]="count">', '<button type="button" (click)="decrement();">-</button>', '<button type="button" (click)="increment();">+</button>', '</div> ' ].join('') 
+  }) 
+  .Class({ 
+    constructor: function () { this.count = 0; }, 
+    increment: function () { this.count++; }, 
+    decrement: function () { this.count--; } });
+```

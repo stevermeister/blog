@@ -1,6 +1,6 @@
 ---
 title: "AMD Radeon драйвера для видеокарты"
-tags: "radeon,ubuntu,драйвера,Хочу сделать мир лучше"
+tags: "radeon,ubuntu,драйвера"
 date: "2012-02-21"
 ---
 

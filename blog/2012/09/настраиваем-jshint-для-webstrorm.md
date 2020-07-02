@@ -1,6 +1,6 @@
 ---
 title: "Настраиваем JSHint для WebStrorm"
-tags: "javascript,JSHint,webStorm,Хочу сделать мир лучше"
+tags: "javascript,JSHint,webStorm"
 date: "2012-09-19"
 ---
 
@@ -24,6 +24,7 @@ date: "2012-09-19"
 
 Сам WebStrorm хранит настройки в файле .idea/jsLinters/jshint.xml, соследующей структурой:
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
 <component name="JSHintConfiguration">
@@ -41,5 +42,6 @@ date: "2012-09-19"
 <option predef="can, windown" />
 </component>
 </project>
+```
 
 К сожалению, WebStorm еще не подружили с .json стандартным форматом для JSHint. Пример .json варианта можно посмотреть [тут](https://github.com/jupiterjs/canjs/blob/master/.jshintrc).

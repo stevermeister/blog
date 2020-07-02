@@ -1,6 +1,6 @@
 ---
 title: "Anycase Timer"
-tags: "javascript,localStorage,timer,Хочу сделать мир лучше"
+tags: "javascript,localStorage,timer"
 date: "2012-08-07"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "PHP The Right Way."
-tags: "manual,php,Хочу сделать мир лучше"
+tags: "manual,php"
 date: "2012-07-29"
 ---
 

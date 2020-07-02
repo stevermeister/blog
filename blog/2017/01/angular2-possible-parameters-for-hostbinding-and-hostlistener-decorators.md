@@ -1,6 +1,6 @@
 ---
 title: "Angular2: Possible parameters for @HostBinding and @HostListener decorators"
-tags: "Angular2,HostBinding,HostListener,Хочу сделать мир лучше"
+tags: "Angular2,HostBinding,HostListener"
 date: "2017-01-14"
 ---
 
@@ -17,4 +17,14 @@ date: "2017-01-14"
 
 Example for all the cases:
 
-\[javascript\] @Directive({ selector: 'mydir' }) export class SomeDirective { @HostBinding('value') value:string; @HostBinding('attr.role') role:string; @HostBinding('style.width.px') width:number; @HostBinding('class.someClass') condition:boolean; @HostListener('input') onInput() { console.log('on input in directive'); } } \[/javascript\]
+```javascript
+@Directive({ selector: 'mydir' }) 
+export class SomeDirective { 
+  @HostBinding('value') value:string; 
+  @HostBinding('attr.role') role:string; 
+  @HostBinding('style.width.px') width:number; 
+  @HostBinding('class.someClass') condition:boolean; 
+  @HostListener('input') onInput() { 
+    console.log('on input in directive'); 
+  } } 
+```

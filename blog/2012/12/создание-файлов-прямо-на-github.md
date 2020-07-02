@@ -1,6 +1,6 @@
 ---
 title: "Создание файлов прямо на GitHub"
-tags: "git,github,Хочу сделать мир лучше"
+tags: "git,github"
 date: "2012-12-06"
 ---
 

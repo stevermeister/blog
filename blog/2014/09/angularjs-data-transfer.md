@@ -1,6 +1,6 @@
 ---
 title: "Передача данных между сущностями AngularJS"
-tags: "AngularJs,javascript,scope,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,scope"
 date: "2014-09-06"
 ---
 
@@ -12,19 +12,29 @@ date: "2014-09-06"
 
 Посредством **$scope**
 
-\[javascript\] $scope.name = 'Bob'; \[/javascript\]
+```javascript
+$scope.name = "Bob";
+```
 
 либо для нового синтаксиса контроллера через **this** в контроллере:
 
-\[javascript\] this.name = 'Bob'; \[/javascript\]
+```javascript
+this.name = "Bob";
+```
 
 а в шаблоне представления получим через переменную:
 
-\[html\] <h1>Hi, {{name}}</h1> \[/html\]
+```html
+<h1>Hi, {{name}}</h1>
+```
 
 для нового синтаксиса:
 
-\[html\] <div ng-controller="userController as user"> <h1>Hi, {{user.name}}</h1> </div> \[/html\]
+```html
+<div ng-controller="userController as user">
+  <h1>Hi, {{user.name}}</h1>
+</div>
+```
 
 Код примера [тут](https://jsfiddle.net/STEVER/8p31cgge/ "jsfiddle.net").
 
@@ -32,7 +42,9 @@ date: "2014-09-06"
 
 Для этого мы используем **two-way data binding** с помощью директив **ng-bind** и **ng-model** в представлении:
 
-\[html\] <input ng-model="name.first" /> \[/html\]
+```html
+<input ng-model="name.first" />
+```
 
 теперь при изменении значения поля ввода будет изменяться **name.first** значение в контроллере.
 
@@ -42,7 +54,12 @@ date: "2014-09-06"
 
 Фактически осуществляется посредством контроллера (рассмотрено выше), но переменную-свойство в контроллере можем не создавать: она будет создана автоматически. Итого имеем связь представление - контроллер - представление. Важно, чтобы 2 элемента представления, которые собираемся синхронизировать, находились в рамках одного контроллера.
 
-\[html\] <div ng-controller="userController">; <input ng-model"name.first">; <textarea ng-model="name.first">; </div> \[/html\]
+```html
+<div ng-controller="userController">
+  <input ng-model="name.first">
+  <textarea ng-model="name.first">
+</div>
+```
 
 Пример [тут](https://jsfiddle.net/STEVER/eyxj1nhf/ "jsfiddle.net").
 
@@ -50,7 +67,24 @@ date: "2014-09-06"
 
 тут все просто: инжектим сервис в контроллер и задаем значение свойству, либо вызываем сеттер-метод (что ИМХО более верно):
 
-\[javascript\] app.controller('userController', function (nameStorage) { nameStorage.setName('Alice'); alert(nameStorage.getName()); }) .service('nameStorage', function () { var \_name = 'Bob'; return { setName: function (name) { \_name = name; }, getName: function () { return \_name; } } }); \[/javascript\]
+```javascript
+app
+  .controller("userController", function (nameStorage) {
+    nameStorage.setName("Alice");
+    alert(nameStorage.getName());
+  })
+  .service("nameStorage", function () {
+    var _name = "Bob";
+    return {
+      setName: function (name) {
+        _name = name;
+      },
+      getName: function () {
+        return _name;
+      },
+    };
+  });
+```
 
 Пример [тут](https://jsfiddle.net/STEVER/fcLgt7co/ "jsfiddle.net").
 
@@ -58,9 +92,11 @@ date: "2014-09-06"
 
 Мы не можем изменять данные контроллера в сервисе, но мы можем "залинковать" объект-свойство сервиса на свойство контроллера, тогда в случае изменений внутри этого объекта - данные контроллера также будут обновлены:
 
-\[javascript\] app.controller('userController', function ($scope, nameStorage) { $scope.name = nameStorage.name; alert($scope.name.first + ' ' + $scope.name.last); setTimeout(function () { alert($scope.name.first + ' ' + $scope.name.last); }); }) .service('nameStorage', function () { this.name = { first: 'Alice', last: 'Green' };
+```javascript
+app.controller('userController', function ($scope, nameStorage) { $scope.name = nameStorage.name; alert($scope.name.first + ' ' + $scope.name.last); setTimeout(function () { alert($scope.name.first + ' ' + $scope.name.last); }); }) .service('nameStorage', function () { this.name = { first: 'Alice', last: 'Green' };
 
-//just to inimitate sevice change var self = this; setTimeout(function () { self.name.first = 'Bob'; }); }); \[/javascript\]
+//just to inimitate sevice change var self = this; setTimeout(function () { self.name.first = 'Bob'; }); });
+```
 
 из-за того, что нужно было имитировать изменения сервиса, пример получился не самый простой. Вот [полный код](https://jsfiddle.net/STEVER/cL00127n/ "jsfiddle.net") примера, надеюсь с ним будет проще.
 
@@ -68,13 +104,20 @@ date: "2014-09-06"
 
 Осуществляется посредствам контроллера, то есть сервис - контроллер - представление.
 
-\[javascript\] app.controller('userController', function ($scope, nameStorage) { $scope.name = nameStorage.name; }) .service('nameStorage', function ($timeout) { this.name = { first: 'Alice', last: 'Green' };
+```javascript
+app.controller('userController', function ($scope, nameStorage) { $scope.name = nameStorage.name; }) .service('nameStorage', function ($timeout) { this.name = { first: 'Alice', last: 'Green' };
 
-//just to inimitate sevice change var self = this; $timeout(function () { self.name.first = 'Bob'; }, 2000); }); \[/javascript\]
+
+//just to inimitate sevice change var self = this; $timeout(function () { self.name.first = 'Bob'; }, 2000); });
+```
 
 и представление соответственно:
 
-\[html\] <div ng-controller="userController"> <h1>{{name.first + ' ' + name.last}}</h1> </div> \[/html\]
+```html
+<div ng-controller="userController">
+  <h1>{{name.first + ' ' + name.last}}</h1>
+</div>
+```
 
 Полный пример [тут](https://jsfiddle.net/STEVER/wmhg5qp2/ "jsfiddle.net").
 
@@ -88,9 +131,16 @@ date: "2014-09-06"
 
 Один сервис инжектит другой и там вызывается сеттер-метод:
 
-\[javascript\] app .controller('userController', function ($scope, userStorage) {
-
-}) .service('nameStorage', function () { this.name = { first: 'Alice', last: 'Green' }; }) .service('userStorage', function (nameStorage) { nameStorage.name = { first: 'Bob', last: 'Brown' }; }); \[/javascript\]
+```javascript
+app
+  .controller("userController", function ($scope, userStorage) {})
+  .service("nameStorage", function () {
+    this.name = { first: "Alice", last: "Green" };
+  })
+  .service("userStorage", function (nameStorage) {
+    nameStorage.name = { first: "Bob", last: "Brown" };
+  });
+```
 
 [Пример](https://jsfiddle.net/STEVER/x0Lwgxs2/ "jsfiddle.net").
 
@@ -113,29 +163,71 @@ date: "2014-09-06"
 
 В случае с открытым - все просто: дочерний контроллер наследует свойства scope родителя по умолчанию:
 
-\[html\] <div ng-controller="userController"> <div ng-controller="nameController"> </div> </div> \[/html\]
+```html
+<div ng-controller="userController">
+  <div ng-controller="nameController"></div>
+</div>
+```
 
-\- как видим _nameController_ является дочерним по отношению к _userController_, поэтому мы легко можем получить доступ к свойствам родителя:
+_ как видим _nameController_ является дочерним по отношению к _userController_, поэтому мы легко можем получить доступ к свойствам родителя:
 
-\[javascript\] app .controller('userController', function ($scope) { $scope.name = 'Bob'; setTimeout(function(){ $scope.name = 'Alice'; }); }) .controller('nameController', function ($scope) { alert($scope.name); setTimeout(function(){ alert($scope.name); }); }); \[/javascript\]
+```javascript
+app
+  .controller("userController", function ($scope) {
+    $scope.name = "Bob";
+    setTimeout(function () {
+      $scope.name = "Alice";
+    });
+  })
+  .controller("nameController", function ($scope) {
+    alert($scope.name);
+    setTimeout(function () {
+      alert($scope.name);
+    });
+  });
+```
 
 [Пример](https://jsfiddle.net/STEVER/spskhL7o/ "jsfiddle.net").
 
 С случае с изолированным scope(который мы можем получить при создании директивы) нам необходимо "залинковать" необходимые свойства родительского в дочерний. Представление будет выглядеть следующим образом:
 
-\[html\] <div ng-controller="userController"> <div user name="{{name}}"></div> </div> \[/html\]
+```html
+<div ng-controller="userController"><div user name="{{name}}"></div></div>
+```
 
 а код директивы и контроллера:
 
-\[javascript\] var app = angular.module('foo', \[\])
+```javascript
+var app = angular.module("foo", []);
 
-app .controller('userController', function ($scope) { $scope.name = 'Bob'; setTimeout(function(){ $scope.name = 'Alice'; $scope.$apply() }); }) .directive('user', function () { return { scope: { name: '@' }, link: function(scope){ alert(scope.name); setTimeout(function(){ alert(scope.name); }); } }; }); \[/javascript\]
+app
+  .controller("userController", function ($scope) {
+    $scope.name = "Bob";
+    setTimeout(function () {
+      $scope.name = "Alice";
+      $scope.$apply();
+    });
+  })
+  .directive("user", function () {
+    return {
+      scope: { name: "@" },
+      link: function (scope) {
+        alert(scope.name);
+        setTimeout(function () {
+          alert(scope.name);
+        });
+      },
+    };
+  });
+```
 
 В этом месте мы описываем связывание:
 
-\[javascript\] scope: { name: '@' }, \[/javascript\]
+```javascript
+scope: { name: '@' },
+```
 
-\- это означает, что _name_ будет взято из атрибута директивы.
+_ это означает, что _name_ будет взято из атрибута директивы.
 
 [Полный код](https://jsfiddle.net/STEVER/321x8w2L/ "jsfiddle.net").
 
@@ -148,19 +240,37 @@ app .controller('userController', function ($scope) { $scope.name = 'Bob'; setTi
 - изменяя не само свойство, а свойство свойства (знаю, сильно запутано, но [на примере](https://jsfiddle.net/STEVER/xteh8gs9/ "jsfiddle.net") не должно быть сложно) То есть, вместо _$scope.name_, используем _$scope.name.first_.
 - через специально созданный сеттер-метод в родительском котроллере. [Пример](https://jsfiddle.net/STEVER/7q7guwo6/ "jsfiddle.net"). :
 
-\[javascript\] app.controller('userController', function ($scope) { $scope.name = 'Bob' ; alert($scope.name); setTimeout(function(){ alert($scope.name); }, 500);
+```javascript
+app
+  .controller("userController", function ($scope) {
+    $scope.name = "Bob";
+    alert($scope.name);
+    setTimeout(function () {
+      alert($scope.name);
+    }, 500);
 
-$scope.setName = function(name){ $scope.name = name; };
-
-}) .controller('nameController', function ($scope) { setTimeout(function(){ $scope.setName('Alice'); }); }); \[/javascript\]
+    $scope.setName = function (name) {
+      $scope.name = name;
+    };
+  })
+  .controller("nameController", function ($scope) {
+    setTimeout(function () {
+      $scope.setName("Alice");
+    });
+  });
+```
 
 Случай с изолированным скоупом полностью аналогичен предыдущему (Из родительского контроллера в дочерний), только линковка будет делаться не односторонняя:
 
-\[javascript\] scope: { name: '@' }, \[/javascript\]
+```javascript
+scope: { name: '@' },
+```
 
 а двунаправленная
 
-\[javascript\] scope: { name: '=' }, \[/javascript\]
+```javascript
+scope: { name: '=' },
+```
 
 [Полный пример](https://jsfiddle.net/STEVER/L02te727/ "jsfiddle.net").
 
@@ -180,13 +290,25 @@ $scope.setName = function(name){ $scope.name = name; };
 
 Передавать события (с данными) можно посредством двух методов **$scope.$emit** и **$scope.$broadcast**. Отличие **$emit** от **$broadcast** заключается в том, что **$emit** передает события вверх по цепочке в скоупы всех родительских контроллеров, а **$broadcast** наоборот - в дочерние:
 
-\[javascript\] $scope.emitEvent = function() { var data = { x: 5 }; $scope.$emit('myevent', data); }
+```javascript
+$scope.emitEvent = function () {
+  var data = { x: 5 };
+  $scope.$emit("myevent", data);
+};
 
-$scope.broadcastEvent = function() { var data = { y: 10 }; $scope.$broadcast('myevent', data); } \[/javascript\]
+$scope.broadcastEvent = function () {
+  var data = { y: 10 };
+  $scope.$broadcast("myevent", data);
+};
+```
 
 Чтобы словить событие необходимо использовать метод **$scope.$on**.
 
-\[javascript\] $scope.$on('myevent', function(data){ //... }); \[/javascript\]
+```javascript
+$scope.$on('myevent', function(data){ 
+  //... 
+  });
+```
 
 [Полный пример](https://jsfiddle.net/STEVER/hhfwco97/ "jsfiddle.net") работы с событиями.
 

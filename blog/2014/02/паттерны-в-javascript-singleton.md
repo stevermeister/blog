@@ -1,6 +1,6 @@
 ---
 title: "Паттерны в JavaScript. Singleton"
-tags: "javascript,patterns,паттерны,Хочу сделать мир лучше"
+tags: "javascript,patterns,паттерны"
 date: "2014-02-26"
 ---
 
@@ -12,18 +12,23 @@ date: "2014-02-26"
 
 У нас должно получиться что-то такое:
 
+```javascript
 var object1 = mySingleton.getInstance();
 var object2 = mySingleton.getInstance();
 console.log( object1 === object2 ); // true
+```
 
 В **JavaScript** есть 2 способа эмуляции статической переменной: используя свойство самого объекта и через замыкание. Разберем оба способа.
 
 ## Создание статической переменной через свойство объекта
 
+```
 mySingleton.instance
+```
 
 Исходя из этого реализации синглтон патерна будет следующая:
 
+```javascript
 var mySingleton = {
     getInstance: function () {
       if ( !mySingleton.instance )
@@ -32,9 +37,11 @@ var mySingleton = {
       return mySingleton.instance;
     }
   };
+```
 
-В данном случае {x:Math.random()} - наш экземпляр. Вместо статического задания мы можем использовать функцию:
+В данном случае `{x:Math.random()}` - наш экземпляр. Вместо статического задания мы можем использовать функцию:
 
+```javascript
 function init(){
     return {x:Math.random()};
 }
@@ -47,9 +54,10 @@ var mySingleton = {
       return mySingleton.instance;
     }
   };
-
+```
 ## Создание статической переменной используя замыкание
 
+```javascript
 var mySingleton = (function(){
   var instance;
   return {
@@ -61,6 +69,7 @@ var mySingleton = (function(){
     }
   }
 })();
+```
 
 в этом варианте переменная **instance** хранится в замыкании созданом анонимной самовызывающейся функцией.
 
@@ -68,15 +77,17 @@ var mySingleton = (function(){
 
 **Публичные свойства** в обоих случая добавляются довольно просто: в свойсва объекта, который возвращаем:
 
+```javascript
 function init(){
     return {
         publicMethod1: function(){ ... }
         publicMethod2: function(){ ... }
     };
 }
-
+```
  **Приватные свойсва** можем сэммитировать только используя замыкание:
 
+```javascript
 var mySingleton = (function(){
   var instance;
   function privateMethod(){
@@ -92,7 +103,7 @@ var mySingleton = (function(){
     }
   }
 })();
-
+```
  
 
 ## Гарантия уникальности

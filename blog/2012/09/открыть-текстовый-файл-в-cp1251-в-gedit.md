@@ -1,6 +1,6 @@
 ---
 title: "Открыть текстовый файл в cp1251 в gedit"
-tags: "cp1251,gedit,ubuntu,Хочу сделать мир лучше"
+tags: "cp1251,gedit,ubuntu"
 date: "2012-09-23"
 ---
 

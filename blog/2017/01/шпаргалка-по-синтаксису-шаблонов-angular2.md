@@ -1,24 +1,24 @@
 ---
 title: "Шпаргалка по синтаксису шаблонов Angular2"
-tags: "Angular2,cheatsheet,templates,Хочу сделать мир лучше"
+tags: "Angular2,cheatsheet,templates"
 date: "2017-01-07"
 ---
 
 взято с [официальной документации](https://angular.io/docs/ts/latest/guide/cheatsheet.html), переведено/переработано.
 
-<input **\[value\]**\="firstName">
+<input **[value]**\="firstName">
 
 задание свойства **value**
 
-<div **\[attr.role\]**\="myAriaRole">
+<div **[attr.role]**\="myAriaRole">
 
 задание атрибута **role**.
 
-<div **\[class.extra-sparkle\]**\="isDelightful">
+<div **[class.extra-sparkle]**\="isDelightful">
 
 Выставляет класс **extra-sparkle** по условию **isDelightful**
 
-<div **\[style.width.px\]**\="mySize">
+<div **[style.width.px]**\="mySize">
 
 задает значение **width** в пикселях.
 
@@ -30,9 +30,9 @@ date: "2017-01-07"
 
 Подставляет значение выражения
 
-<my-cmp **\[(title)\]**\="name">
+<my-cmp **[(title)]**\="name">
 
-Двойное связывание, альтернатива: <my-cmp \[title\]="name" (titleChange)="name=$event">
+Двойное связывание, альтернатива: <my-cmp [title]="name" (titleChange)="name=$event">
 
 <video **#movieplayer** ...> <button **(click)**\="movieplayer.play()"> </video>
 
@@ -40,7 +40,7 @@ date: "2017-01-07"
 
 <p **\*myUnless**\="myExpression">...</p>
 
-Символ **\*** превращает текущий элмент во втроенный шаблон: :<template \[myUnless\]="myExpression"><p>...</p></template>
+Символ **\*** превращает текущий элмент во втроенный шаблон: :<template [myUnless]="myExpression"><p>...</p></template>
 
 <p>Card No.: **{{cardNumber | myCardNumberFormatter}}**</p>
 

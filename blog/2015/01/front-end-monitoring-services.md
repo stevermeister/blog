@@ -1,6 +1,6 @@
 ---
 title: "Front-end error monitoring services"
-tags: "error,errorception,Google Analytics,javascript,monitoring,New Relic,Qbaka,Raygun,Sentry,Хочу сделать мир лучше"
+tags: "error,errorception,Google Analytics,javascript,monitoring,New Relic,Qbaka,Raygun,Sentry"
 date: "2015-01-31"
 ---
 

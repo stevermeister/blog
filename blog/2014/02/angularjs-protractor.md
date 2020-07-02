@@ -1,6 +1,6 @@
 ---
 title: "Тестируем AngularJS используя Protractor"
-tags: "AngularJs,javascript,protractor,Хочу сделать мир лучше"
+tags: "AngularJs,javascript,protractor"
 date: "2014-02-24"
 ---
 
@@ -12,31 +12,42 @@ date: "2014-02-24"
 
 Для установки достаточно установить npm-пакет:
 
+```
 $ npm install -g protractor
+```
 
 проверим все ли прошло успешно:
 
+```
 $ protractor --version
 Version 0.18.1
+```
 
 чтобы установить и запустить **Selenium**, который будет выполнять тесты для нас делаем:
 
+```
 $ webdriver-manager update
+```
 
 а потом
 
+```
 $ webdriver-manager start
+```
 
 ## Запуск
 
 Для запуска **протрактора** делаем:
 
+```
 $ protractor protractor.js
+```
 
 где _protractor.js_ - предварительно созданный нами файл конфигурации.
 
 Для старта можно использовать конфиг из [примера](https://raw.github.com/angular/protractor/master/example/conf.js "protractor example config"):
 
+```javascript
 // An example configuration file.
 exports.config = {
   // The address of a running selenium server.
@@ -49,7 +60,7 @@ exports.config = {
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
-  specs: \['example\_spec.js'\],
+  specs: ['example_spec.js'],
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
@@ -57,9 +68,11 @@ exports.config = {
     defaultTimeoutInterval: 30000
   }
 };
+```
 
-Единственно что вам нужно изменить это опцию _specs_(по умолчанию \['example\_spec.js'\]). В ней мы укажем путь к файлу(либо группе файлов) тест-сценария. Давайте создадим его также по [примеру](https://github.com/angular/protractor/blob/master/example/example_spec.js):
+Единственно что вам нужно изменить это опцию _specs_(по умолчанию ['example_spec.js']). В ней мы укажем путь к файлу(либо группе файлов) тест-сценария. Давайте создадим его также по [примеру](https://github.com/angular/protractor/blob/master/example/example_spec.js):
 
+```javascript
 describe('angularjs homepage', function() {
   it('should greet the named user', function() {
     browser.get('https://www.angularjs.org');
@@ -68,6 +81,7 @@ describe('angularjs homepage', function() {
     expect(greeting.getText()).toEqual('Hello Julie!');
   });
 });
+```
 
 Из описания видно что наш тест:
 
@@ -78,12 +92,14 @@ describe('angularjs homepage', function() {
 
 Теперь запустим:
 
+```
 $ protractor protractor.js
 Using the selenium server at http://localhost:4444/wd/hub
 .
 
 Finished in 5.629 seconds
 1 test, 1 assertion, 0 failures
+```
 
 ## Настройка
 
@@ -91,83 +107,21 @@ Finished in 5.629 seconds
 
 Разберем некоторые
 
-Опция
+| Опция | Описание | Значение по умолчанию |
+|-------|----------|-----------------------|
+| seleniumAddress | адрес запущенного селениум сервера (обычно http://localhost:4444/wd/hub) | null |
+| allScriptsTimeout | таймаут для выполнения всех сценариев | 11000 |
+| specs | пути к файлам сценариев тестов (относительно конфига) | ['spec/\*_spec.js'] |
+| exclude | исключения для предыдущего пункта | [] |
+| capabilities | выбор браузера с параметрами. Более подробно [тут](https://code.google.com/p/selenium/wiki/DesiredCapabilities) | {'browserName': 'chrome'} |
+| multiCapabilities | предыдущая опция для запуска тестов в нескольких браузерах | [] |
+| baseUrl | стартовая страница приложения | http://localhost:8000 |
+| rootElement | элемент на котором иницилизированно приложение (ng-app) | body |
+| onPrepare | колбэк который будет выполнен, когда протрактор готов к работе, но тесты еще не начали выполняться | function() {} |
+| params | параметры, которые будут внедрены в среду выполнения тестов (но не сами тесты) | {login: { user: 'Jane', password: '1234'}}, |
+| framework | фреймворк для тестов. возможные варианты: jasmine, cucumber, mocha | jasmine |
+| onCleanUp | колбэк, когда тесты завершены | function(){} |
 
-Описание
-
-Значение по умолчанию
-
-seleniumAddress
-
-адрес запущенного селениум сервера (обычно http://localhost:4444/wd/hub)
-
-null
-
-allScriptsTimeout
-
-таймаут для выполнения всех сценариев
-
-11000
-
-specs
-
-пути к файлам сценариев тестов (относительно конфига)
-
-\['spec/\*\_spec.js'\]
-
-exclude
-
-исключения для предыдущего пункта
-
-\[\]
-
-capabilities
-
-выбор браузера с параметрами. Более подробно [тут](https://code.google.com/p/selenium/wiki/DesiredCapabilities)
-
-{'browserName': 'chrome'}
-
-multiCapabilities
-
-предыдущая опция для запуска тестов в нескольких браузерах
-
-\[\]
-
-baseUrl
-
-стартовая страница приложения
-
-http://localhost:8000
-
-rootElement
-
-элемент на котором иницилизированно приложение (ng-app)
-
-body
-
-onPrepare
-
-колбэк который будет выполнен, когда протрактор готов к работе, но тесты еще не начали выполняться
-
-function() {}
-
-params
-
-параметры, которые будут внедрены в среду выполнения тестов (но не сами тесты)
-
-{login: { user: 'Jane', password: '1234'}},
-
-framework
-
-фреймворк для тестов. возможные варианты: jasmine, cucumber, mocha
-
-jasmine
-
-onCleanUp
-
-колбэк, когда тесты завершены
-
-function(){}
 
 ## Написание тестов
 
@@ -203,30 +157,36 @@ function(){}
 
 Учитавая что ваше приложение скорее всего подгружает большое количество контента асинхронно, то повозится со спецификой прийдется прилично.
 
-Воздержусь от подробного разбора данного пункта, так как в зависимости от выбранной библиотеки подходы в написании тестов могут отличатся. Единственное что скажу: сразу для себя настроил **[mocha](https://mochajs.org/ "mocha test framework")**\-фреймворк, с ним намного удобнее работать с асинхронными операциями.
+Воздержусь от подробного разбора данного пункта, так как в зависимости от выбранной библиотеки подходы в написании тестов могут отличатся. Единственное что скажу: сразу для себя настроил **[mocha](https://mochajs.org/ "mocha test framework")**_фреймворк, с ним намного удобнее работать с асинхронными операциями.
 
 ## Создание снимков экрана
 
 Вебдрайвер позволяет делать скриншоты с помощью метода **browser.takeScreenshot()**, который возвращает промис, который в свою очередь вернет **PNG**  снимок экрана в формате **base64**:
 
+```javascript
 browser.takeScreenshot().then(function (png) {
  //...
 }
+```
 
 Для записи файла на диск можно написат свою вспомогательную функцию:
 
+```javascript
 var fs = require('fs');
 function writeScreenShot(data, filename) {
   var stream = fs.createWriteStream(filename);
   stream.write(new Buffer(data, 'base64'));
   stream.end();
 }
+```
 
 и потом ее вызвать:
 
+```javascript
 browser.takeScreenshot().then(function (png) {
-    writeScreenShot(png, 'test\_screen.png');
+    writeScreenShot(png, 'test_screen.png');
 }
+```
 
 **!Внимание:** в некоторых случаях необходимо дождаться полной загрузки страницы (или отдельного компонента) чтобы не получить частичный снимой недогруженного контента.
 
@@ -241,7 +201,9 @@ browser.takeScreenshot().then(function (png) {
 
 Чтобы поставить точку остановки (**debug point**) необходимо в коде теста вызвать следующий метод:
 
+```javascript
 browser.debugger();
+```
 
 и запустить **protractor** в режиме отладки(с флагом **debug**):
 
@@ -249,10 +211,12 @@ $ protractor debug protractor.js
 
 И после чего вы сможете насладиться радостью дебага из консоли
 
+```
 debug> help
 Commands: run (r), cont (c), next (n), step (s), out (o), backtrace (bt), setBreakpoint (sb), clearBreakpoint (cb),
 watch, unwatch, watchers, repl, restart, kill, list, scripts, breakOnException, breakpoints, version
 debug>
+```
 
 Используется [node-debugger](https://nodejs.org/api/debugger.html), только точка остановки задается методом _browser.debugger()_; вмето _debugger;_
 
@@ -262,17 +226,23 @@ debug>
 
 Для запуска **protractor** в режиме консоли необходимо выполнить следующую команду в директории программы:
 
+```
 $ node ./bin/elementexplorer.js
+```
 
-(в зависимости от ОС и типа установки путь к директории программы может отличаться. В моем случае это было _/usr/local/lib/node\_modules/protractor/_)
+(в зависимости от ОС и типа установки путь к директории программы может отличаться. В моем случае это было _/usr/local/lib/node_modules/protractor/_)
 
 Теперь можно  выполнить что-то типа такого:
 
-\> browser.get('https://www.angularjs.org')
+```
+$ browser.get('https://www.angularjs.org')
+```
 
 или просто
 
-\> browser
+```
+$ browser
+```
 
 ## Дополнительно
 

@@ -1,10 +1,10 @@
 ---
 title: "Новое в Angular4.3"
-tags: "Angular,Хочу сделать мир лучше"
+tags: "Angular"
 date: "2017-07-26"
 ---
 
-- **[HttpClient](https://angular.io/guide/http)** \- принципиально новый клиент, который переехал из отдельного модуля в подсекцию common ('**@angular/common/http**'):
+- **[HttpClient](https://angular.io/guide/http)** _ принципиально новый клиент, который переехал из отдельного модуля в подсекцию common ('**@angular/common/http**'):
     - позволяет получить данные сразу в JSON
     - типизировать возвращаемые данные вывод
     - появляются интерсепторы

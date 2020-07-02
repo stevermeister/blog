@@ -1,6 +1,6 @@
 ---
 title: "\"Start me up\" - new category on blog"
-tags: "blog,idea,start me up,start me up,блог,идея,Новости блога,Хочу сделать мир лучше"
+tags: "blog,idea,start me up,start me up,блог,идея,Новости блога"
 date: "2015-02-16"
 ---
 
@@ -12,7 +12,7 @@ If you find something interesting for you and would like to bring it to life - 
 
 It would be also interesting to hear your thought about these ideas.
 
-_\[now the same in Russian\]_
+_[now the same in Russian]_
 
 Решил сделать специальный раздел, где описывать все идеи проектов (если хотите - "стартапов"), которые приходят в голову. Идеи как реального, так и виртуального мира. Идеи, которые имеют право на жизнь, но при этом долгое время продолжают находится на стадии эмбриона. Я не хочу их складировать в голове, иначе склад переполнится и для новых идей места уже не будет.
 

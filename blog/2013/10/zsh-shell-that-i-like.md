@@ -8,8 +8,13 @@ The main thing why I switched to **zsh** is **git branch name** output for direc
 
 install:
 
+```
 curl -L github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+```
+
 
 uninstall
 
-uninstall\_oh\_my\_zsh
+```
+uninstall_oh_my_zsh
+```

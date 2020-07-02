@@ -10,7 +10,7 @@ date: "2012-05-16"
 
 Если не работает - идем сюда **/etc/php5/apache2/php.ini** и ищем параметр `sendmail_path` прописываем в него следующее:
 
-sendmail\_path = "/usr/sbin/sendmail -t -i"
+sendmail_path = "/usr/sbin/sendmail -t -i"
 
 Да, можно настроить и свой крутой почтовый сервер, но нам пока этого не нужно.
 
@@ -24,11 +24,11 @@ function mylog( $data )
 {
     $dumpData = "\\n";
     $dumpData .=  "<pre>";
-    $dumpData .= print\_r($data, 1);
+    $dumpData .= print_r($data, 1);
     $dumpData .=  "</pre>";
     $dumpData .= "<br/><br/><br/>\\n\\n\\n";
-    $dumpData .= print\_r(debug\_backtrace(), 1);
-    mail( MAIL\_TO, DEBUG, $dumpData );
+    $dumpData .= print_r(debug_backtrace(), 1);
+    mail( MAIL_TO, DEBUG, $dumpData );
 }
 
 2) Удобный почтовый клиент, который позволит фильтровать полученные логи.

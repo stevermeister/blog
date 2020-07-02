@@ -1,6 +1,6 @@
 ---
 title: "Запускаем два Skype одновременно"
-tags: "skype,ubuntu,Хочу сделать мир лучше"
+tags: "skype,ubuntu"
 date: "2013-01-06"
 ---
 

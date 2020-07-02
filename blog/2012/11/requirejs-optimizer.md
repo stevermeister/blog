@@ -1,6 +1,6 @@
 ---
 title: "RequireJS Optimizer"
-tags: "javascript,RequireJS,Хочу сделать мир лучше"
+tags: "javascript,RequireJS"
 date: "2012-11-02"
 ---
 
@@ -57,7 +57,7 @@ $ r.js -o name=main out=main-built.js baseUrl=.
 
 $ r.js -o baseUrl=. paths.requireLib=require name=main include=requireLib out=main-built.js
 
-\- в которых сделаем подключение модуля(_include_) и скажем где его брать(_path_).
+_ в которых сделаем подключение модуля(_include_) и скажем где его брать(_path_).
 
 Если мы хотим исключить какой-то файл из сборки(например: чтобы отдельно его подключить для отладки), то мы должны использовать опцию _excludeShallow_:
 
@@ -111,11 +111,11 @@ $ r.js -o build.js
     appDir: "appdirectory/",
     baseUrl: "scripts",
     dir: "./build",
-    modules: \[
+    modules: [
         {
             name: "main"
         }
-    \]
+    ]
 })
 
 В итоге мы получим структуру аналогичную нашему проекту, только с оптимизированными файлами. Тут также нужно не забыть создать отдельную директорию (в нашем случае это _./build_ ), чтобы не перетереть текущий проект. (Так что по запросу "А-а-а! RequireJs стер мой проект!" сюда)
@@ -134,11 +134,11 @@ var config = {
     appDir: "appdirectory/",
     baseUrl: "scripts",
     dir: "./build",
-    modules: \[
+    modules: [
         {
             name: "main"
         }
-    \]
+    ]
 };
 requirejs.optimize( config, function(results) {
     console.log(results);

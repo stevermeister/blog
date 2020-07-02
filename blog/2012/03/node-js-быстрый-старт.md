@@ -1,6 +1,6 @@
 ---
 title: "Node.js быстрый старт."
-tags: "install,javascript,node.js,ubuntu,Хочу сделать мир лучше"
+tags: "install,javascript,node.js,ubuntu"
 date: "2012-03-31"
 ---
 

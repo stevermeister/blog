@@ -1,6 +1,6 @@
 ---
 title: "Сделаем gulp javascript проекту"
-tags: "grunt,gulp,javascript,Хочу сделать мир лучше"
+tags: "grunt,gulp,javascript"
 date: "2014-03-04"
 ---
 
@@ -21,8 +21,8 @@ $ npm install gulp
 проверим:
 
 $ gulp --version
-\[gulp\] CLI version 3.5.2
-\[gulp\] Local version 3.5.2
+[gulp] CLI version 3.5.2
+[gulp] Local version 3.5.2
 
 установка [плагинов](https://gratimax.github.io/search-gulp-plugins/):
 
@@ -43,10 +43,10 @@ gulp.task('default', function(){
 и запустить, выполнив команду:
 
 $ gulp
-\[gulp\] Using file .../gulpfile.js
-\[gulp\] Working directory changed to ...
-\[gulp\] Running 'default'...
-\[gulp\] Finished 'default' in 58 μs
+[gulp] Using file .../gulpfile.js
+[gulp] Working directory changed to ...
+[gulp] Running 'default'...
+[gulp] Finished 'default' in 58 μs
 
 Принцип вызова тасков из командной строки полностью идентичен **Grunt.js**.
 
@@ -71,17 +71,17 @@ var livereload = require('gulp-livereload'),
 
 gulp.**task**
 
- gulp.task(name\[, deps\], fn)
+ gulp.task(name[, deps], fn)
 
 gulp.task('do-log',
   function(){console.log('Hello!')
 });
 
-gulp.task('test', \['do-log'\]);
+gulp.task('test', ['do-log']);
 
 gulp.**src**
 
- gulp.src(globs\[, options\])
+ gulp.src(globs[, options])
 
 gulp.src('./gulpfile.js')
 
@@ -93,10 +93,10 @@ gulp.dest('main.min.css')
 
 gulp.**watch**
 
- gulp.watch(glob \[, opts\], tasks) or gulp.watch(glob \[, opts, cb\])
+ gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb])
 
 var watcher = gulp.watch('js/\*\*/\*.js',
-             \['uglify','reload'\]);
+             ['uglify','reload']);
 watcher.on('change', function(event){
   console.log(event.path+' -> '+event.type);
 });
@@ -128,11 +128,11 @@ gulp.task('do-log', function(){
 	});
 });
 
-gulp.task('start', \['do-log'\]);
+gulp.task('start', ['do-log']);
 
-\- при изменении любого javascript файла (\*.js) - выводим изменения в консоль и запускаем **jshint**\-задание.
+_ при изменении любого javascript файла (\*.js) - выводим изменения в консоль и запускаем **jshint**_задание.
 
-Вы уже вероятно обратили внимание что вся последовательность действий связанна через **pipe**\-метод передающий по цепочке поток данных (**stream**). Концепция взята из [node.js стримов](https://github.com/substack/stream-handbook).
+Вы уже вероятно обратили внимание что вся последовательность действий связанна через **pipe**_метод передающий по цепочке поток данных (**stream**). Концепция взята из [node.js стримов](https://github.com/substack/stream-handbook).
 
 С **gulp** можно прекрасно работать и не понимая, что происходит внутри **pipe**, но если вы уже перешли на следующий уровень и хотите "вклиниться в поток" либо написать свой **плагин**, то думаю вам может помочь разобраться этот пример:
 

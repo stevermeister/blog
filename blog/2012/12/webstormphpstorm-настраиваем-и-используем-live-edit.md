@@ -1,6 +1,6 @@
 ---
 title: "WebStorm/PhpStorm настраиваем и используем Live Edit"
-tags: "LiveEdit,phpStorm,webStorm,Хочу сделать мир лучше"
+tags: "LiveEdit,phpStorm,webStorm"
 date: "2012-12-26"
 ---
 
@@ -22,12 +22,16 @@ date: "2012-12-26"
 
 Далее найти файл
 
+```
 /PhpStorm/plugins/JavaScriptDebugger/extensions/HowToInstallGoogleChromeExtension.html
+```
 
 с инструкцией по установке **расширения для Chrome**: в большей части случаев она заключает в том, чтобы установить новое расширение  из файла /PhpStorm/plugins/JavaScriptDebugger/extensions/jb.crx
 
 Для **Linux** есть своя специфика:
 
+```
 $ sudo mkdir -p -m0777 /opt/google/chrome/extensions
+```
 
 На свякий случай ссылка на страничку с возможными проблемами: [https://confluence.jetbrains.net/display/WI/LiveEdit](https://confluence.jetbrains.net/display/WI/LiveEdit)

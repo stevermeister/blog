@@ -1,6 +1,6 @@
 ---
 title: "AngularJS Concept Diagram"
-tags: "AngularJs,concept diagram,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,concept diagram,javascript"
 date: "2015-04-21"
 ---
 

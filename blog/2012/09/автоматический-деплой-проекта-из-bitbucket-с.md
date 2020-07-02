@@ -1,6 +1,6 @@
 ---
 title: "Автоматический деплой проекта из bitbucket с помощью javascript"
-tags: "bitbucket,git,javascript,node.js,Хочу сделать мир лучше"
+tags: "bitbucket,git,javascript,node.js"
 date: "2012-09-25"
 ---
 
@@ -57,7 +57,7 @@ app.listen(8888);
 
 Теперь запустим наш скрипт с помощью node.js командой в консоли:
 
-$: node todom\_deploy.js
+$: node todom_deploy.js
 
 Убедимся что ошибок не выдало и перейдем в браузере на адрес _http://localhost:8888/_ . Работает? Отлично. Идем дальше. Организуем прием пост данных. Для этого добавляем следующую строчку вверху:
 
@@ -92,7 +92,7 @@ exec('git pull ', commandLog);
 
 exec  - это такой модуль для выполнения shell команд, который можно получить следующим путем:
 
-var exec = require('child\_process').exec;
+var exec = require('child_process').exec;
 
 commandLog - колбэк функция, которая может быть реализована вот так:
 
@@ -111,7 +111,7 @@ var express = require('express');
 var app = express();
 app.use(express.bodyParser());
 
-var PROJECT\_DIRECTORY = "/var/www/ourproject";
+var PROJECT_DIRECTORY = "/var/www/ourproject";
 
 app.get("/", function(req, res){
     res.send( "Server is working, time: " + (new Date));
@@ -119,7 +119,7 @@ app.get("/", function(req, res){
 
 app.post("/push", function(req, res){
     if(req.body.payload){
-        var deploy = new Deploy(PROJECT\_DIRECTORY, JSON.parse(req.body.payload));
+        var deploy = new Deploy(PROJECT_DIRECTORY, JSON.parse(req.body.payload));
         deploy.execute();
     }else{
         res.send("incorrect params");
@@ -133,13 +133,13 @@ app.listen(8888);
 function Deploy( directory, options )
 {
     this.directory = directory;
-    this.git\_options = {};
-    this.git\_options.branch = options.commits\[0\].branch;
-    this.git\_options.message = options.commits\[0\].message;
+    this.git_options = {};
+    this.git_options.branch = options.commits[0].branch;
+    this.git_options.message = options.commits[0].message;
 }
 
 Deploy.prototype.execute = function(){
-    var exec = require("child\_process").exec;
+    var exec = require("child_process").exec;
 
     try{
         process.chdir(this.directory);

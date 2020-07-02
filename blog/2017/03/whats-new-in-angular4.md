@@ -1,6 +1,6 @@
 ---
 title: "Новое в Angular4"
-tags: "Angular,angular4,Хочу сделать мир лучше"
+tags: "Angular,angular4"
 date: "2017-03-25"
 ---
 

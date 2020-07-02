@@ -1,6 +1,6 @@
 ---
 title: "AngularJS FlipClock component"
-tags: "AngularJs,FlipClock,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,FlipClock,javascript"
 date: "2015-01-17"
 ---
 

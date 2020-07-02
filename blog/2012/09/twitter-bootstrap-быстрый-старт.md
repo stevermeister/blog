@@ -1,6 +1,6 @@
 ---
 title: "Twitter Bootstrap быстрый старт"
-tags: "bootstrap,javascript,twitter,Хочу сделать мир лучше"
+tags: "bootstrap,javascript,twitter"
 date: "2012-09-13"
 ---
 
@@ -146,7 +146,7 @@ $('.dropdown-toggle').dropdown()
 
 <a data-placement="bottom" rel="tooltip" href="#" data-original-title="Tooltip on top">Tooltip on top</a>
 
-$('a\[rel="tooltip"\]').tooltip()
+$('a[rel="tooltip"]').tooltip()
 
  
 
@@ -205,9 +205,9 @@ $(".collapse").collapse()
 
 <input type="text" data-provide="typeahead" id="typeahead">
 
-var alCities = \['Baltimore', 'Boston', 'New York', 'Tampa Bay', 
+var alCities = ['Baltimore', 'Boston', 'New York', 'Tampa Bay', 
   'Toronto', 'Chicago', 'Cleveland', 'Detroit', 'Kansas City', 
-  'Minnesota', 'Los Angeles', 'Oakland', 'Seattle', 'Texas'\].sort();
+  'Minnesota', 'Los Angeles', 'Oakland', 'Seattle', 'Texas'].sort();
 $('#typeahead').typeahead({source: alCities, items:5});
 
  

@@ -10,6 +10,8 @@ date: "2015-10-23"
 
 It has quite strange module dependancy declaration:
 
-\[javascript\] var app = angular.module('my-app', \[angularDragula(angular)\]); \[/javascript\]
+```javascript 
+  var app = angular.module('my-app', [angularDragula(angular)]);  
+ ```
 
 so I put an [example on plunker](https://plnkr.co/edit/2dfiXb?p=preview) to make it easy for you to start.

@@ -1,6 +1,6 @@
 ---
 title: "Minimal set for Github OAuth with AngularJS and Node.js"
-tags: "API,github,OAuth,Хочу сделать мир лучше"
+tags: "API,github,OAuth"
 date: "2015-03-12"
 ---
 
@@ -29,23 +29,25 @@ I'll not go in all the details, because there are a lot of manuals in internet. 
 
 it's just a link of such format:
 
-https://github.com/login/oauth/authorize?client\_id=%YOUR\_APP\_ID%
+https://github.com/login/oauth/authorize?client_id=%YOUR_APP_ID%
 
 ## Web Application part
 
 I've created simple example of **Angular service** that will send **code** parameter to the server:
 
-\[javascript\] angular.module('config-builder') .service('Github', function($http) {
+[javascript] angular.module('config-builder') .service('Github', function($http) {
 
 var token = null;
 
-this.getTokenPromise = function(code) { return $http.get('/api/github/token/' + code).then(function(result){ token = result.data.access\_token; }); }; }); \[/javascript\]
+this.getTokenPromise = function(code) { return $http.get('/api/github/token/' + code).then(function(result){ token = result.data.access_token; }); }; }); [/javascript]
 
 ## Server side
 
 And server side part to send OAuth token request:
 
-\[javascript\] app.get('/api/github/token/:code', function(req, res) { request.post({ uri: 'https://github.com/login/oauth/access\_token', form: { client\_id: '%YOUR\_APP\_ID%', client\_secret: '%YOUR\_APP\_SECRET%', code: req.params.code }, json: true }, function(err, httpResponse, body) { if (err) { res.send(500, { error: err }); return; } res.send(body); }); }); \[/javascript\]
+```javascript 
+  app.get('/api/github/token/:code', function(req, res) { request.post({ uri: 'https://github.com/login/oauth/access_token', form: { client_id: '%YOUR_APP_ID%', client_secret: '%YOUR_APP_SECRET%', code: req.params.code }, json: true }, function(err, httpResponse, body) { if (err) { res.send(500, { error: err }); return; } res.send(body); }); });  
+ ```
 
 **app** - is an instance of [express](https://expressjs.com/ "https://expressjs.com/") framework in this case.
 

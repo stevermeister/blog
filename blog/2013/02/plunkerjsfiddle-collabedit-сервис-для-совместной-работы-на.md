@@ -1,6 +1,6 @@
 ---
 title: "Plunker(jsfiddle + collabedit) - сервис для совместной работы над кодом"
-tags: "edit,javascript,online,Хочу сделать мир лучше"
+tags: "edit,javascript,online"
 date: "2013-02-08"
 ---
 

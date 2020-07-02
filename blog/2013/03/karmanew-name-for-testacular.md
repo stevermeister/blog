@@ -1,6 +1,6 @@
 ---
 title: "Karma(new name for Testacular)"
-tags: "javascript,karma,testacular,Хочу сделать мир лучше"
+tags: "javascript,karma,testacular"
 date: "2013-03-19"
 ---
 

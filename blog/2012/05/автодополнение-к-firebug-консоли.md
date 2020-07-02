@@ -1,6 +1,6 @@
 ---
 title: "Автодополнение к Firebug консоли"
-tags: "autocomplete,console,firebug,Firefox,Хочу сделать мир лучше"
+tags: "autocomplete,console,firebug,Firefox"
 date: "2012-05-20"
 ---
 

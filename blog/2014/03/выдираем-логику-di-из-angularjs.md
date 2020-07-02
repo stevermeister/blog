@@ -1,6 +1,6 @@
 ---
 title: "Выдираем логику DI из AngularJS"
-tags: "AngularJs,DI,javascript,Хочу сделать мир лучше"
+tags: "AngularJs,DI,javascript"
 date: "2014-03-05"
 ---
 
@@ -38,7 +38,7 @@ invoke('DemoController');
 
 Получить метод по имени можно через объект, в котором он опеределен. В нашем случае это глобальный объект window:
 
-var fn = window\[functionName\];
+var fn = window[functionName];
 
 получаем описание функции в виде строки:
 
@@ -46,17 +46,17 @@ var fnText = fn.toString();
 
 вырезаем из нее аргументы и записываем в массив:
 
-var args = fnText.slice(fnText.indexOf('(') + 1, fnText.indexOf(')')).match(/(\[^\\s,\]+)/g);
+var args = fnText.slice(fnText.indexOf('(') + 1, fnText.indexOf(')')).match(/([^\\s,]+)/g);
 
 итого имеем в _args:_
 
-\["$scope", "$log"\]
+["$scope", "$log"]
 
 пройдемся по ним циклом, создадим экземпляр класса провайдера для каждого и запишем в массив:
 
 args.forEach(function(arg){
   var providerName = arg.replace('$', '') + 'Provider';
-  injectors.push(new window\[providerName\]);
+  injectors.push(new window[providerName]);
 })
 
 ну и теперь осталось только выполнить наш метод с этими параметрами:
@@ -66,16 +66,16 @@ fn.apply(window, injectors);
 Весь метод:
 
 function invoke(functionName){
-	var fn = window\[functionName\],
+	var fn = window[functionName],
       fnText = fn.toString(),
       args,
-      injectors = \[\];
+      injectors = [];
 
-  args = fnText.slice(fnText.indexOf('(') + 1, fnText.indexOf(')')).match(/(\[^\\s,\]+)/g);
+  args = fnText.slice(fnText.indexOf('(') + 1, fnText.indexOf(')')).match(/([^\\s,]+)/g);
 
   args.forEach(function(arg){
     var providerName = arg.replace('$', '') + 'Provider';
-    injectors.push(new window\[providerName\]);
+    injectors.push(new window[providerName]);
   })
 
   fn.apply(window, injectors);
@@ -100,24 +100,24 @@ function dbAdapterProvider(){
 Попробуем пока без рекурсии добавить обработку еще одного уровня вложенности расширив метод invoke:
 
 function invoke(functionName){
-  var fn = window\[functionName\],
+  var fn = window[functionName],
       args,
-      injectors = \[\];
+      injectors = [];
 
-  args = parseArguments(fn.toString()) || \[\];
+  args = parseArguments(fn.toString()) || [];
 
   args.forEach(function(arg){
     var providerName = arg.replace('$', '') + 'Provider',
-    subfn = window\[providerName\],
-    subargs = parseArguments(subfn.toString()) || \[\],
-    subinjectors = \[\];
+    subfn = window[providerName],
+    subargs = parseArguments(subfn.toString()) || [],
+    subinjectors = [];
 
     subargs.forEach(function(subarg){
       var subproviderName = subarg.replace('$', '') + 'Provider';
-      subinjectors.push(ObjectFactory(window\[subproviderName\]));
+      subinjectors.push(ObjectFactory(window[subproviderName]));
     });
 
-    injectors.push(ObjectFactory(window\[providerName\], subinjectors));
+    injectors.push(ObjectFactory(window[providerName], subinjectors));
   })
 
   fn.apply(window, injectors);
@@ -144,13 +144,13 @@ function ObjectFactory(Constructor, args) {
 Мы решили задачу, но опять у нас есть ограничение по уровню вложенности. Перед тем как переходить к рекурсивному решению еще немного упростим код:
 
 function invoke(fn){
-  var args= parseArguments(fn.toString()) || \[\],
-  injectors = \[\];
+  var args= parseArguments(fn.toString()) || [],
+  injectors = [];
 
   args.forEach(function(arg){
     var provider = getProviderMethod(arg);
-    subargs = parseArguments(provider.toString()) || \[\];
-    provider.injectors = \[\];
+    subargs = parseArguments(provider.toString()) || [];
+    provider.injectors = [];
 
     subargs.forEach(function(subarg){
       provider.injectors.push(ObjectFactory(getProviderMethod(subarg)));
@@ -162,7 +162,7 @@ function invoke(fn){
   fn.apply(window, injectors);
 }
 
-invoke(window\['DemoController'\]);
+invoke(window['DemoController']);
 
 что изменилось:
 
@@ -175,11 +175,11 @@ function getInjectors(fn){
 
   if(!fn.length){
     //no injectors
-    return \[\];
+    return [];
   }
 
-  var args = parseArguments(fn.toString()) || \[\],
-      injectors = \[\];
+  var args = parseArguments(fn.toString()) || [],
+      injectors = [];
 
   args.forEach(function(arg){
     var provider = getProviderMethod(arg);
