@@ -1,5 +1,7 @@
-import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+import { ScullyConfig, setPluginConfig, HandledRoute } from '@scullyio/scully';
 import './src/image.scully.plugin.js';
+const fs = require('fs');
+const path = require('path');
 
 setPluginConfig('md', { enableSyntaxHighlighting: true });
 
@@ -9,9 +11,11 @@ export const config: ScullyConfig = {
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
-      preRenderer: async (route) => {
-        if (route.includes('/images/')){
-          copyFile(`.${route}.${guessFileExtention(route)}`);
+      preRenderer: async (handledRoute: HandledRoute) => {
+        const fileExtention = path.extname(handledRoute.data.sourceFile);
+        if (['jpg', 'png', 'gif'].includes(fileExtention)) {
+          // this method is async by we intentionally do not wait for it (so files will be copied async)
+          copyFile(handledRoute.route + fileExtention);
           return false;
         }
         return true;
@@ -24,22 +28,14 @@ export const config: ScullyConfig = {
   }
 };
 
-const fs = require('fs');
-const path = require('path');
-function guessFileExtention(routeWithoutExtention) {
-  return ['jpg', 'png', 'gif'].find(ext => fs.existsSync(`.${routeWithoutExtention}.${ext}`));
-}
-
-function copyFile(sourceFile) {
-  return new Promise((resolve) => {
-    const dest = path.resolve('./dist/static/images/', sourceFile.split('/images/')[1]);
-    fs.copyFile(sourceFile, dest, (err) => {
-        if (err) {
-          console.log(err);
-        }
-        console.log(`${sourceFile} was copied to ${dest}`);
-        resolve('');
+async function copyFile(route: string) {
+  const src = path.resolve('./', route);
+  const dest = path.resolve('./dist/static/images/', route);
+  fs.copyFile(src, dest, (err) => {
+      if (err) {
+        console.log(err);
       }
-    );
-  });
+      console.log(`${src} was copied to ${dest}`);
+    }
+  );
 }
