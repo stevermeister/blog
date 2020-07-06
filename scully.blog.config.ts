@@ -27,10 +27,11 @@ export const config: ScullyConfig = {
       preRenderer: async (handledRoute: HandledRoute) => {
         const fileExtention = path.extname(handledRoute.data.sourceFile);
         if (['.jpg', '.png', '.gif'].includes(fileExtention)) {
-          // this method is async by we intentionally do not wait for it (so files will be copied async)
           const src = path.resolve('./' + handledRoute.route + fileExtention);
           const dest = path.resolve('./dist/static/images/' + handledRoute.data.sourceFile);
           try {
+            // this method is async by we intentionally do not wait for it (so files will be copied async)
+            // await
             fs.copyFile(src, dest);
             console.log(`${src} was copied to ${dest}`);
           } catch (err) {
