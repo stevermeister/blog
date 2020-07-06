@@ -1,12 +1,19 @@
 import { ScullyConfig, setPluginConfig, HandledRoute, registerPlugin } from '@scullyio/scully';
 // import './src/image.scully.plugin.js';
-const fs = require('fs');
+import { promises as fs, mkdirSync, existsSync } from 'fs';
 const path = require('path');
 
 
 registerPlugin('fileHandler', 'png', async () => '');
 registerPlugin('fileHandler', 'jpg', async () => '');
 registerPlugin('fileHandler', 'gif', async () => '');
+// static directory is not there yet
+if (!existsSync('./dist/static')) {
+  mkdirSync('./dist/static');
+}
+if (!existsSync('./dist/static/images')) {
+  mkdirSync('./dist/static/images');
+}
 
 
 setPluginConfig('md', { enableSyntaxHighlighting: true });
@@ -19,10 +26,16 @@ export const config: ScullyConfig = {
     '/blog/:slug': {
       preRenderer: async (handledRoute: HandledRoute) => {
         const fileExtention = path.extname(handledRoute.data.sourceFile);
-        console.log(fileExtention, ['.jpg', '.png', '.gif'].includes(fileExtention));
         if (['.jpg', '.png', '.gif'].includes(fileExtention)) {
           // this method is async by we intentionally do not wait for it (so files will be copied async)
-          await copyFile(handledRoute.route + fileExtention);
+          const src = path.resolve('./' + handledRoute.route + fileExtention);
+          const dest = path.resolve('./dist/static/images/' + handledRoute.data.sourceFile);
+          try {
+            fs.copyFile(src, dest);
+            console.log(`${src} was copied to ${dest}`);
+          } catch (err) {
+            console.log(err);
+          }
           return false;
         }
         return true;
@@ -34,20 +47,3 @@ export const config: ScullyConfig = {
     },
   }
 };
-
-async function copyFile(route: string) {
-  const src = path.resolve('./', route);
-  const dest = path.resolve('./dist/static/images/', route);
-  return new Promise((resolve, reject) => {
-    fs.copyFile(src, dest, (err) => {
-      if (err) {
-        console.log(err);
-        reject();
-        return;
-      }
-      console.log(`${src} was copied to ${dest}`);
-      resolve(true);
-    }
-  );
-  });
-}
