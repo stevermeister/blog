@@ -111,7 +111,7 @@ export const config = {
 
 ## preRenderer router option 
 
-After I created Image Plugin, [Sander Elias](https://twitter.com/esosanderelias) (creator of Scully) recomended me to go even simpler way - to use preRenderer router option:
+After I created Image Plugin, [Sander Elias](https://twitter.com/esosanderelias) (creator of Scully) recomended me to go even simpler way - to use `preRenderer` router option:
 
 ```typescript
 export const config: ScullyConfig = {
