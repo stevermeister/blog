@@ -111,7 +111,7 @@ export const config = {
 
 ## preRenderer router option 
 
-After I created Image Plugin, [Sander Elias](https://twitter.com/esosanderelias) (creator of Scully) recomended me to go even simpler way - to use `preRenderer` router option:
+After I created Image Plugin, [Sander Elias](https://twitter.com/esosanderelias) (creator of Scully) recomended me to choose even simplier way - to use `preRenderer` router option:
 
 ```typescript
 export const config: ScullyConfig = {
@@ -128,7 +128,7 @@ export const config: ScullyConfig = {
 };
 ```
 
-so we can just return `false` to let Scully know that we don't want to render this path. So we can put simple condition like: 
+so we can just return `false` to let Scully know that we don't want to render this path. So we can put a condition: 
 
 ```typescript
 const fileExtention = path.extname(handledRoute.data.sourceFile);
@@ -138,7 +138,7 @@ if (['.jpg', '.png', '.gif'].includes(fileExtention)) {
 return true;
 ```
 
-and additionally we can add our copy functionality to the case when we have an image:
+and also we can add our copy functionality to the case when we have an image:
 
 ```typescript
 const src = path.resolve('./' + handledRoute.route + fileExtention);
@@ -146,7 +146,7 @@ const dest = path.resolve('./dist/static/images/' + handledRoute.data.sourceFile
 fs.copyFile(src, dest);
 ```
 
-**Important:** Scully ignores images by default (but not copy them yet), so to make it work and to get all handledRoutes for images, you need to register a 'dummy' image plugin, that will do nothing except letting know Scully that we gonna handle some extensions: 
+**Important:** Scully ignores images by default (but doesn't copy them yet), so to make it work and to get all the handledRoutes for images, you just need to register a 'dummy' image plugin, that will do nothing but letting  Scully know that we're going to handle some extensions: 
 
 ```typescript
 registerPlugin('fileHandler', 'png', async () => '');
