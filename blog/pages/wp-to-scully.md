@@ -1,11 +1,13 @@
 ---
-title: How to migrate WordPress to Scully
-description: 
-tags: "WordPress,Scully,wp,migration"
-date: "2020-06-10"
+title: 'How to migrate WordPress to Scully'
+description: null
+tags: 'WordPress,Scully,wp,migration'
+date: '2020-06-10'
 published: false
----
+slugs:
+    - ___UNPUBLISHED___kcugeetn_p2DaoS5Ovf7J4tUcB1kzv709nCkhut0d
 
+---
 *I hope you know what Scully is, because this post is not about how to start with Angular Scully but a guide on how to migrate your WordPress blog content into Scully.*
 
 ## Export posts
