@@ -3,14 +3,15 @@ title: How to migrate WordPress to Scully
 description: 
 tags: "WordPress,Scully,wp,migration"
 date: "2020-06-10"
+published: false
 ---
 
-*I hope you know what Scully is, because this post is not about how to start with Angular Scully but a guide how to migrate your WordPress blog content into Scully.*
+*I hope you know what Scully is, because this post is not about how to start with Angular Scully but a guide on how to migrate your WordPress blog content into Scully.*
 
 ## Export posts
 
-First thing you need to do is to export all your post from WordPress. Luckily for us WordPress has functionality to export all your posts into XML.
-You can find option in your WP Admin navigation:
+The first thing you have to do is to export all your posts from WordPress. Luckily for us WordPress has a functionality to export all your posts into XML.
+You can find this option in your WP Admin navigation:
 
 ![wp-post-export](./images/wp-post-export.png)
 
@@ -20,23 +21,23 @@ After this operation you have your XML file, but it's still XML and you would li
 
 ## XML to MD
 
-To convert XML into MD within keeping blog format we can use [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) tool:
+As a way to convert XML into MD within keeping blog format we can use [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) tool:
 
 ![wp-xml-to-md](./images/wp-xml-to-md.gif)
 
-Answer prompt questions carefullly because for you ideally to keep the same structure of URLs.
+Answer prompt questions carefullly because it's better to keep the same structure of URLs.
 
-Convertion finished? Well done! Now you have you md files with images. Doesn't Scully support images within md?
+Conversion finished? Well done! Now you have you md files with images. Doesn't Scully support images within md?
 
 ## Blog images and Scully
 
-Bad news for you. For now (10.06.20) Scully does not recognise images. (**Update 30.06.20**: Scully recognise image files and at least does try to convert them to HTML, but still it does not copy them)
+Bad news for you. For now (10.06.20) Scully does not recognise images. (**Update 30.06.20**: Scully recognise image files and at least doesn't try to convert them to HTML, but still it does not copy them)
 
 Good news - Scully has plugin system. If you want to know how to write Scully plugins please check [this](https://samvloeberghs.be/posts/custom-plugins-for-scully-angular-static-site-generator) article  by [Sam Vloeberghs](https://twitter.com/samvloeberghs), it's great!
 
 ## Scully plugin to copy images
 
-We want scully to copy images from source of md files to compiled html files. For this we will create a small image plugin(image.scully.plugin.ts):
+We want Scully to copy images from source of md files to compiled html files. For that to happen, we will create a small image plugin(image.scully.plugin.ts):
 
 ```typescript
 export function imageFilePlugin(raw: string, route: HandledRoute) {
@@ -46,7 +47,7 @@ export function imageFilePlugin(raw: string, route: HandledRoute) {
 }
 ```
 
-There is no yet neither `./dist/static` directory, no `./dist/static/images`, so you need to create them before copying:
+There is yet neither `./dist/static` directory, nor `./dist/static/images`, so you need to create them before copying:
 
 ```typescript
 if (!fs.existsSync('./dist/static')) {
@@ -65,7 +66,7 @@ registerPlugin('fileHandler', 'jpg', imageFilePlugin);
 registerPlugin('fileHandler', 'gif', imageFilePlugin);
 ```
 
-after some pretification the final version of our image plugin (image.scully.plugin.ts):
+after some prettification, the final version of our image plugin (image.scully.plugin.ts) is:
 
 ```typescript
 import { registerPlugin, HandledRoute } from '@scullyio/scully';
@@ -109,25 +110,70 @@ export const config = {
 
 ```
 
+## preRenderer router option 
+
+After I created Image Plugin, [Sander Elias](https://twitter.com/esosanderelias) (creator of Scully) recomended me to choose even simplier way - to use `preRenderer` router option:
+
+```typescript
+export const config: ScullyConfig = {
+  ...
+  routes: {
+    '/blog/:slug': {
+      preRenderer: async (handledRoute: HandledRoute) => {
+        ...
+        return false;
+      },
+      ...
+    },
+  }
+};
+```
+
+so we can just return `false` to let Scully know that we don't want to render this path. So we can put a condition: 
+
+```typescript
+const fileExtention = path.extname(handledRoute.data.sourceFile);
+if (['.jpg', '.png', '.gif'].includes(fileExtention)) {
+  return false;
+}
+return true;
+```
+
+and also we can add our copy functionality to the case when we have an image:
+
+```typescript
+const src = path.resolve('./' + handledRoute.route + fileExtention);
+const dest = path.resolve('./dist/static/images/' + handledRoute.data.sourceFile);
+fs.copyFile(src, dest);
+```
+
+**Important:** Scully ignores images by default (but doesn't copy them yet), so to make it work and to get all the handledRoutes for images, you just need to register a 'dummy' image plugin, that will do nothing but letting  Scully know that we're going to handle some extensions: 
+
+```typescript
+registerPlugin('fileHandler', 'png', async () => '');
+registerPlugin('fileHandler', 'jpg', async () => '');
+registerPlugin('fileHandler', 'gif', async () => '');
+```
+
 ## Parse tags from XML
 
-Ideally to have tags from your posts as well. By defalt [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not parse tags. I've created [PR](https://github.com/lonekorean/wordpress-export-to-markdown/pull/40) for it. Not sure how fast it's gonna be merged, so if you need tags you can use [my forked version](https://github.com/stevermeister/wordpress-export-to-markdown).
+It's useful to have tags from your posts as well. By default [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not parse tags. I've created [PR](https://github.com/lonekorean/wordpress-export-to-markdown/pull/40) for it. Not sure how fast it's gonna be merged, so if you need tags you can use [my forked version](https://github.com/stevermeister/wordpress-export-to-markdown).
 
 
 ## Double enconding
 
-It looks like there is an issue with WordPress XML Export, if you have many non-Latin symbols, for example, you are writing your posts in other language it will be encoded 2 times, so when I did export (with [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)), I changed [this line](https://github.com/lonekorean/wordpress-export-to-markdown/pull/41/files#diff-6947033678b93d106e25614dd972e66fR45) to make it work also for non-Latin titles.
+It looks like there is an issue with WordPress XML Export, so if you have many non-Latin symbols, for example, you are writing your posts in another language it will be encoded 2 times. Thus, when I did export (with [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)), I changed [this line](https://github.com/lonekorean/wordpress-export-to-markdown/pull/41/files#diff-6947033678b93d106e25614dd972e66fR45) to make it work also for non-Latin titles.
 
 
 ## No tables and special symbols
 
-Unfortunatelly [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) does not recognize old good html tables, so if you had them in WP Posts be prepared to do it manually again in md.
+Unfortunately [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown) doesn't recognize old good html tables, so if you had them in WP Posts be prepared to do it manually again in md.
 
-Also if you used symblos like `[`, `]`, `\`, `-`, `_`, `$` be prepared that they gonna be ecranised with backslash to `\[`, `\]`, `\\`, `\-`, `\_`, `\$`. Sometimes, especially in code blocks, it's not expected behaviour. 
+Also if you used symbols like `[`, `]`, `\`, `-`, `_`, `$` be prepared that they're gonna be ecranised with backslash to `\[`, `\]`, `\\`, `\-`, `\_`, `\$`. Sometimes, especially in code blocks, it's not expected behaviour. 
 
 # Angular Services: title, articles, tags, search
 
-When you have all your information in place (in .md files) you could think about such a nice and obvious functionality for WordPress (as well as any blog) like page title, **tags** or **search**, and now you can do it all on client side!
+When you have all your information in place (in .md files), you could think about such a nice and obvious functionality for WordPress (as well as any blog) as page title, **tags** or **search**, and now you can do it all on the client side!
 
 ## TitleService
 
@@ -139,7 +185,7 @@ Angular already has a title service, so you only need to inject this service
     private titleService: Title) {
 ```
 
- and set title based on your article: 
+ and set a title based on your article: 
 
 ```typescript
 this.scully.getCurrent().subscribe(article => {
@@ -159,7 +205,7 @@ getArticles(): Observable<Article[]> {
 }
 ``` 
 
-but it's not that easy, if you have not only *.md files Scully will create item for each file (yes, also for images), I opened [an issue](https://github.com/scullyio/scully/issues/653) and hope it's gonna be closed soon, but for now you need to filter only *.md files, so: 
+but it's not that easy because if you have not only *.md files Scully will create an item for each file (yes, also for images), I opened [an issue](https://github.com/scullyio/scully/issues/653) and hope it's gonna be resolved soon, but for now you need to filter only *.md files, so: 
 
 ```typescript
 this.scully.available$.pipe(
@@ -202,7 +248,7 @@ here are we:
   }
 ```  
 
-With help of Article Service now you can output preview list of your articles:
+With the help of Article Service now you can output a preview list of your articles:
 
 ```html
 <app-article-preview [article]="article" *ngFor="let article of articles$|async"></app-article-preview>
@@ -211,7 +257,7 @@ With help of Article Service now you can output preview list of your articles:
 
 ## Tags Service
 
-Based on ArticleService we can get all the tags, also with counter for each one that we can create a tag cloud after:
+Based on ArticleService we can get all the tags, also with a counter for each one that we can create a tag cloud after:
 
 ```typescript
 getTags(): Observable<Tag[]> {
@@ -231,7 +277,7 @@ getTags(): Observable<Tag[]> {
 
 ## Search
 
-It would be sad if your blog did not have an option to seach (or to filter by tag). We already have ArticleService, so what we only need to do is to filter by tag:
+It would be sad if your blog doesn't not have an option to seach (or to filter by tag). We already have ArticleService, so what we only need to do is to filter by tag:
 
 ```typescript
 articles.filter((article) => {
@@ -280,13 +326,13 @@ getFilteredArticles(tag: string, searchTerm: string, limit: number = 10): Observ
 }
 ```
 
-Isn't it cool to have everything on frontend with search that executes for less than a second? 
+Isn't it cool to have everything on frontend with the search that executes for less than a second? 
 
 
 ## Code Highlight
 
 Btw, if you don't know you can also highlight your code blocks (i.e. <pre><code class="language-typescript"></code></pre>).
-For this you only need to activate this option in scully config (scully.blog.config.ts):
+For this you only need to activate this option in Scully config (scully.blog.config.ts):
 
 ```typescript
 setPluginConfig('md', { enableSyntaxHighlighting: true });
@@ -307,21 +353,21 @@ and setup distribution directory to `./dist/static`
 
 ## Partial compilation
 
-If you blog has more than 100 posts you probably don't want to recompile all of them each time when you updated one. For this you can use an option `routeFilter` and filter by only one section (usually in WordPress it's a year or a year and a month):
+If your blog has more than 100 posts you probably don't want to recompile all of them each time when you update one. For this you can use an option `routeFilter` and filter by only one section ( it's usually a year or a year and a month in WordPress):
 
 ```shell
 ng build --prod && npm run scully -- --routeFilter "*2020/11*"
 ```
 
-with such flag Scully will regenerate only md files from 2020/11 directory.
+with such a flag Scully will regenerate only md files from 2020/11 directory.
 
-You can go even further and use git to identify which files were changed in last commit:
+You can go even further and use git to identify which files were changed in the last commit:
 
 ```shell
 git show --name-only --oneline HEAD | tail -n +2 | grep 'blog/'
 ```
 
-so final command would be:
+so the final command would be:
 
 ```shell
  npm run scully -- --routeFilter "$(git show --name-only --oneline HEAD | tail -n +2 | grep 'blog/' | xargs  | sed -e 's/ /, /g')" --scanRoutes
