@@ -3,6 +3,7 @@ title: How to migrate WordPress to Scully
 description: 
 tags: "WordPress,Scully,wp,migration"
 date: "2020-06-10"
+published: false
 ---
 
 *I hope you know what Scully is, because this post is not about how to start with Angular Scully but a guide on how to migrate your WordPress blog content into Scully.*
@@ -30,7 +31,7 @@ Conversion finished? Well done! Now you have you md files with images. Doesn't S
 
 ## Blog images and Scully
 
-Bad news for you. For now (10.06.20) Scully does not recognise images. (**Update 30.06.20**: Scully recognise image files and at least does try to convert them to HTML, but still it does not copy them)
+Bad news for you. For now (10.06.20) Scully does not recognise images. (**Update 30.06.20**: Scully recognise image files and at least doesn't try to convert them to HTML, but still it does not copy them)
 
 Good news - Scully has plugin system. If you want to know how to write Scully plugins please check [this](https://samvloeberghs.be/posts/custom-plugins-for-scully-angular-static-site-generator) article  by [Sam Vloeberghs](https://twitter.com/samvloeberghs), it's great!
 
