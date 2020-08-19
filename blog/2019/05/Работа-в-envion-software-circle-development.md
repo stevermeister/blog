@@ -1,9 +1,11 @@
 ---
-title: "Работа в Envion Software (Circle Development)"
-tags: "IT Рынок"
-date: "2019-05-23"
----
+title: 'Работа в Envion Software (Circle Development)'
+tags: 'IT Рынок'
+date: '2019-05-23'
+slugs:
+    - rabota_apple
 
+---
 ![envion-logo](images/logo.png)
 
 Компания:
