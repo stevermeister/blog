@@ -16,8 +16,6 @@ if (!existsSync('./dist/static/images')) {
 }
 
 
-setPluginConfig('md', { enableSyntaxHighlighting: true });
-
 export const config: ScullyConfig = {
   projectRoot: './src',
   projectName: 'blog',

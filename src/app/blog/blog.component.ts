@@ -1,10 +1,11 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewChecked, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router, ROUTES, NavigationEnd} from '@angular/router';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, of, merge } from 'rxjs';
 import { map, filter, switchMap, tap } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 import { Article } from '../article.service';
+import { HighlightService } from '../highlight.service';
 
 declare var ng: any;
 
@@ -16,14 +17,15 @@ declare var ng: any;
   encapsulation: ViewEncapsulation.Emulated
 
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, AfterViewChecked {
   article;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private scully: ScullyRoutesService,
-    private titleService: Title) {
+    private titleService: Title,
+    private highlightService: HighlightService) {
   }
 
   ngOnInit() {
@@ -57,5 +59,9 @@ export class BlogComponent implements OnInit {
 
   getArticleEditLink(article: Article): string {
     return 'https://github.com/stevermeister/blog/edit/master' + article.route + '.md';
+  }
+
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
   }
 }
