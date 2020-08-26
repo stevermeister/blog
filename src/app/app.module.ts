@@ -10,6 +10,7 @@ import { NavigationComponent } from './home/navigation/navigation.component';
 import { TagcloudComponent } from './home/tagcloud/tagcloud.component';
 import { RecentPostsComponent } from './home/recent-posts/recent-posts.component';
 import { ArticlePreviewComponent } from './home/article-preview/article-preview.component';
+import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,11 @@ import { ArticlePreviewComponent } from './home/article-preview/article-preview.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ScullyLibModule
+    ScullyLibModule,
   ],
-  providers: [],
+  providers: [
+    { provide: DISQUS_SHORTNAME, useValue: 'stepanblogtest' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
