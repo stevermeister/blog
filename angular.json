@@ -24,8 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/twentyeleven.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
