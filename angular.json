@@ -21,7 +21,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/twentyeleven.css"
             ],
             "styles": [
               "src/styles.css"
