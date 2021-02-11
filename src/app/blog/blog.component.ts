@@ -27,7 +27,10 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.scully.getCurrent().subscribe(article => this.article = article);
+    // this.scully.getCurrent().subscribe(article => {
+    //   console.log(article)
+    //   this.article = article
+    // });
     const stateUpdated$ = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
     merge(stateUpdated$, of(true)).pipe(switchMap(_ => this.getCurrent()))
     .subscribe(article => {
